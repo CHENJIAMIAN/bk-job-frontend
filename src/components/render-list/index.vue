@@ -1,29 +1,3 @@
-<!--
- * Tencent is pleased to support the open source community by making BK-JOB蓝鲸智云作业平台 available.
- *
- * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
- *
- * BK-JOB蓝鲸智云作业平台 is licensed under the MIT License.
- *
- * License for BK-JOB蓝鲸智云作业平台:
- *
- *
- * Terms of the MIT License:
- * ---------------------------------------------------
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
- * to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
- * the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
--->
 
 <template>
     <div
@@ -241,35 +215,39 @@
                 // 跨页全选时同样需要过滤
                 this.requestParamsMemo = requestParams;
                 this.isRequesting = true;
-                this.$request(this.dataSource(requestParams, {
-                    permission: 'page',
-                }), () => {
-                    this.isLoading = true;
-                }).then((data) => {
-                    this.pagination = {
-                        ...this.pagination,
-                        count: data.total || 0,
-                    };
-                    this.$emit('on-refresh', data);
-                    // 延后表格数据的更新，保证 on-refresh 事件逻辑优先执行
-                    setTimeout(() => {
-                        this.data = data.data;
-                        this.isSearching = !this.checkSearchEmpty();
-                    });
+                // this.$request(this.dataSource(requestParams, {
+                //     permission: 'page',
+                // }), () => {
+                //     this.isLoading = true;
+                // }).then((data) => {
+                const data = {
+                    data: [{}, {}, {}, {}, {}, {}, {}, {}, {}],
+                    total: 100,
+                };
+                this.pagination = {
+                    ...this.pagination,
+                    count: data.total || 0,
+                };
+                this.$emit('on-refresh', data);
+                // 延后表格数据的更新，保证 on-refresh 事件逻辑优先执行
+                setTimeout(() => {
+                    this.data = data.data;
+                    this.isSearching = !this.checkSearchEmpty();
+                });
 
-                    // 重要！！！（列表 api 返回数据说明）
-                    // existAny 表示资源总数是否为 0
-                    // total 表示本次筛选结果数
-                    if (!this.ignoreUrl
-                        && Object.prototype.hasOwnProperty.call(data, 'existAny')
-                        && !data.existAny) {
-                        EventBus.$emit('page-empty');
-                    }
-                })
-                    .finally(() => {
-                        this.isLoading = false;
-                        this.isRequesting = false;
-                    });
+                // 重要！！！（列表 api 返回数据说明）
+                // existAny 表示资源总数是否为 0
+                // total 表示本次筛选结果数
+                if (!this.ignoreUrl
+                    && Object.prototype.hasOwnProperty.call(data, 'existAny')
+                    && !data.existAny) {
+                    EventBus.$emit('page-empty');
+                }
+                // })
+                // .finally(() => {
+                this.isLoading = false;
+                this.isRequesting = false;
+                // });
             });
         },
         methods: {

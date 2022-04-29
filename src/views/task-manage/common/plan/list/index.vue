@@ -1,29 +1,3 @@
-<!--
- * Tencent is pleased to support the open source community by making BK-JOB蓝鲸智云作业平台 available.
- *
- * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
- *
- * BK-JOB蓝鲸智云作业平台 is licensed under the MIT License.
- *
- * License for BK-JOB蓝鲸智云作业平台:
- *
- *
- * Terms of the MIT License:
- * ---------------------------------------------------
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
- * to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
- * the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
--->
 
 <template>
     <div class="task-manage-plan-page">
@@ -37,7 +11,6 @@
             </bk-button>
             <span v-bk-tooltips="batchSyncDisableTips">
                 <bk-button
-                    :disabled="!!batchSyncDisableTips"
                     @click="handleSyncBatch"
                     v-test="{ type: 'button', value: 'batchSyncPlan' }">
                     {{ $t('template.批量同步') }}
@@ -45,7 +18,6 @@
             </span>
             <span v-bk-tooltips="batchEditGlobalVariableTips">
                 <bk-button
-                    :disabled="!!batchEditGlobalVariableTips"
                     @click="handleBatchEditGlobalVariable"
                     v-test="{ type: 'button', value: 'batchEditPlanValue' }">
                     {{ $t('template.批量编辑变量值') }}
@@ -259,7 +231,6 @@
                                 :resource-id="row.id"
                                 text
                                 @click="handleUpdate(row)"
-                                :disabled="!row.needUpdate"
                                 class="mr10"
                                 v-test="{ type: 'button', value: 'syncPlan' }">
                                 {{ $t('template.去同步') }}
@@ -851,49 +822,49 @@
              */
             handleExecute (row) {
                 // 获取作业详情
-                ExecPlanService.fetchPlanDetailInfo({
-                    id: row.id,
-                    templateId: row.templateId,
-                }).then((data) => {
-                    // 没有变量——直接执行
-                    if (data.variableList.length < 1) {
-                        this.$bkInfo({
-                            title: I18n.t('template.确认执行？'),
-                            subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
-                            confirmFn: () => {
-                                TaskExecuteService.taskExecution({
-                                    taskId: row.id,
-                                    taskVariables: [],
-                                }).then(({ taskInstanceId }) => {
-                                    this.$bkMessage({
-                                        theme: 'success',
-                                        message: I18n.t('template.操作成功'),
-                                    });
-                                    this.$router.push({
-                                        name: 'historyTask',
-                                        params: {
-                                            id: taskInstanceId,
-                                        },
-                                        query: {
-                                            from: this.$route.name,
-                                        },
-                                    });
+                // ExecPlanService.fetchPlanDetailInfo({
+                //     id: row.id,
+                //     templateId: row.templateId,
+                // }).then((data) => {
+                const data = { variableList: [1, 2] };
+                // 没有变量——直接执行
+                if (data.variableList.length < 1) {
+                    this.$bkInfo({
+                        title: I18n.t('template.确认执行？'),
+                        subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
+                        confirmFn: () => {
+                            TaskExecuteService.taskExecution({
+                                taskId: row.id,
+                                taskVariables: [],
+                            }).then(({ taskInstanceId }) => {
+                                this.$bkMessage({
+                                    theme: 'success',
+                                    message: I18n.t('template.操作成功'),
                                 });
-                            },
-                        });
-                        return;
-                    }
-                    // 有变量——跳到设置变量页面
-                    this.$router.push({
-                        name: 'settingVariable',
-                        params: {
-                            id: row.id,
-                            templateId: row.templateId,
-                        },
-                        query: {
-                            from: this.$route.name,
+                                this.$router.push({
+                                    name: 'historyTask',
+                                    params: {
+                                        id: taskInstanceId,
+                                    },
+                                    query: {
+                                        from: this.$route.name,
+                                    },
+                                });
+                            });
                         },
                     });
+                    return;
+                }
+                // 有变量——跳到设置变量页面
+                this.$router.push({
+                    name: 'settingVariable',
+                    params: {
+                        id: row.id,
+                        templateId: row.templateId,
+                    },
+                    query: {
+                        from: this.$route.name,
+                    },
                 });
             },
             /**

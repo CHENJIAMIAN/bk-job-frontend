@@ -1,27 +1,4 @@
-/*
- * Tencent is pleased to support the open source community by making BK-JOB蓝鲸智云作业平台 available.
- *
- * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
- *
- * BK-JOB蓝鲸智云作业平台 is licensed under the MIT License.
- *
- * License for BK-JOB蓝鲸智云作业平台:
- *
- * ---------------------------------------------------
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
- * to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
- * the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
- * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
-*/
+
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -34,7 +11,7 @@ import {
 } from '@utils/cache-helper';
 
 import Entry from '@views/index';
-import BusinessPermission from '@views/business-permission';
+// import BusinessPermission from '@views/business-permission';
 import NotFound from '@views/404';
 
 import Home from '@views/home/routes';
@@ -62,38 +39,45 @@ Vue.use(VueRouter);
 
 let lastRouterHrefCache = '/';
 
-const renderPageWithComponent = (route, component) => {
-    if (route.component) {
-    // eslint-disable-next-line no-param-reassign
-        route.component = component;
-    }
-    if (route.children) {
-        route.children.forEach((item) => {
-            renderPageWithComponent(item);
-        });
-    }
-};
+// const renderPageWithComponent = (route, component) => {
+//     if (route.component) {
+//     // eslint-disable-next-line no-param-reassign
+//         route.component = component;
+//     }
+//     if (route.children) {
+//         route.children.forEach((item) => {
+//             renderPageWithComponent(item);
+//         });
+//     }
+// };
 
 export default ({ appList, isAdmin, scopeType, scopeId }) => {
     // scope 是否有效
-    let isValidScope = false;
+    // const isValidScope = false;
     // scope 是有有权限查看
-    let hasScopePermission = false;
+    // const hasScopePermission = false;
     
-    const appInfo = appList.find(_ => _.scopeType === scopeType && _.scopeId === scopeId);
-    // scope 存在于业务列表中——有效的 scope
-    if (appInfo) {
-        isValidScope = true;
-        // scope 存在于业务列表中——有权限访问
-        if (appInfo.hasPermission) {
-            hasScopePermission = true;
-        }
-    }
+    // const appInfo = appList.find(_ => _.scopeType === scopeType && _.scopeId === scopeId);
+    // // scope 存在于业务列表中——有效的 scope
+    // if (appInfo) {
+    //     isValidScope = true;
+    //     // scope 存在于业务列表中——有权限访问
+    //     if (appInfo.hasPermission) {
+    //         hasScopePermission = true;
+    //     }
+    // }
 
     const systemManageRoute = [
         Dashboard,
         ScriptTemplate,
     ];
+        // admin用户拥有系统设置功能
+    systemManageRoute.push(PublicScriptManage);
+    systemManageRoute.push(WhiteIP);
+    systemManageRoute.push(GlobalSetting);
+    systemManageRoute.push(ServiceState);
+    systemManageRoute.push(DangerousRuleManage);
+    systemManageRoute.push(DetectRecords);
 
     // 生成路由配置
     const routes = [
@@ -103,15 +87,8 @@ export default ({ appList, isAdmin, scopeType, scopeId }) => {
             redirect: {
                 name: 'home',
             },
-            children: systemManageRoute,
-        },
-        {
-            path: `/${scopeType}/${scopeId}`,
-            component: Entry,
-            redirect: {
-                name: 'home',
-            },
             children: [
+                ...systemManageRoute,
                 AccountManage,
                 NotifyManage,
                 Home,
@@ -141,21 +118,11 @@ export default ({ appList, isAdmin, scopeType, scopeId }) => {
         },
     ];
 
-    if (!isValidScope) {
-        renderPageWithComponent(routes[1], NotFound);
-    } else if (!hasScopePermission) {
-        renderPageWithComponent(routes[1], BusinessPermission);
-    }
-
-    // admin用户拥有系统设置功能
-    if (isAdmin) {
-        systemManageRoute.push(PublicScriptManage);
-        systemManageRoute.push(WhiteIP);
-        systemManageRoute.push(GlobalSetting);
-        systemManageRoute.push(ServiceState);
-        systemManageRoute.push(DangerousRuleManage);
-        systemManageRoute.push(DetectRecords);
-    }
+    // if (!isValidScope) {
+    //     renderPageWithComponent(routes[1], NotFound);
+    // } else if (!hasScopePermission) {
+    //     renderPageWithComponent(routes[1], BusinessPermission);
+    // }
 
     const router = new VueRouter({
         mode: 'history',

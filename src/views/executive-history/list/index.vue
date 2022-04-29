@@ -1,29 +1,3 @@
-<!--
- * Tencent is pleased to support the open source community by making BK-JOB蓝鲸智云作业平台 available.
- *
- * Copyright (C) 2021 THL A29 Limited, a Tencent company.  All rights reserved.
- *
- * BK-JOB蓝鲸智云作业平台 is licensed under the MIT License.
- *
- * License for BK-JOB蓝鲸智云作业平台:
- *
- *
- * Terms of the MIT License:
- * ---------------------------------------------------
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and
- * to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of
- * the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
- * THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
--->
 
 <template>
     <div class="executive-history-page">
@@ -575,6 +549,7 @@
              * 如果作业类型的跳转到作业执行详情，如果不是则跳到步骤执行详情
              */
             handleGoDetail (taskInstance) {
+                debugger;
                 if (taskInstance.isTask) {
                     this.$router.push({
                         name: 'historyTask',
@@ -608,7 +583,7 @@
              */
             handleGoRetry (taskInstance) {
                 // 作业执行
-                if (taskInstance.isTask) {
+                if (!taskInstance.isTask) {
                     // 当重做接口比较慢时页面可能存在多个重做请求，避免重复操作需要禁用正在重做的任务操作
                     this.redoRequestMap = {
                         ...this.redoRequestMap,
@@ -616,49 +591,50 @@
                     };
 
                     // 历史作业任务详情
-                    TaskExecuteService.fetchTaskInstance({
-                        id: taskInstance.id,
-                    }).then(({ variables }) => {
-                        // 有变量，去设置变量
-                        if (variables.length > 0) {
-                            this.redoRequestMap[taskInstance.id] = false;
-                            this.$router.push({
-                                name: 'redoTask',
-                                params: {
-                                    taskInstanceId: taskInstance.id,
-                                },
-                            });
-                            return;
-                        }
-                        // 没有变量直接执行
-                        this.$bkInfo({
-                            title: I18n.t('history.确认执行？'),
-                            subTitle: I18n.t('history.该方案未设置全局变量，点击确认将直接执行。'),
-                            confirmFn: () => {
-                                TaskExecuteService.redoTask({
-                                    taskInstanceId: taskInstance.id,
-                                    taskVariables: [],
-                                }).then(({ taskInstanceId }) => {
-                                    this.$bkMessage({
-                                        theme: 'success',
-                                        message: I18n.t('history.执行成功'),
-                                    });
-                                    this.$router.push({
-                                        name: 'historyTask',
-                                        params: {
-                                            id: taskInstanceId,
-                                        },
-                                    });
-                                })
-                                    .finally(() => {
-                                        this.redoRequestMap[taskInstance.id] = false;
-                                    });
+                    // TaskExecuteService.fetchTaskInstance({
+                    //     id: taskInstance.id,
+                    // }).then(({ variables }) => {
+                    const variables = [1];
+                    // 有变量，去设置变量
+                    if (variables.length > 0) {
+                        this.redoRequestMap[taskInstance.id] = false;
+                        this.$router.push({
+                            name: 'redoTask',
+                            params: {
+                                taskInstanceId: taskInstance.id,
                             },
                         });
-                    })
-                        .catch(() => {
-                            this.redoRequestMap[taskInstance.id] = false;
-                        });
+                        return;
+                    }
+                    // 没有变量直接执行
+                    this.$bkInfo({
+                        title: I18n.t('history.确认执行？'),
+                        subTitle: I18n.t('history.该方案未设置全局变量，点击确认将直接执行。'),
+                        confirmFn: () => {
+                            TaskExecuteService.redoTask({
+                                taskInstanceId: taskInstance.id,
+                                taskVariables: [],
+                            }).then(({ taskInstanceId }) => {
+                                this.$bkMessage({
+                                    theme: 'success',
+                                    message: I18n.t('history.执行成功'),
+                                });
+                                this.$router.push({
+                                    name: 'historyTask',
+                                    params: {
+                                        id: taskInstanceId,
+                                    },
+                                });
+                            })
+                                .finally(() => {
+                                    this.redoRequestMap[taskInstance.id] = false;
+                                });
+                        },
+                    });
+                    // })
+                    // .catch(() => {
+                    //     this.redoRequestMap[taskInstance.id] = false;
+                    // });
                 }
                 // 快速执行脚本
                 // 去快速执行脚本页面重做
