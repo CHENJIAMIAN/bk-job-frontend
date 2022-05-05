@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="service-state-info" v-bkloading="{ isLoading }">
         <bk-table
@@ -139,47 +138,49 @@
              * @desc 获取服务运行状态数据,每三秒轮询一次
              */
             fetchData () {
-                ServiceStateService.serviceList({}, {
-                    permission: 'page',
-                })
-                    .then((data) => {
-                        if (data.length < 1) {
-                            return;
+                // ServiceStateService.serviceList({}, {
+                //     permission: 'page',
+                // })
+                //     .then((data) => {
+                const data = [{}, {}, {}];
+                if (data.length < 1) {
+                    return;
+                }
+                this.serviceData = Object.freeze(data);
+                // 折叠表格默认展开第一个
+                if (this.showFirstExpandRow) {
+                    this.expandRow.push(this.serviceData[0].name);
+                }
+                this.serviceData.forEach((service) => {
+                    let abnormalNum = 0;
+                    let normalNum = 0;
+                    let unknownNum = 0;
+                    service.instanceList.forEach((instance) => {
+                        if (instance.status === 1) {
+                            normalNum += 1;
+                        } else if (instance.status === -1) {
+                            unknownNum += 1;
+                        } else if (instance.status === 0) {
+                            abnormalNum += 1;
                         }
-                        this.serviceData = Object.freeze(data);
-                        // 折叠表格默认展开第一个
-                        if (this.showFirstExpandRow) {
-                            this.expandRow.push(this.serviceData[0].name);
-                        }
-                        this.serviceData.forEach((service) => {
-                            let abnormalNum = 0;
-                            let normalNum = 0;
-                            let unknownNum = 0;
-                            service.instanceList.forEach((instance) => {
-                                if (instance.status === 1) {
-                                    normalNum += 1;
-                                } else if (instance.status === -1) {
-                                    unknownNum += 1;
-                                } else if (instance.status === 0) {
-                                    abnormalNum += 1;
-                                }
-                            });
-                            const statusMap = {
-                                abnormalNum,
-                                normalNum,
-                                unknownNum,
-                            };
-                            Object.assign(service, statusMap);
-                            this.showFirstExpandRow = false;
-                            clearInterval(this.timer);
-                            this.timer = setInterval(() => {
-                                this.fetchData();
-                            }, 3000);
-                        });
-                    })
-                    .finally(() => {
-                        this.isLoading = false;
                     });
+                    const statusMap = {
+                        abnormalNum,
+                        normalNum,
+                        unknownNum,
+                    };
+                    Object.assign(service, statusMap);
+                    this.showFirstExpandRow = false;
+                    clearInterval(this.timer);
+                    this.timer = setInterval(() => {
+                        this.fetchData();
+                    }, 3000);
+                });
+                    
+                // })
+                //     .finally(() => {
+                this.isLoading = false;
+                // });
             },
 
             /**
