@@ -1,21 +1,4 @@
-
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon" />
-    <link
-      rel="shortcut icon"
-      href="/static/images/favicon.ico"
-      type="image/x-icon"
-    />
-    <meta charset="utf-8" />
-    <title>loading...</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script>
-      window.PROJECT_CONFIG = (function() {
+<!DOCTYPE html><html><head><link rel=icon href=/static/images/favicon.ico type=image/x-icon><link rel="shortcut icon" href=/static/images/favicon.ico type=image/x-icon><meta charset=utf-8><title>loading...</title><script defer=defer src=/js/runtime.758c003ff837bbc25c12.js></script><script defer=defer src=/js/bk-magic-vue.3794f43519b6b12b1bdb.js></script><script defer=defer src=/js/vendors.78b7046cb1c72662762d.js></script><script defer=defer src=/js/main.77ab45a71469a675a2d1.js></script><link href=/static/css/vendors.5980b1bf9c6f9c2a5e99.css rel=stylesheet><link href=/static/css/main.f0151d8681b26bf1d104.css rel=stylesheet></head><body><div id=app></div><script>window.PROJECT_CONFIG = (function() {
         const SITE_URL = "/";
         const BK_STATIC_URL = "/";
         const REMOTE_STATIC_URL = "";
@@ -32,19 +15,13 @@
           REMOTE_STATIC_URL: REMOTE_STATIC_URL,
           EXTERNAL_THEME: EXTERNAL_THEME,
         };
-      })();
-    </script>
-    <script>
-      // 通过 URL 直接访问时 chrome 默认使用 https 协议，强制前端系统协议和 AJAX_URL_PREFIX 保持一直
+      })();</script><script>// 通过 URL 直接访问时 chrome 默认使用 https 协议，强制前端系统协议和 AJAX_URL_PREFIX 保持一直
       // 降级处理（在 https 域名下，请求 http 的 api 会失败）
       if (/^http:/.test(window.PROJECT_CONFIG.AJAX_URL_PREFIX)) {
         if (/^https/.test(window.location.href)) {
           window.location.href = window.location.href.replace(/^https/, 'http')
         }
-      }
-    </script>
-    <script>
-      if (
+      }</script><script>if (
         window.PROJECT_CONFIG.EXTERNAL_THEME &&
         window.PROJECT_CONFIG.EXTERNAL_THEME !== "{{JOB_EXTERNAL_THEME}}"
       ) {
@@ -53,7 +30,4 @@
         $link.rel = "stylesheet";
         $link.href = window.PROJECT_CONFIG.EXTERNAL_THEME;
         document.querySelector("body").appendChild($link);
-      }
-    </script>
-  </body>
-</html>
+      }</script></body></html>
