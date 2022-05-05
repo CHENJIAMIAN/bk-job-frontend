@@ -156,7 +156,7 @@
         }),
         (r.miniCssF = function (e) {
             return (
-                'static/css/' +
+                'bk-job-frontend/static/css/' +
                 (2952 === e ? 'twice' : e) +
                 '.' +
                 {
