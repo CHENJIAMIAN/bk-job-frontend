@@ -1,6 +1,6 @@
 
-
 <template>
+    <!-- 优美的局部滚动 -->
     <div
         ref="scrollBox"
         class="scroll-faker"
