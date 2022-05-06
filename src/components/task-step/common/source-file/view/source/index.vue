@@ -56,7 +56,7 @@
             return {
                 isShowSourceFile: false,
                 editSourceFileIndex: -1,
-                list: [],
+                list: [{},{},{}],
             };
         },
         watch: {

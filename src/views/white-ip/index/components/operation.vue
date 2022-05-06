@@ -87,9 +87,9 @@
     const getDefaultData = () => ({
         id: 0,
         // 生效范围
-        actionScopeIdList: [],
+        actionScopeIdList: [{},{},{}],
         // 业务ID
-        scopeList: [],
+        scopeList: [{},{},{}],
         // 云区域ID
         cloudAreaId: '',
         ipStr: '',
@@ -111,9 +111,9 @@
             return {
                 isLoading: true,
                 formData: getDefaultData(),
-                scopeLocalKeyList: [],
-                appList: [],
-                cloudAreaList: [],
+                scopeLocalKeyList: [{},{},{}],
+                appList: [{},{},{}],
+                cloudAreaList: [{},{},{}],
                 actionScope: [],
             };
         },

@@ -92,7 +92,7 @@
             return {
                 isLoading: true,
                 height: undefined,
-                favorList: [],
+                favorList: [{},{},{}],
             };
         },
         created () {

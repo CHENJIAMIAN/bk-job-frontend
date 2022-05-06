@@ -122,7 +122,7 @@
                     amount: 0,
                     unit: '',
                     restrictMode: -1,
-                    suffixList: [],
+                    suffixList: [{},{},{}],
                 },
                 suffixError: '',
             };
@@ -143,7 +143,7 @@
                             this.info = {
                                 ...this.info,
                                 restrictMode: -1,
-                                suffixList: [],
+                                suffixList: [{},{},{}],
                             };
                         }
                     })

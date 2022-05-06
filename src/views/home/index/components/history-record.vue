@@ -57,7 +57,7 @@
                 userInfo: {},
                 isLoading: true,
                 recordOperator: '',
-                recordList: [],
+                recordList: [{},{},{}],
             };
         },
         created () {

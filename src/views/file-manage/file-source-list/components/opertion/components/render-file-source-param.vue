@@ -31,7 +31,7 @@
         },
         data () {
             return {
-                paramList: [],
+                paramList: [{},{},{}],
             };
         },
         computed: {

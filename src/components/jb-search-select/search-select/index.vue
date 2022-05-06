@@ -175,7 +175,7 @@
         data () {
             return {
                 menu: generatorMenu(),
-                chipList: [],
+                chipList: [{},{},{}],
                 maxRenderTagNums: -1,
                 textareaWidth: 0,
                 focused: this.defaultFocus,

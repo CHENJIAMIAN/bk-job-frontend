@@ -156,7 +156,7 @@
         data () {
             return {
                 isFocus: false,
-                renderList: [],
+                renderList: [{},{},{}],
                 scopeType: window.PROJECT_CONFIG.SCOPE_TYPE,
                 scopeId: window.PROJECT_CONFIG.SCOPE_ID,
                 appName: '',

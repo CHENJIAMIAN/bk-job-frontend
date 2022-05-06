@@ -165,11 +165,11 @@
         data () {
             return {
                 planInfo: {
-                    variableList: [],
-                    enableStepList: [],
+                    variableList: [{},{},{}],
+                    enableStepList: [{},{},{}],
                 },
-                usedVariableList: [],
-                unusedVariableList: [],
+                usedVariableList: [{},{},{}],
+                unusedVariableList: [{},{},{}],
                 isLoading: true,
                 execLoading: false,
                 deleteLoading: false,

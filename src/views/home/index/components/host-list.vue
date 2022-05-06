@@ -36,7 +36,7 @@
         data () {
             return {
                 isLoading: false,
-                hostList: [],
+                hostList: [{},{},{}],
                 pagination: {
                     count: 30,
                     current: 1,

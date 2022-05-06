@@ -81,8 +81,8 @@
                 isLoading: true,
                 isSubmiting: false,
                 hasHostVariable: false,
-                usedList: [],
-                unusedList: [],
+                usedList: [{},{},{}],
+                unusedList: [{},{},{}],
                 planName: '',
             };
         },

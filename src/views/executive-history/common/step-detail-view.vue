@@ -29,7 +29,7 @@
             return {
                 isLoading: true,
                 stepInfo: {},
-                variableList: [],
+                variableList: [{},{},{}],
             };
         },
         created () {

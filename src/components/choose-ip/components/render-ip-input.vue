@@ -85,9 +85,9 @@
             return {
                 isSubmiting: false,
                 ipInputText: '',
-                inputItemList: [],
-                invalidIPList: [],
-                errorIPList: [],
+                inputItemList: [{},{},{}],
+                invalidIPList: [{},{},{}],
+                errorIPList: [{},{},{}],
                 isFocusError: false,
             };
         },

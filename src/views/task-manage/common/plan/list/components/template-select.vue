@@ -69,7 +69,7 @@
         },
         data () {
             return {
-                templateList: [],
+                templateList: [{},{},{}],
                 formData: {
                     templateId: '',
                 },

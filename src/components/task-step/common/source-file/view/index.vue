@@ -107,9 +107,9 @@
         data () {
             return {
                 activeResult: [],
-                localFileList: [],
-                serverFileList: [],
-                sourceFileList: [],
+                localFileList: [{},{},{}],
+                serverFileList: [{},{},{}],
+                sourceFileList: [{},{},{}],
             };
         },
         computed: {

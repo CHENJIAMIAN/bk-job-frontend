@@ -68,7 +68,7 @@
                 isLoading: false,
                 classesId: 1,
                 tagId: 0,
-                list: [],
+                list: [{},{},{}],
                 countMap: {},
                 isNumberLoading: false,
             };

@@ -125,8 +125,8 @@
                 showDetail: false,
                 viewInfo: {},
                 nodeInfo: [],
-                hostList: [],
-                groupList: [],
+                hostList: [{},{},{}],
+                groupList: [{},{},{}],
                 requestQueue: [],
             };
         },

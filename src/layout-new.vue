@@ -200,6 +200,7 @@
             <slot name="back" />
             <div id="sitePageTitle" class="page-title">
                 <div class="page-title-text">{{ routerTitle }}</div>
+                <!-- 可以通过element-teleport组件传送到这里 -->
                 <div v-once id="siteHeaderStatusBar" />
             </div>
         </template>

@@ -44,7 +44,7 @@
         },
         data () {
             return {
-                list: [],
+                list: [{},{},{}],
                 statisticsData: {},
             };
         },

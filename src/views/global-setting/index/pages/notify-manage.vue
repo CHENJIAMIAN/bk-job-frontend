@@ -76,7 +76,7 @@
                 templateDetail: {},
                 currentTemplate: {},
                 currentDefaultTemplate: {},
-                channleList: [],
+                channleList: [{},{},{}],
                 channelCode: [],
                 users: [],
             };

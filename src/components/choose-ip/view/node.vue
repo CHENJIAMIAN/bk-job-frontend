@@ -133,8 +133,8 @@
             return {
                 isLoading: false,
                 isNodeListLoading: true,
-                list: [],
-                invalidList: [],
+                list: [{},{},{}],
+                invalidList: [{},{},{}],
                 wholePathMap: {},
                 isRequestError: false,
             };

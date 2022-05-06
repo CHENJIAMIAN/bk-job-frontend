@@ -43,7 +43,7 @@
         },
         data () {
             return {
-                taskName: '',
+                taskName: '123',
                 taskVariables: [],
                 isLoading: true,
                 isSubmiting: false,

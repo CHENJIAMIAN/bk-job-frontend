@@ -61,8 +61,8 @@
         data () {
             return {
                 formData: getDefaultData(),
-                variableList: [],
-                taskStepList: [],
+                variableList: [{},{},{}],
+                taskStepList: [{},{},{}],
                 isLoading: true,
                 isSubmitLoading: false,
             };

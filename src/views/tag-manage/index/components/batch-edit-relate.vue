@@ -119,12 +119,12 @@
             const state = reactive({
                 isLoading: true,
                 isShowCreateTag: false,
-                newTagList: [],
-                wholeTagList: [],
+                newTagList: [{},{},{}],
+                wholeTagList: [{},{},{}],
                 search: '',
                 formData: {
                     resourceTypeList: [1, 5],
-                    operationList: [],
+                    operationList: [{},{},{}],
                 },
             });
             // 默认选中的 tag

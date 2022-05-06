@@ -58,7 +58,7 @@
                 isShowCreate: false,
                 realValue: [],
                 publicScript: true,
-                list: [],
+                list: [{},{},{}],
             };
         },
         watch: {

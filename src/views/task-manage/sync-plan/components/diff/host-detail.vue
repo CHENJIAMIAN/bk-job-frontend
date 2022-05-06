@@ -82,9 +82,9 @@
                 isShowDetail: false,
                 isShowDiff: false,
                 hostNodeInfo: {
-                    dynamicGroupList: [],
-                    ipList: [],
-                    topoNodeList: [],
+                    dynamicGroupList: [{},{},{}],
+                    ipList: [{},{},{}],
+                    topoNodeList: [{},{},{}],
                 },
                 nodeDiff: {},
                 hostDiff: {},

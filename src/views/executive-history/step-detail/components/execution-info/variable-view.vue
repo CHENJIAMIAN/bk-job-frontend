@@ -43,7 +43,7 @@
         data () {
             return {
                 isLoading: true,
-                variableList: [],
+                variableList: [{},{},{}],
             };
         },
         watch: {

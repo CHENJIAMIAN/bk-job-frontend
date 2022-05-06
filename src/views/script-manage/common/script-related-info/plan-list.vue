@@ -62,8 +62,8 @@
         data () {
             return {
                 isLoading: false,
-                wholeList: [],
-                renderList: [],
+                wholeList: [{},{},{}],
+                renderList: [{},{},{}],
             };
         },
         created () {

@@ -88,7 +88,7 @@
         // 步骤名称
         name: genDefaultName(I18n.t('template.步骤分发文件')),
         // 源文件列表
-        fileSourceList: [],
+        fileSourceList: [{},{},{}],
         // 超时
         timeout: 7200,
         // 上传文件限速

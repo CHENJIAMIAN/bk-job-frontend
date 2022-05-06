@@ -53,7 +53,7 @@
                 isFinishing: false,
                 isConfirmLoading: false,
                 id: taskExport.getItem('id') || '',
-                logList: [],
+                logList: [{},{},{}],
                 status: TASK_STATUS_DEFAULT,
             };
         },

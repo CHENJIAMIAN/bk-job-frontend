@@ -100,7 +100,7 @@
         },
         data () {
             return {
-                data: [],
+                data: [{},{},{}],
                 isLoading: false,
                 isShowDetail: false,
                 selectScriptVersionId: 0,

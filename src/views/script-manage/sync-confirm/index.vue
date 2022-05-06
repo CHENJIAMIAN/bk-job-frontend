@@ -115,10 +115,10 @@
         data () {
             return {
                 isLoading: false,
-                data: [],
-                selectedList: [],
+                data: [{},{},{}],
+                selectedList: [{},{},{}],
                 filterData: [],
-                diffList: [],
+                diffList: [{},{},{}],
                 showSideslider: false,
                 scriptVersionId: null,
                 selectScriptVersionId: 0,

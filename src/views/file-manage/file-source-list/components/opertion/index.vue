@@ -191,7 +191,7 @@
         // 是否共享到全业务
         shareToAllApp: false,
         // 共享的业务Id列表
-        sharedAppIdList: [],
+        sharedAppIdList: [{},{},{}],
         // 存储类型
         storageType: 'OSS',
         // 接入点Id，手动选择时传入，自动选择不传
@@ -219,17 +219,17 @@
                 formData: getDefaultData(),
                 filePrefixType: FileSourceModel.FILE_PERFIX_UUID,
                 // 文件源类型列表
-                sourceTypeList: [],
+                sourceTypeList: [{},{},{}],
                 // 文件源参数
-                fileSourceParamList: [],
+                fileSourceParamList: [{},{},{}],
                 // 业务列表
-                appList: [],
+                appList: [{},{},{}],
                 // 文件源凭证列表
-                fileFourceTicketList: [],
+                fileFourceTicketList: [{},{},{}],
                 // 自动选择接入点
                 isWorkerSelectScopeAuto: true,
                 // 接入点列表
-                workersList: [],
+                workersList: [{},{},{}],
             };
         },
         computed: {

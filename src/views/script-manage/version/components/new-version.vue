@@ -38,7 +38,7 @@
         },
         data () {
             return {
-                renderList: [],
+                renderList: [{},{},{}],
                 formData: {
                     scriptVersionId: '',
                 },

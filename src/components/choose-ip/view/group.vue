@@ -111,8 +111,8 @@
         },
         data () {
             return {
-                list: [],
-                invalidList: [],
+                list: [{},{},{}],
+                invalidList: [{},{},{}],
                 isLoading: false,
                 isRequestError: false,
             };

@@ -69,7 +69,7 @@
         data () {
             return {
                 isLoading: false,
-                channleList: [],
+                channleList: [{},{},{}],
             };
         },
         computed: {
@@ -110,8 +110,8 @@
             this.$emit('on-change', {
                 notifyOffset: 0,
                 notifyUser: {
-                    userList: [],
-                    roleList: [],
+                    userList: [{},{},{}],
+                    roleList: [{},{},{}],
                 },
                 notifyChannel: [],
             });

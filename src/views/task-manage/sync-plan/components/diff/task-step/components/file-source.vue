@@ -94,8 +94,8 @@
                 ],
                 localFileCount: 0,
                 serverFileCount: 0,
-                localFileList: [],
-                serverFileList: [],
+                localFileList: [{},{},{}],
+                serverFileList: [{},{},{}],
                 localFileDiff: {},
                 serverFileDiff: {},
             };

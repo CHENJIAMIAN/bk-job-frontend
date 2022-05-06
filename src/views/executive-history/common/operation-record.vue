@@ -50,7 +50,7 @@
         data () {
             return {
                 isLoading: true,
-                data: [],
+                data: [{},{},{}],
             };
         },
         created () {

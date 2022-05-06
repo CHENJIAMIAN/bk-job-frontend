@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="execute-global-variable" v-bkloading="{ isLoading }">
         <template v-if="!isLoading">
@@ -39,7 +37,7 @@
         data () {
             return {
                 isLoading: false,
-                taskVariables: [],
+                taskVariables: [{}, {}, {}],
             };
         },
         computed: {

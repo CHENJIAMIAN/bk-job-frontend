@@ -45,7 +45,7 @@
         data () {
             return {
                 isLoading: false,
-                variableList: [],
+                variableList: [{},{},{}],
             };
         },
         created () {

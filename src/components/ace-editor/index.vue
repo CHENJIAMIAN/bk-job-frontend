@@ -205,7 +205,7 @@
                 isFullScreen: false,
                 isShowHistoryPanel: false,
                 tabHeight: TAB_HEIGHT,
-                historyList: [],
+                historyList: [{},{},{}],
                 currentUser: {},
             };
         },

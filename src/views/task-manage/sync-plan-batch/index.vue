@@ -202,7 +202,7 @@
         data () {
             return {
                 isLoading: true,
-                data: [],
+                data: [{},{},{}],
                 tableHeight: '',
                 isCronJobLoading: false,
                 isConfirmLoading: false,
@@ -214,7 +214,7 @@
                 selectPlanInfo: {
                     templateId: -1,
                     planId: -1,
-                    cronJobInfoList: [],
+                    cronJobInfoList: [{},{},{}],
                 },
             };
         },
@@ -362,7 +362,7 @@
                         planId: currentSyncPlan.id,
                         templateId: currentSyncPlan.templateId,
                         templateVersion: currentSyncPlan.templateVersion,
-                        cronJobInfoList: [],
+                        cronJobInfoList: [{},{},{}],
                     };
                     
                     // 执行方案没有查看和编辑权限——跳过
@@ -553,7 +553,7 @@
                 this.selectPlanInfo = {
                     templateId: -1,
                     planId: -1,
-                    cronJobInfoList: [],
+                    cronJobInfoList: [{},{},{}],
                 };
             },
             /**

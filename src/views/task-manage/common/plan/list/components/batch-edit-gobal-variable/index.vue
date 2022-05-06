@@ -107,7 +107,7 @@
                 isLoading: true,
                 curStep: 1,
                 isGlobalVariableNotEmpty: false,
-                planList: [],
+                planList: [{},{},{}],
                 isPreviewDisabled: true, // 选择的变量为空不能进行下一步
                 globalVariableValueMap: {}, // 全局变量编辑的值缓存
             };

@@ -139,8 +139,8 @@
         data () {
             return {
                 isLoading: true,
-                list: [],
-                scriptTypeList: [],
+                list: [{},{},{}],
+                scriptTypeList: [{},{},{}],
             };
         },
         computed: {

@@ -146,8 +146,8 @@
             return {
                 name: '',
                 formData: getDefaultData(),
-                globalVariableList: [],
-                taskStepList: [],
+                globalVariableList: [{},{},{}],
+                taskStepList: [{},{},{}],
                 isLoading: true,
                 submitLoading: false,
             };

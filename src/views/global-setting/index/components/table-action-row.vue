@@ -54,7 +54,7 @@
                 isEdit: false,
                 isSubmiting: false,
                 formData: generatorDefautlData(),
-                scriptTypeList: [],
+                scriptTypeList: [{},{},{}],
             };
         },
         created () {

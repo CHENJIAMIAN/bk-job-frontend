@@ -199,7 +199,7 @@
                 // 登录用户
                 currentUser: {},
                 selectedNodeId: ROOT_NODE_ID,
-                renderList: [],
+                renderList: [{},{},{}],
                 checkedMap: {},
                 isCheckedAll: false,
                 searchContent: '',

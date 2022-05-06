@@ -549,12 +549,11 @@
              * 如果作业类型的跳转到作业执行详情，如果不是则跳到步骤执行详情
              */
             handleGoDetail (taskInstance) {
-                debugger;
-                if (taskInstance.isTask) {
+                if (!taskInstance.isTask) {
                     this.$router.push({
                         name: 'historyTask',
                         params: {
-                            id: taskInstance.id,
+                            id: 1 || taskInstance.id,
                         },
                     });
                     return;
@@ -562,7 +561,7 @@
                 this.$router.push({
                     name: 'historyStep',
                     params: {
-                        taskInstanceId: taskInstance.id,
+                        taskInstanceId: 1 || taskInstance.id,
                     },
                     query: {
                         from: 'historyList',

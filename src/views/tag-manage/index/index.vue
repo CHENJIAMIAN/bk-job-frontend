@@ -228,7 +228,7 @@
                 isShowOperation: false,
                 isShowEditRelate: false,
                 editData: {},
-                tagList: [],
+                tagList: [{},{},{}],
                 searchParams: [],
                 searchValue: [],
                 selectedTableColumn: [],

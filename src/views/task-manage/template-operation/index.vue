@@ -119,7 +119,7 @@
                     steps: [],
                     description: '',
                 },
-                planList: [],
+                planList: [{},{},{}],
                 isSubmiting: false,
                 execLoading: false,
             };

@@ -10,7 +10,7 @@
         data () {
             return {
                 condition: {},
-                list: [],
+                list: [{},{},{}],
                 activeIndex: -1,
             };
         },

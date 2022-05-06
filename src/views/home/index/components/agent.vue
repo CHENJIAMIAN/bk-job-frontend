@@ -53,7 +53,7 @@
                 isLoading: false,
                 isShow: false,
                 statusType: '',
-                allHostList: [],
+                allHostList: [{},{},{}],
                 agentInfo: {},
             };
         },

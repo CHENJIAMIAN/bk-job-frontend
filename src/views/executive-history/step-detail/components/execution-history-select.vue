@@ -1,8 +1,6 @@
 
-
 <template>
     <div
-        v-if="isNeedRender"
         ref="target"
         class="step-execution-history-select">
         <span>{{ retryCountText }}</span>
@@ -56,7 +54,7 @@
         data () {
             return {
                 isNeedRender: false,
-                executionList: [],
+                executionList: [{}, {}, {}],
             };
         },
         computed: {
@@ -82,6 +80,9 @@
                 immediate: true,
             },
         },
+        created () {
+            this.fetchStepExecutionHistory();
+        },
         beforeDestroy () {
             this.popperDestroy();
         },
@@ -99,45 +100,49 @@
              * 如果重试次数大于0，显示retryCount切换列表
              */
             fetchStepExecutionHistory () {
-                TaskExecuteService.fetchStepExecutionHistory({
-                    stepInstanceId: this.stepInstanceId,
-                }).then((data) => {
-                    const max = _.max(data.map(_ => _.retryCount));
-                    const result = data.map((item) => {
-                        const {
-                            retryCount,
-                            createTime,
-                        } = item;
+                // TaskExecuteService.fetchStepExecutionHistory({
+                //     stepInstanceId: this.stepInstanceId,
+                // }).then((data) => {
+                const data = [{
+                    retryCount: 5,
+                    createTime: '2018-01-01 12:00:00',
+                }];
+                const max = _.max(data.map(_ => _.retryCount));
+                const result = data.map((item) => {
+                    const {
+                        retryCount,
+                        createTime,
+                    } = item;
 
-                        const realIndex = retryCount + 1;
-                        return {
-                            retryCount,
-                            createTime,
-                            text: retryCount !== max ? ordinalSuffixOf(realIndex) : 'LATEST',
-                        };
-                    });
-                    this.executionList = Object.freeze(result);
-                    // 重试次数大于1才需要显示
-                    this.isNeedRender = this.executionList.length > 1;
-                    if (this.isNeedRender) {
-                        this.$nextTick(() => {
-                            if (!this.popperInstance) {
-                                this.popperInstance = this.$bkPopover(this.$el, {
-                                    theme: 'light step-execution-history-menu',
-                                    arrow: false,
-                                    interactive: true,
-                                    placement: 'bottom-start',
-                                    content: this.$refs.content,
-                                    animation: 'slide-toggle',
-                                    trigger: 'click',
-                                    width: '240px',
-                                });
-                            }
-                        });
-                    } else {
-                        this.popperDestroy();
-                    }
+                    const realIndex = retryCount + 1;
+                    return {
+                        retryCount,
+                        createTime,
+                        text: retryCount !== max ? ordinalSuffixOf(realIndex) : 'LATEST',
+                    };
                 });
+                this.executionList = Object.freeze(result);
+                // 重试次数大于1才需要显示
+                this.isNeedRender = this.executionList.length > 1;
+                if (this.isNeedRender) {
+                    this.$nextTick(() => {
+                        if (!this.popperInstance) {
+                            this.popperInstance = this.$bkPopover(this.$el, {
+                                theme: 'light step-execution-history-menu',
+                                arrow: false,
+                                interactive: true,
+                                placement: 'bottom-start',
+                                content: this.$refs.content,
+                                animation: 'slide-toggle',
+                                trigger: 'click',
+                                width: '240px',
+                            });
+                        }
+                    });
+                } else {
+                    this.popperDestroy();
+                }
+                // });
             },
             /**
              * @desc 销毁popover实例
@@ -155,6 +160,7 @@
              * 切换成功后需要将retryCount的最新值更新到url上
              */
             handleSelectRetryCount (retryCount) {
+                debugger;
                 this.selectRetryCount = retryCount;
                 this.popperInstance && this.popperInstance.hide();
                 this.$emit('on-change', retryCount);

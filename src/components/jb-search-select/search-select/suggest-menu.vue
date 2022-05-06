@@ -15,7 +15,7 @@
         data () {
             return {
                 activeIndex: -1,
-                list: [],
+                list: [{},{},{}],
             };
         },
         computed: {

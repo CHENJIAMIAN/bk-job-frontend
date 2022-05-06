@@ -46,7 +46,7 @@
         },
         data () {
             return {
-                renderRoleList: [],
+                renderRoleList: [{},{},{}],
                 renderChannel: '',
             };
         },

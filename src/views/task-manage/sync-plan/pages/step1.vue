@@ -61,21 +61,21 @@
                 type: Object,
                 default: () => ({
                     variables: [],
-                    stepList: [],
+                    stepList: [{},{},{}],
                 }),
             },
             planInfo: {
                 type: Object,
                 default: () => ({
-                    variableList: [],
-                    stepList: [],
+                    variableList: [{},{},{}],
+                    stepList: [{},{},{}],
                 }),
             },
         },
         data () {
             return {
-                templateVariableList: [],
-                templateStepList: [],
+                templateVariableList: [{},{},{}],
+                templateStepList: [{},{},{}],
                 variableDiff: {},
                 stepDiff: {},
             };

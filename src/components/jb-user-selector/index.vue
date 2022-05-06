@@ -69,7 +69,7 @@
             return {
                 isLoading: false,
                 checkedUserNums: 0,
-                roleList: [],
+                roleList: [{},{},{}],
                 defaultValue: [],
                 disabledUsers: [],
             };

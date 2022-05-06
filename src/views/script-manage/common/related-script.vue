@@ -128,9 +128,9 @@
             
             return {
                 isLoading: true,
-                list: [],
+                list: [{},{},{}],
                 listTab: 'template',
-                renderList: [],
+                renderList: [{},{},{}],
             };
         },
         computed: {

@@ -14,7 +14,7 @@
         data () {
             return {
                 activeIndex: -1, // 上下键选中项索引，多选时不支持上下键位操作
-                list: [],
+                list: [{},{},{}],
                 search: '', // 输入框的键入的筛选值
                 currentItem: {}, // 当前key
                 menu: {},

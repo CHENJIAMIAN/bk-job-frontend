@@ -81,7 +81,7 @@
             return {
                 isConfigLoading: true,
                 isAddServerFile: false,
-                sourceFileList: [],
+                sourceFileList: [{},{},{}],
                 showFileView: false,
                 fileMaxUploadSize: '2GB',
                 ENABLE_FEATURE_FILE_MANAGE: false,

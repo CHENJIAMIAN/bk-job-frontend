@@ -134,11 +134,11 @@
         data () {
             return {
                 activeResult: [],
-                localFileList: [],
-                serverFileList: [],
-                sourceFileList: [],
-                fileSourceIdsList: [], // 文件源ID
-                fileSourceAliasList: [], // 文件源名称
+                localFileList: [{},{},{}],
+                serverFileList: [{},{},{}],
+                sourceFileList: [{},{},{}],
+                fileSourceIdsList: [{},{},{}], // 文件源ID
+                fileSourceAliasList: [{},{},{}], // 文件源名称
             };
         },
         computed: {

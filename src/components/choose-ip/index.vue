@@ -163,9 +163,9 @@
                 // 弹框的高度
                 dialogHeight: 0,
                 topologyNodeTree: [],
-                topoNodeList: [],
-                ipList: [],
-                dynamicGroupList: [],
+                topoNodeList: [{},{},{}],
+                ipList: [{},{},{}],
+                dynamicGroupList: [{},{},{}],
                 previewGroup: {},
                 error: '',
                 currentChangeClass: '',

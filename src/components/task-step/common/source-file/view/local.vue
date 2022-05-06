@@ -62,12 +62,12 @@
         },
         data () {
             return {
-                fileList: [],
+                fileList: [{},{},{}],
                 FILE_UPLOAD_SETTING: {
                     amount: 2,
                     unit: 'GB',
                     restrictMode: -1,
-                    suffixList: [],
+                    suffixList: [{},{},{}],
                 },
             };
         },

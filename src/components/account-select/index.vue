@@ -57,9 +57,9 @@
         data () {
             return {
                 isLoading: false,
-                wholeList: [],
-                systemAccountList: [],
-                dbAccountList: [],
+                wholeList: [{},{},{}],
+                systemAccountList: [{},{},{}],
+                dbAccountList: [{},{},{}],
             };
         },
         computed: {

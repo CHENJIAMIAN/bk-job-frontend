@@ -113,7 +113,7 @@
                 isShowPreviewSend: false,
                 isShowVariable: false,
                 isLoading: false,
-                reciverList: [],
+                reciverList: [{},{},{}],
                 formData: getDefaultData(),
             };
         },

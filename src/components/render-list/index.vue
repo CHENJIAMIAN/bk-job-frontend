@@ -112,7 +112,7 @@
                 isRequesting: false, // api 数据请求中
                 isLoading: true, // api 数据加载中 (api 数据请求超过 300ms 才会显示 loading 效果)
                 isSearching: false, // 是否有搜索条件
-                data: [],
+                data: [{},{},{}],
                 tableMaxHeight: '',
                 rowSelectMemo: Object.create(null),
                 selectNums: 0,

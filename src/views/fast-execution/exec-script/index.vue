@@ -142,7 +142,7 @@
                 reset: 0,
                 isLoading: false,
                 formData: getDefaultData(),
-                historyList: [],
+                historyList: [{},{},{}],
                 isSubmiting: false,
                 isShowHistory: false,
             };

@@ -107,8 +107,8 @@
         },
         data () {
             return {
-                scripList: [],
-                publicScripList: [],
+                scripList: [{},{},{}],
+                publicScripList: [{},{},{}],
                 scriptSource: 'local',
                 referType: 2,
             };

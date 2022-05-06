@@ -60,7 +60,7 @@
             return {
                 isLoading: true,
                 activeIndex: 0,
-                list: [],
+                list: [{},{},{}],
             };
         },
         computed: {

@@ -88,8 +88,8 @@
                 isLoading: false,
                 isEmpty: false,
                 hasNotGroup: true,
-                list: [],
-                tempList: [],
+                list: [{},{},{}],
+                tempList: [{},{},{}],
                 checkedMap: {},
                 CMDBCreateGroupUrl: '',
                 pagination: {

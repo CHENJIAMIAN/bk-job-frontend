@@ -137,9 +137,9 @@
         data () {
             return {
                 isLoading: true,
-                serverFileList: [],
+                serverFileList: [{},{},{}],
                 currentHost: {},
-                accountList: [],
+                accountList: [{},{},{}],
                 isShowChooseIp: false,
                 currentIndex: 0,
             };

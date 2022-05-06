@@ -51,7 +51,7 @@
         },
         data () {
             return {
-                list: [],
+                list: [{},{},{}],
             };
         },
         watch: {

@@ -191,8 +191,8 @@
         notifyChannel: [], // 通知渠道
         notifyOffset: 0, // 通知提前时间
         notifyUser: { // 用户角色列表
-            roleList: [],
-            userList: [],
+            roleList: [{},{},{}],
+            userList: [{},{},{}],
         },
         taskPlanId: 0, // 关联的执行方案 ID
         taskTemplateId: 0,
@@ -231,14 +231,14 @@
                 isPlanLoading: false,
                 strategy: 'period',
                 formData: getDefaultData(),
-                templateList: [],
-                planList: [],
-                planStepList: [],
+                templateList: [{},{},{}],
+                planList: [{},{},{}],
+                planStepList: [{},{},{}],
                 isVariableLoading: false,
-                currentPlanVariableList: [],
+                currentPlanVariableList: [{},{},{}],
                 currentRenderPlanId: 0, // 切换执行方案后更新全局变量（不同执行方案里面的变量id和name是相同的当value不同时页面不会更新）
-                usedList: [],
-                unusedList: [],
+                usedList: [{},{},{}],
+                unusedList: [{},{},{}],
                 isRepeat: false,
                 dateOptions: {
                     disabledDate (date) {
@@ -544,8 +544,8 @@
                 this.formData.notifyChannel = [];
                 this.formData.notifyOffset = 0; // 通知提前时间
                 this.formData.notifyUser = { // 用户角色列表
-                    roleList: [],
-                    userList: [],
+                    roleList: [{},{},{}],
+                    userList: [{},{},{}],
                 };
             },
             /**

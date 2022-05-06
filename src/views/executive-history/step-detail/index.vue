@@ -1,7 +1,7 @@
 
-
 <template>
     <div class="executive-history-step">
+        task-status
         <task-status ref="taskStatus" @on-init="handleTaskInit">
             <div class="step-info-header">
                 <div class="step-info-wraper">
@@ -15,7 +15,7 @@
                             @on-change="handleRetryCountChange" />
                     </div>
                 </div>
-                <!-- 步骤执行操作 -->
+                步骤执行操作
                 <div class="step-action-box">
                     <step-action
                         v-for="action in data.actions"
@@ -31,7 +31,6 @@
                             <bk-option id="ip" :name="$t('history.搜索 IP')" />
                         </bk-select>
                         <bk-input
-                            v-if="searchModel === 'log'"
                             :value="params.keyword"
                             key="log"
                             :disabled="isFile"
@@ -40,7 +39,6 @@
                             style="width: 292px;"
                             @keyup="handleLogSearch" />
                         <bk-input
-                            v-if="searchModel === 'ip'"
                             :value="params.searchIp"
                             key="ip"
                             right-icon="bk-icon icon-search"
@@ -56,12 +54,12 @@
                 </div>
                 <export-log :step-instance-id="params.id" :is-file="isFile" />
                 <div class="task-instance-action">
-                    <view-global-variable v-if="isTask" :task-instance-id="taskInstanceId" />
+                    <view-global-variable :task-instance-id="taskInstanceId" />
                     <view-operation-record :task-instance-id="taskInstanceId" />
                     <view-step-info :task-instance-id="taskInstanceId" :step-instance-id="params.id" />
                 </div>
             </div>
-            <!-- 主机分组 -->
+            主机分组
             <group-tab
                 :data="data.resultGroups"
                 @on-change="handelGroupChange" />
@@ -85,7 +83,6 @@
                 <div class="container-right">
                     <!-- 执行日志 -->
                     <execution-info
-                        v-if="data.stepInstanceId"
                         :name="`${params.id}_${params.retryCount}_${dispalyGroup.groupName}_${currentHost.ip}_${params.keyword}`"
                         :step-instance-id="data.stepInstanceId"
                         :retry-count="params.retryCount"
@@ -97,10 +94,10 @@
                 </div>
             </div>
         </task-status>
-        <!-- 步骤执行操作——强制终止 -->
-        <execution-status-bar v-if="data.name" type="step" :data="data">
+        步骤执行操作——强制终止
+        <execution-status-bar type="step" :data="data">
+            step-action
             <step-action
-                v-if="data.isForcedEnable"
                 name="forced"
                 display-style="step-detail"
                 key="forced"
@@ -159,12 +156,12 @@
                 // 搜索模式
                 searchModel: 'log',
                 // 步骤所属作业的所有步骤列表
-                taskStepList: [],
+                taskStepList: [{}, {}],
                 // 任务信息
                 data: {
                     finished: false,
-                    resultGroups: [],
-                    actions: [],
+                    resultGroups: [{}, {}],
+                    actions: [{}, {}],
                     isForcedEnable: false,
                 },
                 // 接口参数

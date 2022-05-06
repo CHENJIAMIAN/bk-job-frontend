@@ -136,7 +136,7 @@
                 allShowColumn = JSON.parse(localStorage.getItem(COLUMN_CACHE_KEY));
             }
             return {
-                list: [],
+                list: [{},{},{}],
                 columnList: Object.freeze([
                     {
                         label: I18n.t('history.IP'),

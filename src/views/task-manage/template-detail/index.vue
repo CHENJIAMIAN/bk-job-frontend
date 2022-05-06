@@ -138,7 +138,7 @@
         name: '',
         needUpdate: false,
         status: 0,
-        stepList: [],
+        stepList: [{},{},{}],
         tags: [],
         variables: [],
     });
@@ -160,7 +160,7 @@
                 isLoading: true,
                 isPlanListLoading: true,
                 formData: getDefaultData(),
-                planList: [],
+                planList: [{},{},{}],
                 deleteLoading: false,
             };
         },

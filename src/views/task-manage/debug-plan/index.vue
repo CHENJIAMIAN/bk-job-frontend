@@ -126,8 +126,8 @@
                 planFormData: {
                     name: '',
                 },
-                variableList: [],
-                taskStepList: [],
+                variableList: [{},{},{}],
+                taskStepList: [{},{},{}],
                 isLoading: true,
                 isShowSave: false,
                 isPlanCreating: false,

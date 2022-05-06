@@ -113,8 +113,8 @@
                 isPlanLoading: false,
                 taskIds: taskExport.getItem('ids') || [],
                 currentTemplateId: 0,
-                jobList: [],
-                planList: [],
+                jobList: [{},{},{}],
+                planList: [{},{},{}],
                 templateInfoMap: {},
             };
         },
@@ -156,7 +156,7 @@
                         result[item.id] = {
                             id: item.id,
                             planSelectedMap: {},
-                            planList: [],
+                            planList: [{},{},{}],
                             exportAll: 0,
                         };
                         return result;

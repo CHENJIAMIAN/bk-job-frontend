@@ -65,7 +65,7 @@
             roleList: [
                 'JOB_RESOURCE_TRIGGER_USER',
             ],
-            userList: [],
+            userList: [{},{},{}],
         },
         notifyChannel: [],
     });
@@ -85,7 +85,7 @@
         data () {
             return {
                 formData: getDefaultData(),
-                channleList: [],
+                channleList: [{},{},{}],
             };
         },
         computed: {

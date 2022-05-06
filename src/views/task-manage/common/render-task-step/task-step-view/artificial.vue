@@ -39,7 +39,7 @@
             return {
                 isLoading: true,
                 stepInfo: {},
-                renderRoleList: [],
+                renderRoleList: [{},{},{}],
                 renderChannel: '',
             };
         },

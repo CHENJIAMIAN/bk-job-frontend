@@ -67,7 +67,7 @@
                 // 异步获取日志内容loading
                 isAsyncContentLoading: false,
                 // 文件基础信息列表
-                contentList: [],
+                contentList: [{},{},{}],
                 // 一屏显示最小日志行数
                 onePageNums: 0,
                 // 前端分页页码

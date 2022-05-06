@@ -97,8 +97,8 @@
             return {
                 isLoading: false,
                 isRequestError: false,
-                list: [],
-                invalidList: [], // 无效主机
+                list: [{},{},{}],
+                invalidList: [{},{},{}], // 无效主机
             };
         },
         computed: {

@@ -1,11 +1,11 @@
 
-
 <template>
     <div
         class="executive-history-task"
         v-bkloading="{ isLoading }"
         :key="taskInstanceId">
         <div class="step-list">
+            step-list
             <task-step-start key="start" />
             <task-step
                 v-for="(step, index) in formData.stepExecution"
@@ -16,14 +16,15 @@
             <task-step-end key="end" :finished="formData.taskExecution.isSuccess" />
         </div>
         <div class="step-list-action">
+            step-list-action
             <back-top size="small" :fixed="false" />
             <execution-process
-                v-if="!isLoading"
                 class="execution-process"
                 :total="formData.totalStep"
                 :current="formData.currentStepRunningOrder" />
         </div>
         <div class="task-action">
+            task-action
             <auth-component
                 auth="task_instance/redo"
                 :resource-id="taskInstanceId">
@@ -57,8 +58,8 @@
             </div>
         </div>
         <execution-status-bar type="task" :data="formData.taskExecution">
+            execution-status-bar
             <step-action
-                v-if="formData.taskExecution.isForcedEnable"
                 name="forced"
                 @on-cancel="handleCancelForceTask"
                 @on-show="handleStartForceTask"
@@ -112,7 +113,7 @@
         },
         data () {
             return {
-                isLoading: true,
+                isLoading: !true,
                 taskInstanceId: 0,
                 isShowGlobalVariable: false,
                 isShowOperationRecord: false,
@@ -121,7 +122,12 @@
                     totalStep: 0,
                     currentStepRunningOrder: 0,
                     taskExecution: {},
-                    stepExecution: [],
+                    stepExecution: [{
+                                        name: 'name',
+                                        startTime: 'startTime',
+                                        endTime: 'endTime',
+                                    },
+                                    {}, {}, {}],
                 },
             };
         },

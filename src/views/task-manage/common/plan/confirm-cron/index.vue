@@ -91,7 +91,7 @@
             return {
                 isLoading: true,
                 isEmpty: false,
-                timeTaskList: [],
+                timeTaskList: [{},{},{}],
                 currentTaskId: 0,
             };
         },

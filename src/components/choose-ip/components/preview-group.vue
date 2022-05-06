@@ -45,7 +45,7 @@
             return {
                 isLoading: false,
                 statisticsData: {},
-                list: [],
+                list: [{},{},{}],
             };
         },
         created () {

@@ -96,8 +96,8 @@
         data () {
             return {
                 isLoading: false,
-                list: [],
-                scriptTypeList: [],
+                list: [{},{},{}],
+                scriptTypeList: [{},{},{}],
             };
         },
         created () {

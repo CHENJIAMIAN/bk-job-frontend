@@ -95,9 +95,9 @@
             return {
                 isLoading: true,
                 isVarLoading: false,
-                renderRoleList: [],
+                renderRoleList: [{},{},{}],
                 renderChannel: '',
-                currentPlanVariableList: [],
+                currentPlanVariableList: [{},{},{}],
             };
         },
         

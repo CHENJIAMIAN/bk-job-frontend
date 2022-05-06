@@ -59,7 +59,7 @@
         },
         data () {
             return {
-                list: [],
+                list: [{},{},{}],
                 selectRow: '',
             };
         },

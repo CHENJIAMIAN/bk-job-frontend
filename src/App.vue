@@ -88,7 +88,7 @@
                     titleSeparator: '',
                 },
                 currentUser: {},
-                appList: [],
+                appList: [{},{},{}],
                 showSystemLog: false,
                 relatedSystemUrls: {},
             };

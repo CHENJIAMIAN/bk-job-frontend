@@ -254,8 +254,8 @@ export default class Crontab {
     initNotifyUser (payload) {
         if (!_.isObject(payload)) {
             return {
-                roleList: [],
-                userList: [],
+                roleList: [{},{},{}],
+                userList: [{},{},{}],
             };
         }
         return {

@@ -111,24 +111,24 @@
                 type: Object,
                 default: () => ({
                     variables: [],
-                    stepList: [],
+                    stepList: [{},{},{}],
                 }),
             },
             planInfo: {
                 type: Object,
                 default: () => ({
-                    variableList: [],
-                    stepList: [],
+                    variableList: [{},{},{}],
+                    stepList: [{},{},{}],
                 }),
             },
         },
         data () {
             return {
-                accountList: [],
-                templateVariableList: [],
-                templateStepList: [],
-                planVariableList: [],
-                planStepList: [],
+                accountList: [{},{},{}],
+                templateVariableList: [{},{},{}],
+                templateStepList: [{},{},{}],
+                planVariableList: [{},{},{}],
+                planStepList: [{},{},{}],
                 beforeVariableDiff: {},
                 variableDiff: {},
                 beforeStepDiff: {},
