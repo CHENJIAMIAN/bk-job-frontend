@@ -70,7 +70,7 @@
                 class="mr10"
                 :title="$t('script.确定上线该版本？')"
                 :content="$t('script.上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用')"
-                :disabled="scriptInfo.isDisabledOnline"
+                
                 :confirm-handler="handleOnline">
                 <auth-button
                     :permission="scriptInfo.canManage"
@@ -78,7 +78,7 @@
                     auth="script/edit"
                     theme="primary"
                     class="w120"
-                    :disabled="scriptInfo.isDisabledOnline"
+                    
                     v-test="{ type: 'button', value: 'onlineScript' }">
                     {{ $t('script.上线') }}
                 </auth-button>
@@ -91,7 +91,7 @@
                     :permission="scriptInfo.canClone"
                     :resource-id="scriptInfo.id"
                     auth="script/clone"
-                    :disabled="isCopyCreateDisabled"
+                    
                     class="w120 mr10"
                     @click="handleCopyAndCreate(scriptInfo)"
                     v-test="{ type: 'button', value: 'copyCreateScript' }">
@@ -113,7 +113,7 @@
                     :permission="scriptInfo.canManage"
                     :resource-id="scriptInfo.id"
                     auth="script/edit"
-                    :disabled="!scriptInfo.syncEnabled"
+                    
                     @click="handleGoSync"
                     v-test="{ type: 'button', value: 'syncScript' }">
                     {{ $t('script.同步') }}

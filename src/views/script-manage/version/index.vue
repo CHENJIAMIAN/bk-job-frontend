@@ -11,7 +11,7 @@
                     {{ $t('script.新建版本') }}
                 </bk-button>
                 <bk-button
-                    :disabled="disableDiff"
+                    
                     @click="handlShowDiff">
                     {{ $t('script.版本对比') }}
                 </bk-button>
@@ -43,7 +43,7 @@
                             :resizable="false">
                             <template slot-scope="{ row }">
                                 <bk-checkbox
-                                    :disabled="!isRowSelectable(row)"
+                                    
                                     :checked="isRowChecked(row)"
                                     @change="checked => handleSelectionChange(row, checked)" />
                             </template>
@@ -137,13 +137,13 @@
                                     class="mr10"
                                     :title="$t('script.确定上线该版本？')"
                                     :content="$t('script.上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用')"
-                                    :disabled="row.isDisabledOnline"
+                                    
                                     :confirm-handler="() => handleOnline(row.id, row.scriptVersionId)">
                                     <auth-button
                                         :permission="row.canManage"
                                         :resource-id="row.id"
                                         auth="script/edit"
-                                        :disabled="row.isDisabledOnline"
+                                        
                                         text>
                                         {{ $t('script.上线') }}
                                     </auth-button>
@@ -180,7 +180,7 @@
                                         :permission="row.canClone"
                                         :resource-id="row.id"
                                         auth="script/clone"
-                                        :disabled="isCopyCreateDisabled"
+                                        
                                         text
                                         @click="handleToggleCopyCreate(row)">
                                         {{ $t('script.复制并新建') }}
@@ -192,7 +192,7 @@
                                     :permission="row.canManage"
                                     auth="script/execute"
                                     :resource-id="row.id"
-                                    :disabled="row.isExecuteDisable"
+                                    
                                     @click="handleGoExce(row)">
                                     {{ $t('script.去执行') }}
                                 </auth-button>
@@ -203,7 +203,7 @@
                                         :resource-id="row.id"
                                         auth="script/edit"
                                         class="ml10"
-                                        :disabled="!row.syncEnabled"
+                                        
                                         @click="handleSync(row)"
                                         text>
                                         {{ $t('script.同步') }}

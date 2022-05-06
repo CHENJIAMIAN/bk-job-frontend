@@ -77,7 +77,7 @@
             <bk-button
                 class="w120"
                 theme="primary"
-                :disabled="selectedList.length === 0"
+                
                 @click="handleSync">
                 {{ $t('script.立即同步') }}
             </bk-button>

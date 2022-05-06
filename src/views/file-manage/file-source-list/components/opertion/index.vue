@@ -73,7 +73,7 @@
                         :clearable="false"
                         searchable
                         multiple
-                        :disabled="formData.shareToAllApp"
+                        
                         v-model="formData.sharedAppIdList">
                         <bk-option
                             v-for="option in appList"
@@ -135,7 +135,7 @@
                     </bk-select>
                     <bk-checkbox
                         v-model="isWorkerSelectScopeAuto"
-                        :disabled="workersList.length < 1">
+                        >
                         {{ $t('file.自动选择接入点') }}
                     </bk-checkbox>
                 </div>

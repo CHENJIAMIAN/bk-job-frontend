@@ -11,7 +11,7 @@
                     <bk-radio-button
                         class="item"
                         value="string"
-                        :disabled="isTypeDisabled"
+                        
                         :name="$t('template.字符串')"
                         v-bk-tooltips="$t('template.普通的字符串变量，可跨主机、跨步骤使用')">
                         {{ $t('template.字符串') }}
@@ -19,28 +19,28 @@
                     <bk-radio-button
                         class="item"
                         value="namespace"
-                        :disabled="isTypeDisabled"
+                        
                         v-bk-tooltips="$t('template.同一主机对象的共享变量，无法跨主机使用')">
                         {{ $t('template.命名空间') }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="host"
-                        :disabled="isTypeDisabled"
+                        
                         v-bk-tooltips="$t('template.通过拓扑、动态分组或属性筛选的主机对象')">
                         {{ $t('template.主机列表') }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="password"
-                        :disabled="isTypeDisabled"
+                        
                         v-bk-tooltips="$t('template.经过加密处理的变量，不会以明文形式外显')">
                         {{ $t('template.密文') }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="array"
-                        :disabled="isTypeDisabled"
+                        
                         v-bk-tooltips="$t('template.Array 格式的字符串，支持关联或索引数组')">
                         {{ $t('template.数组') }}
                     </bk-radio-button>

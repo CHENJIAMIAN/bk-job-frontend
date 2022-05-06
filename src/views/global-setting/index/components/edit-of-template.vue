@@ -53,7 +53,7 @@
                     <bk-button
                         theme="primary"
                         :loading="isLoading"
-                        :disabled="!reciverList.length"
+                        
                         @click="handleSend">
                         {{ $t('setting.发送') }}
                     </bk-button>

@@ -3,7 +3,7 @@
 <template>
     <div class="script-manage-sync-task-page" v-bkloading="{ isLoading }">
         <div class="retry-btn">
-            <bk-button :disabled="isRetryAllDisable" @click="handleAllRetry">{{ $t('script.全部重试') }}</bk-button>
+            <bk-button  @click="handleAllRetry">{{ $t('script.全部重试') }}</bk-button>
         </div>
         <div class="table-top">
             {{ $t('script.同步作业模板') }}

@@ -38,7 +38,7 @@
                 <bk-button
                     theme="primary"
                     class="mr10"
-                    :disabled="isPreviewDisabled"
+                    
                     @click="handlePreview">
                     {{ $t('template.下一步') }}
                 </bk-button>

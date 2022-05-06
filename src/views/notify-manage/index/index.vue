@@ -25,13 +25,13 @@
                 <bk-button
                     class="w120 mr10"
                     theme="primary"
-                    :disabled="isLoading"
+                    
                     :loading="isSubmiting"
                     @click="handleSave">
                     {{ $t('notify.保存') }}
                 </bk-button>
                 <bk-button
-                    :disabled="isLoading"
+                    
                     @click="handleCancel">
                     {{ $t('notify.重置') }}
                 </bk-button>

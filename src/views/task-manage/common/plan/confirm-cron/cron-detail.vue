@@ -37,14 +37,14 @@
                     v-if="isEditing"
                     theme="primary"
                     class="mr10"
-                    :disabled="!data.enable"
+                    
                     @click="handleSubmit">
                     {{ $t('template.确认') }}
                 </bk-button>
                 <bk-button
                     v-if="isEditing"
                     class="mr10"
-                    :disabled="!data.enable"
+                    
                     @click="handleReset">
                     {{ $t('template.重置') }}
                 </bk-button>
@@ -52,7 +52,7 @@
                     v-else
                     theme="primary"
                     class="mr10"
-                    :disabled="!data.enable"
+                    
                     @click="handleToggleEdit">
                     {{ $t('template.编辑') }}
                 </bk-button>

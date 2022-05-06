@@ -10,32 +10,32 @@
                 <bk-radio-button
                     class="item"
                     value="string"
-                    :disabled="isTypeDisabled"
+                    
                     :name="$t('template.字符串')">
                     {{ $t('template.字符串') }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="namespace"
-                    :disabled="isTypeDisabled">
+                    >
                     {{ $t('template.命名空间') }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="host"
-                    :disabled="isTypeDisabled">
+                    >
                     {{ $t('template.主机列表') }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="password"
-                    :disabled="isTypeDisabled">
+                    >
                     {{ $t('template.密文') }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="array"
-                    :disabled="isTypeDisabled">
+                    >
                     {{ $t('template.数组') }}
                 </bk-radio-button>
             </bk-radio-group>

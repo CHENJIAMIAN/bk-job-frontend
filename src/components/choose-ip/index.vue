@@ -81,7 +81,7 @@
                     v-if="!ipInputStatus"
                     class="mr10"
                     theme="primary"
-                    :disabled="isSubmitDisable"
+                    
                     @click="handleSubmit">
                     {{ $t('确定') }}
                 </bk-button>

@@ -84,7 +84,7 @@
                 <bk-button
                     theme="primary"
                     class="w120 mr10"
-                    :disabled="isSubmitDisable"
+                    
                     :loading="submitLoading"
                     @click="handleSumbit"
                     v-test="{ type: 'button', value: 'editPlanSave' }">

@@ -18,7 +18,7 @@
                             v-for="item in categoryList"
                             :key="item.value"
                             :value="item.value"
-                            :disabled="isEdit && formData.category !== item.value"
+                            
                             class="account-type-radio">
                             {{ item.name }}
                         </bk-radio-button>

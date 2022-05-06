@@ -94,7 +94,7 @@
                         v-model="formData.taskPlanId"
                         :placeholder="$t('cron.选择执行方案')"
                         :clearable="false"
-                        :disabled="!hasTemplate"
+                        
                         :loading="isPlanLoading"
                         searchable
                         @selected="handlePlanChange">

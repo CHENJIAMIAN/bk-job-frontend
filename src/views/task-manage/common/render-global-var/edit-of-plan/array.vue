@@ -8,13 +8,13 @@
                     <bk-radio-button
                         class="item"
                         :value="5"
-                        :disabled="arrayType !== 5">
+                        >
                         {{ $t('template.关联数组') }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         :value="6"
-                        :disabled="arrayType !== 6">
+                        >
                         {{ $t('template.索引数组') }}
                     </bk-radio-button>
                 </bk-radio-group>

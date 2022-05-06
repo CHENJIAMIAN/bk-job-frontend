@@ -10,7 +10,7 @@
                             <bk-select
                                 v-model="taskStepType"
                                 :clearable="false"
-                                :disabled="isStepTypeReadOnly"
+                                
                                 class="form-item-content">
                                 <bk-option id="1" :name="$t('template.执行脚本')" />
                                 <bk-option id="2" :name="$t('template.分发文件')" />

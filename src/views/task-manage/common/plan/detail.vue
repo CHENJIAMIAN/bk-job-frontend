@@ -99,7 +99,7 @@
                         <span :tippy-tips="!planInfo.needUpdate ? $t('template.无需同步') : ''">
                             <auth-button
                                 class="action-update"
-                                :disabled="!planInfo.needUpdate"
+                                
                                 :resource-id="id"
                                 auth="job_plan/sync"
                                 @click="handleSync"

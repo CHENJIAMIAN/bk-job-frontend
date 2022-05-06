@@ -55,13 +55,13 @@
                         <div class="action-box">
                             <bk-button
                                 text
-                                :disabled="index === 0"
+                                
                                 @click="handleMove(index, -1)">
                                 {{ $t('setting.上移') }}
                             </bk-button>
                             <bk-button
                                 text
-                                :disabled="index + 1 === list.length"
+                                
                                 @click="handleMove(index, 1)">
                                 {{ $t('setting.下移') }}
                             </bk-button>

@@ -7,7 +7,7 @@
                 <bk-button
                     theme="primary"
                     :loading="isConfirmLoading || isCronJobLoading"
-                    :disabled="planConfirmInfo.unconfirmed < 1 || isComfirmAllFinished"
+                    
                     @click="handleConfirmAll">
                     {{ $t('template.全部确认') }}
                 </bk-button>
@@ -109,7 +109,7 @@
                     <template slot-scope="{ row }">
                         <span :tippy-tips="row.disableDiffTips" class="mr10">
                             <bk-button
-                                :disabled="!!row.disableDiffTips"
+                                
                                 text
                                 @click="handleGoDiff(row)">
                                 {{ $t('template.查看差异') }}
@@ -124,7 +124,7 @@
                                 <bk-button
                                     text
                                     :loading="row.isCronJobLoading"
-                                    :disabled="!!row.disableConfirmTips"
+                                    
                                     @click="handleConfirmCron(row)">
                                     {{ $t('template.确认定时任务') }}
                                 </bk-button>
@@ -152,7 +152,7 @@
                         class="w120"
                         theme="primary"
                         :loading="isSyncLoading || isCronJobLoading"
-                        :disabled="syncSubmitInvalid || planConfirmInfo.unconfirmed > 0"
+                        
                         @click="handleSubmitSync">
                         {{ $t('template.立即同步') }}
                     </bk-button>

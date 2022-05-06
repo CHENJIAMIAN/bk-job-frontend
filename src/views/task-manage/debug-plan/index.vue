@@ -41,13 +41,13 @@
                     <bk-button
                         theme="primary"
                         class="w120 mr10"
-                        :disabled="!enableStepsNotEmpty"
+                        
                         @click="handleSubmitExec">
                         {{ $t('template.去执行') }}
                     </bk-button>
                     <bk-button @click="handleCancle">{{ $t('template.取消') }}</bk-button>
                     <bk-button
-                        :disabled="!enableStepsNotEmpty"
+                        
                         class="plan-save"
                         @click="handleSavePlan">
                         {{ $t('template.另存为') }}

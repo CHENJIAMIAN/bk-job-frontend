@@ -76,7 +76,7 @@
                 <bk-button
                     text
                     @click="handlerSave"
-                    :disabled="serverFile.isDisableSave">
+                    >
                     {{ $t('保存') }}
                 </bk-button>
                 <bk-button text @click="handlerCancel">{{ $t('取消') }}</bk-button>

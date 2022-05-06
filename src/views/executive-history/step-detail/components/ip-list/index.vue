@@ -60,7 +60,7 @@
                         v-for="item in columnList"
                         :key="item.name"
                         :checked="item.checked"
-                        :disabled="item.disabled"
+                        
                         :value="item.name">
                         {{ item.label }}
                     </bk-checkbox>

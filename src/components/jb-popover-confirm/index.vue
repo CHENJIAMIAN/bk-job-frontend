@@ -25,7 +25,7 @@
                     </bk-button>
                     <bk-button class="confirm-option-button"
                         size="small"
-                        :disabled="pending"
+                        
                         @click="handleCancel">
                         {{ cancelText }}
                     </bk-button>

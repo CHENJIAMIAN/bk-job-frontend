@@ -152,7 +152,7 @@
                     <bk-button
                         class="mr10"
                         theme="primary"
-                        :disabled="row.isEditRelateDisabled"
+                        
                         text
                         @click="handleEditRelate(row)"
                         v-test="{ type: 'button', value: 'editTagRelate' }">

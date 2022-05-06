@@ -33,7 +33,7 @@
                         <bk-input
                             :value="params.keyword"
                             key="log"
-                            :disabled="isFile"
+                            
                             :tippy-tips="isFile ? $t('history.分发文件步骤不支持日志搜索') : ''"
                             right-icon="bk-icon icon-search"
                             style="width: 292px;"

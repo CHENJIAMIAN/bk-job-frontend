@@ -24,7 +24,7 @@
             <bk-button
                 class="mr10"
                 theme="primary"
-                :disabled="isSelectedEmpty"
+                
                 @click="handleSubmit">
                 <span>{{ $t('添加') }}</span>
                 <span v-if="!isSelectedEmpty" class="result-nums">{{ fileLocation.length }}</span>

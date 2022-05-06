@@ -194,7 +194,7 @@
                             :permission="row.canView"
                             auth="script/execute"
                             :resource-id="row.id"
-                            :disabled="row.isExecuteDisable"
+                            
                             @click="handleExec(row)">
                             {{ $t('script.去执行') }}
                         </auth-button>

@@ -6,7 +6,7 @@
             <div>
                 <bk-button
                     class="mr10"
-                    :disabled="readonly"
+                    
                     @click="handleChooseIp"
                     v-bk-tooltips="descPopover">
                     <Icon type="plus" />
@@ -14,7 +14,7 @@
                 </bk-button>
                 <bk-button
                     v-show="isNotEmpty"
-                    :disabled="readonly"
+                    
                     @click="handleClear">
                     {{ $t('清空') }}
                 </bk-button>

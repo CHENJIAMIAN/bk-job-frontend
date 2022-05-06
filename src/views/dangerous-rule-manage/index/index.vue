@@ -85,7 +85,7 @@
                             <bk-button
                                 class="arrow-btn mr10"
                                 text
-                                :disabled="index === 0"
+                                
                                 v-bk-tooltips.top="$t('dangerousRule.上移')"
                                 @click="handleMove(index, -1)"
                                 v-test="{ type: 'button', value: 'upMoveRule' }">
@@ -94,7 +94,7 @@
                             <bk-button
                                 class="arrow-btn mr10"
                                 text
-                                :disabled="index + 1 === list.length"
+                                
                                 v-bk-tooltips.top="$t('dangerousRule.下移')"
                                 @click="handleMove(index, 1)"
                                 v-test="{ type: 'button', value: 'downMoveRule' }">

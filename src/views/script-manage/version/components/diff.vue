@@ -33,7 +33,7 @@
                         :key="item.scriptVersionId"
                         :id="item.scriptVersionId"
                         :name="item.version"
-                        :disabled="item.scriptVersionId === oldVersionId" />
+                         />
                 </bk-select>
             </div>
             <div class="version-right">
@@ -43,7 +43,7 @@
                         :key="item.scriptVersionId"
                         :id="item.scriptVersionId"
                         :name="item.version"
-                        :disabled="item.scriptVersionId === newVersionId" />
+                         />
                 </bk-select>
             </div>
         </div>

@@ -38,13 +38,13 @@
                             <bk-button
                                 theme="primary"
                                 class="job-button"
-                                :disabled="!data.enable"
+                                
                                 @click="handleSubmit">
                                 {{ $t('template.确认') }}
                             </bk-button>
                             <bk-button
                                 class="job-button"
-                                :disabled="!data.enable"
+                                
                                 @click="handleReset">
                                 {{ $t('template.重置') }}
                             </bk-button>
@@ -53,7 +53,7 @@
                             v-else
                             theme="primary"
                             class="job-button"
-                            :disabled="!data.enable"
+                            
                             @click="handleToggleEdit">
                             {{ $t('template.编辑') }}
                         </bk-button>

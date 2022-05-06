@@ -11,13 +11,13 @@
                     @change="value => props.change('type', value)">
                     <bk-radio-button
                         class="account-type-radio"
-                        :disabled="props.isEdit && props.formData.type !== 1"
+                        
                         :value="1">
                         Linux
                     </bk-radio-button>
                     <bk-radio-button
                         class="account-type-radio"
-                        :disabled="props.isEdit && props.formData.type !== 2"
+                        
                         :value="2">
                         Windows
                     </bk-radio-button>

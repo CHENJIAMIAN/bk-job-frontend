@@ -83,7 +83,7 @@
                     theme="primary"
                     class="w120 mr10"
                     :loading="submitLoading"
-                    :disabled="isSubmitDisable"
+                    
                     @click="handleSumbit"
                     v-test="{ type: 'button', value: 'createPlanSubmit' }">
                     {{ $t('template.提交') }}

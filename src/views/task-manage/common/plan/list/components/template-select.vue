@@ -43,7 +43,7 @@
                 :resource-id="formData.templateId"
                 :auth="formData.templateId ? 'job_plan/create' : ''"
                 theme="primary"
-                :disabled="!formData.templateId"
+                
                 class="mr10"
                 @click="handleSubmit">
                 {{ $t('template.确定') }}
