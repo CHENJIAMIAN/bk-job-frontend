@@ -30,6 +30,7 @@
                     @on-change="value => handleChange(index, value)"
                     @on-delete="handleDelete(index)"
                     @on-append="handleAppendVariable(index)" />
+                <!-- 自定义表格进行, 行内增删 -->
                 <create-table-row
                     v-else-if="variableItem.id < 0"
                     ref="variableCreate"
