@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="task-import-step5" v-bkloading="{ isLoading }">
         <div class="flag">
@@ -159,6 +158,7 @@
     };
 </script>
 <style lang='postcss'>
+    /* 巧妙地利用css动画, . -> .. -> ... 实现循环加载动画 */
     @keyframes import-task-loading {
         0% {
             content: ".";
