@@ -1,5 +1,5 @@
 
-
+// 动态表单渲染列
 import I18n from '@/i18n';
 
 const noop = () => {};
