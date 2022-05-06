@@ -3,6 +3,7 @@
 <template>
     <div ref="handle" class="resizeable-box" :style="styles">
         <slot />
+        <!-- 拖拽分割条-动态设置父元素宽度 -->
         <div
             class="mouse-flag"
             @mousedown="handleMousedown">
