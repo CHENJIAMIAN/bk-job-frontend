@@ -70,7 +70,7 @@ module.exports = function (env) {
         output: {
             pathinfo: false,
             path: resolve('dist'),
-            publicPath: isDevelopment ? '/' : 'bk-job-frontend',
+            publicPath: isDevelopment ? '/' : '/bk-job-frontend/',
             filename: isDevelopment ? 'js/[name].js' : 'js/[name].[chunkhash].js',
             chunkFilename: isDevelopment ? 'js/[name].js' : 'js/[name].[chunkhash].js',
             clean: true,
