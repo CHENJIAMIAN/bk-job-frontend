@@ -80,7 +80,6 @@
                 <span v-bk-tooltips="notNeedUpdateTips">
                     <bk-button
                         class="action-sync mr10"
-                        :disabled="isNotNeedUpdate"
                         :loading="isPlanListLoading"
                         @click="handleGoSyncPlan"
                         v-test="{ type: 'button', value: 'syncPlan' }">

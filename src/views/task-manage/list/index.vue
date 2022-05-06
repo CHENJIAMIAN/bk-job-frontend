@@ -100,7 +100,7 @@
                                         id: row.id,
                                     },
                                 }">
-                                {{ row.name }}
+                                {'row.name' || row.name }}
                             </auth-router-link>
                             <auth-router-link
                                 :permission="row.canView"
@@ -115,6 +115,7 @@
                                         mode: 'scriptUpdate',
                                     },
                                 }">
+                                123123
                                 <span v-html="row.scriptStatusHtml" />
                             </auth-router-link>
                         </div>

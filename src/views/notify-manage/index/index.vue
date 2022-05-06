@@ -2,12 +2,14 @@
 <template>
     <smart-action offset-target="bk-form-content">
         <div class="notify-message-page">
-            <bk-collapse v-if="!isLoading" v-model="activeResult">
+            <bk-collapse v-if="!isLoading" :value="'1'">
                 <notify-collapse-item
                     v-for="item in triggerTypeList"
                     :key="item.code"
                     :name="item.code"
-                    :active="activeResult">
+                    :active="'1'"
+                >
+                    trigger-title
                     <span class="trigger-title">{{ item.name }}</span>
                     <trigger-setting
                         slot="content"

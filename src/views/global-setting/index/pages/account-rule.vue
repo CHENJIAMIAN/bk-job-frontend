@@ -47,7 +47,7 @@
             return {
                 isLoading: false,
                 isSubmitting: false,
-                currentRules: [],
+                currentRules: [{},{},{},{}],
             };
         },
         created () {

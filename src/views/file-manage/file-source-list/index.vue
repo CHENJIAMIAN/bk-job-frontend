@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="file-manage-source-file" v-bkloading="{ isLoading }">
         <list-action-layout>
@@ -40,9 +39,6 @@
                 show-overflow-tooltip>
                 <template slot-scope="{ row }">
                     <auth-router-link
-                        v-if="row.isAvailable"
-                        auth="file_source/view"
-                        :permission="row.canView"
                         :resource-id="row.id"
                         :to="{
                             name: 'fileList',
@@ -50,11 +46,11 @@
                                 fileSourceId: row.id,
                             },
                         }">
-                        {{ row.alias }}
+                        {{ row.alias || 'alias' }}
                     </auth-router-link>
-                    <span v-else v-bk-tooltips="$t('file.接入点异常，暂时不可用')">
+                    <!-- <span v-else v-bk-tooltips="$t('file.接入点异常，暂时不可用')">
                         <bk-button disabled text>{{ row.alias }}</bk-button>
-                    </span>
+                    </span> -->
                 </template>
             </bk-table-column>
             <bk-table-column

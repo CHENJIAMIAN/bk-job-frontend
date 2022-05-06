@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="task-import-step4">
         <jb-form ref="form" class="form" :model="formData" :rules="rules">
@@ -60,19 +59,19 @@
                 this.$emit('on-change', 3);
             },
             handleNext () {
-                this.isSubmiting = true;
-                this.$refs.form.validate()
-                    .then(() => BackupService.import({
-                        ...this.formData,
-                        id: this.id,
-                        templateInfo: this.templateInfo,
-                    }).then(() => {
-                        window.changeAlert = false;
-                        this.$emit('on-change', 5);
-                    }))
-                    .finally(() => {
-                        this.isSubmiting = false;
-                    });
+                // this.isSubmiting = true;
+                // this.$refs.form.validate()
+                //     .then(() => BackupService.import({
+                //         ...this.formData,
+                //         id: this.id,
+                //         templateInfo: this.templateInfo,
+                //     }).then(() => {
+                window.changeAlert = false;
+                this.$emit('on-change', 5);
+                // }))
+                // .finally(() => {
+                //     this.isSubmiting = false;
+                // });
             },
         },
     };

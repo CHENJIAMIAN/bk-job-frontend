@@ -37,7 +37,6 @@
             <bk-button class="mr10" @click="handleLast">{{ $t('template.上一步') }}</bk-button>
             <bk-button
                 class="w120"
-                :disabled="!isUploadSuccess"
                 theme="primary"
                 @click="handleNext">
                 {{ $t('template.下一步') }}

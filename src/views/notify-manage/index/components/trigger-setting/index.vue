@@ -1,5 +1,4 @@
 
-
 <template>
     <jb-form class="notify-trigger-setting">
         <jb-form-item :label="$t('notify.操作类型')">
@@ -8,7 +7,7 @@
                 :value="localValue.resourceTypeList"
                 @change="handleResourceTypeChange">
                 <bk-checkbox
-                    v-for="(item) in templateData.resourceTypeList"
+                    v-for="(item) in [{},{},{}]"
                     :key="item.code"
                     :value="item.code">
                     {{ item.name }}
@@ -31,12 +30,12 @@
                     <th>{{ $t('notify.通知方式') }}</th>
                 </thead>
                 <tbody>
-                    <tr v-for="(executeStatus, index) in templateData.executeStatusList" :key="index">
+                    <tr v-for="(executeStatus, index) in [{},{},{}]" :key="index">
                         <td>{{ executeStatus.name }}</td>
                         <td>
                             <render-notify-way
                                 :channel-list="templateData.availableNotifyChannelList"
-                                :value="localValue.resourceStatusChannelMap[executeStatus.code] || []"
+                                :value="[]"
                                 @on-change="value => handleNotifyWayChange(executeStatus.code, value)" />
                         </td>
                     </tr>

@@ -10,7 +10,6 @@
                             class="task-box"
                             :class="{
                                 active: templateItem.id === activeTemplateId,
-                                disable: !templateInfoMap[templateItem.id].checked,
                             }"
                             :key="templateItem.id"
                             @click="handleSelectTemplate(templateItem.id)">
@@ -18,7 +17,6 @@
                             <bk-switcher
                                 size="small"
                                 theme="primary"
-                                :value="templateInfoMap[templateItem.id].checked"
                                 @click.stop=""
                                 @change="value => handleTemplateChange(value, templateItem.id)" />
                         </div>
@@ -27,11 +25,10 @@
             </div>
             <div class="layout-right">
                 <scroll-faker>
-                    <div class="wraper" v-if="activeTemplateId">
+                    <div class="wraper">
                         <div class="task-header">
                             <span>{{ templateNameMap[activeTemplateId] }}</span>
                             <span
-                                v-if="!templateInfoMap[activeTemplateId].checked"
                                 class="invalid-flag">
                                 {{ $t('template.不导入') }}
                             </span>
@@ -43,7 +40,6 @@
                                     v-if="templateInfoMap[activeTemplateId].exportAll"
                                     class="whole-check"
                                     text
-                                    :disabled="!templateInfoMap[activeTemplateId].checked"
                                     @click="handleCancelWholePlan">
                                     {{ $t('template.取消全选') }}
                                 </bk-button>
@@ -51,7 +47,6 @@
                                     v-else
                                     class="whole-check"
                                     text
-                                    :disabled="!templateInfoMap[activeTemplateId].checked"
                                     @click="handleSelectWholePlan">
                                     {{ $t('template.全选') }}
                                 </bk-button>
@@ -62,7 +57,6 @@
                                         class="plan-box"
                                         :class="{
                                             invalid: !templateInfoMap[activeTemplateId].planIdMap[planIdItem],
-                                            disable: !templateInfoMap[activeTemplateId].checked,
                                         }"
                                         :key="planIdItem"
                                         @click="handleTogglePlan(planIdItem)">
@@ -71,7 +65,6 @@
                                             class="plan-check"
                                             :class="{
                                                 active: templateInfoMap[activeTemplateId].planIdMap[planIdItem],
-                                                disable: !templateInfoMap[activeTemplateId].checked,
                                             }" />
                                     </div>
                                 </template>
@@ -107,7 +100,7 @@
                 id: '',
                 isLoading: false,
                 activeTemplateId: 0,
-                templateInfoOrigin: [],
+                templateInfoOrigin: [{},{},{}],
                 templateInfoMap: {},
                 planNameMap: {},
                 templateNameMap: {},
@@ -115,7 +108,7 @@
         },
         computed: {
             currentPlanList () {
-                return this.templateInfoMap[this.activeTemplateId].planIdOrigin;
+                return [] || this.templateInfoMap[this.activeTemplateId].planIdOrigin;
             },
         },
         created () {
@@ -210,10 +203,10 @@
                         planId: Object.keys(currentTemplate.planIdMap),
                     });
                 }
-                if (templateInfo.length < 1) {
-                    this.messageError(I18n.t('template.导入内容不能为空'));
-                    return;
-                }
+                // if (templateInfo.length < 1) {
+                //     this.messageError(I18n.t('template.导入内容不能为空'));
+                //     return;
+                // }
                 taskImport.setItem('id', this.id);
                 taskImport.setItem('templateInfo', templateInfo);
                 this.$emit('on-change', 4);

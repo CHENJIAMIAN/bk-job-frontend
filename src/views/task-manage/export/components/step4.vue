@@ -25,7 +25,6 @@
                 class="w120"
                 theme="primary"
                 :loading="isFinishing"
-                :disabled="!isExportSuccess"
                 @click="handleFinish">
                 {{ $t('template.完成') }}
             </bk-button>

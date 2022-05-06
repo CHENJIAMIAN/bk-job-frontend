@@ -1,6 +1,7 @@
 
 
 <template>
+    <!-- resizeable-box动态调整 -->
     <resizeable-box :parent-width="parentWidth" :width="parentWidth / 2">
         <div
             class="script-template-preview-template"

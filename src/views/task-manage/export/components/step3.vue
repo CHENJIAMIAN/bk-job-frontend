@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="export-task-step3-page">
         <div class="form">
@@ -261,25 +260,25 @@
                 this.$emit('on-change', 2);
             },
             handleNext () {
-                const templateInfo = taskExport.getItem('templateInfo');
-                if (!templateInfo) {
-                    return;
-                }
+                // const templateInfo = taskExport.getItem('templateInfo');
+                // if (!templateInfo) {
+                //     return;
+                // }
                 this.isSubmiting = true;
                 this.$refs.form.validate()
                     .then(() => {
-                        const { packageName, password, secretHandler, expireTime, customNum } = this.formData;
-                        return BackupService.export({
-                            packageName,
-                            password,
-                            secretHandler,
-                            expireTime: expireTime === 'custom' ? parseInt(customNum, 10) : expireTime,
-                            templateInfo,
-                        }).then((data) => {
-                            window.changeAlert = false;
-                            taskExport.setItem('id', data.id);
-                            this.$emit('on-change', 4);
-                        });
+                        // const { packageName, password, secretHandler, expireTime, customNum } = this.formData;
+                        // return BackupService.export({
+                        //     packageName,
+                        //     password,
+                        //     secretHandler,
+                        //     expireTime: expireTime === 'custom' ? parseInt(customNum, 10) : expireTime,
+                        //     templateInfo,
+                        // }).then((data) => {
+                        window.changeAlert = false;
+                        taskExport.setItem('id', 'data.id');
+                        this.$emit('on-change', 4);
+                        // });
                     })
                     .finally(() => {
                         this.isSubmiting = false;

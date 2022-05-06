@@ -37,7 +37,6 @@
             <bk-button
                 class="w120"
                 theme="primary"
-                :disabled="!isImportSuccess"
                 @click="handleFinish">
                 {{ $t('template.完成') }}
             </bk-button>

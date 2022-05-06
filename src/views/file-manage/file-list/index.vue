@@ -65,7 +65,7 @@
         data () {
             return {
                 renderColumns: [],
-                path: '',
+                path: 'a/b/c/d',
                 fileSourceInfo: {},
             };
         },

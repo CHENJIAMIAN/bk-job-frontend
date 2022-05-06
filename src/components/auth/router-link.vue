@@ -19,7 +19,7 @@
         props: {
             permission: {
                 type: Boolean,
-                required: true,
+                default: true,
             },
             auth: {
                 type: String,
