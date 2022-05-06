@@ -1,9 +1,10 @@
 
-
 const STRATEGY_MAP = {
+    // 300ms后再渲染出子组件
     'async' (callback) {
         setTimeout(() => callback(), 300);
     },
+    // 直到元素滚动到顶部不到30才显示出来
     'viewport' (callback) {
         const windowHeight = window.innerHeight;
         const check = () => {

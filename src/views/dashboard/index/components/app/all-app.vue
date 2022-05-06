@@ -22,6 +22,7 @@
             :title="$t('dashboard.接入业务量趋势图')"
             :name="$t('dashboard.接入业务量')"
             :date="date" />
+        <!-- lower-component 用于在custom为true时才渲染子组件 -->
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
