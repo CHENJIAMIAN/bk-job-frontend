@@ -28,7 +28,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+# .env
 
 *.bak*
 
@@ -36,5 +36,5 @@ typings/
 .DS_Store
 .idea
 dist
-*.env.*
+# *.env.*
 .history
