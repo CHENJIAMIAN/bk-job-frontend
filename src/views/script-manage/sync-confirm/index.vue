@@ -206,7 +206,7 @@
              */
             handleComparison (row) {
                 this.serviceHandler.versionDetail({
-                    id: row.scriptVersionId,
+                    id: 4 || row.scriptVersionId,
                 }).then((data) => {
                     this.selectScriptVersionId = data.scriptVersionId;
                     this.diffList = Object.freeze([

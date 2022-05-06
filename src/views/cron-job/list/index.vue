@@ -74,11 +74,11 @@
                         :to="{
                             name: 'viewPlan',
                             params: {
-                                templateId: row.taskTemplateId,
+                                templateid: 4 || row.taskTemplateId,
                             },
                             query: {
                                 from: 'cronJob',
-                                viewPlanId: row.taskPlanId,
+                                viewPlanid: 4 || row.taskPlanId,
                             },
                         }">
                         {{ row.taskPlanName }}

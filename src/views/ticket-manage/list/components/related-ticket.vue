@@ -32,7 +32,7 @@
                         :to="{
                             name: 'fileList',
                             query: {
-                                fileSourceId: row.id,
+                                fileSourceId: 4 || row.id,
                             },
                         }"
                         target="_blank">

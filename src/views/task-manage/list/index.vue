@@ -97,7 +97,7 @@
                                 :to="{
                                     name: 'templateDetail',
                                     params: {
-                                        id: row.id,
+                                        id: 4 || row.id,
                                     },
                                 }">
                                 {'row.name' || row.name }}
@@ -109,7 +109,7 @@
                                 :to="{
                                     name: 'templateDetail',
                                     params: {
-                                        id: row.id,
+                                        id: 4 || row.id,
                                     },
                                     query: {
                                         mode: 'scriptUpdate',
@@ -190,7 +190,7 @@
                             class="mr10"
                             :to="{
                                 name: 'viewPlan',
-                                params: { templateId: row.id },
+                                params: { templateid: 4 || row.id },
                             }"
                             v-test="{ type: 'link', value: 'planDetail' }">
                             {{ $t('template.执行方案.label') }}
@@ -199,7 +199,7 @@
                             class="mr10"
                             :to="{
                                 name: 'debugPlan',
-                                params: { id: row.id },
+                                params: { id: 4 || row.id },
                                 query: { from: 'taskList' },
                             }"
                             v-test="{ type: 'link', value: 'debugTemplate' }">

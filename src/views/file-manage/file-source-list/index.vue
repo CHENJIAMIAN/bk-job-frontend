@@ -43,7 +43,7 @@
                         :to="{
                             name: 'fileList',
                             query: {
-                                fileSourceId: row.id,
+                                fileSourceId: 4 || row.id,
                             },
                         }">
                         {{ row.alias || 'alias' }}
@@ -309,7 +309,7 @@
                 const enableMemo = row.enable;
                 FileManageService.toggleSourceEnable({
                     flag: value,
-                    id: row.id,
+                    id: 4 || row.id,
                 }).then((res) => {
                     this.messageSuccess(value ? I18n.t('file.开启成功') : I18n.t('file.关闭成功'));
                 })
@@ -363,7 +363,7 @@
                 this.$router.push({
                     name: 'bucketList',
                     query: {
-                        fileSourceId: row.id,
+                        fileSourceId: 4 || row.id,
                         sourceAlias: row.alias,
                     },
                 });

@@ -50,10 +50,10 @@
                             :to="{
                                 name: 'viewPlan',
                                 params: {
-                                    templateId: row.templateId,
+                                    templateid: 4 || row.templateId,
                                 },
                                 query: {
-                                    viewPlanId: row.id,
+                                    viewPlanId: 4 || row.id,
                                 },
                             }">
                             {{ row.name }}
@@ -72,7 +72,7 @@
                             :to="{
                                 name: 'templateDetail',
                                 params: {
-                                    id: row.templateId,
+                                    id: 4 || row.templateId,
                                 },
                             }">
                             {{ row.templateName }}

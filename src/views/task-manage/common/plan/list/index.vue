@@ -96,7 +96,7 @@
                                         :to="{
                                             name: 'cronList',
                                             query: {
-                                                planId: row.id,
+                                                planId: 4 || row.id,
                                             },
                                         }"
                                         target="_blank"
@@ -141,7 +141,7 @@
                                         :to="{
                                             name: 'cronList',
                                             query: {
-                                                planId: row.id,
+                                                planId: 4 || row.id,
                                             },
                                         }"
                                         target="_blank"
@@ -776,7 +776,7 @@
                     .then(() => {
                         this.planComType = mode;
                         this.selectPlanInfo = {
-                            templateId: row.templateId,
+                            templateid: 4 || row.templateId,
                             id: currentPlanId,
                         };
                         this.paginationSmall = true;
@@ -823,8 +823,8 @@
             handleExecute (row) {
                 // 获取作业详情
                 // ExecPlanService.fetchPlanDetailInfo({
-                //     id: row.id,
-                //     templateId: row.templateId,
+                //     id: 4 || row.id,
+                //     templateid: 4 || row.templateId,
                 // }).then((data) => {
                 const data = { variableList: [1, 2] };
                 // 没有变量——直接执行
@@ -834,7 +834,7 @@
                         subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
                         confirmFn: () => {
                             TaskExecuteService.taskExecution({
-                                taskId: row.id,
+                                taskId: 4 || row.id,
                                 taskVariables: [],
                             }).then(({ taskInstanceId }) => {
                                 this.$bkMessage({
@@ -859,8 +859,8 @@
                 this.$router.push({
                     name: 'settingVariable',
                     params: {
-                        id: row.id,
-                        templateId: row.templateId,
+                        id: 4 || row.id,
+                        templateid: 4 || row.templateId,
                     },
                     query: {
                         from: this.$route.name,
@@ -882,8 +882,8 @@
                 this.$router.push({
                     name: 'syncPlan',
                     params: {
-                        id: row.id,
-                        templateId: row.templateId,
+                        id: 4 || row.id,
+                        templateid: 4 || row.templateId,
                     },
                     query: {
                         from: this.$route.name,
@@ -900,8 +900,8 @@
                     name: 'cronList',
                     query: {
                         mode: 'create',
-                        templateId: row.templateId,
-                        planId: row.id,
+                        templateid: 4 || row.templateId,
+                        planId: 4 || row.id,
                     },
                 });
                 window.open(href);
@@ -912,8 +912,8 @@
              */
             handleDelete (row) {
                 return ExecPlanService.planDelete({
-                    id: row.id,
-                    templateId: row.templateId,
+                    id: 4 || row.id,
+                    templateid: 4 || row.templateId,
                 }).then((data) => {
                     this.$bkMessage({
                         theme: 'success',

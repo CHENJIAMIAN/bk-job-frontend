@@ -14,7 +14,7 @@
                             :to="{
                                 name: 'templateDetail',
                                 params: {
-                                    id: row.id,
+                                    id: 4 || row.id,
                                 },
                             }">
                             {{ row.name }}
@@ -44,7 +44,7 @@
                             :to="{
                                 name: 'viewPlan',
                                 params: {
-                                    templateId: row.id,
+                                    templateId: 4 || row.id,
                                 },
                             }">
                             {{ $t('home.执行方案') }}
@@ -56,7 +56,7 @@
                             :to="{
                                 name: 'debugPlan',
                                 params: {
-                                    id: row.id,
+                                    id: 4 || row.id,
                                 },
                             }">
                             {{ $t('home.调试') }}
@@ -68,7 +68,7 @@
                             :to="{
                                 name: 'templateEdit',
                                 params: {
-                                    id: row.id,
+                                    id: 4 || row.id,
                                 },
                             }">
                             {{ $t('home.编辑') }}

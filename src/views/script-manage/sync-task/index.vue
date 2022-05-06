@@ -22,7 +22,7 @@
                         :to="{
                             name: 'templateDetail',
                             params: {
-                                id: row.templateId,
+                                id: 4 || row.templateId,
                             },
                         }">
                         {{ row.templateName }}
@@ -187,8 +187,8 @@
                     scriptVersionId: this.scriptVersionId,
                     steps: [
                         {
-                            templateId: row.templateId,
-                            stepId: row.stepId,
+                            templateid: 4 || row.templateId,
+                            stepid: 4 || row.stepId,
                         },
                     ],
                 }).then((data) => {

@@ -130,7 +130,7 @@
                             prop="action"
                             key="action"
                             align="left"
-                            width="200">
+                            width="400">
                             <div slot-scope="{ row }" @click.stop="">
                                 <jb-popover-confirm
                                     v-if="!row.isOnline"
@@ -149,7 +149,6 @@
                                     </auth-button>
                                 </jb-popover-confirm>
                                 <jb-popover-confirm
-                                    v-if="row.isOnline"
                                     class="mr10"
                                     :title="$t('script.确定禁用该版本？')"
                                     :content="$t('script.一旦禁用成功，线上引用该版本的作业脚本步骤都会执行失败，请务必谨慎操作！')"
@@ -163,7 +162,6 @@
                                     </auth-button>
                                 </jb-popover-confirm>
                                 <auth-button
-                                    v-if="row.isDraft"
                                     class="mr10"
                                     :permission="row.canManage"
                                     :resource-id="row.id"
@@ -173,7 +171,6 @@
                                     {{ $t('script.编辑') }}
                                 </auth-button>
                                 <span
-                                    v-if="!row.isDraft"
                                     class="mr10"
                                     :tippy-tips="isCopyCreateDisabled ? $t('script.已有[未上线]版本') : ''">
                                     <auth-button
@@ -187,7 +184,6 @@
                                     </auth-button>
                                 </span>
                                 <auth-button
-                                    v-if="row.isOnline"
                                     text
                                     :permission="row.canManage"
                                     auth="script/execute"
@@ -198,7 +194,6 @@
                                 </auth-button>
                                 <span :tippy-tips="!row.syncEnabled ? $t('script.所有关联作业模板已是当前版本') : ''">
                                     <auth-button
-                                        v-if="row.isOnline"
                                         :permission="row.canManage"
                                         :resource-id="row.id"
                                         auth="script/edit"
@@ -210,7 +205,6 @@
                                     </auth-button>
                                 </span>
                                 <jb-popover-confirm
-                                    v-if="row.isVersionEnableRemove"
                                     :title="$t('script.确定删除该版本？')"
                                     :content="$t('script.删除后不可恢复，请谨慎操作！')"
                                     :confirm-handler="() => handleRemove(row.scriptVersionId)">
@@ -800,8 +794,8 @@
                 this.$router.push({
                     name: routerName,
                     params: {
-                        scriptId: row.id,
-                        scriptVersionId: row.scriptVersionId,
+                        scriptId: 4 || row.id,
+                        scriptVersionid: 4 || row.scriptVersionId,
                     },
                 });
             },

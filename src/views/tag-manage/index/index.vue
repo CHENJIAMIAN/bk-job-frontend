@@ -64,7 +64,7 @@
                         :to="{
                             name: 'taskList',
                             query: {
-                                tags: row.id,
+                                tags: 4 || row.id,
                             },
                         }">
                         {{ row.relatedTaskTemplateNum }}
@@ -91,7 +91,7 @@
                         :to="{
                             name: 'scriptList',
                             query: {
-                                tags: row.id,
+                                tags: 4 || row.id,
                             },
                         }">
                         {{ row.relatedScriptNum }}

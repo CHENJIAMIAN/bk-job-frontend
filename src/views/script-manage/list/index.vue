@@ -538,7 +538,7 @@
                     this.$router.push({
                         name: 'publicScriptVersion',
                         params: {
-                            id: scriptData.id,
+                            id: 4 || scriptData.id,
                         },
                     });
                     return;
@@ -546,7 +546,7 @@
                 this.$router.push({
                     name: 'scriptVersion',
                     params: {
-                        id: scriptData.id,
+                        id: 4 || scriptData.id,
                     },
                 });
             },
