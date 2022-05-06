@@ -1,6 +1,6 @@
 
-
 <template>
+    <!-- 传送移动 slot 到指定的 target -->
     <span ref="source" style="display: none;">
         <slot />
     </span>
