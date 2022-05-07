@@ -29,20 +29,20 @@
                             class="export-project">
                             <div class="project-select">
                                 <p class="select-title">
-                                    {{ $t('template.选择要导出的作业执行方案') }}
+                                    {{ '选择要导出的作业执行方案' }}
                                 </p>
                                 <div class="all-select-btn">
                                     <bk-button
                                         v-if="templateInfoMap[currentTemplateId].exportAll"
                                         text
                                         @click="handleCancelSelect">
-                                        {{ $t('template.取消全选') }}
+                                        {{ '取消全选' }}
                                     </bk-button>
                                     <bk-button
                                         v-else
                                         @click="handleAllSelect"
                                         text>
-                                        {{ $t('template.全选') }}
+                                        {{ '全选' }}
                                     </bk-button>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                                         @click.stop="handleGoPlanDetail(item)">
                                         <span
                                             class="plan"
-                                            :tippy-tips="$t('template.新窗口打开该执行方案')">
+                                            :tippy-tips="'新窗口打开该执行方案'">
                                             {{ item.name }}
                                         </span>
                                     </div>
@@ -71,7 +71,7 @@
                         </div>
                         <empty
                             v-if="renderPlanList.length < 1 && !isPlanLoading"
-                            :title="$t('template.暂无执行方案')"
+                            :title="'暂无执行方案'"
                             style="margin-top: 100px;" />
                     </div>
                 </scroll-faker>
@@ -81,18 +81,18 @@
             <bk-button
                 class="mr10"
                 @click="handleCancel">
-                {{ $t('template.取消') }}
+                {{ '取消' }}
             </bk-button>
             <bk-button
                 class="mr10"
                 @click="handleLast">
-                {{ $t('template.上一步') }}
+                {{ '上一步' }}
             </bk-button>
             <bk-button
                 class="w120"
                 theme="primary"
                 @click="handleNext">
-                {{ $t('template.下一步') }}
+                {{ '下一步' }}
             </bk-button>
         </div>
     </div>

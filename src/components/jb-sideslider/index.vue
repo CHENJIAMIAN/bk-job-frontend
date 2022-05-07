@@ -41,8 +41,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import {
+       import {
         leaveConfirm,
     } from '@utils/assist';
 
@@ -68,11 +67,11 @@
             },
             okText: {
                 type: String,
-                default: I18n.t('保存'),
+                default: '保存',
             },
             cancelText: {
                 type: String,
-                default: I18n.t('取消'),
+                default: '取消',
             },
             footerOffsetTarget: {
                 type: String,

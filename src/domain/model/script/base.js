@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import Model from '@model/model';
 
 const STATUS_INVALID = -1; // 未保存
@@ -17,10 +15,10 @@ export default class Base extends Model {
     static STATUS_DISABLED = STATUS_DISABLED;
 
     static STATUS_TEXT_MAP = {
-        [STATUS_INVALID]: I18n.t('未保存'),
-        [STATUS_DRAFT]: I18n.t('未上线'),
-        [STATUS_ONLINE]: I18n.t('已上线'),
-        [STATUS_OFFLINE]: I18n.t('已下线'),
-        [STATUS_DISABLED]: I18n.t('已禁用'),
+        [STATUS_INVALID]: '未保存',
+        [STATUS_DRAFT]: '未上线',
+        [STATUS_ONLINE]: '已上线',
+        [STATUS_OFFLINE]: '已下线',
+        [STATUS_DISABLED]: '已禁用',
     };
 }

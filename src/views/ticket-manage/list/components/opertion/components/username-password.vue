@@ -2,13 +2,13 @@
 
 <template>
     <jb-form ref="form" :model="formData" :rules="rules" form-type="vertical">
-        <jb-form-item :label="$t('ticket.用户名')" required property="value1">
+        <jb-form-item :label="'用户名'" required property="value1">
             <bk-input v-model="formData.value1" />
         </jb-form-item>
-        <jb-form-item :label="$t('ticket.密码')" required property="value2">
+        <jb-form-item :label="'密码'" required property="value2">
             <bk-input v-model="formData.value2" type="password" />
         </jb-form-item>
-        <jb-form-item :label="$t('ticket.描述')">
+        <jb-form-item :label="'描述'">
             <bk-input
                 v-model="formData.description"
                 type="textarea"
@@ -18,8 +18,7 @@
 </template>
 
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: 'UsernamePassword',
         props: {
@@ -50,14 +49,14 @@
                 value1: [
                     {
                         required: true,
-                        message: I18n.t('ticket.密码必填'),
+                        message: '密码必填',
                         trigger: 'blur',
                     },
                 ],
                 value2: [
                     {
                         required: true,
-                        message: I18n.t('ticket.用户名必填'),
+                        message: '用户名必填',
                         trigger: 'blur',
                     },
                 ],

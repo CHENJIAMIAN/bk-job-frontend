@@ -3,19 +3,19 @@
 <template>
     <render-list ref="list" ignore-url :data-source="fetchUnlaunchHistory">
         <bk-table-column
-            :label="$t('cron.唤起时间')"
+            :label="'唤起时间'"
             prop="scheduledTime"
             key="scheduledTime"
             width="180"
             align="left" />
         <bk-table-column
-            :label="$t('cron.执行人.colHead')"
+            :label="'执行人'"
             prop="executor"
             key="executor"
             width="180"
             align="left" />
         <bk-table-column
-            :label="$t('cron.原因')"
+            :label="'原因'"
             prop="errorMsg"
             key="errorMsg"
             align="left">

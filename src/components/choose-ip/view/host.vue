@@ -3,13 +3,13 @@
 <template>
     <jb-collapse-item name="host">
         <span class="panel-title">
-            <span>{{ $t('已选择.result') }}<span class="strong number">{{ data.length }}</span>{{ $t('台主机.result') }}</span>
-            <span v-if="statisticsData.fail">（<span class="error number">{{ statisticsData.fail }}</span>{{ $t('台Agent异常') }}）</span>
+            <span>{{ '已选择'}}<span class="strong number">{{ data.length }}</span>{{ '台主机'}}</span>
+            <span v-if="statisticsData.fail">（<span class="error number">{{ statisticsData.fail }}</span>{{ '台Agent异常' }}）</span>
         </span>
         <action-extend :list="list" copyable :invalid-list="invalidList">
             <template v-if="editable">
-                <div class="action-item" @click="handleRemoveAll">{{ $t('移除全部') }}</div>
-                <div class="action-item" @click="handleRemoveFail">{{ $t('移除异常') }}</div>
+                <div class="action-item" @click="handleRemoveAll">{{ '移除全部' }}</div>
+                <div class="action-item" @click="handleRemoveFail">{{ '移除异常' }}</div>
             </template>
         </action-extend>
         <template #content>
@@ -30,8 +30,8 @@
                             <td class="table-cell">
                                 <span
                                     class="invalid"
-                                    v-bk-tooltips="$t('指主机已不属于该业务，或已不存在')">
-                                    {{ $t('无效') }}
+                                    v-bk-tooltips="'指主机已不属于该业务，或已不存在'">
+                                    {{ '无效' }}
                                 </span>
                                 <span>{{ row.ip }}</span>
                             </td>
@@ -40,7 +40,7 @@
                             <td>--</td>
                             <td>--</td>
                             <td v-if="editable" class="action-column">
-                                <bk-button text @click="handleInvalidRemove(row)">{{ $t('移除') }}</bk-button>
+                                <bk-button text @click="handleInvalidRemove(row)">{{ '移除' }}</bk-button>
                             </td>
                         </tr>
                     </tbody>
@@ -57,8 +57,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import AppManageService from '@service/app-manage';
+       import AppManageService from '@service/app-manage';
     import JbCollapseItem from '@components/jb-collapse-item';
     import ActionExtend from '../components/action-extend';
     import HostTable from '../components/host-table';
@@ -229,12 +228,12 @@
              */
             handleRemoveAll () {
                 if (this.list.length < 1 && this.invalidList.length < 1) {
-                    this.messageSuccess(I18n.t('没有可移除主机'));
+                    this.messageSuccess('没有可移除主机');
                     return;
                 }
                 this.invalidList = [];
                 this.list = [];
-                this.messageSuccess(I18n.t('移除全部主机成功'));
+                this.messageSuccess('移除全部主机成功');
                 this.triggerChange();
             },
             /**
@@ -266,12 +265,12 @@
                     }
                 });
                 if (failIp.length < 1 && this.invalidList.length < 1) {
-                    this.messageSuccess(I18n.t('没有可移除主机'));
+                    this.messageSuccess('没有可移除主机');
                     return;
                 }
                 this.invalidList = [];
                 this.list = Object.freeze(effectiveIp);
-                this.messageSuccess(I18n.t('移除异常主机成功'));
+                this.messageSuccess('移除异常主机成功');
                 this.triggerChange();
             },
         },

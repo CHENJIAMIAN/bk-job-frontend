@@ -10,7 +10,7 @@
             <div v-once id="executeScriptLog" style="height: 100%;" />
         </div>
         <div class="log-status" v-if="ip && isRunning">
-            <div class="log-loading">{{ $t('history.执行中') }}</div>
+            <div class="log-loading">{{ '执行中' }}</div>
         </div>
         <div class="log-action-box">
             <div class="action-item" v-bk-tooltips="backTopTips" @click="handleScrollTop">
@@ -28,8 +28,7 @@
     import 'ace/mode-text';
     import 'ace/theme-monokai';
     import 'ace/ext-searchbox';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import mixins from '../../mixins';
 
     export default {
@@ -108,14 +107,14 @@
         },
         created () {
             this.backTopTips = {
-                content: I18n.t('history.回到顶部'),
+                content: '回到顶部',
                 placements: [
                     'top',
                 ],
                 theme: 'light',
             };
             this.backBottomTips = {
-                content: I18n.t('history.前往底部'),
+                content: '前往底部',
                 placements: [
                     'top',
                 ],

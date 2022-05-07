@@ -6,34 +6,34 @@
             <div class="channel-detail-layout">
                 <div class="layout-left">
                     <div class="detail-item">
-                        <label>{{ $t('setting.渠道类型：') }}</label>
+                        <label>{{ '渠道类型：' }}</label>
                         <span>{{ formData.name }}</span>
                     </div>
                     <div class="detail-item">
-                        <label>{{ $t('setting.消息类型：') }}</label>
+                        <label>{{ '消息类型：' }}</label>
                         <span>{{ formData.messageTypeLabel }}</span>
                     </div>
                 </div>
                 <div class="layout-right">
                     <div class="detail-item">
-                        <label>{{ $t('setting.最近修改人：') }}</label>
+                        <label>{{ '最近修改人：' }}</label>
                         <span>{{ formData.lastModifier }}</span>
                     </div>
                     <div class="detail-item">
-                        <label>{{ $t('setting.最近修改时间：') }}</label>
+                        <label>{{ '最近修改时间：' }}</label>
                         <span>{{ formData.lastModifyTime }}</span>
                     </div>
                 </div>
             </div>
         </div>
         <jb-form class="notify-template-form" ref="templateForm" :model="formData" form-type="vertical" :rules="rules">
-            <jb-form-item v-if="formData.code === 'mail'" :label="$t('setting.邮件主题')" required :property="'title'">
+            <jb-form-item v-if="formData.code === 'mail'" :label="'邮件主题'" required :property="'title'">
                 <bk-input
                     v-model="formData.title"
                     @change="value => handleChange(value, 'title')" />
             </jb-form-item>
-            <jb-form-item :label="$t('setting.模板内容')" required :property="'content'">
-                <bk-button text @click="toggleShowVariable(true)">{{ $t('setting.内置变量') }}</bk-button>
+            <jb-form-item :label="'模板内容'" required :property="'content'">
+                <bk-button text @click="toggleShowVariable(true)">{{ '内置变量' }}</bk-button>
                 <bk-input
                     v-model="formData.content"
                     type="textarea"
@@ -41,11 +41,11 @@
             </jb-form-item>
         </jb-form>
         <div class="message-preview">
-            <bk-button text @click="isShowPreviewSend = !isShowPreviewSend">{{ $t('setting.消息预览') }}</bk-button>
+            <bk-button text @click="isShowPreviewSend = !isShowPreviewSend">{{ '消息预览' }}</bk-button>
             <render-strategy left="20" v-if="isShowPreviewSend">
                 <div class="send-message-content">
                     <jb-user-selector
-                        :placeholder="$t('setting.请输入接收消息预览的用户名（请确保接受人对应的账号配置正常）')"
+                        :placeholder="'请输入接收消息预览的用户名（请确保接受人对应的账号配置正常）'"
                         class="input"
                         :user="reciverList"
                         :show-role="false"
@@ -55,7 +55,7 @@
                         :loading="isLoading"
                         
                         @click="handleSend">
-                        {{ $t('setting.发送') }}
+                        {{ '发送' }}
                     </bk-button>
                 </div>
             </render-strategy>
@@ -71,8 +71,7 @@
 </template>
 
 <script>
-    import I18n from '@/i18n';
-    import GlobalSettingService from '@service/global-setting';
+       import GlobalSettingService from '@service/global-setting';
     import RenderStrategy from '@components/render-strategy';
     import InternalVariable from './internal-variable';
     import JbUserSelector from '@components/jb-user-selector';
@@ -126,12 +125,12 @@
             this.formData = this.data || {};
             this.rules = {
                 content: [
-                    { required: true, message: I18n.t('setting.模板内容必填'), trigger: 'blur' },
+                    { required: true, message: '模板内容必填', trigger: 'blur' },
                 ],
             };
             if (this.formData.code === 'mail') {
                 this.rules.title = [
-                    { required: true, message: I18n.t('setting.邮件主题必填'), trigger: 'blur' },
+                    { required: true, message: '邮件主题必填', trigger: 'blur' },
                 ];
             }
         },
@@ -157,7 +156,7 @@
                 this.isLoading = true;
                 GlobalSettingService.sendNotifyPreview(params)
                     .then((data) => {
-                        this.messageSuccess(I18n.t('setting.发送成功'));
+                        this.messageSuccess('发送成功');
                     })
                     .finally(() => {
                         this.isLoading = false;

@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import {
     prettyDateTimeFormat,
 } from '@utils/assist';
@@ -16,8 +14,8 @@ export default class DangerousRecord {
     };
 
     static actionMap = {
-        1: `${I18n.t('detectRecords.扫描')}`,
-        2: `${I18n.t('detectRecords.拦截')}`,
+        1: `${'扫描'}`,
+        2: `${'拦截'}`,
     };
 
     static startupModeMap = {

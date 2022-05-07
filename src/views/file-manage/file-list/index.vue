@@ -9,7 +9,7 @@
                 :key="`${fileSourceInfo.alias}_${path}`">
                 <jb-breadcrumb-item>
                     <Icon type="folder-open" style="font-size: 20px;" />
-                    <span @click="handleGoFileSource">{{ $t('file.文件源列表') }}</span>
+                    <span @click="handleGoFileSource">{{ '文件源列表' }}</span>
                 </jb-breadcrumb-item>
                 <jb-breadcrumb-item>
                     <span @click="handlePathLocation('')">{{ fileSourceInfo.alias }}</span>
@@ -23,7 +23,7 @@
             </jb-breadcrumb>
             <template #right>
                 <jb-input
-                    :placeholder="$t('file.搜索关键字')"
+                    :placeholder="'搜索关键字'"
                     :value="name"
                     enter-trigger
                     style="width: 480px;"
@@ -49,8 +49,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import FileService from '@service/file';
+       import FileService from '@service/file';
     import ListActionLayout from '@components/list-action-layout';
     import RenderList from '@components/render-list';
     import RenderFileListColumn from '@components/render-file-list-column';
@@ -191,7 +190,7 @@
                     actionCode,
                     params,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('file.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.fetchData();
                 });
             },

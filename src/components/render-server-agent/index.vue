@@ -12,11 +12,11 @@
             class="agent-text"
             @click="handleShowDetail">
             <div v-if="data.normalNum > 0">
-                {{ $t('正常') }}:<span class="success number">{{ data.normalNum }}</span>
+                {{ '正常' }}:<span class="success number">{{ data.normalNum }}</span>
             </div>
             <div v-if="data.abnormalNum > 0">
                 <span v-if="data.normalNum > 0" class="splite" />
-                {{ $t('异常') }}:<span class="error number">{{ data.abnormalNum }}</span>
+                {{ '异常' }}:<span class="error number">{{ data.abnormalNum }}</span>
             </div>
             <span v-if="isEmpty">--</span>
         </div>
@@ -24,7 +24,7 @@
             <jb-dialog
                 v-model="isShowDetail"
                 :width="1020"
-                :ok-text="$t('关闭')"
+                :ok-text="'关闭'"
                 class="render-server-detail-dialog">
                 <template #header>
                     <div class="variable-title">

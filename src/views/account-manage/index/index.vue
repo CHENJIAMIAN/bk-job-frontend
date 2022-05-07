@@ -9,13 +9,13 @@
                 theme="primary"
                 @click="handleAdd"
                 v-test="{ type: 'button', value: 'createAccount' }">
-                {{ $t('account.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     :data="searchSelect"
-                    :placeholder="$t('account.搜索账号别名，名称，更新人...')"
+                    :placeholder="'搜索账号别名，名称，更新人...'"
                     style="width: 420px;"
                     @on-change="handleSearch" />
             </template>
@@ -36,7 +36,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.alias"
-                :label="$t('account.账号别名.colHead')"
+                :label="'账号别名'"
                 prop="alias"
                 key="alias"
                 min-width="180"
@@ -44,7 +44,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.account"
-                :label="$t('account.账号名称.colHead')"
+                :label="'账号名称'"
                 prop="account"
                 key="account"
                 min-width="180"
@@ -52,7 +52,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.categoryName"
-                :label="$t('account.账号用途.colHead')"
+                :label="'账号用途'"
                 prop="categoryName"
                 key="categoryName"
                 width="120"
@@ -60,7 +60,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.typeName"
-                :label="$t('account.账号类型.colHead')"
+                :label="'账号类型'"
                 prop="typeName"
                 key="typeName"
                 width="120"
@@ -68,34 +68,34 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('account.创建人')"
+                :label="'创建人'"
                 prop="creator"
                 key="creator"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('account.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('account.更新人.colHead')"
+                :label="'更新人'"
                 prop="lastModifyUser"
                 key="lastModifyUser"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('account.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 width="180"
                 align="left" />
             <bk-table-column
-                :label="$t('account.操作')"
+                :label="'操作'"
                 :resizable="false"
                 key="action"
                 fixed="right"
@@ -110,11 +110,11 @@
                         text
                         @click="handleEdit(row)"
                         v-test="{ type: 'button', value: 'editAccount' }">
-                        {{ $t('account.编辑') }}
+                        {{ '编辑' }}
                     </auth-button>
                     <jb-popover-confirm
-                        :title="$t('account.确定删除该账号？')"
-                        :content="$t('account.删除后不可恢复，请谨慎操作！')"
+                        :title="'确定删除该账号？'"
+                        :content="'删除后不可恢复，请谨慎操作！'"
                         :confirm-handler="() => handleDelete(row.id)">
                         <auth-button
                             text
@@ -122,7 +122,7 @@
                             auth="account/delete"
                             :resource-id="row.id"
                             v-test="{ type: 'button', value: 'deleteAccount' }">
-                            {{ $t('account.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </template>
@@ -146,8 +146,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import AccountService from '@service/account-manage';
+       import AccountService from '@service/account-manage';
     import NotifyService from '@service/notify';
     import { listColumnsCache } from '@utils/cache-helper';
     import ListActionLayout from '@components/list-action-layout';
@@ -187,13 +186,13 @@
             operationSidesliderInfo () {
                 if (this.editData.id) {
                     return {
-                        title: I18n.t('account.编辑账号'),
-                        okText: I18n.t('account.保存'),
+                        title: '编辑账号',
+                        okText: '保存',
                     };
                 }
                 return {
-                    title: I18n.t('account.新建账号'),
-                    okText: I18n.t('account.提交'),
+                    title: '新建账号',
+                    okText: '提交',
                 };
             },
         },
@@ -203,25 +202,25 @@
                 {
                     name: 'ID',
                     id: 'id',
-                    description: I18n.t('account.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                 },
                 {
-                    name: I18n.t('account.账号别名.colHead'),
+                    name: '账号别名',
                     id: 'alias',
                     default: true,
                 },
                 {
-                    name: I18n.t('account.账号名称.colHead'),
+                    name: '账号名称',
                     id: 'account',
                 },
                 {
-                    name: I18n.t('account.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('account.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -234,38 +233,38 @@
                 },
                 {
                     id: 'alias',
-                    label: I18n.t('account.账号别名.colHead'),
+                    label: '账号别名',
                     disabled: true,
                 },
                 {
                     id: 'account',
-                    label: I18n.t('account.账号名称.colHead'),
+                    label: '账号名称',
                     disabled: true,
                 },
                 {
                     id: 'categoryName',
-                    label: I18n.t('account.账号用途.colHead'),
+                    label: '账号用途',
                 },
                 {
                     id: 'typeName',
-                    label: I18n.t('account.账号类型.colHead'),
+                    label: '账号类型',
                     disabled: true,
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('account.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('account.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('account.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('account.更新时间'),
+                    label: '更新时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -335,7 +334,7 @@
                     id,
                 }).then(() => {
                     this.fetchData();
-                    this.messageSuccess(I18n.t('account.删除成功'));
+                    this.messageSuccess('删除成功');
                     return true;
                 });
             },

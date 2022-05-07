@@ -22,7 +22,7 @@
                         ref="search"
                         v-model="query"
                         spellcheck="false"
-                        :placeholder="$t('关键字')"
+                        :placeholder="'关键字'"
                         @keydown.down.prevent="handleStep('next')"
                         @keydown.up.prevent="handleStep('prev')"
                         @keydown.enter.prevent="handleSelect"
@@ -74,14 +74,14 @@
                     <div
                         v-if="renderList.length < 1"
                         class="app-list-empty">
-                        {{ $t('无匹配数据') }}
+                        {{ '无匹配数据' }}
                     </div>
                 </div>
                 <div
                     class="app-create"
                     key="create"
                     @click="handleGoCreateApp">
-                    <i class="bk-icon icon-plus-circle mr10" />{{ $t('新建业务') }}
+                    <i class="bk-icon icon-plus-circle mr10" />{{ '新建业务' }}
                 </div>
             </div>
         </div>
@@ -89,8 +89,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import pinyin from 'bk-magic-vue/lib/utils/pinyin';
+       import pinyin from 'bk-magic-vue/lib/utils/pinyin';
     import QueryGlobalSettingService from '@service/query-global-setting';
     import AppManageService from '@service/app-manage';
     import {
@@ -259,7 +258,7 @@
              */
             handleGoCreateApp () {
                 if (!this.relatedSystemUrls.BK_CMDB_ROOT_URL) {
-                    alert(I18n.t('网络错误，请刷新页面重试'));
+                    alert('网络错误，请刷新页面重试');
                     return;
                 }
                 window.open(`${this.relatedSystemUrls.BK_CMDB_ROOT_URL}/#/resource/business`);

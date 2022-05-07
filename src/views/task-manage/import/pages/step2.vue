@@ -5,7 +5,7 @@
         <div class="package-upload">
             <bk-upload
                 v-if="!uploadFilename"
-                :tip="$t('template.仅支持上传来自作业平台专属导出的压缩包')"
+                :tip="'仅支持上传来自作业平台专属导出的压缩包'"
                 :multiple="false"
                 :custom-request="handleUploadRequest"
                 :size="Infinity"
@@ -19,8 +19,8 @@
                     <div v-if="uploadStatus === 'waiting'" class="upload-progress">
                         <div class="progress-bar" :style="{ width: uploadProgress }" />
                     </div>
-                    <div v-if="uploadStatus === 'success'" class="file-status">{{ $t('template.上传成功') }}</div>
-                    <div v-if="uploadStatus === 'failed'" class="file-status">{{ $t('template.上传失败') }}</div>
+                    <div v-if="uploadStatus === 'success'" class="file-status">{{ '上传成功' }}</div>
+                    <div v-if="uploadStatus === 'failed'" class="file-status">{{ '上传失败' }}</div>
                     <div v-if="uploadStatus === 'error'" class="file-status">{{ uploadErrorMsg }}</div>
                 </div>
                 <Icon v-if="uploadStatus === 'failed'" class="file-refresh" type="refresh" @click="handleFileRefresh" />
@@ -33,32 +33,32 @@
             </template>
         </div>
         <action-bar>
-            <bk-button class="mr10" @click="handleCancel">{{ $t('template.取消') }}</bk-button>
-            <bk-button class="mr10" @click="handleLast">{{ $t('template.上一步') }}</bk-button>
+            <bk-button class="mr10" @click="handleCancel">{{ '取消' }}</bk-button>
+            <bk-button class="mr10" @click="handleLast">{{ '上一步' }}</bk-button>
             <bk-button
                 class="w120"
                 theme="primary"
                 @click="handleNext">
-                {{ $t('template.下一步') }}
+                {{ '下一步' }}
             </bk-button>
         </action-bar>
         <lower-component level="custom" :custom="isShowPassword">
             <jb-dialog
                 v-model="isShowPassword"
                 class="setting-password-dialog"
-                :title="$t('template.文件包解密确认')"
+                :title="'文件包解密确认'"
                 header-position="left"
                 render-directive="if"
                 :mask-close="false"
                 :esc-close="false"
                 :width="480">
                 <jb-form ref="passwordForm" :model="passwordFormData" form-type="vertical" :rules="rules">
-                    <jb-form-item :label="$t('template.文件包密码')" required property="password">
+                    <jb-form-item :label="'文件包密码'" required property="password">
                         <bk-input
                             v-model="passwordFormData.password"
                             type="password"
                             :native-attributes="{ autofocus: 'autofocus' }"
-                            :placeholder="$t('template.请输入上传的文件包密码，完成后点提交验证')"
+                            :placeholder="'请输入上传的文件包密码，完成后点提交验证'"
                             @keydown="handleEnter" />
                     </jb-form-item>
                 </jb-form>
@@ -68,17 +68,16 @@
                         class="mr10"
                         :loading="isPasswordSubmiting"
                         @click="handleSubmitPassword">
-                        {{ $t('template.提交') }}
+                        {{ '提交' }}
                     </bk-button>
-                    <bk-button @click="handleClosePassword">{{ $t('template.取消') }}</bk-button>
+                    <bk-button @click="handleClosePassword">{{ '取消' }}</bk-button>
                 </div>
             </jb-dialog>
         </lower-component>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import { prettyDateTimeFormat } from '@utils/assist';
     import { taskImport } from '@utils/cache-helper';
     import ActionBar from '../components/action-bar';
@@ -137,7 +136,7 @@
             this.pollingQueue = [];
             this.rules = {
                 password: [
-                    { required: true, message: I18n.t('template.请输入文件包密码'), trigger: 'blur' },
+                    { required: true, message: '请输入文件包密码', trigger: 'blur' },
                 ],
             };
             this.uploadRequestCancelSource = null;
@@ -196,9 +195,9 @@
                 const logContent = `<span class="log-header">[ ${escapeHTML(row.timestamp)} ]</span> ${escapeHTML(row.content)}`;
                 const errorTypeMap = {
                     // eslint-disable-next-line max-len
-                    [LOG_TYPE_NEED_PASSWORD]: `<span class="action" data-action="passwordRetry">${I18n.t('template.输入密码')}</span>`,
+                    [LOG_TYPE_NEED_PASSWORD]: `<span class="action" data-action="passwordRetry">${'输入密码'}</span>`,
                     // eslint-disable-next-line max-len
-                    [LOG_TYPE_ERROR_PASSWORD]: `<span class="action" data-action="passwordRetry">${I18n.t('template.重新输入密码')}</span>`,
+                    [LOG_TYPE_ERROR_PASSWORD]: `<span class="action" data-action="passwordRetry">${'重新输入密码'}</span>`,
                 };
                 if (row.type === LOG_TYPE_TASK_EXPIRE) {
                     return `<span class="error">${logContent}</span>`;
@@ -208,7 +207,7 @@
                 }
                 if (index === list.length - 1 && this.isUploadSuccess) {
                     // eslint-disable-next-line max-len
-                    return `<span>${logContent}${I18n.t('template.请点')}<span class="action" data-action="success">${I18n.t('template.下一步')}</span></span>`;
+                    return `<span>${logContent}${'请点'}<span class="action" data-action="success">${'下一步'}</span></span>`;
                 }
                 return logContent;
             },
@@ -235,7 +234,7 @@
 
                 if (!/\.jobexport$/.test(option.fileObj.name)) {
                     this.uploadStatus = 'error';
-                    this.uploadErrorMsg = I18n.t('template.文件类型不支持');
+                    this.uploadErrorMsg = '文件类型不支持';
                     return;
                 }
                 this.fileMemo = option;
@@ -271,7 +270,7 @@
             
             hanleFileDelete () {
                 if (this.uploadRequestCancelSource) {
-                    this.uploadRequestCancelSource.cancel(I18n.t('template.上传任务已取消'));
+                    this.uploadRequestCancelSource.cancel('上传任务已取消');
                 }
                 this.uploadStatus = '';
                 this.uploadFilename = '';
@@ -294,7 +293,7 @@
                 window.changeAlert = false;
                 this.$refs.passwordForm.clearError();
                 this.importInfo.log.push({
-                    content: I18n.t('template.导入任务已取消！需要重试请点击'),
+                    content: '导入任务已取消！需要重试请点击',
                     linkText: null,
                     linkUrl: null,
                     planId: null,

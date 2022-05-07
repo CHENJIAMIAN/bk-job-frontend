@@ -4,13 +4,13 @@
     <div class="server-search-panel">
         <div class="search-header">
             <span>
-                <span>{{ $t('已筛选出') }}<span class="strong number">{{ list.length }}</span>{{ $t('个IP') }}</span>
-                <span v-if="statisticsData.fail">（<span class="error">{{ statisticsData.fail }}</span>{{ $t('台Agent异常') }}）</span>
+                <span>{{ '已筛选出' }}<span class="strong number">{{ list.length }}</span>{{ '个IP' }}</span>
+                <span v-if="statisticsData.fail">（<span class="error">{{ statisticsData.fail }}</span>{{ '台Agent异常' }}）</span>
             </span>
             <action-extend :list="list" copyable>
                 <template v-if="editable">
-                    <div class="action-item" @click="handleRemoveAll">{{ $t('移除全部') }}</div>
-                    <div class="action-item" @click="handleRemoveFail">{{ $t('移除异常') }}</div>
+                    <div class="action-item" @click="handleRemoveAll">{{ '移除全部' }}</div>
+                    <div class="action-item" @click="handleRemoveFail">{{ '移除异常' }}</div>
                 </template>
             </action-extend>
         </div>
@@ -18,8 +18,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import HostTable from '../components/host-table';
+       import HostTable from '../components/host-table';
     import ActionExtend from '../components/action-extend';
     import {
         sortHost,
@@ -76,14 +75,14 @@
              */
             handleRemoveAll () {
                 if (this.list.length < 1) {
-                    this.messageSuccess(I18n.t('没有可移除主机'));
+                    this.messageSuccess('没有可移除主机');
                     return;
                 }
                 const allList = this.list;
                 this.list = [];
                 this.isInnerChange = true;
                 this.$emit('on-change', allList);
-                this.messageSuccess(I18n.t('移除全部主机成功'));
+                this.messageSuccess('移除全部主机成功');
             },
             /**
              * @desc 删除筛选结果中的异常主机
@@ -101,13 +100,13 @@
                     }
                 });
                 if (effectiveIp.length === this.list.length) {
-                    this.messageSuccess(I18n.t('没有可移除主机'));
+                    this.messageSuccess('没有可移除主机');
                     return;
                 }
                 this.list = Object.freeze(effectiveIp);
                 this.isInnerChange = true;
                 this.$emit('on-change', failIp);
-                this.messageSuccess(I18n.t('移除异常主机成功'));
+                this.messageSuccess('移除异常主机成功');
             },
             /**
              * @desc 删除单个主机

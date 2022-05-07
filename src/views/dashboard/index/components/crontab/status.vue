@@ -3,7 +3,7 @@
 <template>
     <card-layout
         class="crontab-status-dashboard"
-        :title="$t('dashboard.定时任务开关分布')"
+        :title="'定时任务开关分布'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="wraper">
             <div ref="dashboard" style="width: 176px; height: 176px;" />
@@ -24,8 +24,7 @@
     import _ from 'lodash';
     import echarts from 'lib/echarts.min.js';
     import StatisticsService from '@service/statistics';
-    import I18n from '@/i18n';
-    import CardLayout from '../card-layout';
+       import CardLayout from '../card-layout';
     import {
         chartsOptionsBase,
     } from '../common/assist';
@@ -63,11 +62,11 @@
         created () {
             this.list = [
                 {
-                    label: I18n.t('dashboard.开启'),
+                    label: '开启',
                     key: 'OPEN',
                 },
                 {
-                    label: I18n.t('dashboard.关闭'),
+                    label: '关闭',
                     key: 'CLOSED',
                 },
             ];

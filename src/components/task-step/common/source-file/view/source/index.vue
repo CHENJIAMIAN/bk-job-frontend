@@ -4,9 +4,9 @@
     <div>
         <table>
             <thead>
-                <th style="width: 40%;">{{ $t('文件名称') }}</th>
-                <th style="width: auto;">{{ $t('文件源.text') }}</th>
-                <th>{{ $t('操作') }}</th>
+                <th style="width: 40%;">{{ '文件名称' }}</th>
+                <th style="width: auto;">{{ '文件源'}}</th>
+                <th>{{ '操作' }}</th>
             </thead>
             <tbody>
                 <tr v-for="(sourceFile, index) in list" :key="index">
@@ -20,7 +20,7 @@
                     </td>
                     <td>
                         <div class="action-box">
-                            <bk-button text @click="handlerRemove(index)">{{ $t('移除') }}</bk-button>
+                            <bk-button text @click="handlerRemove(index)">{{ '移除' }}</bk-button>
                         </div>
                     </td>
                 </tr>

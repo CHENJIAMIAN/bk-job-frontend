@@ -12,20 +12,20 @@
                 class="tab-item"
                 :class="{ active: activePanel === 'scriptLog' }"
                 @click="handleTogglePanel('scriptLog')">
-                {{ $t('history.执行日志') }}
+                {{ '执行日志' }}
             </div>
             <template v-if="isFile">
                 <div
                     class="tab-item"
                     :class="{ active: activePanel === 'download' }"
                     @click="handleTogglePanel('download')">
-                    {{ $t('history.下载信息') }}
+                    {{ '下载信息' }}
                 </div>
                 <div
                     class="tab-item"
                     :class="{ active: activePanel === 'upload' }"
                     @click="handleTogglePanel('upload')">
-                    {{ $t('history.上传源信息') }}
+                    {{ '上传源信息' }}
                 </div>
             </template>
             <div
@@ -33,13 +33,13 @@
                 class="tab-item"
                 :class="{ active: activePanel === 'variable' }"
                 @click="handleTogglePanel('variable')">
-                {{ $t('history.变量明细') }}
+                {{ '变量明细' }}
             </div>
             <div class="extend-box">
                 <div
                     v-if="activePanel === 'scriptLog'"
                     class="extend-item"
-                    v-bk-tooltips="$t('history.下载日志')"
+                    v-bk-tooltips="'下载日志'"
                     @click="handleDownload">
                     <Icon type="download" />
                 </div>
@@ -51,14 +51,14 @@
                 <div
                     v-if="!isFullscreen"
                     class="extend-item"
-                    v-bk-tooltips="$t('history.全屏')"
+                    v-bk-tooltips="'全屏'"
                     @click="handleFullscreen">
                     <Icon type="full-screen" />
                 </div>
                 <div
                     v-if="isFullscreen"
                     class="extend-item"
-                    v-bk-tooltips="$t('history.还原')"
+                    v-bk-tooltips="'还原'"
                     @click="handleExitFullscreen">
                     <Icon type="un-full-screen" />
                 </div>
@@ -71,7 +71,7 @@
                         theme="primary"
                         size="small"
                         @change="handleScriptLogLineFeedChange" />
-                    <span style="padding-left: 7px; font-size: 12px; color: #979ba5;">{{ $t('history.自动换行') }}</span>
+                    <span style="padding-left: 7px; font-size: 12px; color: #979ba5;">{{ '自动换行' }}</span>
                 </div>
             </div>
         </div>
@@ -118,8 +118,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import ScriptLog from './script-log';
     import FileLog from './file-log';
     import VariableView from './variable-view';
@@ -238,7 +237,7 @@
                 }).then(() => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('history.导出日志操作成功'),
+                        message: '导出日志操作成功',
                     });
                 });
             },
@@ -266,7 +265,7 @@
              */
             handleFullscreen () {
                 this.isFullscreen = true;
-                this.messageInfo(I18n.t('history.按 Esc 即可退出全屏模式'));
+                this.messageInfo('按 Esc 即可退出全屏模式');
                 this.infoBoxParentNode = this.$refs.infoBox.parentNode;
                 document.body.appendChild(this.$refs.infoBox);
                 this.$refs.view && this.$refs.view.resize();

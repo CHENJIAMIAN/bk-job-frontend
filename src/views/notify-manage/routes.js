@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'notify',
     name: 'notifyManage',
@@ -18,7 +16,7 @@ export default {
             name: 'notifyManageIndex',
             component: () => import('@views/notify-manage/index/index'),
             meta: {
-                title: I18n.t('消息通知'),
+                title: '消息通知',
                 skeleton: 'notify',
             },
         },

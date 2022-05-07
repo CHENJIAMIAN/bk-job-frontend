@@ -17,8 +17,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskPlanService from '@service/task-plan';
+       import TaskPlanService from '@service/task-plan';
     import Step1 from './pages/step1';
     import Step2 from './pages/step2';
     import Step3 from './pages/step3';
@@ -53,9 +52,9 @@
             this.templateId = this.$route.params.templateId;
             
             this.stepList = [
-                { title: I18n.t('template.差异总览'), icon: 1 },
-                { title: I18n.t('template.差异明细'), icon: 2 },
-                { title: I18n.t('template.确认定时任务'), icon: 3 },
+                { title: '差异总览', icon: 1 },
+                { title: '差异明细', icon: 2 },
+                { title: '确认定时任务', icon: 3 },
             ];
             // 只查看diff信息，不做确认定时任务操作
             const isView = this.$route.query.mode === 'view';

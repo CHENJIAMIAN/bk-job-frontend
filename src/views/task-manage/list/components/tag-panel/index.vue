@@ -3,7 +3,7 @@
 <template>
     <div class="template-list-tag-panel" v-bkloading="{ isLoading }">
         <tab-item
-            :name="$t('template.全部作业')"
+            :name="'全部作业'"
             :id="1"
             :value="classesId"
             icon="business-manage"
@@ -11,7 +11,7 @@
             :tooltips-disabled="true"
             @on-select="handleClassesSelect" />
         <tab-item
-            :name="$t('template.未分类')"
+            :name="'未分类'"
             :id="2"
             :value="classesId"
             icon="unclassified"
@@ -19,7 +19,7 @@
             :tooltips-disabled="true"
             @on-select="handleClassesSelect" />
         <tab-item
-            :name="$t('template.待更新')"
+            :name="'待更新'"
             :id="3"
             :value="classesId"
             icon="update"
@@ -44,8 +44,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskManageService from '@service/task-manage';
+       import TaskManageService from '@service/task-manage';
     import TagManageService from '@service/tag-manage';
     import TabItem from './tab-item';
 
@@ -179,7 +178,7 @@
             handleEdit (payload) {
                 TagManageService.updateTag(payload)
                     .then(() => {
-                        this.messageSuccess(I18n.t('template.标签名更新成功'));
+                        this.messageSuccess('标签名更新成功');
                         this.fetchTagList();
                     });
             },

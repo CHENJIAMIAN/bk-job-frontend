@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'file_manage',
     name: 'fileManage',
@@ -10,7 +8,7 @@ export default {
         name: 'sourceFileList',
     },
     meta: {
-        title: I18n.t('文件源管理'),
+        title: '文件源管理',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'sourceFileList',
             component: () => import('@views/file-manage/file-source-list'),
             meta: {
-                pageTitle: I18n.t('文件源管理'),
+                pageTitle: '文件源管理',
                 skeleton: 'list',
             },
         },
@@ -28,7 +26,7 @@ export default {
             name: 'fileList',
             component: () => import('@views/file-manage/file-list'),
             meta: {
-                pageTitle: I18n.t('文件源管理'),
+                pageTitle: '文件源管理',
                 skeleton: 'list',
             },
         },

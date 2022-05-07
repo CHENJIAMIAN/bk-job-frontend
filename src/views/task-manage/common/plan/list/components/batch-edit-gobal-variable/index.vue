@@ -4,7 +4,7 @@
     <jb-sideslider
         :is-show="isShow"
         :width="900"
-        :title="$t('template.批量编辑变量值')"
+        :title="'批量编辑变量值'"
         ref="root"
         :show-footer="!isLoading && isGlobalVariableNotEmpty"
         @update:isShow="handleCancel">
@@ -26,10 +26,10 @@
             </div>
             <Empty v-else style="margin-top: 126px;">
                 <div style="font-size: 20px; line-height: 26px; color: #63656e;">
-                    {{ $t('template.暂无全局变量') }}
+                    {{ '暂无全局变量' }}
                 </div>
                 <div style="margin-top: 12px; font-size: 14px; line-height: 19px; color: #979ba5;" slot="desc">
-                    {{ $t('template.所选执行方案，无变量值可编辑') }}
+                    {{ '所选执行方案，无变量值可编辑' }}
                 </div>
             </Empty>
         </div>
@@ -40,19 +40,19 @@
                     class="mr10"
                     
                     @click="handlePreview">
-                    {{ $t('template.下一步') }}
+                    {{ '下一步' }}
                 </bk-button>
             </template>
             <template v-if="curStep === 2">
                 <jb-popover-confirm
                     v-if="hasEmptyValueVariable"
-                    :title="$t('template.确定立即批量更新？')"
-                    :content="$t('template.请注意！变量值填框留空，即代表设置目标变量为空值。')"
+                    :title="'确定立即批量更新？'"
+                    :content="'请注意！变量值填框留空，即代表设置目标变量为空值。'"
                     :confirm-handler="handleSubmit">
                     <bk-button
                         theme="primary"
                         class="mr10">
-                        {{ $t('template.提交') }}
+                        {{ '提交' }}
                     </bk-button>
                 </jb-popover-confirm>
                 <bk-button
@@ -60,23 +60,22 @@
                     theme="primary"
                     class="mr10"
                     @click="handleSubmit">
-                    {{ $t('template.提交') }}
+                    {{ '提交' }}
                 </bk-button>
                 <bk-button
                     theme="primary"
                     class="mr10"
                     @click="handleChangeStep(1)">
-                    {{ $t('template.上一步') }}
+                    {{ '上一步' }}
                 </bk-button>
             </template>
-            <bk-button @click="handleCancel">{{ $t('template.取消') }}</bk-button>
+            <bk-button @click="handleCancel">{{ '取消' }}</bk-button>
         </div>
     </jb-sideslider>
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskPlanService from '@service/task-plan';
+       import TaskPlanService from '@service/task-plan';
     import { leaveConfirm } from '@utils/assist';
     import { genGlobalVariableKey } from './utils';
     import EditValue from './edit-value';
@@ -150,11 +149,11 @@
         created () {
             this.steps = [
                 {
-                    title: I18n.t('template.编辑变量'),
+                    title: '编辑变量',
                     icon: 1,
                 },
                 {
-                    title: I18n.t('template.更新预览'),
+                    title: '更新预览',
                     icon: 2,
                 },
             ];
@@ -244,7 +243,7 @@
                 return TaskPlanService.batchUpdateVariable(stack)
                     .then(() => {
                         window.changeAlert = false;
-                        this.messageSuccess(I18n.t('template.编辑成功'));
+                        this.messageSuccess('编辑成功');
                         this.$emit('on-success');
                         // settimeout 保证 jb-popover-confirm能被先关闭
                         setTimeout(() => {

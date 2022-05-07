@@ -22,19 +22,18 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import GlobalVariableModel from '@model/task/global-variable';
+       import GlobalVariableModel from '@model/task/global-variable';
     import ServerPanel from '@components/choose-ip/server-panel';
     import JbEditTextarea from '@components/jb-edit/textarea';
 
-    const type = () => ({ label: I18n.t('template.变量类型'), filed: 'typeText' });
-    const name = () => ({ label: I18n.t('template.变量名称'), filed: 'name' });
-    const defaultValue = (defaultField = I18n.t('template.初始值')) => ({ label: defaultField, filed: 'valueText' });
-    const description = () => ({ label: I18n.t('template.变量描述'), filed: 'description' });
-    const changeable = () => ({ label: I18n.t('template.赋值可变'), filed: 'changeableText' });
-    const required = () => ({ label: I18n.t('template.必填'), filed: 'requiredText' });
+    const type = () => ({ label: '变量类型', filed: 'typeText' });
+    const name = () => ({ label: '变量名称', filed: 'name' });
+    const defaultValue = (defaultField = '初始值') => ({ label: defaultField, filed: 'valueText' });
+    const description = () => ({ label: '变量描述', filed: 'description' });
+    const changeable = () => ({ label: '赋值可变', filed: 'changeableText' });
+    const required = () => ({ label: '必填', filed: 'requiredText' });
 
-    const generateVariableDescribeMap = (defaultField = I18n.t('template.初始值')) => ({
+    const generateVariableDescribeMap = (defaultField = '初始值') => ({
         [GlobalVariableModel.TYPE_STRING]: [type(), name(), defaultValue(defaultField), description(), changeable(), required()],
         [GlobalVariableModel.TYPE_NAMESPACE]: [type(), name(), defaultValue(defaultField), description(), required()],
         [GlobalVariableModel.TYPE_HOST]: [type(), name(), defaultValue(defaultField), description(), required()],
@@ -58,7 +57,7 @@
             },
             defaultField: {
                 type: String,
-                default: I18n.t('template.初始值'),
+                default: '初始值',
             },
         },
         computed: {

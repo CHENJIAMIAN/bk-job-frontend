@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default class TaskHostNode {
     static isHostNodeInfoEmpty (hostNodeInfo) {
         const { dynamicGroupList, ipList, topoNodeList } = hostNodeInfo;
@@ -27,13 +25,13 @@ export default class TaskHostNode {
         const { dynamicGroupList, ipList, topoNodeList } = this.hostNodeInfo;
         const strs = [];
         if (ipList.length > 0) {
-            strs.push(`${ipList.length} ${I18n.t('台主机.result')}`);
+            strs.push(`${ipList.length} ${'台主机'}`);
         }
         if (topoNodeList.length > 0) {
-            strs.push(`${topoNodeList.length} ${I18n.t('个节点.result')}`);
+            strs.push(`${topoNodeList.length} ${'个节点'}`);
         }
         if (dynamicGroupList.length > 0) {
-            strs.push(`${dynamicGroupList.length} ${I18n.t('个分组.result')}`);
+            strs.push(`${dynamicGroupList.length} ${'个分组'}`);
         }
         return strs.length > 0 ? strs.join('，') : '--';
     }

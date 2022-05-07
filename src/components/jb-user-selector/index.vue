@@ -21,8 +21,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import NotifyService from '@service/notify';
+       import NotifyService from '@service/notify';
     import { encodeRegexp } from '@utils/assist';
     import UserSelector from '@blueking/user-selector';
 
@@ -158,7 +157,7 @@
                 
                 if (this.roleList.length > 0) {
                     stack.push({
-                        display_name: I18n.t('角色'),
+                        display_name: '角色',
                         username: 'role',
                         children: _.cloneDeep(this.roleList),
                     });
@@ -176,7 +175,7 @@
                         return result;
                     }, []);
                     stack.push({
-                        display_name: I18n.t('最近输入'),
+                        display_name: '最近输入',
                         username: 'history',
                         children,
                     });
@@ -201,7 +200,7 @@
                             || filterReg.test(role.username));
                         if (filterRoleList.length > 0) {
                             stack.push({
-                                display_name: I18n.t('角色'),
+                                display_name: '角色',
                                 username: 'role',
                                 children: filterRoleList,
                             });
@@ -235,7 +234,7 @@
                     });
                 
                     stack.push({
-                        display_name: I18n.t('用户'),
+                        display_name: '用户',
                         username: 'user',
                         children: Object.freeze(userList),
                     });
@@ -278,7 +277,7 @@
                 };
 
                 const isDisabled = payload.disabled;
-                const isEnLang = this.$i18n.locale === 'en-US';
+                const isEnLang = 'zh-CN' === 'en-US';
 
                 const renderForbidHtml = () => {
                     if (isDisabled) {

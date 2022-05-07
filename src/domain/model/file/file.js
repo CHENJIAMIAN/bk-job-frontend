@@ -1,6 +1,5 @@
 
 
-// import I18n from '@/i18n'
 import Model from '@model/model';
 
 export default class File extends Model {

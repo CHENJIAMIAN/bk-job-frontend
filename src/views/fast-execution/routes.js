@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'execute',
     name: 'execute',
@@ -10,7 +8,7 @@ export default {
         name: 'fastExecuteScript',
     },
     meta: {
-        title: I18n.t('快速执行'),
+        title: '快速执行',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'fastExecuteScript',
             component: () => import('@views/fast-execution/exec-script'),
             meta: {
-                title: I18n.t('执行脚本'),
+                title: '执行脚本',
             },
         },
         {
@@ -27,7 +25,7 @@ export default {
             name: 'fastPushFile',
             component: () => import('@views/fast-execution/distro-file'),
             meta: {
-                title: I18n.t('分发文件'),
+                title: '分发文件',
             },
         },
     ],

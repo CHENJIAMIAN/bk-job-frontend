@@ -19,7 +19,7 @@
                     v-model="formData.name"
                     class="name-input"
                     behavior="simplicity"
-                    :placeholder="$t('template.推荐按照该执行方案提供的使用场景来取名...')"
+                    :placeholder="'推荐按照该执行方案提供的使用场景来取名...'"
                     :maxlength="60"
                     :native-attributes="{
                         spellcheck: false,
@@ -34,7 +34,7 @@
             form-type="vertical">
             <jb-form-item style="margin-bottom: 40px;">
                 <div class="section-title">
-                    <span>{{ $t('template.全局变量.label') }}</span>
+                    <span>{{ '全局变量' }}</span>
                     <span>（ {{ selectedVariable.length }} / {{ globalVariableList.length }} ）</span>
                 </div>
                 <render-global-var
@@ -42,7 +42,7 @@
                     :list="globalVariableList"
                     :select-value="selectedVariable"
                     mode="editOfPlan"
-                    :default-field="$t('template.变量值')"
+                    :default-field="'变量值'"
                     @on-change="handleVariableChange" />
             </jb-form-item>
             <jb-form-item
@@ -50,7 +50,7 @@
                 property="enableSteps">
                 <div class="task-step-selection">
                     <div class="section-title">
-                        <span>{{ $t('template.选择执行步骤') }}</span>
+                        <span>{{ '选择执行步骤' }}</span>
                         <span>（ {{ formData.enableSteps.length }} / {{ taskStepList.length }} ）</span>
                     </div>
                     <div class="step-check">
@@ -58,13 +58,13 @@
                             v-if="hasSelectAll"
                             text
                             @click="handleDeselectAll">
-                            {{ $t('template.取消全选') }}
+                            {{ '取消全选' }}
                         </bk-button>
                         <bk-button
                             v-else
                             text
                             @click="handleSelectAll">
-                            {{ $t('template.全选') }}
+                            {{ '全选' }}
                         </bk-button>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             </jb-form-item>
         </jb-form>
         <template #footer>
-            <span v-bk-tooltips="isSubmitDisable ? $t('template.请至少勾选一个执行步骤') : ''">
+            <span v-bk-tooltips="isSubmitDisable ? '请至少勾选一个执行步骤' : ''">
                 <bk-button
                     theme="primary"
                     class="w120 mr10"
@@ -86,20 +86,19 @@
                     
                     @click="handleSumbit"
                     v-test="{ type: 'button', value: 'createPlanSubmit' }">
-                    {{ $t('template.提交') }}
+                    {{ '提交' }}
                 </bk-button>
             </span>
             <bk-button
                 @click="handleReset"
                 v-test="{ type: 'button', value: 'createPlanReset' }">
-                {{ $t('template.重置') }}
+                {{ '重置' }}
             </bk-button>
         </template>
     </layout>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskManageService from '@service/task-manage';
+       import TaskManageService from '@service/task-manage';
     import ExecPlanService from '@service/task-plan';
     import {
         genDefaultName,
@@ -113,7 +112,7 @@
     
     const getDefaultData = () => ({
         id: 0,
-        name: genDefaultName(I18n.t('template.执行方案.label')),
+        name: genDefaultName('执行方案'),
         enableSteps: [],
         templateId: 0,
         variables: [],
@@ -178,7 +177,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.方案名称必填'),
+                        message: '方案名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -192,14 +191,14 @@
                             planId: this.formData.id,
                             name,
                         }),
-                        message: I18n.t('template.方案名称已存在，请重新输入'),
+                        message: '方案名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
                 enableSteps: [
                     {
                         validator: () => this.formData.enableSteps.length > 0,
-                        message: I18n.t('template.执行步骤必填'),
+                        message: '执行步骤必填',
                         trigger: 'blur',
                     },
                 ],
@@ -223,7 +222,7 @@
                     this.taskStepList = Object.freeze(stepList);
                     
                     // 新建执行方案默认值处理
-                    let planName = genDefaultName(I18n.t('template.执行方案.label'));
+                    let planName = genDefaultName('执行方案');
                     if (this.firstPlan) {
                         // 第一个执行方案名默认和模板名相同
                         planName = name;
@@ -309,7 +308,7 @@
                         window.changeAlert = false;
                         this.$bkMessage({
                             theme: 'success',
-                            message: I18n.t('template.操作成功'),
+                            message: '操作成功',
                         });
                         this.$emit('on-create', data);
                     }))

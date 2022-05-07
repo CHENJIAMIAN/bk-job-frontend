@@ -7,7 +7,7 @@
                 <jb-form ref="platformForm" :model="formData" :rules="rules">
                     <bk-popover placement="top" :width="320" theme="light" :distance="-10">
                         <div class="backlist block-title">
-                            <span>{{ $t('setting.网页 Title 设置:') }}</span>
+                            <span>{{ '网页 Title 设置:' }}</span>
                         </div>
                         <div slot="content" class="title-example-popover">
                             <img src="/static/images/title-example.png" class="example-image">
@@ -15,7 +15,7 @@
                     </bk-popover>
                     <hgroup>
                         <jb-form-item
-                            :label="$t('setting.平台名称')"
+                            :label="'平台名称'"
                             required
                             property="titleHead">
                             <jb-input
@@ -23,7 +23,7 @@
                                 v-model="formData.titleHead" />
                         </jb-form-item>
                         <jb-form-item
-                            :label="$t('setting.分隔符')"
+                            :label="'分隔符'"
                             required
                             property="titleSeparator"
                             class="title-separator-item">
@@ -36,18 +36,18 @@
                             size="small"
                             class="reset"
                             @click="handleRestore">
-                            {{ $t('setting.恢复默认') }}
+                            {{ '恢复默认' }}
                         </bk-button>
                     </hgroup>
                     <div class="block-title">
-                        <span>{{ $t('setting.页脚信息设置') }}:</span>
+                        <span>{{ '页脚信息设置' }}:</span>
                     </div>
-                    <jb-form-item :label="$t('setting.联系方式')">
+                    <jb-form-item :label="'联系方式'">
                         <jb-input
                             style="width: 680px;"
                             v-model="formData.footerLink" />
                     </jb-form-item>
-                    <jb-form-item :label="$t('setting.版权信息')">
+                    <jb-form-item :label="'版权信息'">
                         <jb-input
                             v-model="formData.footerCopyRight" />
                     </jb-form-item>
@@ -58,15 +58,14 @@
                     theme="primary"
                     :loading="isSubmitting"
                     class="w120 mr10"
-                    @click="handleSave">{{ $t('setting.保存') }}</bk-button>
-                <bk-button @click="handleReset">{{ $t('setting.重置') }}</bk-button>
+                    @click="handleSave">{{ '保存' }}</bk-button>
+                <bk-button @click="handleReset">{{ '重置' }}</bk-button>
             </template>
         </smart-action>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import _ from 'lodash';
+       import _ from 'lodash';
     import GlobalSettingService from '@service/global-setting';
     import SmartAction from '@components/smart-action';
     import JbInput from '@components/jb-input';
@@ -99,14 +98,14 @@
                 titleHead: [
                     {
                         required: true,
-                        message: I18n.t('setting.平台名称必填'),
+                        message: '平台名称必填',
                         trigger: 'blur',
                     },
                 ],
                 titleSeparator: [
                     {
                         required: true,
-                        message: I18n.t('setting.分隔符必填'),
+                        message: '分隔符必填',
                         trigger: 'blur',
                     },
                 ],
@@ -138,7 +137,7 @@
                         GlobalSettingService.updateTitleAndFooterConfig(this.formData)
                             .then(() => {
                                 window.changeAlert = false;
-                                this.messageSuccess(I18n.t('setting.保存成功'));
+                                this.messageSuccess('保存成功');
                             })
                             .finally(() => {
                                 this.isSubmitting = false;

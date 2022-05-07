@@ -2,7 +2,7 @@
 
 <template>
     <div>
-        <jb-form-item :label="$t('超时时长')">
+        <jb-form-item :label="'超时时长'">
             <div
                 class="form-item-content"
                 @mouseenter="handleMouseenter"
@@ -11,7 +11,7 @@
                     ref="input"
                     type="number"
                     :value="formData[field]"
-                    :palceholder="$t('此处留空将默认为7200s')"
+                    :palceholder="'此处留空将默认为7200s'"
                     :min="1"
                     :max="86400"
                     :precision="0"
@@ -29,7 +29,7 @@
                 ref="tips"
                 @mouseleave="handleMouseleave"
                 @mouseenter="handleTipsMouseenter">
-                {{ $t('允许最小 1s，最大为 86400s') }}
+                {{ '允许最小 1s，最大为 86400s' }}
             </div>
         </div>
     </div>

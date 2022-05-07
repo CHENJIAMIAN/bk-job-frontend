@@ -11,7 +11,7 @@
                             active: dimension === 'TASK_STARTUP_MODE',
                         }"
                         @click="handleDimensionChange('TASK_STARTUP_MODE')">
-                        {{ $t('dashboard.按渠道统计') }}
+                        {{ '按渠道统计' }}
                     </div>
                     <div
                         class="tab-item"
@@ -19,7 +19,7 @@
                             active: dimension === 'TASK_TYPE',
                         }"
                         @click="handleDimensionChange('TASK_TYPE')">
-                        {{ $t('dashboard.按类型统计') }}
+                        {{ '按类型统计' }}
                     </div>
                     <div
                         class="tab-item"
@@ -27,15 +27,15 @@
                             active: dimension === 'TASK_TIME_CONSUMING',
                         }"
                         @click="handleDimensionChange('TASK_TIME_CONSUMING')">
-                        {{ $t('dashboard.按执行耗时统计') }}
+                        {{ '按执行耗时统计' }}
                     </div>
                 </template>
                 <div v-if="isDrillDown" class="tab-back">
                     <span class="tab-back-action" @click="handleDimensionBack">
                         <Icon type="back1" />
-                        {{ $t('dashboard.返回') }}
+                        {{ '返回' }}
                     </span>
-                    <span>{{ $t('dashboard.类型统计') }}</span>
+                    <span>{{ '类型统计' }}</span>
                 </div>
             </div>
             <div class="time-tab">
@@ -43,19 +43,19 @@
                     class="tab-item"
                     :class="{ active: days === 7 }"
                     @click="handleDaysChange(7)">
-                    {{ $t('dashboard.7 天内') }}
+                    {{ '7 天内' }}
                 </div>
                 <div
                     class="tab-item"
                     :class="{ active: days === 14 }"
                     @click="handleDaysChange(14)">
-                    {{ $t('dashboard.14 天内') }}
+                    {{ '14 天内' }}
                 </div>
                 <div
                     class="tab-item"
                     :class="{ active: days === 30 }"
                     @click="handleDaysChange(30)">
-                    {{ $t('dashboard.30 天内') }}
+                    {{ '30 天内' }}
                 </div>
             </div>
         </div>
@@ -67,8 +67,7 @@
 <script>
 /* eslint-disable max-len */
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import StatisticsService from '@service/statistics';
+       import StatisticsService from '@service/statistics';
     import echarts from 'lib/echarts.min.js';
     import {
         formatNumber,
@@ -202,15 +201,15 @@
                     ...chartsOptionsBase,
                     legend: {
                         data: [
-                            I18n.t('dashboard.页面执行'),
-                            I18n.t('dashboard.API 调用'),
-                            I18n.t('dashboard.定时执行'),
+                            '页面执行',
+                            'API 调用',
+                            '定时执行',
                             {
-                                name: I18n.t('dashboard.执行次数'),
+                                name: '执行次数',
                                 icon: 'circle',
                             },
                             {
-                                name: I18n.t('dashboard.执行失败次数'),
+                                name: '执行失败次数',
                                 icon: 'circle',
                             },
                         ],
@@ -260,7 +259,7 @@
                     ],
                     yAxis: {
                         type: 'value',
-                        name: I18n.t('dashboard.执行数'),
+                        name: '执行数',
                         nameLocation: 'middle',
                         nameTextStyle: {
                             color: '#63656E',
@@ -284,7 +283,7 @@
                     },
                     series: [
                         {
-                            name: I18n.t('dashboard.页面执行'),
+                            name: '页面执行',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -294,7 +293,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.API 调用'),
+                            name: 'API 调用',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -304,7 +303,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.定时执行'),
+                            name: '定时执行',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -314,7 +313,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行次数'),
+                            name: '执行次数',
                             type: 'line',
                             data: totalList,
                             itemStyle: {
@@ -322,7 +321,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行失败次数'),
+                            name: '执行失败次数',
                             type: 'line',
                             data: failList,
                             itemStyle: {
@@ -366,11 +365,11 @@
                     ...chartsOptionsBase,
                     legend: {
                         data: [
-                            I18n.t('dashboard.快速执行脚本'),
-                            I18n.t('dashboard.快速分发文件'),
-                            I18n.t('dashboard.作业执行'),
+                            '快速执行脚本',
+                            '快速分发文件',
+                            '作业执行',
                             {
-                                name: I18n.t('dashboard.执行失败次数'),
+                                name: '执行失败次数',
                                 icon: 'circle',
                             },
                         ],
@@ -412,7 +411,7 @@
                     ],
                     yAxis: {
                         type: 'value',
-                        name: I18n.t('dashboard.执行数'),
+                        name: '执行数',
                         nameLocation: 'middle',
                         nameTextStyle: {
                             color: '#63656E',
@@ -437,7 +436,7 @@
                     series: [
                         {
                             id: 'EXECUTED_FAST_SCRIPT',
-                            name: I18n.t('dashboard.快速执行脚本'),
+                            name: '快速执行脚本',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -448,7 +447,7 @@
                         },
                         {
                             id: 'EXECUTED_FAST_FILE',
-                            name: I18n.t('dashboard.快速分发文件'),
+                            name: '快速分发文件',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -459,7 +458,7 @@
                         },
                         {
                             id: 'EXECUTE_TASK',
-                            name: I18n.t('dashboard.作业执行'),
+                            name: '作业执行',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -469,7 +468,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行失败次数'),
+                            name: '执行失败次数',
                             type: 'line',
                             data: failList,
                             itemStyle: {
@@ -513,11 +512,11 @@
                     ...chartsOptionsBase,
                     legend: {
                         data: [
-                            I18n.t('dashboard.≥ 10分钟'),
-                            I18n.t('dashboard.1~10分钟以内（包含10分钟）'),
-                            I18n.t('dashboard.1分钟以内（包含1分钟）'),
+                            '≥ 10分钟',
+                            '1~10分钟以内（包含10分钟）',
+                            '1分钟以内（包含1分钟）',
                             {
-                                name: I18n.t('dashboard.执行失败次数'),
+                                name: '执行失败次数',
                                 icon: 'circle',
                             },
                         ],
@@ -567,7 +566,7 @@
                     ],
                     yAxis: {
                         type: 'value',
-                        name: I18n.t('dashboard.执行数'),
+                        name: '执行数',
                         nameLocation: 'middle',
                         nameTextStyle: {
                             color: '#63656E',
@@ -591,7 +590,7 @@
                     },
                     series: [
                         {
-                            name: I18n.t('dashboard.≥ 10分钟'),
+                            name: '≥ 10分钟',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -601,7 +600,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.1~10分钟以内（包含10分钟）'),
+                            name: '1~10分钟以内（包含10分钟）',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -611,7 +610,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.1分钟以内（包含1分钟）'),
+                            name: '1分钟以内（包含1分钟）',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -621,7 +620,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行失败次数'),
+                            name: '执行失败次数',
                             type: 'line',
                             data: failList,
                             itemStyle: {
@@ -683,7 +682,7 @@
                             'PowerShell',
                             'SQL',
                             {
-                                name: I18n.t('dashboard.执行失败次数'),
+                                name: '执行失败次数',
                                 icon: 'circle',
                             },
                         ],
@@ -733,7 +732,7 @@
                     ],
                     yAxis: {
                         type: 'value',
-                        name: I18n.t('dashboard.执行数'),
+                        name: '执行数',
                         nameLocation: 'middle',
                         nameTextStyle: {
                             color: '#63656E',
@@ -817,7 +816,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行失败次数'),
+                            name: '执行失败次数',
                             type: 'line',
                             data: failList,
                             itemStyle: {
@@ -859,10 +858,10 @@
                     ...chartsOptionsBase,
                     legend: {
                         data: [
-                            I18n.t('dashboard.强制模式'),
-                            I18n.t('dashboard.严谨模式'),
+                            '强制模式',
+                            '严谨模式',
                             {
-                                name: I18n.t('dashboard.执行失败次数'),
+                                name: '执行失败次数',
                                 icon: 'circle',
                             },
                         ],
@@ -912,7 +911,7 @@
                     ],
                     yAxis: {
                         type: 'value',
-                        name: I18n.t('dashboard.执行数'),
+                        name: '执行数',
                         nameLocation: 'middle',
                         nameTextStyle: {
                             color: '#63656E',
@@ -936,7 +935,7 @@
                     },
                     series: [
                         {
-                            name: I18n.t('dashboard.强制模式'),
+                            name: '强制模式',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -946,7 +945,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.严谨模式'),
+                            name: '严谨模式',
                             type: 'bar',
                             stack: 'bar',
                             barWidth: 20,
@@ -956,7 +955,7 @@
                             },
                         },
                         {
-                            name: I18n.t('dashboard.执行失败次数'),
+                            name: '执行失败次数',
                             type: 'line',
                             data: failList,
                             itemStyle: {

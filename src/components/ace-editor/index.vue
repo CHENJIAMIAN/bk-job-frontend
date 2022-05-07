@@ -36,21 +36,21 @@
                     <Icon
                         type="upload"
                         @click="handleUploadScript"
-                        v-bk-tooltips="$t('上传脚本')" />
+                        v-bk-tooltips="'上传脚本'" />
                     <Icon
                         type="history"
                         @click.stop="handleShowHistory"
-                        v-bk-tooltips="$t('历史缓存')" />
+                        v-bk-tooltips="'历史缓存'" />
                 </template>
                 <Icon
                     v-if="!isFullScreen"
                     type="full-screen"
-                    v-bk-tooltips="$t('全屏')"
+                    v-bk-tooltips="'全屏'"
                     @click="handleFullScreen" />
                 <Icon
                     v-if="isFullScreen"
                     type="un-full-screen"
-                    v-bk-tooltips="$t('还原')"
+                    v-bk-tooltips="'还原'"
                     @click="handleExitFullScreen" />
             </div>
             <div
@@ -59,15 +59,15 @@
                 class="jb-ace-history-panel"
                 @click.stop="">
                 <div class="panel-header">
-                    <div>{{ $t('历史缓存') }}</div>
-                    <div class="save-btn" @click.stop="handleSaveHistory">{{ $t('手动保存') }}</div>
+                    <div>{{ '历史缓存' }}</div>
+                    <div class="save-btn" @click.stop="handleSaveHistory">{{ '手动保存' }}</div>
                 </div>
                 <div v-if="historyList.length > 0" style="max-height: 250px;">
                     <scroll-faker>
                         <div class="panel-body">
                             <div v-for="item in historyList" :key="item.name" class="item">
                                 <div class="history-name" v-bk-overflow-tips>{{ item.name }}</div>
-                                <div class="history-action" @click="handleChangeValueFromHistory(item)">{{ $t('载入') }}</div>
+                                <div class="history-action" @click="handleChangeValueFromHistory(item)">{{ '载入' }}</div>
                             </div>
                         </div>
                     </scroll-faker>
@@ -103,7 +103,6 @@
     import 'ace/ext-language_tools';
     import 'ace/ext-keybinding_menu';
     import 'ace/ext-elastic_tabstops_lite';
-    import I18n from '@/i18n';
     import ScriptTemplateService from '@service/script-template';
     import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
@@ -166,7 +165,7 @@
             },
             readonlyTips: {
                 type: String,
-                default: I18n.t('只读模式不支持编辑'),
+                default: '只读模式不支持编辑',
             },
             // 当前的脚本语言
             lang: {
@@ -511,7 +510,7 @@
              * @desc 缓存脚本内容
              * @param {String} type 缓存类型（自动缓存、手动换粗）
              */
-            pushLocalStorage (type = I18n.t('自动保存')) {
+            pushLocalStorage (type = '自动保存') {
                 // 当前脚本内容为空不缓存
                 if (!this.value) {
                     return;
@@ -634,7 +633,7 @@
              * @desc 手动缓存脚本内容
              */
             handleSaveHistory: _.debounce(function () {
-                this.pushLocalStorage(I18n.t('手动保存'));
+                this.pushLocalStorage('手动保存');
                 this.handleShowHistory();
             }, 300),
             /**
@@ -665,7 +664,7 @@
                 if (!langMap[fileSuffixes]) {
                     this.$bkMessage({
                         theme: 'error',
-                        message: I18n.t('脚本类型不支持'),
+                        message: '脚本类型不支持',
                     });
                     return;
                 }
@@ -689,7 +688,7 @@
              */
             handleFullScreen () {
                 this.isFullScreen = true;
-                this.messageInfo(I18n.t('按 Esc 即可退出全屏模式'));
+                this.messageInfo('按 Esc 即可退出全屏模式');
                 document.body.appendChild(this.$refs.contentWrapper);
                 this.$nextTick(() => {
                     this.editor.resize();

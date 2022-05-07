@@ -1,10 +1,10 @@
 
 
 <template>
-    <jb-form-item :label="$t('脚本参数')">
+    <jb-form-item :label="'脚本参数'">
         <div class="muti-item">
             <jb-input
-                :placeholder="$t('脚本执行时传入的参数，同脚本在终端执行时的传参格式，如：./test.sh xxxx xxx xxx')"
+                :placeholder="'脚本执行时传入的参数，同脚本在终端执行时的传参格式，如：./test.sh xxxx xxx xxx'"
                 @change="handleParamChange" :value="formData[paramField]" />
         </div>
     </jb-form-item>

@@ -1,45 +1,45 @@
 
 
 <template>
-    <card-layout class="script-cound-card" :title="$t('dashboard.脚本量')">
+    <card-layout class="script-cound-card" :title="'脚本量'">
         <render-trend metric="SCRIPT_COUNT" :date="date" />
         <div slot="extend">
             <Icon
                 type="line-chart-line"
-                v-bk-tooltips="$t('dashboard.查看趋势图')"
+                v-bk-tooltips="'查看趋势图'"
                 @click="handleShowTrend" />
             <Icon
                 type="table-line"
-                v-bk-tooltips="$t('dashboard.查看列表')"
+                v-bk-tooltips="'查看列表'"
                 @click="handleShowList" />
         </div>
         <trend-dialog
             v-model="isShowTrend"
             metric="SCRIPT_COUNT"
-            :title="$t('dashboard.脚本量趋势图')"
-            :name="$t('dashboard.脚本量')"
+            :title="'脚本量趋势图'"
+            :name="'脚本量'"
             :date="date" />
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
-                :title="$t('dashboard.脚本量列表')"
+                :title="'脚本量列表'"
                 :width="520"
                 :show-footer="false"
                 header-position="left">
                 <div style="margin-top: 12px;" v-bkloading="{ isLoading: isListLoading }">
                     <bk-table :data="listData" :max-height="420">
                         <bk-table-column
-                            :label="$t('dashboard.业务名')"
+                            :label="'业务名'"
                             prop="appName"
                             key="appName"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.脚本量')"
+                            :label="'脚本量'"
                             prop="value"
                             key="value"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.占比')"
+                            :label="'占比'"
                             prop="ratio"
                             key="ratio"
                             align="left" />

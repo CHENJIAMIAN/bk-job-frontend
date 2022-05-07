@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'service',
     name: 'service',
@@ -10,7 +8,7 @@ export default {
         name: 'serviceStateList',
     },
     meta: {
-        title: I18n.t('服务状态'),
+        title: '服务状态',
         group: 'manage',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'serviceStateList',
             component: () => import('@views/service-state/list'),
             meta: {
-                pageTitle: I18n.t('服务状态'),
+                pageTitle: '服务状态',
                 skeleton: 'list',
             },
         },

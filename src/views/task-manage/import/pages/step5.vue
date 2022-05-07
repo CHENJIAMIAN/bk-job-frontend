@@ -5,10 +5,10 @@
             <img src="/static/images/import.svg">
         </div>
         <div class="title">
-            <span v-if="isImportSuccess">{{ $t('template.作业导入完成！请及时检查。') }}</span>
+            <span v-if="isImportSuccess">{{ '作业导入完成！请及时检查。' }}</span>
             <template v-else>
-                <span v-if="isImportFailed">{{ $t('template.作业导入出现异常，请稍后再试...') }}</span>
-                <span v-else>{{ $t('template.正在导入作业，请稍候') }}<span class="loading" /></span>
+                <span v-if="isImportFailed">{{ '作业导入出现异常，请稍后再试...' }}</span>
+                <span v-else>{{ '正在导入作业，请稍候' }}<span class="loading" /></span>
             </template>
         </div>
         <div class="log-container">
@@ -17,11 +17,11 @@
                     <div :key="index">
                         <span>[ {{ item.timestamp }} ]</span> {{ item.content }}
                         <span v-if="item.type === 4" class="action" @click="handleLocationTemplate(item)">
-                            {{ $t('template.查看详情') }}
+                            {{ '查看详情' }}
                             <Icon type="jump" />
                         </span>
                         <span v-if="item.type === 5" class="action" @click="handleLocationPlan(item)">
-                            {{ $t('template.查看详情') }}
+                            {{ '查看详情' }}
                             <Icon type="jump" />
                         </span>
                     </div>
@@ -29,7 +29,7 @@
             </div>
             <Icon
                 class="log-copy"
-                :tippy-tips="$t('template.复制日志')"
+                :tippy-tips="'复制日志'"
                 type="log-copy"
                 @click="handleCopyLog" />
         </div>
@@ -38,7 +38,7 @@
                 class="w120"
                 theme="primary"
                 @click="handleFinish">
-                {{ $t('template.完成') }}
+                {{ '完成' }}
             </bk-button>
         </action-bar>
     </div>

@@ -9,7 +9,7 @@
                 :key="`${fileSourceInfo.alias}_${path}`">
                 <jb-breadcrumb-item>
                     <Icon type="folder-open" style="font-size: 20px;" />
-                    <span @click="handleGoSourceList">{{ $t('文件源列表') }}</span>
+                    <span @click="handleGoSourceList">{{ '文件源列表' }}</span>
                 </jb-breadcrumb-item>
                 <jb-breadcrumb-item>
                     <span @click="handlePathLocation('')">{{ fileSourceInfo.alias }}</span>
@@ -20,7 +20,7 @@
             </jb-breadcrumb>
             <template #right>
                 <jb-input
-                    :placeholder="$t('搜索关键字')"
+                    :placeholder="'搜索关键字'"
                     right-icon="bk-icon icon-search"
                     style="width: 480px;"
                     enter-trigger

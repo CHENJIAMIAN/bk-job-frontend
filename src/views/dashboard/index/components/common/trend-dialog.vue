@@ -14,7 +14,7 @@
                 <div class="trend-daterang-picker">
                     <bk-date-picker
                         ref="datePicker"
-                        :placeholder="$t('dashboard.选择日期')"
+                        :placeholder="'选择日期'"
                         :shortcuts="shortcuts"
                         :value="defaultDateRang"
                         type="daterange"
@@ -33,8 +33,7 @@
 <script>
     import echarts from 'lib/echarts.min.js';
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import StatisticsService from '@service/statistics';
+       import StatisticsService from '@service/statistics';
     import {
         formatNumber,
         prettyDateFormat,
@@ -114,7 +113,7 @@
                     ];
                     this.shortcuts = [
                         {
-                            text: I18n.t('dashboard.今天'),
+                            text: '今天',
                             value () {
                                 const start = new Date(date);
                                 return [
@@ -124,7 +123,7 @@
                             },
                         },
                         {
-                            text: I18n.t('dashboard.昨天'),
+                            text: '昨天',
                             value () {
                                 const end = new Date(date);
                                 const start = new Date();
@@ -136,7 +135,7 @@
                             },
                         },
                         {
-                            text: I18n.t('dashboard.最近3天'),
+                            text: '最近3天',
                             value () {
                                 const end = new Date(date);
                                 const start = new Date();
@@ -148,7 +147,7 @@
                             },
                         },
                         {
-                            text: I18n.t('dashboard.最近7天'),
+                            text: '最近7天',
                             value () {
                                 const end = new Date(date);
                                 const start = new Date();
@@ -160,7 +159,7 @@
                             },
                         },
                         {
-                            text: I18n.t('dashboard.最近30天'),
+                            text: '最近30天',
                             value () {
                                 const end = new Date(date);
                                 const start = new Date();

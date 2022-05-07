@@ -15,16 +15,16 @@
                     <div class="action-tab">
                         <div class="tab-container">
                             <div class="tab-item" :class="{ active: activeTab === 'static' }" @click="handleTabChange('static')">
-                                {{ $t('静态 - IP 选择') }}
+                                {{ '静态 - IP 选择' }}
                             </div>
                             <div class="tab-item" :class="{ active: activeTab === 'dynamic' }" @click="handleTabChange('dynamic')">
-                                {{ $t('动态 - 拓扑选择') }}
+                                {{ '动态 - 拓扑选择' }}
                             </div>
                             <div class="tab-item" :class="{ active: activeTab === 'group' }" @click="handleTabChange('group')">
-                                {{ $t('动态 - 分组选择') }}
+                                {{ '动态 - 分组选择' }}
                             </div>
                             <div class="tab-item" :class="{ active: activeTab === 'input' }" @click="handleTabChange('input')">
-                                {{ $t('手动输入') }}
+                                {{ '手动输入' }}
                             </div>
                         </div>
                     </div>
@@ -72,10 +72,10 @@
                     @click="handleShowChoosePreview" />
                 <jb-popover-confirm
                     v-if="ipInputStatus"
-                    :title="$t('操作确认')"
-                    :content="$t('手动输入框有内容未添加到“已选择”列表，确认结束操作？')"
+                    :title="'操作确认'"
+                    :content="'手动输入框有内容未添加到“已选择”列表，确认结束操作？'"
                     :confirm-handler="handleSubmit">
-                    <bk-button class="mr10" theme="primary">{{ $t('确定') }}</bk-button>
+                    <bk-button class="mr10" theme="primary">{{ '确定' }}</bk-button>
                 </jb-popover-confirm>
                 <bk-button
                     v-if="!ipInputStatus"
@@ -83,9 +83,9 @@
                     theme="primary"
                     
                     @click="handleSubmit">
-                    {{ $t('确定') }}
+                    {{ '确定' }}
                 </bk-button>
-                <bk-button @click="handleCancle">{{ $t('取消') }}</bk-button>
+                <bk-button @click="handleCancle">{{ '取消' }}</bk-button>
             </template>
         </jb-dialog>
     </lower-component>
@@ -93,8 +93,7 @@
 <script>
     import _ from 'lodash';
     import AppService from '@service/app-manage';
-    import I18n from '@/i18n';
-    import TaskHostNodeModel from '@model/task-host-node';
+       import TaskHostNodeModel from '@model/task-host-node';
     import {
         bigTreeTransformTopologyOfTopology,
         mergeInputHost,
@@ -146,7 +145,7 @@
             // 错误提示
             errorTips: {
                 type: String,
-                default: I18n.t('服务器不能为空'),
+                default: '服务器不能为空',
             },
         },
         data () {
@@ -219,20 +218,20 @@
             actionResult () {
                 const result = [];
                 if (this.ipList.length > 0) {
-                    result.push(`<span class="strong number choose-host">${this.ipList.length}</span>${I18n.t('台主机.select')}`);
+                    result.push(`<span class="strong number choose-host">${this.ipList.length}</span>${'台主机'}`);
                 }
                 if (this.topoNodeList.length > 0) {
-                    result.push(`<span class="strong number choose-node">${this.topoNodeList.length}</span>${I18n.t('个节点.select')}`);
+                    result.push(`<span class="strong number choose-node">${this.topoNodeList.length}</span>${'个节点'}`);
                 }
                 if (this.dynamicGroupList.length > 0) {
-                    result.push(`<span class="strong number choose-group">${this.dynamicGroupList.length}</span>${I18n.t('个分组.select')}`);
+                    result.push(`<span class="strong number choose-group">${this.dynamicGroupList.length}</span>${'个分组'}`);
                 }
                 if (result.length < 1) {
                     return '';
                 }
                 let resultText = result.join('，');
                 if (resultText) {
-                    resultText = `<span>${I18n.t('已选择.select')}：</span>${resultText}`;
+                    resultText = `<span>${'已选择'}：</span>${resultText}`;
                 }
                 return resultText;
             },
@@ -423,7 +422,7 @@
                 return Promise.resolve()
                     .then(() => {
                         if (this.required && this.isEmpty) {
-                            this.error = I18n.t('源文件的服务器列表不允许为空');
+                            this.error = '源文件的服务器列表不允许为空';
                             return;
                         }
                         

@@ -21,7 +21,7 @@
             <div class="loading-flag">
                 <Icon type="loading-circle" />
             </div>
-            <div>{{ $t('history.加载中') }}</div>
+            <div>{{ '加载中' }}</div>
         </div>
     </div>
 </template>

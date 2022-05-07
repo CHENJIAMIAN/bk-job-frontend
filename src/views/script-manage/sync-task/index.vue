@@ -3,17 +3,17 @@
 <template>
     <div class="script-manage-sync-task-page" v-bkloading="{ isLoading }">
         <div class="retry-btn">
-            <bk-button  @click="handleAllRetry">{{ $t('script.全部重试') }}</bk-button>
+            <bk-button  @click="handleAllRetry">{{ '全部重试' }}</bk-button>
         </div>
         <div class="table-top">
-            {{ $t('script.同步作业模板') }}
+            {{ '同步作业模板' }}
             <span class="version-sum">
-                （{{ $t('script.共') }} {{ data.length }} {{ $t('script.个.result') }}）
+                （{{ '共' }} {{ data.length }} {{ '个'}}）
             </span>
         </div>
         <bk-table :data="data" row-class-name="sync-script-record">
             <bk-table-column
-                :label="$t('script.作业模板名称')"
+                :label="'作业模板名称'"
                 prop="name"
                 sortable>
                 <template slot-scope="{ row }">
@@ -30,8 +30,8 @@
                     </router-link>
                 </template>
             </bk-table-column>
-            <bk-table-column :label="$t('script.步骤名称')" prop="stepName" />
-            <bk-table-column :label="$t('script.引用的版本号')" prop="version">
+            <bk-table-column :label="'步骤名称'" prop="stepName" />
+            <bk-table-column :label="'引用的版本号'" prop="version">
                 <template slot-scope="{ row }">
                     <bk-button
                         text
@@ -41,7 +41,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.引用版本状态')"
+                :label="'引用版本状态'"
                 prop="status"
                 :filters="statusFilters"
                 :filter-method="statusFilterMethod"
@@ -51,7 +51,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.状态')"
+                :label="'状态'"
                 width="350"
                 prop="syncStatus">
                 <template slot-scope="{ row, $index }">
@@ -63,7 +63,7 @@
                         text
                         style="margin-left: 15px;"
                         @click="handleRetry(row, $index)">
-                        {{ $t('script.重试') }}
+                        {{ '重试' }}
                     </bk-button>
                 </template>
             </bk-table-column>
@@ -73,19 +73,18 @@
                 class="w120"
                 theme="primary"
                 @click="handleFinish">
-                {{ $t('script.完成') }}
+                {{ '完成' }}
             </bk-button>
         </div>
         <script-detail :is-show.sync="isShowDetail" :script-version-id="selectScriptVersionId" />
         <element-teleport v-if="lastVersionScriptInfo.version">
-            <span> - {{ $t('script.同步至') }}</span>
+            <span> - {{ '同步至' }}</span>
             <span>{{ lastVersionScriptInfo.version }}</span>
         </element-teleport>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import {
+       import {
         checkPublicScript,
         leaveConfirm,
     } from '@utils/assist';
@@ -120,10 +119,10 @@
         },
         created () {
             this.statusFilters = [
-                { value: 0, text: I18n.t('script.未上线') },
-                { value: 1, text: I18n.t('script.已上线') },
-                { value: 2, text: I18n.t('script.已下线') },
-                { value: 3, text: I18n.t('script.已禁用') },
+                { value: 0, text: '未上线' },
+                { value: 1, text: '已上线' },
+                { value: 2, text: '已下线' },
+                { value: 3, text: '已禁用' },
             ];
             this.publicScript = checkPublicScript(this.$route);
             this.serviceHandler = this.publicScript ? PublicScriptService : ScriptService;
@@ -131,7 +130,7 @@
             this.scriptVersionId = this.$route.params.scriptVersionId;
             this.stepList = JSON.parse(localStorage.getItem('SYNC_TEMPLATE_STEP_SCRIPT'));
             if (this.stepList.length < 1) {
-                this.messageError(I18n.t('script.请先选择作业模板步骤'));
+                this.messageError('请先选择作业模板步骤');
                 return;
             }
             this.fetchData();
@@ -215,22 +214,22 @@
             routerBack () {
                 window.changeAlert = !this.isRetryAllDisable;
                 this.isSyncPlanLoading = false;
-                leaveConfirm(I18n.t('script.部分作业模板同步失败，请留意'))
+                leaveConfirm('部分作业模板同步失败，请留意')
                     .then(() => {
                         this.$bkInfo({
-                            title: I18n.t('script.是否需要进行执行方案同步？'),
+                            title: '是否需要进行执行方案同步？',
                             closeIcon: false,
                             subHeader: (() => (
                                 <div>
-                                    <span>{ I18n.t('script.点击') }</span>
-                                    <span style="font-weight: bold"> { I18n.t('script.“立即前往”') } </span>
-                                    <span>{ I18n.t('script.将进入关联的执行方案同步确认页面，点击') }</span>
-                                    <span style="font-weight: bold"> { I18n.t('script.“暂时不用”') } </span>
-                                    <span>{ I18n.t('script.结束本次操作并退出。') }</span>
+                                    <span>{ '点击' }</span>
+                                    <span style="font-weight: bold"> { '“立即前往”' } </span>
+                                    <span>{ '将进入关联的执行方案同步确认页面，点击' }</span>
+                                    <span style="font-weight: bold"> { '“暂时不用”' } </span>
+                                    <span>{ '结束本次操作并退出。' }</span>
                                 </div>
                             ))(),
-                            okText: I18n.t('script.立即前往'),
-                            cancelText: I18n.t('script.暂时不用'),
+                            okText: '立即前往',
+                            cancelText: '暂时不用',
                             // 获取同步的作业模板对应的执行方案列表，批量同步需要同步的执行方案
                             confirmFn: () => TaskPlanService.fetchBatchTaskPlan({
                                 templateIds: this.stepList.map(({ templateId }) => templateId).join(','),

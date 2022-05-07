@@ -29,7 +29,7 @@
                 auth="task_instance/redo"
                 :resource-id="taskInstanceId">
                 <div
-                    v-bk-tooltips.bottom="$t('history.去重做')"
+                    v-bk-tooltips.bottom="'去重做'"
                     class="action-btn"
                     @click="handleGoRetry">
                     <Icon type="redo" />
@@ -39,19 +39,19 @@
                 </div>
             </auth-component>
             <div
-                v-bk-tooltips.bottom="$t('history.全局变量')"
+                v-bk-tooltips.bottom="'全局变量'"
                 class="action-btn"
                 @click="handleShowGlobalVariable">
                 <Icon type="global-var" />
             </div>
             <div
-                v-bk-tooltips.bottom="$t('history.执行方案')"
+                v-bk-tooltips.bottom="'执行方案'"
                 class="action-btn"
                 @click="handleGoPlan">
                 <Icon type="flow" />
             </div>
             <div
-                v-bk-tooltips.bottom="$t('history.操作记录')"
+                v-bk-tooltips.bottom="'操作记录'"
                 class="action-btn"
                 @click="handleShowOperationRecord">
                 <Icon type="clock" />
@@ -69,7 +69,7 @@
             :is-show.sync="isShowGlobalVariable"
             :show-footer="false"
             :quick-close="true"
-            :title="$t('history.全局变量')"
+            :title="'全局变量'"
             :width="960">
             <global-variable :id="taskInstanceId" />
         </jb-sideslider>
@@ -77,7 +77,7 @@
             :is-show.sync="isShowOperationRecord"
             :show-footer="false"
             :quick-close="true"
-            :title="$t('history.操作记录')"
+            :title="'操作记录'"
             :width="900">
             <operation-record
                 :id="taskInstanceId"
@@ -86,8 +86,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import BackTop from '@components/back-top';
     import TaskStep from './components/task-step';
     import ExecutionProcess from './components/execution-process';
@@ -225,7 +224,7 @@
                 }).then(() => {
                     this.isForceing = false;
                     this.fetchData();
-                    this.messageSuccess(I18n.t('history.操作成功'));
+                    this.messageSuccess('操作成功');
                     return true;
                 });
             },
@@ -249,8 +248,8 @@
                     }
                     // 没有变量直接执行
                     this.$bkInfo({
-                        title: I18n.t('history.确认执行？'),
-                        subTitle: I18n.t('history.该方案未设置全局变量，点击确认将直接执行。'),
+                        title: '确认执行？',
+                        subTitle: '该方案未设置全局变量，点击确认将直接执行。',
                         confirmFn: () => {
                             this.isLoading = true;
                             TaskExecuteService.redoTask({
@@ -259,7 +258,7 @@
                             }).then(({ taskInstanceId }) => {
                                 this.$bkMessage({
                                     theme: 'success',
-                                    message: I18n.t('history.执行成功'),
+                                    message: '执行成功',
                                 });
                                 this.$router.push({
                                     name: 'historyTask',

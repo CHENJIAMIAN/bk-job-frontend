@@ -3,11 +3,11 @@
 <template>
     <div class="step-distro-file">
         <jb-form ref="form" :model="formData" fixed :label-width="formMarginLeftWidth">
-            <card-layout :title="$t('template.基本信息')" class="block">
+            <card-layout :title="'基本信息'" class="block">
                 <item-factory
                     name="stepName"
                     field="name"
-                    :placeholder="$t('template.推荐按步骤实际处理的场景行为来取名...')"
+                    :placeholder="'推荐按步骤实际处理的场景行为来取名...'"
                     :form-data="formData"
                     @on-change="handleChange" />
                 <item-factory
@@ -23,17 +23,17 @@
                 <item-factory
                     name="speedLimit"
                     field="uploadSpeedLimit"
-                    :label="$t('template.上传限速')"
+                    :label="'上传限速'"
                     :form-data="formData"
                     @on-change="handleChange" />
                 <item-factory
                     name="speedLimit"
                     field="downloadSpeedLimit"
-                    :label="$t('template.下载限速')"
+                    :label="'下载限速'"
                     :form-data="formData"
                     @on-change="handleChange" />
             </card-layout>
-            <card-layout :title="$t('template.文件来源')" class="block">
+            <card-layout :title="'文件来源'" class="block">
                 <item-factory
                     name="sourceFileOfTemplate"
                     field="fileSourceList"
@@ -41,7 +41,7 @@
                     :form-data="formData"
                     @on-change="handleChange" />
             </card-layout>
-            <card-layout :title="$t('template.传输目标')" class="block">
+            <card-layout :title="'传输目标'" class="block">
                 <item-factory
                     ref="targetPath"
                     name="targetPath"
@@ -71,8 +71,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import { mapState } from 'vuex';
+       import { mapState } from 'vuex';
     import TaskStepModel from '@model/task/task-step';
     import TaskHostNodeModel from '@model/task-host-node';
     import CardLayout from '@components/task-step/file/card-layout';
@@ -86,7 +85,7 @@
     const getDefaultData = () => ({
         id: 0,
         // 步骤名称
-        name: genDefaultName(I18n.t('template.步骤分发文件')),
+        name: genDefaultName('步骤分发文件'),
         // 源文件列表
         fileSourceList: [{},{},{}],
         // 超时
@@ -141,7 +140,7 @@
                 isLocalFileUploadFailed: state => state.isLocalFileUploadFailed,
             }),
             formMarginLeftWidth () {
-                return this.$i18n.locale === 'en-US' ? 140 : 110;
+                return 'zh-CN' === 'en-US' ? 140 : 110;
             },
         },
         watch: {
@@ -203,10 +202,10 @@
                             return resolve();
                         }
                         this.$bkInfo({
-                            title: I18n.t('template.您有未保存的源文件'),
+                            title: '您有未保存的源文件',
                             type: 'warning',
-                            okText: I18n.t('template.继续提交'),
-                            cancelText: I18n.t('template.去保存'),
+                            okText: '继续提交',
+                            cancelText: '去保存',
                             confirmFn: () => {
                                 resolve();
                             },
@@ -231,11 +230,11 @@
                         }
                         if (sameHost) {
                             this.$bkInfo({
-                                title: I18n.t('template.源和目标服务器相同'),
-                                subTitle: I18n.t('template.检测到文件传输源和目标服务器是同一批，若是单台建议使用本地 cp 方式效率会更高，请问你是否确定参数无误？'),
+                                title: '源和目标服务器相同',
+                                subTitle: '检测到文件传输源和目标服务器是同一批，若是单台建议使用本地 cp 方式效率会更高，请问你是否确定参数无误？',
                                 width: 500,
-                                okText: I18n.t('template.好的，我调整一下'),
-                                cancelText: I18n.t('template.是的，确定无误'),
+                                okText: '好的，我调整一下',
+                                cancelText: '是的，确定无误',
                                 confirmFn: () => {
                                     reject(new Error('save'));
                                 },
@@ -252,10 +251,10 @@
                         if (detectionSourceFileDupLocation(this.formData.fileSourceList)) {
                             // 有重名目录和文件
                             this.$bkInfo({
-                                title: I18n.t('template.源文件可能出现同名'),
-                                subTitle: I18n.t('template.多文件源传输场景下容易出现同名文件覆盖的问题，你可以在目标路径中使用 [源服务器IP] 的变量来尽可能规避风险。'),
-                                okText: I18n.t('template.好的，我调整一下'),
-                                cancelText: I18n.t('template.已知悉，确定执行'),
+                                title: '源文件可能出现同名',
+                                subTitle: '多文件源传输场景下容易出现同名文件覆盖的问题，你可以在目标路径中使用 [源服务器IP] 的变量来尽可能规避风险。',
+                                okText: '好的，我调整一下',
+                                cancelText: '已知悉，确定执行',
                                 closeIcon: false,
                                 width: 500,
                                 confirmFn: () => {
@@ -327,7 +326,7 @@
                                             onClick={handleClose}
                                             style="width: 96px"
                                             theme="primary">
-                                            { I18n.t('template.去处理') }
+                                            { '去处理' }
                                         </bk-button>
                                     </div>
                                 </div>
@@ -335,14 +334,14 @@
                                 if (this.isLocalFileUploading) {
                                     confirmInfo = this.$bkInfo({
                                         type: 'error',
-                                        title: I18n.t('template.本地源文件上传未完成'),
+                                        title: '本地源文件上传未完成',
                                         subHeader: subHeader(),
                                         showFooter: false,
                                     });
                                 } else if (this.isLocalFileUploadFailed) {
                                     confirmInfo = this.$bkInfo({
                                         type: 'error',
-                                        title: I18n.t('template.本地源文件上传失败'),
+                                        title: '本地源文件上传失败',
                                         subHeader: subHeader(),
                                         showFooter: false,
                                     });

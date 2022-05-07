@@ -6,13 +6,13 @@
                 ref="search"
                 @on-change="handleSearch"
                 :data="searchSelect"
-                :placeholder="$t('history.搜索任务ID，任务名称，执行方式，任务类型，任务状态，执行人...')"
+                :placeholder="'搜索任务ID，任务名称，执行方式，任务类型，任务状态，执行人...'"
                 style="width: 600px;" />
             <template #right>
                 <bk-date-picker
                     ref="datePicker"
                     :value="defaultDateTime"
-                    :placeholder="$t('history.选择日期')"
+                    :placeholder="'选择日期'"
                     :shortcuts="shortcuts"
                     type="datetimerange"
                     :shortcut-close="true"
@@ -49,7 +49,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.name"
-                :label="$t('history.任务名称.colHead')"
+                :label="'任务名称'"
                 prop="name"
                 key="name"
                 min-width="200"
@@ -57,21 +57,21 @@
                 show-overflow-tooltip />
             <bk-table-column
                 v-if="allRenderColumnMap.startupModeDesc"
-                :label="$t('history.执行方式.colHead')"
+                :label="'执行方式'"
                 prop="startupModeDesc"
                 key="startupModeDesc"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.typeDesc"
-                :label="$t('history.任务类型.colHead')"
+                :label="'任务类型'"
                 prop="typeDesc"
                 key="typeDesc"
                 width="140"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.statusDesc"
-                :label="$t('history.任务状态.colHead')"
+                :label="'任务状态'"
                 prop="statusDesc"
                 key="statusDesc"
                 width="140"
@@ -89,27 +89,27 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.operator"
-                :label="$t('history.执行人.colHead')"
+                :label="'执行人'"
                 prop="operator"
                 key="operator"
                 width="140"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('history.开始时间.colHead')"
+                :label="'开始时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.totalTimeText"
-                :label="$t('history.耗时时长')"
+                :label="'耗时时长'"
                 prop="totalTimeText"
                 key="totalTimeText"
                 width="130"
                 align="right" />
             <bk-table-column
-                :label="$t('history.操作')"
+                :label="'操作'"
                 width="150"
                 key="action"
                 fixed="right"
@@ -121,7 +121,7 @@
                         :resource-id="row.id"
                         text
                         @click="handleGoDetail(row)">
-                        {{ $t('history.查看详情') }}
+                        {{ '查看详情' }}
                     </auth-button>
                     <auth-button
                         v-if="!redoRequestMap[row.id]"
@@ -130,12 +130,12 @@
                         :resource-id="row.id"
                         text
                         @click="handleGoRetry(row)">
-                        {{ $t('history.去重做') }}
+                        {{ '去重做' }}
                     </auth-button>
                     <span
                         v-else
                         class="task-redo-loading ml10"
-                        :data-text="$t('history.去重做')">
+                        :data-text="'去重做'">
                         <Icon
                             svg
                             type="sync-pending"
@@ -154,8 +154,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import NotifyService from '@service/notify';
     import { prettyDateTimeFormat } from '@utils/assist';
     import { listColumnsCache } from '@utils/cache-helper';
@@ -209,19 +208,19 @@
                 {
                     name: 'ID',
                     id: 'taskInstanceId',
-                    description: I18n.t('history.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                     validate (values, item) {
                         const validate = values.every(_ => /^(\d*)$/.test(_.name));
-                        return !validate ? I18n.t('history.ID只支持数字') : true;
+                        return !validate ? 'ID只支持数字' : true;
                     },
                 },
                 {
-                    name: I18n.t('history.任务名称.colHead'),
+                    name: '任务名称',
                     id: 'taskName',
                     default: true,
                 },
                 {
-                    name: I18n.t('history.目标 IP'),
+                    name: '目标 IP',
                     id: 'ip',
                     validate (values, item) {
                         const validate = values.every(_ => IPRule.validator(_.name));
@@ -229,7 +228,7 @@
                     },
                 },
                 {
-                    name: I18n.t('history.执行耗时'),
+                    name: '执行耗时',
                     id: 'totalTimeType',
                     children: [
                         {
@@ -247,85 +246,85 @@
                     ],
                 },
                 {
-                    name: I18n.t('history.执行方式.colHead'),
+                    name: '执行方式',
                     id: 'startupModes',
                     children: [
                         {
-                            name: I18n.t('history.页面执行'),
+                            name: '页面执行',
                             id: 1,
                         },
                         {
-                            name: I18n.t('history.定时执行'),
+                            name: '定时执行',
                             id: 3,
                         },
                         {
-                            name: I18n.t('history.API调用'),
+                            name: 'API调用',
                             id: 2,
                         },
                     ],
                 },
                 {
-                    name: I18n.t('history.任务类型.colHead'),
+                    name: '任务类型',
                     id: 'taskType',
                     children: [
                         {
-                            name: I18n.t('history.作业执行'),
+                            name: '作业执行',
                             id: 0,
                         },
                         {
-                            name: I18n.t('history.脚本执行'),
+                            name: '脚本执行',
                             id: 1,
                         },
                         {
-                            name: I18n.t('history.文件分发'),
+                            name: '文件分发',
                             id: 2,
                         },
                     ],
                 },
                 {
-                    name: I18n.t('history.任务状态.colHead'),
+                    name: '任务状态',
                     id: 'status',
                     children: [
                         {
-                            name: I18n.t('history.等待执行'),
+                            name: '等待执行',
                             id: 1,
                         },
                         {
-                            name: I18n.t('history.正在执行'),
+                            name: '正在执行',
                             id: 2,
                         },
                         {
-                            name: I18n.t('history.执行成功'),
+                            name: '执行成功',
                             id: 3,
                         },
                         {
-                            name: I18n.t('history.执行失败'),
+                            name: '执行失败',
                             id: 4,
                         },
                         {
-                            name: I18n.t('history.等待确认'),
+                            name: '等待确认',
                             id: 7,
                         },
                         {
-                            name: I18n.t('history.强制终止中'),
+                            name: '强制终止中',
                             id: 10,
                         },
                         {
-                            name: I18n.t('history.强制终止成功'),
+                            name: '强制终止成功',
                             id: 11,
                         },
                         {
-                            name: I18n.t('history.确认终止'),
+                            name: '确认终止',
                             id: 13,
                         },
                         {
-                            name: I18n.t('history.被丢弃'),
+                            name: '被丢弃',
                             id: 14,
                         },
                     ],
                 },
                 {
-                    name: I18n.t('history.执行人.colHead'),
+                    name: '执行人',
                     id: 'operator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -333,7 +332,7 @@
             ];
             this.shortcuts = [
                 {
-                    text: I18n.t('history.近1小时'),
+                    text: '近1小时',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -344,7 +343,7 @@
                     },
                 },
                 {
-                    text: I18n.t('history.近12小时'),
+                    text: '近12小时',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -355,7 +354,7 @@
                     },
                 },
                 {
-                    text: I18n.t('history.近1天'),
+                    text: '近1天',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -366,7 +365,7 @@
                     },
                 },
                 {
-                    text: I18n.t('history.近7天'),
+                    text: '近7天',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -380,39 +379,39 @@
             this.tableColumn = [
                 {
                     id: 'id',
-                    label: I18n.t('history.任务 ID'),
+                    label: '任务 ID',
                     disabled: true,
                 },
                 {
                     id: 'name',
-                    label: I18n.t('history.任务名称.colHead'),
+                    label: '任务名称',
                     disabled: true,
                 },
                 {
                     id: 'startupModeDesc',
-                    label: I18n.t('history.执行方式.colHead'),
+                    label: '执行方式',
                     disabled: true,
                 },
                 {
                     id: 'typeDesc',
-                    label: I18n.t('history.任务类型.colHead'),
+                    label: '任务类型',
                 },
                 {
                     id: 'statusDesc',
-                    label: I18n.t('history.任务状态.colHead'),
+                    label: '任务状态',
                     disabled: true,
                 },
                 {
                     id: 'operator',
-                    label: I18n.t('history.执行人.colHead'),
+                    label: '执行人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('history.开始时间.colHead'),
+                    label: '开始时间',
                 },
                 {
                     id: 'totalTimeText',
-                    label: I18n.t('history.耗时时长'),
+                    label: '耗时时长',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -449,7 +448,7 @@
                 }).then(({ taskInstanceId }) => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('history.执行成功'),
+                        message: '执行成功',
                     });
                     this.$router.push({
                         name: 'historyTask',
@@ -539,7 +538,7 @@
              */
             setToNowText (date) {
                 this.$refs.datePicker.shortcut = {
-                    text: `${date[0]} ${I18n.t('history.至今')}`,
+                    text: `${date[0]} ${'至今'}`,
                 };
             },
             /**
@@ -607,8 +606,8 @@
                     }
                     // 没有变量直接执行
                     this.$bkInfo({
-                        title: I18n.t('history.确认执行？'),
-                        subTitle: I18n.t('history.该方案未设置全局变量，点击确认将直接执行。'),
+                        title: '确认执行？',
+                        subTitle: '该方案未设置全局变量，点击确认将直接执行。',
                         confirmFn: () => {
                             TaskExecuteService.redoTask({
                                 taskInstanceId: taskInstance.id,
@@ -616,7 +615,7 @@
                             }).then(({ taskInstanceId }) => {
                                 this.$bkMessage({
                                     theme: 'success',
-                                    message: I18n.t('history.执行成功'),
+                                    message: '执行成功',
                                 });
                                 this.$router.push({
                                     name: 'historyTask',

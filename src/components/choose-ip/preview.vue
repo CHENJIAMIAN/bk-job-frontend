@@ -3,7 +3,7 @@
 <template>
     <div v-if="value" id="chooseIPServerPreview" class="server-preview">
         <div class="preview-header">
-            <div>{{ $t('已选项预览') }}</div>
+            <div>{{ '已选项预览' }}</div>
             <div class="server-description">
                 <span v-html="resultText" />
             </div>
@@ -17,8 +17,8 @@
                 @on-change="handleServerPanelChange" />
         </scroll-faker>
         <div class="preview-footer">
-            <bk-button class="mr10" theme="primary" @click="handleSubmit">{{ $t('确定') }}</bk-button>
-            <bk-button @click="handleClose">{{ $t('关闭') }}</bk-button>
+            <bk-button class="mr10" theme="primary" @click="handleSubmit">{{ '确定' }}</bk-button>
+            <bk-button @click="handleClose">{{ '关闭' }}</bk-button>
         </div>
     </div>
 </template>
@@ -26,8 +26,7 @@
 /**
      * 预览已选主机数据
     */
-    import I18n from '@/i18n';
-    import ServerPanel from './server-panel';
+       import ServerPanel from './server-panel';
 
     export default {
         name: '',
@@ -78,16 +77,16 @@
 
                 const result = [];
                 if (ipList.length > 0) {
-                    result.push(`<span class="strong number choose-host">${ipList.length}</span>${I18n.t('台主机.select')}`);
+                    result.push(`<span class="strong number choose-host">${ipList.length}</span>${'台主机'}`);
                 }
                 if (topoNodeList.length > 0) {
-                    result.push(`<span class="strong number choose-node">${topoNodeList.length}</span>${I18n.t('个节点.select')}`);
+                    result.push(`<span class="strong number choose-node">${topoNodeList.length}</span>${'个节点'}`);
                 }
                 if (dynamicGroupList.length > 0) {
-                    result.push(`<span class="strong number choose-group">${dynamicGroupList.length}</span>${I18n.t('个分组.select')}`);
+                    result.push(`<span class="strong number choose-group">${dynamicGroupList.length}</span>${'个分组'}`);
                 }
                 if (result.length < 1) {
-                    return `（${I18n.t('暂无已选项')}）`;
+                    return `（${'暂无已选项'}）`;
                 }
                 return `（${result.join('，')}）`;
             },

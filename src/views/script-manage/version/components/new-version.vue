@@ -6,7 +6,7 @@
             :model="formData"
             :rules="rules">
             <jb-form-item
-                :label="$t('script.选择载入版本')"
+                :label="'选择载入版本'"
                 required
                 property="scriptVersionId"
                 style="margin-bottom: 0;">
@@ -26,8 +26,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -58,7 +57,7 @@
                 scriptVersionId: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本版本必填'),
+                        message: '脚本版本必填',
                         trigger: 'blur',
                     },
                 ],

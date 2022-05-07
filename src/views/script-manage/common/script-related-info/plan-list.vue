@@ -4,13 +4,13 @@
             @on-change="handleSearch"
             :data="searchSelect"
             :popover-zindex="99999"
-            :placeholder="$t('script.搜索名称，版本号')"
+            :placeholder="'搜索名称，版本号'"
             style="width: 100%; margin-bottom: 20px;" />
         <div v-bkloading="{ isLoading }">
             <bk-table :data="renderList">
                 <!-- 执行方案引用 -->
                 <bk-table-column
-                    :label="$t('script.执行方案')"
+                    :label="'执行方案'"
                     align="left"
                     show-overflow-tooltip>
                     <template slot-scope="{ row }">
@@ -22,11 +22,11 @@
                     </template>
                 </bk-table-column>
                 <bk-table-column
-                    :label="$t('script.引用的版本号')"
+                    :label="'引用的版本号'"
                     prop="scriptVersion"
                     align="left" />
                 <bk-table-column
-                    :label="$t('script.状态')"
+                    :label="'状态'"
                     prop="scriptStatusDesc"
                     align="left"
                     width="120">
@@ -41,8 +41,7 @@
 <script>
     import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
-    import I18n from '@/i18n';
-    import {
+       import {
         checkPublicScript,
         encodeRegexp,
     } from '@utils/assist';
@@ -74,12 +73,12 @@
 
             this.searchSelect = [
                 {
-                    name: I18n.t('script.名称'),
+                    name: '名称',
                     id: 'name',
                     default: true,
                 },
                 {
-                    name: I18n.t('script.版本号.colHead'),
+                    name: '版本号',
                     id: 'scriptVersion',
                 },
             ];

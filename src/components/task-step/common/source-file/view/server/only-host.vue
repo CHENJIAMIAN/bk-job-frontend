@@ -6,7 +6,7 @@
             <td colspan="4">
                 <bk-button text @click="handleAddNew">
                     <Icon type="plus" />
-                    {{ $t('添加一行') }}
+                    {{ '添加一行' }}
                 </bk-button>
             </td>
             <td />
@@ -22,7 +22,7 @@
                 <td>
                     <div class="server-add-only-host-btn" @click="handleShowChooseIp">
                         <Icon type="plus" class="add-flag" />
-                        {{ $t('添加服务器') }}
+                        {{ '添加服务器' }}
                     </div>
                 </td>
                 <td />
@@ -47,9 +47,9 @@
                     text
                     @click="handlerSave"
                     >
-                    {{ $t('保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button text @click="handlerCancel">{{ $t('取消') }}</bk-button>
+                <bk-button text @click="handlerCancel">{{ '取消' }}</bk-button>
             </td>
         </tr>
         <choose-ip

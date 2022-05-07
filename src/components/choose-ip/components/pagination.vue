@@ -2,7 +2,7 @@
 
 <template>
     <div class="server-pagination">
-        <div class="pagination-total">{{ $t('共计') }} {{ total }} {{ $t('条.total') }}</div>
+        <div class="pagination-total">{{ '共计' }} {{ total }} {{ '条'}}</div>
         <div class="pagination-change">
             <div class="page-last" @click="handlePageChange(-1)">
                 <Icon type="down-small" />

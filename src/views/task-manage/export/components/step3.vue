@@ -4,59 +4,59 @@
         <div class="form">
             <jb-form :model="formData" :rules="rules" ref="form">
                 <jb-form-item
-                    :label="$t('template.压缩包名')"
+                    :label="'压缩包名'"
                     required
                     property="packageName">
                     <bk-input
                         v-model="formData.packageName"
                         :maxlength="40"
-                        :placeholder="$t('template.压缩包名仅支持大小写英文、数字、- 或 _')" />
+                        :placeholder="'压缩包名仅支持大小写英文、数字、- 或 _'" />
                 </jb-form-item>
                 <jb-form-item
-                    :label="$t('template.密文变量值处理')"
+                    :label="'密文变量值处理'"
                     required
                     property="secretHandler">
                     <bk-select
                         v-model="formData.secretHandler"
                         :clearable="false">
-                        <bk-option :id="1" :name="$t('template.保存为空值')" />
-                        <bk-option :id="2" :name="$t('template.保存真实值')" />
+                        <bk-option :id="1" :name="'保存为空值'" />
+                        <bk-option :id="2" :name="'保存真实值'" />
                     </bk-select>
                 </jb-form-item>
                 <jb-form-item
-                    :label="$t('template.文件加密')"
+                    :label="'文件加密'"
                     required
                     property="isEncrypt">
                     <div class="encrypt-wraper">
                         <bk-radio-group v-model="formData.isEncrypt">
-                            <bk-radio :value="1">{{ $t('template.是') }}</bk-radio>
-                            <bk-radio :value="2">{{ $t('template.否') }}</bk-radio>
+                            <bk-radio :value="1">{{ '是' }}</bk-radio>
+                            <bk-radio :value="2">{{ '否' }}</bk-radio>
                         </bk-radio-group>
                     </div>
                 </jb-form-item>
                 <div v-show="isPasswordRequired">
                     <jb-form-item
-                        :label="$t('template.密码设置')"
+                        :label="'密码设置'"
                         :required="isPasswordRequired"
                         property="password">
                         <bk-input
                             v-model="formData.password"
                             type="password"
                             v-bk-tooltips="htmlConfig"
-                            :placeholder="$t('template.请设置6-20个字符密码')" />
+                            :placeholder="'请设置6-20个字符密码'" />
                     </jb-form-item>
                     <jb-form-item
-                        :label="$t('template.二次确认')"
+                        :label="'二次确认'"
                         :required="isPasswordRequired"
                         property="confirmPassword">
                         <bk-input
                             v-model="formData.confirmPassword"
                             type="password"
-                            :placeholder="$t('template.请输入同样的密码，以确认密码准确')" />
+                            :placeholder="'请输入同样的密码，以确认密码准确'" />
                     </jb-form-item>
                 </div>
                 <jb-form-item
-                    :label="$t('template.文件有效期')"
+                    :label="'文件有效期'"
                     required
                     property="expireTime">
                     <bk-radio-group v-model="formData.expireTime" class="expire-time-box">
@@ -73,10 +73,10 @@
                     class="expire-time-custom"
                     label=" "
                     property="customNum">
-                    <bk-input v-model="formData.customNum" :placeholder="$t('template.请输入整数，不可超过365')">
+                    <bk-input v-model="formData.customNum" :placeholder="'请输入整数，不可超过365'">
                         <template slot="append">
                             <div class="group-text">
-                                <span class="text">{{ $t('template.天') }}</span>
+                                <span class="text">{{ '天' }}</span>
                             </div>
                         </template>
                     </bk-input>
@@ -84,19 +84,18 @@
             </jb-form>
         </div>
         <div id="html-config-password" class="html-config-password">
-            <div class="item" :class="{ active: passwordLengthResult }">{{ $t('template.长度6-20个字符') }}</div>
-            <div class="item" :class="{ active: passwordFormatResult }">{{ $t('template.必须包含英文字母、数字和特殊符号') }}</div>
+            <div class="item" :class="{ active: passwordLengthResult }">{{ '长度6-20个字符' }}</div>
+            <div class="item" :class="{ active: passwordFormatResult }">{{ '必须包含英文字母、数字和特殊符号' }}</div>
         </div>
         <div class="action-footer">
-            <bk-button class="mr10" @click="handleCancel">{{ $t('template.取消') }}</bk-button>
-            <bk-button class="mr10" @click="handleLast">{{ $t('template.上一步') }}</bk-button>
-            <bk-button class="w120" theme="primary" :loading="isSubmiting" @click="handleNext">{{ $t('template.下一步') }}</bk-button>
+            <bk-button class="mr10" @click="handleCancel">{{ '取消' }}</bk-button>
+            <bk-button class="mr10" @click="handleLast">{{ '上一步' }}</bk-button>
+            <bk-button class="w120" theme="primary" :loading="isSubmiting" @click="handleNext">{{ '下一步' }}</bk-button>
         </div>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import { genDefaultName } from '@utils/assist';
     import { taskExport } from '@utils/cache-helper';
 
@@ -144,26 +143,26 @@
                                 }
                                 return !/^[a-zA-Z0-9]*$/.test(val);
                             },
-                            message: I18n.t('template.密码长度为6-20个字符，必须包含英文字母、数字和特殊符号'),
+                            message: '密码长度为6-20个字符，必须包含英文字母、数字和特殊符号',
                             trigger: 'blur',
                         },
                     ];
                     const confirmPasswordRule = [
                         {
                             validator: val => this.formData.password === val,
-                            message: I18n.t('template.两次输入的密码不一致'),
+                            message: '两次输入的密码不一致',
                             trigger: 'blur',
                         },
                     ];
                     if (isEncrypt === 1) {
                         passwordRule.unshift({
                             required: true,
-                            message: I18n.t('template.密码必填'),
+                            message: '密码必填',
                             trigger: 'blur',
                         });
                         confirmPasswordRule.unshift({
                             required: true,
-                            message: I18n.t('template.确认密码必填'),
+                            message: '确认密码必填',
                             trigger: 'blur',
                         });
                     }
@@ -186,12 +185,12 @@
                     this.rules.customNum = [
                         {
                             required: true,
-                            message: I18n.t('template.文件有效期必填'),
+                            message: '文件有效期必填',
                             trigger: 'blur',
                         },
                         {
                             validator: val => val >= 1 && val <= 365,
-                            message: I18n.t('template.文件有效期须大于1或不超过365'),
+                            message: '文件有效期须大于1或不超过365',
                             trigger: 'blur',
                         },
                     ];
@@ -202,11 +201,11 @@
         },
         created () {
             this.expireTimeList = [
-                { id: 0, name: I18n.t('template.永久') },
-                { id: 1, name: I18n.t('template.1 天') },
-                { id: 3, name: I18n.t('template.3 天') },
-                { id: 7, name: I18n.t('template.7 天') },
-                { id: 'custom', name: I18n.t('template.自定义') },
+                { id: 0, name: '永久' },
+                { id: 1, name: '1 天' },
+                { id: 3, name: '3 天' },
+                { id: 7, name: '7 天' },
+                { id: 'custom', name: '自定义' },
             ];
             this.htmlConfig = {
                 allowHtml: true,
@@ -220,33 +219,33 @@
                 packageName: [
                     {
                         required: true,
-                        message: I18n.t('template.压缩包名必填'),
+                        message: '压缩包名必填',
                         trigger: 'blur',
                     },
                     {
                         validator: val => /^[A-Za-z0-9_-]*$/.test(val),
-                        message: I18n.t('template.压缩包名仅支持大小写英文、数字、- 或 _'),
+                        message: '压缩包名仅支持大小写英文、数字、- 或 _',
                         trigger: 'blur',
                     },
                 ],
                 secretHandler: [
                     {
                         required: true,
-                        message: I18n.t('template.密文变量值处理必填'),
+                        message: '密文变量值处理必填',
                         trigger: 'blur',
                     },
                 ],
                 isEncrypt: [
                     {
                         required: true,
-                        message: I18n.t('template.文件加密必填'),
+                        message: '文件加密必填',
                         trigger: 'blur',
                     },
                 ],
                 expireTime: [
                     {
                         required: true,
-                        message: I18n.t('template.文件有效期必填'),
+                        message: '文件有效期必填',
                         trigger: 'blur',
                     },
                 ],

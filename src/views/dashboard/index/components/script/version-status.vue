@@ -3,7 +3,7 @@
 <template>
     <card-layout
         class="script-version-dashboard"
-        :title="$t('dashboard.脚本版本状态分布')"
+        :title="'脚本版本状态分布'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="wraper">
             <div ref="dashboard" style="width: 180px; height: 180px;" />
@@ -23,8 +23,7 @@
 <script>
     import _ from 'lodash';
     import echarts from 'lib/echarts.min.js';
-    import I18n from '@/i18n';
-    import StatisticsService from '@service/statistics';
+       import StatisticsService from '@service/statistics';
     import CardLayout from '../card-layout';
     import {
         chartsOptionsBase,
@@ -67,19 +66,19 @@
         created () {
             this.list = [
                 {
-                    label: I18n.t('dashboard.已上线'),
+                    label: '已上线',
                     key: 'ONLINE',
                 },
                 {
-                    label: I18n.t('dashboard.禁用'),
+                    label: '禁用',
                     key: 'DISABLED',
                 },
                 {
-                    label: I18n.t('dashboard.已下线'),
+                    label: '已下线',
                     key: 'OFFLINE',
                 },
                 {
-                    label: I18n.t('dashboard.未上线'),
+                    label: '未上线',
                     key: 'DRAFT',
                     emphasis: {
                         itemStyle: {

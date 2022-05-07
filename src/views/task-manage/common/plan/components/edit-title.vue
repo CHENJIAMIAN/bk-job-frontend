@@ -16,7 +16,7 @@
                     spellcheck: false,
                     autofocus: true,
                 }"
-                :placeholder="$t('template.推荐按照该执行方案提供的使用场景来取名...')"
+                :placeholder="'推荐按照该执行方案提供的使用场景来取名...'"
                 enter-trigger
                 :maxlength="60"
                 behavior="simplicity"
@@ -48,8 +48,7 @@
 <script>
     import _ from 'lodash';
     import TaskPlanService from '@service/task-plan';
-    import I18n from '@/i18n';
-    import { calcTextWidth, getOffset } from '@utils/assist';
+       import { calcTextWidth, getOffset } from '@utils/assist';
     import { planNameRule } from '@utils/validator';
 
     export default {
@@ -136,7 +135,7 @@
                 }
                 // 值检验
                 if (!this.localValue) {
-                    this.errorInfo = I18n.t('template.方案名称必填');
+                    this.errorInfo = '方案名称必填';
                 } else if (!planNameRule.validator(this.localValue)) {
                     this.errorInfo = planNameRule.message;
                 }
@@ -153,7 +152,7 @@
                 }).then((checkResult) => {
                     if (!checkResult) {
                         this.isSubmiting = false;
-                        this.errorInfo = I18n.t('template.方案名称已存在，请重新输入');
+                        this.errorInfo = '方案名称已存在，请重新输入';
                         return;
                     }
                     
@@ -172,7 +171,7 @@
                         this.localValueMemo = this.localValue;
                         this.isEditing = false;
                         this.$emit('on-edit-success');
-                        this.messageSuccess(I18n.t('template.执行方案名称编辑成功'));
+                        this.messageSuccess('执行方案名称编辑成功');
                     });
                 });
             },

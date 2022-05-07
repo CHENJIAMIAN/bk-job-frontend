@@ -6,7 +6,7 @@
             <item-factory
                 name="scriptName"
                 field="name"
-                :placeholder="$t('template.推荐按步骤实际处理的场景行为来取名...')"
+                :placeholder="'推荐按步骤实际处理的场景行为来取名...'"
                 :form-data="formData"
                 @on-change="handleChange" />
             <item-factory
@@ -61,8 +61,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskStepModel from '@model/task/task-step';
+       import TaskStepModel from '@model/task/task-step';
     import TaskHostNodeModel from '@model/task-host-node';
     import {
         genDefaultName,
@@ -73,7 +72,7 @@
     const getDefaultData = () => ({
         isScriptContentLoading: false,
         // 脚本步骤名称
-        name: genDefaultName(I18n.t('template.步骤执行脚本')),
+        name: genDefaultName('步骤执行脚本'),
         // 错误处理
         ignoreError: 0,
         // 脚本步骤的id
@@ -211,7 +210,7 @@
                     .then((validate) => {
                         if (this.$store.state.scriptCheckError) {
                             scriptErrorAlert();
-                            return Promise.reject(new Error(I18n.t('template.脚本中出现高危语句')));
+                            return Promise.reject(new Error('脚本中出现高危语句'));
                         }
                         this.$emit('on-change', result, validate);
                     });

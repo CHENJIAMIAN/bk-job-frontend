@@ -28,8 +28,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskHostNodeModel from '@model/task-host-node';
+       import TaskHostNodeModel from '@model/task-host-node';
     import ChooseIp from '@components/choose-ip';
 
     export default {
@@ -100,13 +99,13 @@
                 } = this.localValue.hostNodeInfo || {};
                 const strs = [];
                 if (ipList.length > 0) {
-                    strs.push(`<span class="number strong">${ipList.length}</span>${I18n.t('台主机.result')}`);
+                    strs.push(`<span class="number strong">${ipList.length}</span>${'台主机'}`);
                 }
                 if (topoNodeList.length > 0) {
-                    strs.push(`<span class="number strong">${topoNodeList.length}</span>${I18n.t('个节点.result')}`);
+                    strs.push(`<span class="number strong">${topoNodeList.length}</span>${'个节点'}`);
                 }
                 if (dynamicGroupList.length > 0) {
-                    strs.push(`<span class="number strong">${dynamicGroupList.length}</span>${I18n.t('个分组.result')}`);
+                    strs.push(`<span class="number strong">${dynamicGroupList.length}</span>${'个分组'}`);
                 }
                 return strs.length > 0 ? strs.join('\n') : '--';
             },
@@ -181,7 +180,7 @@
                             this.$emit('on-change', {
                                 [this.field]: this.localValue,
                             });
-                            this.messageSuccess(I18n.t('编辑成功'));
+                            this.messageSuccess('编辑成功');
                         })
                             .catch(() => {
                                 this.localValue = this.value;

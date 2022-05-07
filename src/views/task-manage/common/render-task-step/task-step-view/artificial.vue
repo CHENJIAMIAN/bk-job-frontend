@@ -2,7 +2,7 @@
 
 <template>
     <div class="artificial-view" v-bkloading="{ isLoading }">
-        <detail-item :label="$t('template.确认人：')">
+        <detail-item :label="'确认人：'">
             <div class="approval-wraper">
                 <div v-for="role in renderRoleList" :key="role" class="item">
                     <Icon type="user-group-gray" class="approval-flag" />
@@ -14,8 +14,8 @@
                 </div>
             </div>
         </detail-item>
-        <detail-item :label="$t('template.通知方式：')">{{ renderChannel }}</detail-item>
-        <detail-item :label="$t('template.确认描述：')">{{ stepInfo.approvalMessage || '--' }}</detail-item>
+        <detail-item :label="'通知方式：'">{{ renderChannel }}</detail-item>
+        <detail-item :label="'确认描述：'">{{ stepInfo.approvalMessage || '--' }}</detail-item>
     </div>
 </template>
 <script>

@@ -11,17 +11,17 @@
                 <div class="diff-del" @click="handleViewDel">
                     <span class="before" />
                     <span class="after" />
-                    <span>{{ $t('删除') }}（{{ del }}）</span>
+                    <span>{{ '删除' }}（{{ del }}）</span>
                 </div>
                 <div class="diff-change" @click="handleViewChange">
                     <span class="before" />
                     <span class="after" />
-                    <span>{{ $t('变换') }}（{{ change }}）</span>
+                    <span>{{ '变换' }}（{{ change }}）</span>
                 </div>
                 <div class="diff-ins" @click="handleViewIns">
                     <span class="before" />
                     <span class="after" />
-                    <span>{{ $t('新增.diff') }}（{{ ins }}）</span>
+                    <span>{{ '新增'}}（{{ ins }}）</span>
                 </div>
             </div>
         </div>

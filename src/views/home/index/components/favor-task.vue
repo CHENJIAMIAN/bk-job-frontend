@@ -4,7 +4,7 @@
     <div class="favor-task-box" ref="container" v-bkloading="{ isLoading }">
         <template v-if="!isLoading">
             <bk-table v-if="favorList.length > 0" :data="favorList" :height="height">
-                <bk-table-column prop="name" :label="$t('home.作业模板名称')" show-overflow-tooltip>
+                <bk-table-column prop="name" :label="'作业模板名称'" show-overflow-tooltip>
                     <template slot-scope="{ row }">
                         <auth-router-link
                             :permission="row.canView"
@@ -24,18 +24,18 @@
                 <bk-table-column
                     width="100"
                     prop="status"
-                    :label="$t('home.状态')">
-                    {{ $t('home.已上线') }}
+                    :label="'状态'">
+                    {{ '已上线' }}
                 </bk-table-column>
                 <bk-table-column
                     width="180"
                     prop="lastModifyUser"
-                    :label="$t('home.更新人')" />
+                    :label="'更新人'" />
                 <bk-table-column
                     width="180"
                     prop="lastModifyTime"
-                    :label="$t('home.更新时间')" />
-                <bk-table-column :label="$t('home.操作')" width="200" class-name="task-action">
+                    :label="'更新时间'" />
+                <bk-table-column :label="'操作'" width="200" class-name="task-action">
                     <template slot-scope="{ row }">
                         <auth-router-link
                             :permission="row.canView"
@@ -47,7 +47,7 @@
                                     templateId: 4 || row.id,
                                 },
                             }">
-                            {{ $t('home.执行方案') }}
+                            {{ '执行方案' }}
                         </auth-router-link>
                         <auth-router-link
                             :permission="row.canDebug"
@@ -59,7 +59,7 @@
                                     id: 4 || row.id,
                                 },
                             }">
-                            {{ $t('home.调试') }}
+                            {{ '调试' }}
                         </auth-router-link>
                         <auth-router-link
                             :permission="row.canEdit"
@@ -71,15 +71,15 @@
                                     id: 4 || row.id,
                                 },
                             }">
-                            {{ $t('home.编辑') }}
+                            {{ '编辑' }}
                         </auth-router-link>
                     </template>
                 </bk-table-column>
             </bk-table>
             <div v-else class="list-empty">
                 <img class="empty-flag" src="/static/images/favor-task-empty.png">
-                <div style="margin-top: 12px; font-size: 14px; color: #63656e;">{{ $t('home.暂无收藏的作业') }}</div>
-                <div style="margin-top: 10px; font-size: 12px; color: #979ba5;">{{ $t('home.将鼠标悬浮到作业模板行，点击收藏图标') }}</div>
+                <div style="margin-top: 12px; font-size: 14px; color: #63656e;">{{ '暂无收藏的作业' }}</div>
+                <div style="margin-top: 10px; font-size: 12px; color: #979ba5;">{{ '将鼠标悬浮到作业模板行，点击收藏图标' }}</div>
             </div>
         </template>
     </div>

@@ -4,7 +4,7 @@
     <div class="sync-plan-side-anchor">
         <scroll-faker ref="scroll">
             <div class="anchor-wraper" ref="anchor">
-                <div class="item-title">{{ $t('template.全局变量.label') }}</div>
+                <div class="item-title">{{ '全局变量' }}</div>
                 <div
                     v-for="item in variable"
                     class="item"
@@ -18,7 +18,7 @@
                     @click="handleChoose(`variable_${item.id}_${item.name}`)">
                     <div class="anchor-text">{{ item.name }}</div>
                 </div>
-                <div class="item-title">{{ $t('template.作业步骤.label') }}</div>
+                <div class="item-title">{{ '作业步骤' }}</div>
                 <div
                     v-for="item in step"
                     class="item"

@@ -12,7 +12,7 @@
             <div class="step-name">{{ data.name }}</div>
             <div class="approval-info">
                 <div v-if="data.roleNameList.length || data.userList.length" class="approval-person">
-                    <span class="persion-label">{{ $t('history.确认人') }}：</span>
+                    <span class="persion-label">{{ '确认人' }}：</span>
                     <div v-for="item in data.roleNameList" :key="`role_${item}`" class="person">
                         <Icon type="user-group-gray" class="role-flag" />
                         {{ item }}
@@ -23,7 +23,7 @@
                     </div>
                 </div>
                 <div v-if="data.notifyChannelNameList.length > 0" class="approval-channel">
-                    {{ $t('history.通知方式') }}：{{ data.notifyChannelNameList.join('，') }}
+                    {{ '通知方式' }}：{{ data.notifyChannelNameList.join('，') }}
                 </div>
             </div>
             <div v-if="data.confirmMessage" class="step-desc">{{ data.confirmMessage }}</div>
@@ -35,7 +35,7 @@
                     type="textarea"
                     :rows="3"
                     :maxlength="100"
-                    :placeholder="$t('history.可在此处输入确认或终止的因由')" />
+                    :placeholder="'可在此处输入确认或终止的因由'" />
                 <div v-else-if="data.operator" class="confirm-reason-text">
                     <div class="person">{{ data.operator }}</div>
                     <span v-html="data.confirmReasonHtml" />
@@ -53,8 +53,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import StepAction from '../../../../common/step-action';
 
     export default {
@@ -84,7 +83,7 @@
                     this.$bkMessage({
                         limit: 1,
                         theme: 'success',
-                        message: I18n.t('history.操作成功'),
+                        message: '操作成功',
                     });
                     this.$emit('on-update', data);
                     return true;

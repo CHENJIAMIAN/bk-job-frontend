@@ -6,8 +6,8 @@
             <tr>
                 <th>
                     <div class="split-header">
-                        <span class="split-item channel">{{ $t('setting.渠道') }}</span>
-                        <span class="split-item template">{{ $t('setting.模板') }}</span>
+                        <span class="split-item channel">{{ '渠道' }}</span>
+                        <span class="split-item template">{{ '模板' }}</span>
                     </div>
                 </th>
                 <th v-for="(channel, index) in channleList" :key="index" @click.stop="handleToggleChannel(channel.code)"
@@ -27,9 +27,9 @@
                     :class="{ 'un-selected': !channelCode.includes(channl.code) }">
                     <div class="setting-detail">
                         <Icon v-if="getConfigStatus(channl.templateInfoList, template.code)" type="check" class="setting-flag" />
-                        <span v-else class="un-set-up">{{ $t('setting.未设置') }}</span>
+                        <span v-else class="un-set-up">{{ '未设置' }}</span>
                         <span class="edit-btn" @click.stop="handleEditTemplate(channl.code, template.code)">
-                            <Icon type="edit-2" class="edit-icon" />{{ $t('setting.编辑模板') }}
+                            <Icon type="edit-2" class="edit-icon" />{{ '编辑模板' }}
                         </span>
                     </div>
                 </td>

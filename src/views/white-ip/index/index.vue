@@ -9,14 +9,14 @@
                 @click="handleCreate"
                 class="w120"
                 v-test="{ type: 'button', value: 'createWhiteIP' }">
-                {{ $t('whiteIP.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     @on-change="handleSearch"
                     :data="searchSelect"
-                    :placeholder="$t('whiteIP.搜索IP，生效范围，目标业务')"
+                    :placeholder="'搜索IP，生效范围，目标业务'"
                     style="width: 480px;" />
             </template>
         </list-action-layout>
@@ -47,42 +47,42 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.scopeText"
-                :label="$t('whiteIP.生效范围.colHead')"
+                :label="'生效范围'"
                 prop="scopeText"
                 key="scopeText"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.appText"
-                :label="$t('whiteIP.目标业务.colHead')"
+                :label="'目标业务'"
                 prop="appText"
                 key="appText"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('whiteIP.创建人')"
+                :label="'创建人'"
                 prop="creator"
                 key="creator"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('whiteIP.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifier"
-                :label="$t('whiteIP.更新人')"
+                :label="'更新人'"
                 prop="lastModifier"
                 key="lastModifier"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('whiteIP.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 align="left" />
             <bk-table-column
-                :label="$t('whiteIP.操作')"
+                :label="'操作'"
                 :resizable="false"
                 prop="action"
                 key="action"
@@ -97,18 +97,18 @@
                         text
                         @click="handleEdit(row)"
                         v-test="{ type: 'button', value: 'createWhiteIP' }">
-                        {{ $t('whiteIP.编辑') }}
+                        {{ '编辑' }}
                     </auth-button>
                     <jb-popover-confirm
-                        :title="$t('whiteIP.确定删除该IP白名单？')"
-                        :content="$t('whiteIP.删除后不可恢复，请谨慎操作！')"
+                        :title="'确定删除该IP白名单？'"
+                        :content="'删除后不可恢复，请谨慎操作！'"
                         :confirm-handler="() => handleDelete(row)">
                         <auth-button
                             :permission="row.canManage"
                             auth="whitelist/delete"
                             text
                             v-test="{ type: 'button', value: 'deleteWhiteIP' }">
-                            {{ $t('whiteIP.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </template>
@@ -133,8 +133,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import AppManageService from '@service/app-manage';
+       import AppManageService from '@service/app-manage';
     import WhiteIpService from '@service/white-ip';
     import NotifyService from '@service/notify';
     import {
@@ -181,13 +180,13 @@
             operationSidesliderInfo () {
                 if (this.editInfo.id) {
                     return {
-                        title: I18n.t('whiteIP.编辑IP白名单'),
-                        okText: I18n.t('whiteIP.保存'),
+                        title: '编辑IP白名单',
+                        okText: '保存',
                     };
                 }
                 return {
-                    title: I18n.t('whiteIP.新建IP白名单'),
-                    okText: I18n.t('whiteIP.提交'),
+                    title: '新建IP白名单',
+                    okText: '提交',
                 };
             },
         },
@@ -200,18 +199,18 @@
                     default: true,
                 },
                 {
-                    name: I18n.t('whiteIP.目标业务.colHead'),
+                    name: '目标业务',
                     id: 'appIdStr',
                     remoteMethod: this.fetchAppList,
                 },
                 {
-                    name: I18n.t('whiteIP.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('whiteIP.更新人'),
+                    name: '更新人',
                     id: 'lastModifier',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -225,29 +224,29 @@
                 },
                 {
                     id: 'scopeText',
-                    label: I18n.t('whiteIP.生效范围.colHead'),
+                    label: '生效范围',
                     disabled: true,
                 },
                 {
                     id: 'appText',
-                    label: I18n.t('whiteIP.目标业务.colHead'),
+                    label: '目标业务',
                     disabled: true,
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('whiteIP.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('whiteIP.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifier',
-                    label: I18n.t('whiteIP.更新人'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('whiteIP.更新时间'),
+                    label: '更新时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);

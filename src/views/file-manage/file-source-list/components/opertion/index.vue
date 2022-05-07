@@ -11,34 +11,34 @@
             :model="formData"
             :rules="rules">
             <jb-form-item
-                :label="$t('file.文件源标识.label')"
+                :label="'文件源标识'"
                 required
                 property="code">
                 <bk-input
                     v-model="formData.code"
-                    :placeholder="$t('file.请输入文件源标识')" />
+                    :placeholder="'请输入文件源标识'" />
             </jb-form-item>
             <jb-form-item
-                :label="$t('file.文件源别名.label')"
+                :label="'文件源别名'"
                 required
                 property="alias">
                 <jb-input
                     v-model="formData.alias"
                     :maxlength="32"
-                    :placeholder="$t('file.为文件源起一个可读性较好的别名')" />
+                    :placeholder="'为文件源起一个可读性较好的别名'" />
             </jb-form-item>
             <jb-form-item
                 required
-                :label="$t('file.类型.label')">
+                :label="'类型'">
                 <bk-radio-group v-model="formData.storageType">
                     <bk-radio-button value="OSS">
-                        {{ $t('file.对象存储') }}
+                        {{ '对象存储' }}
                     </bk-radio-button>
                 </bk-radio-group>
             </jb-form-item>
             <jb-form-item
                 required
-                :label="$t('file.来源')">
+                :label="'来源'">
                 <bk-radio-group
                     v-model="formData.fileSourceTypeCode"
                     @change="handleFileSourceChange">
@@ -57,14 +57,14 @@
                 @on-change="handleFileSourceParamsChange" />
             <jb-form-item
                 required
-                :label="$t('file.公共存储')">
+                :label="'公共存储'">
                 <bk-checkbox v-model="formData.publicFlag">
-                    {{ $t('file.设为公共存储') }}
+                    {{ '设为公共存储' }}
                 </bk-checkbox>
             </jb-form-item>
             <jb-form-item
                 v-if="formData.publicFlag"
-                :label="$t('file.共享对象')"
+                :label="'共享对象'"
                 required
                 property="sharedAppIdList">
                 <div class="share-object-box">
@@ -82,13 +82,13 @@
                             :name="option.name" />
                     </bk-select>
                     <bk-checkbox v-model="formData.shareToAllApp">
-                        {{ $t('file.全业务') }}
+                        {{ '全业务' }}
                     </bk-checkbox>
                 </div>
             </jb-form-item>
             <jb-form-item
                 required
-                :label="$t('file.身份凭证')"
+                :label="'身份凭证'"
                 property="credentialId">
                 <bk-select
                     v-model="formData.credentialId"
@@ -103,7 +103,7 @@
                         :name="option.name" />
                 </bk-select>
             </jb-form-item>
-            <jb-form-item :label="$t('file.文件前缀名')">
+            <jb-form-item :label="'文件前缀名'">
                 <bk-select
                     v-model="filePrefixType"
                     :clearable="false">
@@ -112,7 +112,7 @@
                         name="UUID" />
                     <bk-option
                         id="custom"
-                        :name="$t('file.自定义字符串')" />
+                        :name="'自定义字符串'" />
                 </bk-select>
                 <bk-input
                     v-if="isCustomFilePrefix"
@@ -121,7 +121,7 @@
             </jb-form-item>
             <jb-form-item
                 required
-                :label="$t('file.接入点')">
+                :label="'接入点'">
                 <div class="access-point-box">
                     <bk-select
                         v-model="formData.workerSelectScope"
@@ -136,7 +136,7 @@
                     <bk-checkbox
                         v-model="isWorkerSelectScopeAuto"
                         >
-                        {{ $t('file.自动选择接入点') }}
+                        {{ '自动选择接入点' }}
                     </bk-checkbox>
                 </div>
                 <div v-if="!isWorkerSelectScopeAuto && workersList.length > 0">
@@ -159,8 +159,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import FileSourceModel from '@model/file/file-source';
+       import FileSourceModel from '@model/file/file-source';
     import FileSourceManageService from '@service/file-source-manage';
     import FileSourceTypeService from '@service/file-source-type';
     import TicketManageService from '@service/ticket-manage';
@@ -286,23 +285,23 @@
                 });
             // 接入点选择范围
             this.workerSelectModeList = [
-                { id: 'APP', name: I18n.t('file.业务私有') },
-                { id: 'PUBLIC', name: I18n.t('file.公共接入点') },
-                { id: 'ALL', name: I18n.t('file.全部') },
+                { id: 'APP', name: '业务私有' },
+                { id: 'PUBLIC', name: '公共接入点' },
+                { id: 'ALL', name: '全部' },
             ];
             // 表单验证
             this.rules = {
                 code: [
                     {
                         required: true,
-                        message: I18n.t('file.文件源标识必填'),
+                        message: '文件源标识必填',
                         trigger: 'blur',
                     },
                 ],
                 alias: [
                     {
                         required: true,
-                        message: I18n.t('file.文件源别名必填'),
+                        message: '文件源别名必填',
                         trigger: 'blur',
                     },
                     {
@@ -315,7 +314,7 @@
                             fileSourceId: this.formData.id,
                             alias,
                         }),
-                        message: I18n.t('file.文件源别名已存在，请重新输入'),
+                        message: '文件源别名已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
@@ -327,14 +326,14 @@
                             }
                             return sharedAppIdList.length > 0;
                         },
-                        message: I18n.t('file.共享对象必填'),
+                        message: '共享对象必填',
                         trigger: 'blur',
                     },
                 ],
                 credentialId: [
                     {
                         required: true,
-                        message: I18n.t('file.身份凭证必填'),
+                        message: '身份凭证必填',
                         trigger: 'blur',
                     },
                 ],
@@ -459,13 +458,13 @@
                         if (params.id < 0) {
                             return FileSourceManageService.addSource(params)
                                 .then(() => {
-                                    this.messageSuccess(I18n.t('file.创建成功'));
+                                    this.messageSuccess('创建成功');
                                     this.$emit('on-change');
                                 });
                         }
                         return FileSourceManageService.updateSource(params)
                             .then(() => {
-                                this.messageSuccess(I18n.t('file.更新成功'));
+                                this.messageSuccess('更新成功');
                                 this.$emit('on-change');
                             });
                     });

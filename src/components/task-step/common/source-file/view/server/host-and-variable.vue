@@ -6,7 +6,7 @@
             <td colspan="4">
                 <bk-button text @click="handleAddNew">
                     <Icon type="plus" />
-                    {{ $t('添加一行') }}
+                    {{ '添加一行' }}
                 </bk-button>
             </td>
             <td />
@@ -25,18 +25,18 @@
                             ref="serverTypeSelect"
                             class="server-type-select"
                             :value="sourceFileType"
-                            :popover-width="$i18n.locale === 'en-US' ? 130 : 85"
+                            :popover-width="85"
                             ext-popover-cls="server-file-popover-class"
                             :clearable="false"
                             style="width: 78px;"
                             @change="handleSourceFileTypeChange">
-                            <bk-option id="globalVar" :name="$t('全局变量')" />
-                            <bk-option id="manualAddition" :name="$t('手动添加')" />
+                            <bk-option id="globalVar" :name="'全局变量'" />
+                            <bk-option id="manualAddition" :name="'手动添加'" />
                         </bk-select>
                         <div class="line" />
                         <template v-if="sourceFileType === 'globalVar'">
                             <bk-select
-                                :placeholder="$t('请选择主机列表变量')"
+                                :placeholder="'请选择主机列表变量'"
                                 class="server-add-variable"
                                 :value="serverFile.host.variable"
                                 :clearable="false"
@@ -51,7 +51,7 @@
                         <template v-else>
                             <div class="server-add-host" @click="handleShowChooseIp">
                                 <Icon type="plus" class="add-flag" />
-                                {{ $t('添加服务器') }}
+                                {{ '添加服务器' }}
                             </div>
                         </template>
                     </div>
@@ -77,9 +77,9 @@
                     text
                     @click="handlerSave"
                     >
-                    {{ $t('保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button text @click="handlerCancel">{{ $t('取消') }}</bk-button>
+                <bk-button text @click="handlerCancel">{{ '取消' }}</bk-button>
             </td>
         </tr>
         <choose-ip

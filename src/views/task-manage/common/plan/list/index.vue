@@ -7,20 +7,20 @@
                 class="w120"
                 @click="handleCreatePlan"
                 v-test="{ type: 'button', value: 'createPlan' }">
-                {{ $t('template.新建') }}
+                {{ '新建' }}
             </bk-button>
             <span v-bk-tooltips="batchSyncDisableTips">
                 <bk-button
                     @click="handleSyncBatch"
                     v-test="{ type: 'button', value: 'batchSyncPlan' }">
-                    {{ $t('template.批量同步') }}
+                    {{ '批量同步' }}
                 </bk-button>
             </span>
             <span v-bk-tooltips="batchEditGlobalVariableTips">
                 <bk-button
                     @click="handleBatchEditGlobalVariable"
                     v-test="{ type: 'button', value: 'batchEditPlanValue' }">
-                    {{ $t('template.批量编辑变量值') }}
+                    {{ '批量编辑变量值' }}
                 </bk-button>
             </span>
             <template #right>
@@ -28,10 +28,10 @@
                     ref="search"
                     :append-value="searchValue"
                     :data="searchData"
-                    :placeholder="$t('template.输入 ID、执行方案名、作业模板名、更新人 或 创建人 进行搜索...')"
+                    :placeholder="'输入 ID、执行方案名、作业模板名、更新人 或 创建人 进行搜索...'"
                     style="width: 420px;"
                     @on-change="handleSearch" />
-                <bk-button @click="handleMyPlan">{{ $t('template.我的方案') }}</bk-button>
+                <bk-button @click="handleMyPlan">{{ '我的方案' }}</bk-button>
             </template>
         </list-action-layout>
         <layout :flod="isListFlod" @on-flod="handleLayoutFlod">
@@ -66,7 +66,7 @@
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.name"
-                    :label="$t('template.执行方案名称')"
+                    :label="'执行方案名称'"
                     prop="name"
                     min-width="300"
                     key="name"
@@ -101,8 +101,8 @@
                                         }"
                                         target="_blank"
                                         v-bk-tooltips.html="`
-                                            <div>${$t('template.有')} ${row.cronJobCount} ${$t('template.个定时任务')}</div>
-                                            <div>${$t('template.点击前往查看')}</div>
+                                            <div>${'有'} ${row.cronJobCount} ${'个定时任务'}</div>
+                                            <div>${'点击前往查看'}</div>
                                         `">
                                         <Icon type="job-timing" svg />
                                         <span style="margin-left: 2px;">{{ row.cronJobCount }}</span>
@@ -111,7 +111,7 @@
                                         v-if="row.needUpdate"
                                         class="update-flag">
                                         <Icon
-                                            :tippy-tips="$t('template.未同步')"
+                                            :tippy-tips="'未同步'"
                                             type="sync-8"
                                             svg />
                                     </span>
@@ -146,8 +146,8 @@
                                         }"
                                         target="_blank"
                                         v-bk-tooltips.html="`
-                                            <div>${$t('template.有')} ${row.cronJobCount} ${$t('template.个定时任务')}</div>
-                                            <div>${$t('template.点击前往查看')}</div>
+                                            <div>${'有'} ${row.cronJobCount} ${'个定时任务'}</div>
+                                            <div>${'点击前往查看'}</div>
                                         `">
                                         <Icon type="job-timing" svg />
                                         <span style="margin-left: 2px;">{{ row.cronJobCount }}</span>
@@ -156,7 +156,7 @@
                                         v-if="row.needUpdate"
                                         class="update-flag">
                                         <Icon
-                                            :tippy-tips="$t('template.未同步')"
+                                            :tippy-tips="'未同步'"
                                             type="sync-8"
                                             svg />
                                     </span>
@@ -173,7 +173,7 @@
                 </bk-table-column>
                 <bk-table-column
                     v-if="allRenderColumnMap.templateName"
-                    :label="$t('template.所属作业模板')"
+                    :label="'所属作业模板'"
                     prop="templateName"
                     min-width="200"
                     key="templateName"
@@ -181,28 +181,28 @@
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.lastModifyUser"
-                    :label="$t('template.更新人.colHead')"
+                    :label="'更新人'"
                     prop="lastModifyUser"
                     key="lastModifyUser"
                     width="160"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.lastModifyTime"
-                    :label="$t('template.更新时间')"
+                    :label="'更新时间'"
                     prop="lastModifyTime"
                     key="lastModifyTime"
                     width="180"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.creator"
-                    :label="$t('template.创建人')"
+                    :label="'创建人'"
                     prop="creator"
                     key="creator"
                     width="120"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.createTime"
-                    :label="$t('template.创建时间')"
+                    :label="'创建时间'"
                     prop="createTime"
                     key="createTime"
                     width="180"
@@ -210,7 +210,7 @@
                 <bk-table-column
                     v-if="!isListFlod"
                     :resizable="false"
-                    :label="$t('template.操作')"
+                    :label="'操作'"
                     prop="statusText"
                     fixed="right"
                     key="action"
@@ -222,9 +222,9 @@
                             @click="handleExecute(row)"
                             class="mr10"
                             v-test="{ type: 'button', value: 'execPlan' }">
-                            {{ $t('template.去执行') }}
+                            {{ '去执行' }}
                         </bk-button>
-                        <span :tippy-tips="row.needUpdate ? '' : $t('template.无需同步')">
+                        <span :tippy-tips="row.needUpdate ? '' : '无需同步'">
                             <auth-button
                                 :permission="row.canEdit"
                                 auth="job_plan/sync"
@@ -233,7 +233,7 @@
                                 @click="handleUpdate(row)"
                                 class="mr10"
                                 v-test="{ type: 'button', value: 'syncPlan' }">
-                                {{ $t('template.去同步') }}
+                                {{ '去同步' }}
                             </auth-button>
                         </span>
                         <list-operation-extend>
@@ -241,7 +241,7 @@
                                 class="action-item"
                                 @click="handleGoCreateCronJob(row)"
                                 v-test="{ type: 'link', value: 'createCrontab' }">
-                                {{ $t('template.定时执行') }}
+                                {{ '定时执行' }}
                             </div>
                             <auth-component
                                 :permission="row.canEdit"
@@ -251,19 +251,19 @@
                                     class="action-item"
                                     @click="handleEdit(row)"
                                     v-test="{ type: 'button', value: 'editPlan' }">
-                                    {{ $t('template.编辑') }}
+                                    {{ '编辑' }}
                                 </div>
                                 <div
                                     class="action-item"
                                     slot="forbid"
                                     v-test="{ type: 'button', value: 'editPlan' }">
-                                    {{ $t('template.编辑') }}
+                                    {{ '编辑' }}
                                 </div>
                             </auth-component>
                             <jb-popover-confirm
                                 class="action-del"
-                                :title="$t('template.确定删除该执行方案？')"
-                                :content="$t('template.若已设置了定时任务，需要先删除才能操作')"
+                                :title="'确定删除该执行方案？'"
+                                :content="'若已设置了定时任务，需要先删除才能操作'"
                                 :confirm-handler="() => handleDelete(row)">
                                 <auth-component
                                     :permission="row.canDelete"
@@ -272,13 +272,13 @@
                                     <div
                                         class="action-item"
                                         v-test="{ type: 'button', value: 'deletePlan' }">
-                                        {{ $t('template.删除') }}
+                                        {{ '删除' }}
                                     </div>
                                     <div
                                         slot="forbid"
                                         class="action-item"
                                         v-test="{ type: 'button', value: 'deletePlan' }">
-                                        {{ $t('template.删除') }}
+                                        {{ '删除' }}
                                     </div>
                                 </auth-component>
                             </jb-popover-confirm>
@@ -328,8 +328,7 @@
      * 用于作业模板详情展示指定作业模板的执行方案（固定搜索项作业模板名称）
      * 用执行方案列表展示所有执行方案列表
     */
-    import I18n from '@/i18n';
-    import UserService from '@service/user';
+       import UserService from '@service/user';
     import NotifyService from '@service/notify';
     import ExecPlanService from '@service/task-plan';
     import TaskExecuteService from '@service/task-execute';
@@ -418,7 +417,7 @@
              */
             batchSyncDisableTips () {
                 if (this.listSelect.length < 1) {
-                    return I18n.t('template.请选择要同步的执行方案');
+                    return '请选择要同步的执行方案';
                 }
                 let needUpdate = true;
                 let canEdit = true;
@@ -431,10 +430,10 @@
                     }
                 });
                 if (!needUpdate) {
-                    return I18n.t('template.已选结果中有执行方案中不需要同步');
+                    return '已选结果中有执行方案中不需要同步';
                 }
                 if (!canEdit) {
-                    return I18n.t('template.已选结果中有执行方案中没有权限同步');
+                    return '已选结果中有执行方案中没有权限同步';
                 }
                 return '';
             },
@@ -444,7 +443,7 @@
              */
             batchEditGlobalVariableTips () {
                 if (this.listSelect.length < 1) {
-                    return I18n.t('template.请选择要编辑的执行方案');
+                    return '请选择要编辑的执行方案';
                 }
                 let canEdit = true;
                 // eslint-disable-next-line no-plusplus
@@ -457,7 +456,7 @@
                 }
                 
                 if (!canEdit) {
-                    return I18n.t('template.已选结果中有执行方案中没有权限编辑');
+                    return '已选结果中有执行方案中没有权限编辑';
                 }
                 return '';
             },
@@ -474,25 +473,25 @@
                 {
                     name: 'ID',
                     id: 'planId',
-                    description: I18n.t('template.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                     validate (values, item) {
                         const validate = (values || []).every(_ => /^(\d*)$/.test(_.name));
-                        return !validate ? I18n.t('template.ID只支持数字') : true;
+                        return !validate ? 'ID只支持数字' : true;
                     },
                 },
                 {
-                    name: I18n.t('template.执行方案.colHead'),
+                    name: '执行方案',
                     id: 'planName',
                     default: true,
                 },
                 {
-                    name: I18n.t('template.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('template.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -500,7 +499,7 @@
             ];
             if (!this.isViewTemplatePlanList) {
                 this.searchData.splice(2, 0, {
-                    name: I18n.t('template.作业模板名称'),
+                    name: '作业模板名称',
                     id: 'templateName',
                 });
             }
@@ -513,28 +512,28 @@
                 },
                 {
                     id: 'name',
-                    label: I18n.t('template.执行方案.colHead'),
+                    label: '执行方案',
                     disabled: true,
                 },
                 {
                     id: 'templateName',
-                    label: I18n.t('template.所属作业模板'),
+                    label: '所属作业模板',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('template.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('template.更新时间'),
+                    label: '更新时间',
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('template.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('template.创建时间'),
+                    label: '创建时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -719,7 +718,7 @@
             handleMyPlan () {
                 const currentUserName = this.currentUser.username;
                 const creator = {
-                    name: I18n.t('template.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     values: [
                         {
@@ -800,7 +799,7 @@
                     templateId: plan.templateId,
                 }).then(() => {
                     plan.toggleFavored();
-                    this.messageSuccess(plan.favored ? I18n.t('template.收藏成功') : I18n.t('template.取消收藏成功'));
+                    this.messageSuccess(plan.favored ? '收藏成功' : '取消收藏成功');
                 });
             },
             /**
@@ -830,8 +829,8 @@
                 // 没有变量——直接执行
                 if (data.variableList.length < 1) {
                     this.$bkInfo({
-                        title: I18n.t('template.确认执行？'),
-                        subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
+                        title: '确认执行？',
+                        subTitle: '未设置全局变量，点击确认将直接执行。',
                         confirmFn: () => {
                             TaskExecuteService.taskExecution({
                                 taskId: 4 || row.id,
@@ -839,7 +838,7 @@
                             }).then(({ taskInstanceId }) => {
                                 this.$bkMessage({
                                     theme: 'success',
-                                    message: I18n.t('template.操作成功'),
+                                    message: '操作成功',
                                 });
                                 this.$router.push({
                                     name: 'historyTask',
@@ -917,7 +916,7 @@
                 }).then((data) => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('template.操作成功'),
+                        message: '操作成功',
                     });
                     this.fetchData();
                 });

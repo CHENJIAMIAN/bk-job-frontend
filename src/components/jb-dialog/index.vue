@@ -31,8 +31,7 @@
     </bk-dialog>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import { leaveConfirm } from '@utils/assist';
+       import { leaveConfirm } from '@utils/assist';
 
     export default {
         name: 'JbDialog',
@@ -47,11 +46,11 @@
             },
             okText: {
                 type: String,
-                default: I18n.t('保存'),
+                default: '保存',
             },
             cancelText: {
                 type: String,
-                default: I18n.t('取消'),
+                default: '取消',
             },
             showFooter: {
                 type: Boolean,

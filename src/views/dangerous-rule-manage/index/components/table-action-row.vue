@@ -8,7 +8,7 @@
                     text
                     @click="handleToggle">
                     <Icon type="plus" />
-                    {{ $t('dangerousRule.新增检测规则') }}
+                    {{ '新增检测规则' }}
                 </bk-button>
             </td>
         </tr>
@@ -41,10 +41,10 @@
                     v-model="formData.action"
                     :clearable="false">
                     <bk-option
-                        :name="$t('dangerousRule.扫描')"
+                        :name="'扫描'"
                         :id="1" />
                     <bk-option
-                        :name="$t('dangerousRule.拦截')"
+                        :name="'拦截'"
                         :id="2" />
                 </bk-select>
             </td>
@@ -52,20 +52,19 @@
                 <bk-button
                     text
                     @click="handleSubmit">
-                    {{ $t('dangerousRule.保存') }}
+                    {{ '保存' }}
                 </bk-button>
                 <bk-button
                     text
                     @click="handleCancel">
-                    {{ $t('dangerousRule.取消') }}
+                    {{ '取消' }}
                 </bk-button>
             </td>
         </tr>
     </tbody>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import DangerousRuleService from '@service/dangerous-rule';
+       import DangerousRuleService from '@service/dangerous-rule';
     import PublicScriptManageService from '@service/public-script-manage';
 
     const generatorDefautlData = () => ({
@@ -118,7 +117,7 @@
                     return;
                 }
                 if (!this.formData.expression || !this.formData.description) {
-                    this.messageError(I18n.t('dangerousRule.请填写完整的语法检测表达式和说明'));
+                    this.messageError('请填写完整的语法检测表达式和说明');
                     return;
                 }
                 this.isSubmiting = true;
@@ -126,7 +125,7 @@
                     id: -1,
                     ...this.formData,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('dangerousRule.新增成功'));
+                    this.messageSuccess('新增成功');
                     this.$emit('on-change');
                     this.handleCancel();
                 })

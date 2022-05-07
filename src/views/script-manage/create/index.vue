@@ -7,36 +7,36 @@
             :rules="rules"
             v-test="{ type: 'form', value: 'create_script' }"
             ref="form">
-            <jb-form-item :label="$t('script.脚本名称.label')" required property="name">
+            <jb-form-item :label="'脚本名称'" required property="name">
                 <div class="script-name input">
                     <jb-input
                         v-model="formData.name"
-                        :placeholder="$t('script.推荐按照该脚本逻辑提供的使用场景来取名...')"
+                        :placeholder="'推荐按照该脚本逻辑提供的使用场景来取名...'"
                         :maxlength="60" />
                 </div>
             </jb-form-item>
-            <jb-form-item :label="$t('script.场景标签.label')" property="tags">
+            <jb-form-item :label="'场景标签'" property="tags">
                 <jb-tag-select
-                    :placeholder="$t('script.标签对资源的分类管理有很大帮助')"
+                    :placeholder="'标签对资源的分类管理有很大帮助'"
                     class="input"
                     v-model="formData.tags" />
             </jb-form-item>
-            <jb-form-item :label="$t('script.描述')">
+            <jb-form-item :label="'描述'">
                 <bk-input
                     class="input"
                     v-model="formData.description"
-                    :placeholder="$t('script.在此处标注该脚本的备注和使用说明')"
+                    :placeholder="'在此处标注该脚本的备注和使用说明'"
                     type="textarea"
                     :maxlength="200" />
             </jb-form-item>
-            <jb-form-item :label="$t('script.版本号.label')" required property="version">
+            <jb-form-item :label="'版本号'" required property="version">
                 <jb-input
                     class="input"
                     v-model="formData.version"
-                    :placeholder="$t('script.输入版本号')"
+                    :placeholder="'输入版本号'"
                     :maxlength="30" />
             </jb-form-item>
-            <jb-form-item :label="$t('script.脚本内容')" required property="content">
+            <jb-form-item :label="'脚本内容'" required property="content">
                 <div ref="content">
                     <ace-editor
                         v-model="formData.content"
@@ -53,19 +53,18 @@
                 :loading="isSbumiting"
                 theme="primary"
                 @click="handleSubmit">
-                {{ $t('script.提交') }}
+                {{ '提交' }}
             </bk-button>
             <bk-button
                 theme="default"
                 @click="handleCancel">
-                {{ $t('script.取消') }}
+                {{ '取消' }}
             </bk-button>
         </template>
     </smart-action>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
     import {
         formatScriptTypeValue,
@@ -112,7 +111,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本名称必填'),
+                        message: '脚本名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -124,7 +123,7 @@
                 version: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本版本必填'),
+                        message: '脚本版本必填',
                         trigger: 'blur',
                     },
                     {
@@ -136,14 +135,14 @@
                 desc: [
                     {
                         max: 200,
-                        message: I18n.t('script.最多仅可 200个字符'),
+                        message: '最多仅可 200个字符',
                         trigger: 'blur',
                     },
                 ],
                 content: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本内容不能为空'),
+                        message: '脚本内容不能为空',
                         trigger: 'change',
                     },
                     {
@@ -155,7 +154,7 @@
                             this.$store.commit('setScriptCheckError', data.some(_ => _.isDangerous));
                             return true;
                         }),
-                        message: I18n.t('script.脚本内容检测失败'),
+                        message: '脚本内容检测失败',
                         trigger: 'blur',
                     },
                 ],
@@ -195,7 +194,7 @@
                         return this.serviceHandler.scriptUpdate(this.formData)
                             .then((data) => {
                                 window.changeAlert = false;
-                                this.messageSuccess(I18n.t('script.操作成功'), () => {
+                                this.messageSuccess('操作成功', () => {
                                     this.$router.push({
                                         name: this.publicScript ? 'publicScriptVersion' : 'scriptVersion',
                                         params: {

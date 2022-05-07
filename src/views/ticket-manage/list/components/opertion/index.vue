@@ -3,30 +3,30 @@
 <template>
     <div class="create-ticket-page">
         <jb-form ref="ticketForm" :model="formData" :rules="rules" form-type="vertical">
-            <jb-form-item :label="$t('ticket.名称')" required property="name">
+            <jb-form-item :label="'名称'" required property="name">
                 <bk-input v-model="formData.name" />
             </jb-form-item>
-            <jb-form-item :label="$t('ticket.类型.label')">
+            <jb-form-item :label="'类型'">
                 <div class="ticket-type-wraper">
                     <bk-select v-model="formData.type" :clearable="false">
-                        <bk-option id="PASSWORD" :name="$t('ticket.单一密码')">
+                        <bk-option id="PASSWORD" :name="'单一密码'">
                             <div class="ticket-name-option">
-                                <span>{{ $t('ticket.单一密码') }}</span>
+                                <span>{{ '单一密码' }}</span>
                             </div>
                         </bk-option>
-                        <bk-option id="USERNAME_PASSWORD" :name="$t('ticket.用户名+密码')">
+                        <bk-option id="USERNAME_PASSWORD" :name="'用户名+密码'">
                             <div class="ticket-name-option">
-                                <span>{{ $t('ticket.用户名+密码') }}</span>
+                                <span>{{ '用户名+密码' }}</span>
                             </div>
                         </bk-option>
-                        <bk-option id="SECRET_KEY" :name="$t('ticket.单一SecretKey')">
+                        <bk-option id="SECRET_KEY" :name="'单一SecretKey'">
                             <div class="ticket-name-option">
-                                <span>{{ $t('ticket.单一SecretKey') }}</span>
+                                <span>{{ '单一SecretKey' }}</span>
                             </div>
                         </bk-option>
-                        <bk-option id="APP_ID_SECRET_KEY" :name="$t('ticket.AppID+SecretKey')">
+                        <bk-option id="APP_ID_SECRET_KEY" :name="'AppID+SecretKey'">
                             <div class="ticket-name-option">
-                                <span>{{ $t('ticket.AppID+SecretKey') }}</span>
+                                <span>{{ 'AppID+SecretKey' }}</span>
                             </div>
                         </bk-option>
                     </bk-select>
@@ -43,8 +43,7 @@
 </template>
 
 <script>
-    import I18n from '@/i18n';
-    import TicketService from '@service/ticket-manage';
+       import TicketService from '@service/ticket-manage';
     import UsernamePassword from './components/username-password';
     import SecretkeyAppid from './components/app-id-secret-key';
     import Secretkey from './components/secret-key';
@@ -91,16 +90,16 @@
                 this.type = this.formData.type;
             }
             this.ticketTypeList = [
-                { id: 'PASSWORD', name: I18n.t('ticket.单一密码') },
-                { id: 'USERNAME_PASSWORD', name: I18n.t('ticket.用户名+密码') },
-                { id: 'SECRET_KEY', name: I18n.t('ticket.单一SecretKey') },
-                { id: 'APP_ID_SECRET_KEY', name: I18n.t('ticket.AppID+SecretKey') },
+                { id: 'PASSWORD', name: '单一密码' },
+                { id: 'USERNAME_PASSWORD', name: '用户名+密码' },
+                { id: 'SECRET_KEY', name: '单一SecretKey' },
+                { id: 'APP_ID_SECRET_KEY', name: 'AppID+SecretKey' },
             ];
             this.rules = {
                 name: [
                     {
                         required: true,
-                        message: I18n.t('ticket.凭证名称必填'),
+                        message: '凭证名称必填',
                         trigger: 'blur',
                     },
                 ],
@@ -122,9 +121,9 @@
                 }))
                     .then(() => {
                         if (!this.data.id) {
-                            this.messageSuccess(I18n.t('ticket.创建成功'));
+                            this.messageSuccess('创建成功');
                         } else {
-                            this.messageSuccess(I18n.t('ticket.更新成功'));
+                            this.messageSuccess('更新成功');
                         }
                         this.$emit('on-change');
                     });

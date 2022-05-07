@@ -61,7 +61,7 @@
                                 <Icon
                                     type="step-copy"
                                     class="operation"
-                                    :tippy-tips="$t('template.克隆步骤')"
+                                    :tippy-tips="'克隆步骤'"
                                     @mouseover="handleCloneStepHover(index, true)"
                                     @mouseout="handleCloneStepHover(index, false)"
                                     @click="handleCloneStep(index)" />
@@ -75,7 +75,7 @@
                             </template>
                             <!-- 本地验证不通过标记 -->
                             <div v-if="step.localValidator === false" class="need-validate-falg">
-                                {{ $t('template.待补全') }}
+                                {{ '待补全' }}
                             </div>
                         </div>
                         <!-- 执行方案同步diff标记 -->
@@ -96,13 +96,13 @@
                 v-test="{ type: 'button', value: 'create_step' }"
                 @click="handleShowCreate(-1)">
                 <Icon type="plus" class="action-flag" />
-                {{ $t('template.作业步骤.add') }}
+                {{ '作业步骤'}}
             </div>
         </div>
         <lower-component v-if="isView">
             <jb-sideslider
                 :is-show.sync="isShowDetail"
-                :title="$t('template.查看作业步骤')"
+                :title="'查看作业步骤'"
                 :show-footer="false"
                 :quick-close="true"
                 :width="896"
@@ -134,8 +134,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import Draggable from 'vuedraggable';
+       import Draggable from 'vuedraggable';
     import TaskStepModel from '@model/task/task-step';
     import JbSideslider from '@components/jb-sideslider';
     import TaskStepOperation from './task-step';
@@ -277,13 +276,13 @@
             operationSideSliderInfo () {
                 if (this.operationType === 'create') {
                     return {
-                        title: I18n.t('template.新建作业步骤'),
-                        okText: I18n.t('template.提交'),
+                        title: '新建作业步骤',
+                        okText: '提交',
                     };
                 }
                 return {
-                    title: I18n.t('template.编辑作业步骤'),
-                    okText: I18n.t('template.保存'),
+                    title: '编辑作业步骤',
+                    okText: '保存',
                 };
             },
         },
@@ -405,8 +404,8 @@
              */
             handleDel (index) {
                 this.$bkInfo({
-                    title: I18n.t('template.确定删除该步骤？'),
-                    subTitle: I18n.t('template.删除之后不可恢复，请谨慎操作！'),
+                    title: '确定删除该步骤？',
+                    subTitle: '删除之后不可恢复，请谨慎操作！',
                     confirmFn: () => {
                         const steps = [...this.steps];
 

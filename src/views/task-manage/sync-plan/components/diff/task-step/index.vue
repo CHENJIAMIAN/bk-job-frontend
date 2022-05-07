@@ -10,11 +10,11 @@
         </div>
         <div class="info">
             <div class="row" :class="diffValue.type">
-                <span class="label">{{ $t('template.步骤类型：') }}</span>
+                <span class="label">{{ '步骤类型：' }}</span>
                 <span class="value">{{ data.typeText }}</span>
             </div>
             <div class="row" :class="diffValue.name">
-                <span class="label">{{ $t('template.步骤名称：') }}</span>
+                <span class="label">{{ '步骤名称：' }}</span>
                 <span class="value">{{ data.name }}</span>
             </div>
             <component

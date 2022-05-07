@@ -1,8 +1,6 @@
 
 
 import Model from '@model/model';
-import I18n from '@/i18n';
-
 export default class FileWorker extends Model {
     constructor (payload) {
         super();
@@ -17,7 +15,7 @@ export default class FileWorker extends Model {
 
     get latencyHtml () {
         const styles = this.onlineStatus ? 'color: #ff9c01;' : 'color: #EA3636;';
-        const contents = this.onlineStatus ? `${this.latency} ms` : I18n.t('心跳超时');
+        const contents = this.onlineStatus ? `${this.latency} ms` : '心跳超时';
         return `<span style="${styles}"> ${contents} </span>`;
     }
 }

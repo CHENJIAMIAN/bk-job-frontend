@@ -1,7 +1,4 @@
 
-
-import I18n from '@/i18n';
-
 const OS_TYPE_LINUX = 1;
 const OS_TYPE_WINDOWS = 2;
 const OS_TYPE_DB = 3;
@@ -32,9 +29,9 @@ export default class AccountRule {
      */
     get osTypeText () {
         const textMap = {
-            [OS_TYPE_LINUX]: I18n.t('Linux 账号'),
-            [OS_TYPE_WINDOWS]: I18n.t('Windows 账号'),
-            [OS_TYPE_DB]: I18n.t('数据库账号'),
+            [OS_TYPE_LINUX]: 'Linux 账号',
+            [OS_TYPE_WINDOWS]: 'Windows 账号',
+            [OS_TYPE_DB]: '数据库账号',
         };
         return textMap[this.osType];
     }

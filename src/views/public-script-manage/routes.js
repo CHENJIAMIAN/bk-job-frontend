@@ -1,13 +1,11 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'public_script',
     name: 'publicScript',
     component: () => import('@views/public-script-manage/index'),
     meta: {
-        title: I18n.t('公共脚本'),
+        title: '公共脚本',
         public: true,
         group: 'manage',
     },
@@ -20,7 +18,7 @@ export default {
             name: 'publicScriptList',
             component: () => import('@views/script-manage/list/'),
             meta: {
-                pageTitle: I18n.t('公共脚本'),
+                pageTitle: '公共脚本',
                 public: true,
                 full: true,
                 skeleton: 'list',
@@ -31,7 +29,7 @@ export default {
             name: 'createPublicScript',
             component: () => import('@views/script-manage/create/'),
             meta: {
-                title: I18n.t('新建脚本'),
+                title: '新建脚本',
                 public: true,
             },
         },
@@ -40,7 +38,7 @@ export default {
             name: 'publicScriptVersion',
             component: () => import('@views/script-manage/version'),
             meta: {
-                title: I18n.t('版本管理'),
+                title: '版本管理',
                 public: true,
                 skeleton: 'list',
             },
@@ -50,7 +48,7 @@ export default {
             name: 'scriptPublicSync',
             component: () => import('@views/script-manage/sync-confirm'),
             meta: {
-                title: I18n.t('同步确认'),
+                title: '同步确认',
                 public: true,
             },
         },
@@ -59,7 +57,7 @@ export default {
             name: 'scriptPublicSyncTask',
             component: () => import('@views/script-manage/sync-task'),
             meta: {
-                title: I18n.t('同步任务'),
+                title: '同步任务',
                 public: true,
             },
         },

@@ -13,36 +13,36 @@
                             :rules="rules"
                             ref="templateOperateRef"
                             v-test="{ type: 'form', value: 'template' }">
-                            <bk-alert class="info" :title="$t('template.「对作业模板的修改不会立即自动更新执行方案，需要由用户手动触发」')" />
+                            <bk-alert class="info" :title="'「对作业模板的修改不会立即自动更新执行方案，需要由用户手动触发」'" />
                             <jb-form-item
-                                :label="$t('template.模板名称')"
+                                :label="'模板名称'"
                                 required property="name">
                                 <jb-input
                                     class="input form-item-content"
-                                    :placeholder="$t('template.输入作业模板名称')"
+                                    :placeholder="'输入作业模板名称'"
                                     v-model="formData.name"
                                     :maxlength="60" />
                             </jb-form-item>
                             <toggle-display style="margin-bottom: 20px;">
                                 <jb-form-item
-                                    :label="$t('template.场景标签.label')"
+                                    :label="'场景标签'"
                                     property="tags">
                                     <jb-tag-select
                                         class="input form-item-content"
-                                        :placeholder="$t('template.标签对资源的分类管理有很大帮助')"
+                                        :placeholder="'标签对资源的分类管理有很大帮助'"
                                         v-model="formData.tags" />
                                 </jb-form-item>
-                                <jb-form-item :label="$t('template.模板描述')">
+                                <jb-form-item :label="'模板描述'">
                                     <bk-input
                                         v-model="formData.description"
                                         class="template-desc-textarea form-item-content"
                                         type="textarea"
                                         :maxlength="500"
-                                        :placeholder="$t('template.填写该模板的功能介绍等详细描述...')" />
+                                        :placeholder="'填写该模板的功能介绍等详细描述...'" />
                                 </jb-form-item>
                             </toggle-display>
                             <jb-form-item
-                                :label="$t('template.全局变量.label')"
+                                :label="'全局变量'"
                                 style="margin-bottom: 30px;">
                                 <render-global-var
                                     :list="formData.variables"
@@ -50,7 +50,7 @@
                                     @on-change="handleGlobalVariableChange" />
                             </jb-form-item>
                             <jb-form-item
-                                :label="$t('template.作业步骤.label')"
+                                :label="'作业步骤'"
                                 required
                                 property="steps"
                                 style="margin-bottom: 30px;">
@@ -74,7 +74,7 @@
                             <bk-button
                                 @click="handleCancel"
                                 v-test="{ type: 'button', value: 'operationTemplateCancel' }">
-                                {{ $t('template.取消') }}
+                                {{ '取消' }}
                             </bk-button>
                         </template>
                     </smart-action>
@@ -87,8 +87,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskManageService from '@service/task-manage';
+       import TaskManageService from '@service/task-manage';
     import TaskPlanService from '@service/task-plan';
     import { taskTemplateName } from '@utils/validator';
     import JbTagSelect from '@components/jb-tag-select';
@@ -155,12 +154,12 @@
             if (this.isEdit) {
                 this.fetchPlanList();
             }
-            this.submitText = this.isEdit ? I18n.t('template.保存') : I18n.t('template.提交');
+            this.submitText = this.isEdit ? '保存' : '提交';
             this.rules = {
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.模板名称必填'),
+                        message: '模板名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -170,14 +169,14 @@
                     },
                     {
                         validator: this.checkName,
-                        message: I18n.t('template.模板名已存在，请重新输入'),
+                        message: '模板名已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
                 steps: [
                     {
                         validator: value => value.length && value.some(item => !item.delete),
-                        message: I18n.t('template.作业步骤必填'),
+                        message: '作业步骤必填',
                         trigger: 'blur',
                     },
                 ],
@@ -281,9 +280,9 @@
                     return;
                 }
                 this.$bkInfo({
-                    title: I18n.t('template.模板中包含密文变量，请重新设置值'),
-                    subTitle: I18n.t('template.“密文”类型的变量经过特殊加密处理，为避免信息泄露，克隆后初始值不会还原，需用户重新设置。'),
-                    okText: I18n.t('template.我知道了'),
+                    title: '模板中包含密文变量，请重新设置值',
+                    subTitle: '“密文”类型的变量经过特殊加密处理，为避免信息泄露，克隆后初始值不会还原，需用户重新设置。',
+                    okText: '我知道了',
                     extCls: 'password-variable-info',
                 });
             },
@@ -449,7 +448,7 @@
                 for (let i = 0; i < this.formData.steps.length; i++) {
                     if (this.formData.steps[i].delete !== 1
                         && this.formData.steps[i].localValidator === false) {
-                        this.messageError(I18n.t('template.请将「待补全」的步骤信息完善后提交重试'));
+                        this.messageError('请将「待补全」的步骤信息完善后提交重试');
                         return;
                     }
                 }
@@ -530,25 +529,25 @@
                 const subHeader = () => (
                 <div>
                     <p style={{ marginBottom: '10px', color: '#979BA5' }}>
-                        {I18n.t('template.还差一步「 设置执行方案」，即可执行作业')}
+                        {'还差一步「 设置执行方案」，即可执行作业'}
                     </p>
                     <p>
                         <bk-button
                             style={{ marginRight: '10px' }}
                             text
                             onClick={handleGoTemplateEdit}>
-                            {I18n.t('template.继续编辑')}
+                            {'继续编辑'}
                         </bk-button>
                         <bk-button
                             style={{ marginRight: '10px' }}
                             text
                             onClick={handleGoTemplateDetail}>
-                            {I18n.t('template.立即查看')}
+                            {'立即查看'}
                         </bk-button>
                         <bk-button
                             text
                             onClick={handleGoPlan}>
-                            {I18n.t('template.设置方案')}
+                            {'设置方案'}
                         </bk-button>
                     </p>
                 </div>
@@ -556,7 +555,7 @@
 
                 confirmInfo = this.$bkInfo({
                     type: 'success',
-                    title: I18n.t('template.作业创建成功'),
+                    title: '作业创建成功',
                     showFooter: false,
                     subHeader: subHeader(),
                     cancelFn: () => {
@@ -617,26 +616,26 @@
                 const subHeader = () => (
                 <div>
                     <p style={{ marginBottom: '10px', color: '#979BA5' }}>
-                        {I18n.t('template.可以通过 “立即同步” 入口前往更新所有执行方案')}
+                        {'可以通过 “立即同步” 入口前往更新所有执行方案'}
                     </p>
                     <p>
                         <bk-button
                             class="mr10"
                             text
                             onClick={handleGoTemplateDetail}>
-                            {I18n.t('template.返回查看')}
+                            {'返回查看'}
                         </bk-button>
                         <bk-button
                             class="mr10"
                             text
                             disabled={!planSync}
                             onClick={handleGoSync}>
-                            {I18n.t('template.立即同步')}
+                            {'立即同步'}
                         </bk-button>
                         <bk-button
                             text
                             onClick={handleGoPlan}>
-                            {I18n.t('template.查看方案')}
+                            {'查看方案'}
                         </bk-button>
                     </p>
                 </div>
@@ -644,7 +643,7 @@
 
                 confirmInfo = this.$bkInfo({
                     type: 'success',
-                    title: I18n.t('template.编辑保存成功'),
+                    title: '编辑保存成功',
                     showFooter: false,
                     subHeader: subHeader(),
                     cancelFn: () => {

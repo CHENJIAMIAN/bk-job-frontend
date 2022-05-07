@@ -3,7 +3,7 @@
 <template>
     <div>
         <jb-form-item
-            :label="$t('目标路径')"
+            :label="'目标路径'"
             required
             :property="field"
             :rules="rules">
@@ -13,7 +13,7 @@
                 @mouseleave="handleMouseleave">
                 <bk-input
                     ref="input"
-                    :placeholder="$t('请填写分发路径')"
+                    :placeholder="'请填写分发路径'"
                     @focus="handleInputFocus"
                     @blur="handleInputBlur"
                     @change="handleChange"
@@ -26,16 +26,16 @@
                 class="target-path-tips"
                 @mouseleave="handleMouseleave"
                 @mouseenter="handleTipsMouseenter">
-                <div class="row">{{ $t('传输至linux服务器需以\/开头的绝对路径，如：/data/xx') }}</div>
-                <div class="row">{{ $t('传输至Windows服务器需包含盘符开头，如：D:\\tmp\\') }}</div>
+                <div class="row">{{ '传输至linux服务器需以\/开头的绝对路径，如：/data/xx' }}</div>
+                <div class="row">{{ '传输至Windows服务器需包含盘符开头，如：D:\\tmp\\' }}</div>
                 <div class="row">
-                    <div>{{ $t('目标路径支持的内置变量：（点击可直接复制使用）') }}</div>
+                    <div>{{ '目标路径支持的内置变量：（点击可直接复制使用）' }}</div>
                     <table class="target-path-demo">
                         <thead>
                             <tr>
-                                <th>{{ $t('变量名称') }}</th>
-                                <th>{{ $t('含义') }}</th>
-                                <th>{{ $t('示例') }}</th>
+                                <th>{{ '变量名称' }}</th>
+                                <th>{{ '含义' }}</th>
+                                <th>{{ '示例' }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,26 +43,26 @@
                                 <td @click="handleCopy('[FILESRCIP]')">
                                     <div class="copy-box">
                                         <span class="copy-value">[FILESRCIP]</span>
-                                        <span class="copy-tips">{{ $t('点击复制') }}</span>
+                                        <span class="copy-tips">{{ '点击复制' }}</span>
                                     </div>
                                 </td>
-                                <td>{{ $t('源服务器IP') }}</td>
+                                <td>{{ '源服务器IP' }}</td>
                                 <td>0_192.168.0.100</td>
                             </tr>
                             <tr>
                                 <td @click="handleCopy('[DATE:yyyy-MM-dd]')">
                                     <div class="copy-box">
                                         <span class="copy-value">[DATE:yyyy-MM-dd]</span>
-                                        <span class="copy-tips">{{ $t('点击复制') }}</span>
+                                        <span class="copy-tips">{{ '点击复制' }}</span>
                                     </div>
                                 </td>
-                                <td>{{ $t('当前日期') }}</td>
+                                <td>{{ '当前日期' }}</td>
                                 <td>2021-01-01</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div class="row">{{ $t('（日期变量可传入标准的日期时间格式，如 yyyy-MM-dd_HH:mm:ss）') }}</div>
+                <div class="row">{{ '（日期变量可传入标准的日期时间格式，如 yyyy-MM-dd_HH:mm:ss）' }}</div>
             </div>
         </div>
     </div>
@@ -70,8 +70,7 @@
 <script>
     import _ from 'lodash';
     import Tippy from 'bk-magic-vue/lib/utils/tippy';
-    import I18n from '@/i18n';
-    import {
+       import {
         execCopy,
     } from '@utils/assist';
     import {
@@ -104,12 +103,12 @@
             this.rules = [
                 {
                     required: true,
-                    message: I18n.t('目标路径必填'),
+                    message: '目标路径必填',
                     trigger: 'blur',
                 },
                 {
                     validator: filePathRule.validator,
-                    message: I18n.t('目标路径格式错误'),
+                    message: '目标路径格式错误',
                     trigger: 'blur',
                 },
             ];

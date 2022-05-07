@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import TaskHostNodeModel from '@model/task-host-node';
 
 export default class TaskInstanceDetailStepScript {
@@ -57,11 +55,11 @@ export default class TaskInstanceDetailStepScript {
     get scriptStatusHtml () {
         if (this.status === TaskInstanceDetailStepScript.STATUS_SCRIPT_NEED_UPDATE) {
         // eslint-disable-next-line max-len
-            return `<i class="job-icon job-icon-script-update" tippy-tips="${I18n.t('引用脚本待更新')}" style="color: #EA3636"></i>`;
+            return `<i class="job-icon job-icon-script-update" tippy-tips="${'引用脚本待更新'}" style="color: #EA3636"></i>`;
         }
         if (this.status === TaskInstanceDetailStepScript.STATUS_SCRIPT_DISABLED) {
         // eslint-disable-next-line max-len
-            return `<i class="job-icon job-icon-script-disable" tippy-tips="${I18n.t('引用脚本被禁用')}" style="color: #EA3636"></i>`;
+            return `<i class="job-icon job-icon-script-disable" tippy-tips="${'引用脚本被禁用'}" style="color: #EA3636"></i>`;
         }
         return '';
     }
@@ -71,7 +69,7 @@ export default class TaskInstanceDetailStepScript {
      * @returns { String }
      */
     get scriptSourceText () {
-        return this.scriptSource === TaskInstanceDetailStepScript.TYPE_SOURCE_LOCAL ? I18n.t('手工录入') : I18n.t('脚本引用');
+        return this.scriptSource === TaskInstanceDetailStepScript.TYPE_SOURCE_LOCAL ? '手工录入' : '脚本引用';
     }
 
     /**
@@ -79,6 +77,6 @@ export default class TaskInstanceDetailStepScript {
      * @returns { String }
      */
     get ignoreErrorText () {
-        return this.ignoreError === 0 ? I18n.t('不忽略') : I18n.t('自动忽略错误');
+        return this.ignoreError === 0 ? '不忽略' : '自动忽略错误';
     }
 }

@@ -30,25 +30,25 @@
                             <span>{{ templateNameMap[activeTemplateId] }}</span>
                             <span
                                 class="invalid-flag">
-                                {{ $t('template.不导入') }}
+                                {{ '不导入' }}
                             </span>
                         </div>
                         <template v-if="currentPlanList.length > 0">
                             <div class="task-plan-header">
-                                <span>{{ $t('template.选择要导入的作业执行方案') }}</span>
+                                <span>{{ '选择要导入的作业执行方案' }}</span>
                                 <bk-button
                                     v-if="templateInfoMap[activeTemplateId].exportAll"
                                     class="whole-check"
                                     text
                                     @click="handleCancelWholePlan">
-                                    {{ $t('template.取消全选') }}
+                                    {{ '取消全选' }}
                                 </bk-button>
                                 <bk-button
                                     v-else
                                     class="whole-check"
                                     text
                                     @click="handleSelectWholePlan">
-                                    {{ $t('template.全选') }}
+                                    {{ '全选' }}
                                 </bk-button>
                             </div>
                             <div class="task-plan-list">
@@ -70,21 +70,20 @@
                                 </template>
                             </div>
                         </template>
-                        <empty v-else :title="$t('template.暂无执行方案')" style="margin-top: 100px;" />
+                        <empty v-else :title="'暂无执行方案'" style="margin-top: 100px;" />
                     </div>
                 </scroll-faker>
             </div>
         </div>
         <action-bar>
-            <bk-button class="mr10" @click="handleCancel">{{ $t('template.取消') }}</bk-button>
-            <bk-button class="mr10" @click="handleLast">{{ $t('template.上一步') }}</bk-button>
-            <bk-button class="w120" theme="primary" @click="handleNext">{{ $t('template.下一步') }}</bk-button>
+            <bk-button class="mr10" @click="handleCancel">{{ '取消' }}</bk-button>
+            <bk-button class="mr10" @click="handleLast">{{ '上一步' }}</bk-button>
+            <bk-button class="w120" theme="primary" @click="handleNext">{{ '下一步' }}</bk-button>
         </action-bar>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import { taskImport } from '@utils/cache-helper';
     import Empty from '@components/empty';
     import ActionBar from '../components/action-bar';
@@ -204,7 +203,7 @@
                     });
                 }
                 // if (templateInfo.length < 1) {
-                //     this.messageError(I18n.t('template.导入内容不能为空'));
+                //     this.messageError('导入内容不能为空');
                 //     return;
                 // }
                 taskImport.setItem('id', this.id);

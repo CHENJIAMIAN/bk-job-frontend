@@ -1,13 +1,11 @@
 
 
-import _ from 'lodash';
-import I18n from '@/i18n';
-import TaskHostNodeModel from '@model/task-host-node';
+import _ from 'lodash';import TaskHostNodeModel from '@model/task-host-node';
 
 const transferModeMap = {
-    1: I18n.t('严谨模式'),
-    2: I18n.t('强制模式'),
-    3: I18n.t('保险模式'),
+    1: '严谨模式',
+    2: '强制模式',
+    3: '保险模式',
 };
 
 export default class TaskFileStep {
@@ -29,20 +27,20 @@ export default class TaskFileStep {
 
     get uploadSpeedLimitText () {
         if (this.uploadSpeedLimit < 1) {
-            return I18n.t('否');
+            return '否';
         }
         return `${this.uploadSpeedLimit} (MB/s)`;
     }
 
     get downloadSpeedLimitText () {
         if (this.downloadSpeedLimit < 1) {
-            return I18n.t('否');
+            return '否';
         }
         return `${this.downloadSpeedLimit} (MB/s)`;
     }
 
     get ignoreErrorText () {
-        return this.ignoreError === 0 ? I18n.t('不忽略') : I18n.t('自动忽略错误');
+        return this.ignoreError === 0 ? '不忽略' : '自动忽略错误';
     }
 
     get transferModeText () {

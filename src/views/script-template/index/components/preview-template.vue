@@ -7,7 +7,7 @@
             class="script-template-preview-template"
             v-bkloading="{ isLoading }">
             <div class="preview-result">
-                <span>{{ $t('scriptTemplate.渲染结果') }}</span>
+                <span>{{ '渲染结果' }}</span>
                 <div
                     v-if="needRefresh"
                     class="refresh-flag"
@@ -15,7 +15,7 @@
                     <span class="dot">
                         <Icon type="refresh-2" />
                     </span>
-                    <span style="color: #d74242;">{{ $t('scriptTemplate.有更新') }}</span>
+                    <span style="color: #d74242;">{{ '有更新' }}</span>
                 </div>
             </div>
             <div :id="editorId" class="preview-content" />

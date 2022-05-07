@@ -8,12 +8,12 @@
                     <layout-card class="user-card">
                         <user />
                     </layout-card>
-                    <layout-card class="agent-card" :title="$t('home.Agent 状态分布')">
+                    <layout-card class="agent-card" :title="'Agent 状态分布'">
                         <agent />
                     </layout-card>
                 </div>
                 <div class="layout-row">
-                    <layout-card :title="$t('home.我收藏的作业')" class="my-task">
+                    <layout-card :title="'我收藏的作业'" class="my-task">
                         <favor-task />
                     </layout-card>
                 </div>
@@ -25,7 +25,7 @@
                             <template #default="{ jobNum }">
                                 <span>{{ jobNum }}</span>
                             </template>
-                            <span slot="name">{{ $t('home.作业量') }}</span>
+                            <span slot="name">{{ '作业量' }}</span>
                         </work-statistics>
                     </layout-card>
                     <layout-card class="work-statistics-card">
@@ -33,12 +33,12 @@
                             <template #default="{ scriptNum }">
                                 <span>{{ scriptNum }}</span>
                             </template>
-                            <span slot="name">{{ $t('home.脚本量') }}</span>
+                            <span slot="name">{{ '脚本量' }}</span>
                         </work-statistics>
                     </layout-card>
                 </div>
                 <div class="layout-row">
-                    <layout-card :title="$t('home.最近执行记录')" class="record-card">
+                    <layout-card :title="'最近执行记录'" class="record-card">
                         <history-record />
                     </layout-card>
                 </div>

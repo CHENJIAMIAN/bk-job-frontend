@@ -5,7 +5,7 @@
         <template v-if="type === 'search'">
             <img :style="styles" src="/static/images/search-empty.svg">
             <div class="job-empty-text">
-                <slot>{{ $t('搜索结果为空') }}</slot>
+                <slot>{{ '搜索结果为空' }}</slot>
             </div>
         </template>
         <template v-else>
@@ -18,14 +18,13 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: 'Empty',
         props: {
             title: {
                 type: String,
-                default: I18n.t('数据为空'),
+                default: '数据为空',
             },
             width: {
                 type: Number,

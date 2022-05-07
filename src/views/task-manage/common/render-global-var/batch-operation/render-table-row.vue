@@ -56,8 +56,7 @@
 </template>
 <script>
     import GlobalVariableModel from '@model/task/global-variable';
-    import I18n from '@/i18n';
-    import { globalVariableNameRule } from '@utils/validator';
+       import { globalVariableNameRule } from '@utils/validator';
     import JbEditInput from '@components/jb-edit/input';
     import JbEditTextarea from '@components/jb-edit/textarea';
     import JbEditHost from '@components/jb-edit/host';
@@ -96,7 +95,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.变量名称必填'),
+                        message: '变量名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -106,7 +105,7 @@
                     },
                     {
                         validator: val => !this.variableNameList.includes(val),
-                        message: I18n.t('template.变量名称已存在，请重新输入'),
+                        message: '变量名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
@@ -120,11 +119,11 @@
             validate () {
                 this.errorNameText = '';
                 if (!this.data.name) {
-                    this.errorNameText = I18n.t('template.变量名称必填');
+                    this.errorNameText = '变量名称必填';
                 } else if (!globalVariableNameRule.validator(this.data.name)) {
                     this.errorNameText = globalVariableNameRule.message;
                 } else if (this.variableNameList.includes(this.data.name)) {
-                    this.errorNameText = I18n.t('template.变量名称已存在，请重新输入');
+                    this.errorNameText = '变量名称已存在，请重新输入';
                 }
                 if (this.errorNameText) {
                     return Promise.reject(new Error(this.errorNameText));

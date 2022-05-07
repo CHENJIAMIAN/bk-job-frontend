@@ -6,12 +6,12 @@
             <table>
                 <template v-if="!$slots.default">
                     <thead>
-                        <th style="width: 20%;">{{ $t('主机IP') }}</th>
-                        <th style="width: 20%;">{{ $t('云区域') }}</th>
-                        <th style="width: 150px;">{{ $t('Agent 状态') }}</th>
-                        <th>{{ $t('主机名') }}</th>
-                        <th>{{ $t('操作系统名称') }}</th>
-                        <th v-if="editable" class="action-column">{{ $t('操作') }}</th>
+                        <th style="width: 20%;">{{ '主机IP' }}</th>
+                        <th style="width: 20%;">{{ '云区域' }}</th>
+                        <th style="width: 150px;">{{ 'Agent 状态' }}</th>
+                        <th>{{ '主机名' }}</th>
+                        <th>{{ '操作系统名称' }}</th>
+                        <th v-if="editable" class="action-column">{{ '操作' }}</th>
                     </thead>
                     <slot name="appendBefore" />
                     <tbody v-if="renderList.length > 0" class="valid-list">
@@ -20,8 +20,8 @@
                                 <span
                                     v-if="row.repeat"
                                     class="repeat"
-                                    :tippy-tips="$t('指和其他主机的IP地址相同，但云区域不同')">
-                                    {{ $t('重复') }}
+                                    :tippy-tips="'指和其他主机的IP地址相同，但云区域不同'">
+                                    {{ '重复' }}
                                 </span>
                                 <div class="cell-text">{{ row.ip }}</div>
                             </td>
@@ -31,11 +31,11 @@
                             <td>
                                 <span v-if="row.alive">
                                     <icon svg type="normal" style="vertical-align: middle;" />
-                                    <span style="vertical-align: middle;">{{ $t('正常') }}</span>
+                                    <span style="vertical-align: middle;">{{ '正常' }}</span>
                                 </span>
                                 <span v-else>
                                     <icon svg type="abnormal" style="vertical-align: middle;" />
-                                    <span style="vertical-align: middle;">{{ $t('异常') }}</span>
+                                    <span style="vertical-align: middle;">{{ '异常' }}</span>
                                 </span>
                             </td>
                             <td>
@@ -45,7 +45,7 @@
                                 <div class="cell-text">{{ row.os || '--' }}</div>
                             </td>
                             <td v-if="editable" class="action-column">
-                                <bk-button text @click="handleRemove(row.realId)">{{ $t('移除') }}</bk-button>
+                                <bk-button text @click="handleRemove(row.realId)">{{ '移除' }}</bk-button>
                             </td>
                         </tr>
                     </tbody>
@@ -59,7 +59,7 @@
                 v-if="isShowMorePage"
                 class="list-more"
                 @click="handlePage">
-                {{ $t('查看更多') }}
+                {{ '查看更多' }}
             </div>
         </scroll-faker>
         <empty v-if="isEmpty" :type="emptyType" />

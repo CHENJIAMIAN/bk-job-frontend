@@ -6,12 +6,12 @@
             <jb-breadcrumb :width="645">
                 <jb-breadcrumb-item>
                     <Icon type="folder-open" style="font-size: 20px;" />
-                    <span>{{ $t('请选择文件源') }}</span>
+                    <span>{{ '请选择文件源' }}</span>
                 </jb-breadcrumb-item>
             </jb-breadcrumb>
             <template #right>
                 <jb-input
-                    :placeholder="$t('搜索“所有文件源”')"
+                    :placeholder="'搜索“所有文件源”'"
                     right-icon="bk-icon icon-search"
                     style="width: 480px;"
                     @change="handleSearch" />
@@ -28,7 +28,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('文件源别名')"
+                :label="'文件源别名'"
                 prop="alias"
                 sortable>
                 <template slot-scope="{ row }">
@@ -43,18 +43,18 @@
                     </auth-button>
                     <span
                         v-else
-                        v-bk-tooltips="$t('接入点异常，暂时不可用')">
+                        v-bk-tooltips="'接入点异常，暂时不可用'">
                         <bk-button disabled text>{{ row.alias }}</bk-button>
                     </span>
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('文件源标识')"
+                :label="'文件源标识'"
                 prop="code"
                 show-overflow-tooltip
                 sortable />
             <bk-table-column
-                :label="$t('状态')"
+                :label="'状态'"
                 prop="status">
                 <template slot-scope="{ row }">
                     <Icon :type="row.statusIcon" svg />
@@ -62,17 +62,17 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('类型')"
+                :label="'类型'"
                 prop="create_time">
                 <template slot-scope="{ row }">
                     {{ row.storageTypeText }}
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('更新人')"
+                :label="'更新人'"
                 prop="creator" />
             <bk-table-column
-                :label="$t('更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime" />
         </bk-table>
     </div>

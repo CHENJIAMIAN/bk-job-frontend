@@ -12,26 +12,26 @@
             form-type="vertical"
             ref="timeTaskForm">
             <jb-form-item
-                :label="$t('cron.任务名称.label')"
+                :label="'任务名称'"
                 required
                 property="name">
                 <jb-input
-                    :placeholder="$t('cron.推荐按照该定时执行的实际场景来取名...')"
+                    :placeholder="'推荐按照该定时执行的实际场景来取名...'"
                     v-model="formData.name"
                     :maxlength="60" />
             </jb-form-item>
             <jb-form-item
-                :label="$t('cron.执行策略.label')"
+                :label="'执行策略'"
                 required
                 :property="strategyField">
                 <bk-radio-group
                     :value="strategy"
                     @change="handleStrategyChange">
                     <bk-radio-button value="once">
-                        {{ $t('cron.单次执行') }}
+                        {{ '单次执行' }}
                     </bk-radio-button>
                     <bk-radio-button value="period">
-                        {{ $t('cron.周期执行') }}
+                        {{ '周期执行' }}
                     </bk-radio-button>
                 </bk-radio-group>
                 <div class="strategy-wraper">
@@ -45,7 +45,7 @@
                             :clearable="false"
                             :options="dateOptions"
                             type="datetime"
-                            :placeholder="$t('cron.选择日期时间')" />
+                            :placeholder="'选择日期时间'" />
                     </render-strategy>
                     <render-strategy
                         v-else
@@ -63,12 +63,12 @@
                 :form-data="formData"
                 @on-change="handleFormItemChange" />
             <jb-form-item
-                :label="$t('cron.作业模板')"
+                :label="'作业模板'"
                 required
                 property="taskTemplateId">
                 <bk-select
                     v-model="formData.taskTemplateId"
-                    :placeholder="$t('cron.选择作业模板')"
+                    :placeholder="'选择作业模板'"
                     :clearable="false"
                     searchable
                     :loading="isTemplateLoading"
@@ -84,7 +84,7 @@
                 </bk-select>
             </jb-form-item>
             <jb-form-item
-                :label="$t('cron.执行方案')"
+                :label="'执行方案'"
                 required
                 property="taskPlanId">
                 <div
@@ -92,7 +92,7 @@
                     :class="hasPlan ? 'new-width' : ''">
                     <bk-select
                         v-model="formData.taskPlanId"
-                        :placeholder="$t('cron.选择执行方案')"
+                        :placeholder="'选择执行方案'"
                         :clearable="false"
                         
                         :loading="isPlanLoading"
@@ -111,7 +111,7 @@
                 <div class="plan-icon" v-if="hasPlan">
                     <Icon
                         type="audit"
-                        v-bk-tooltips="$t('cron.查看执行方案')"
+                        v-bk-tooltips="'查看执行方案'"
                         @click="handleGoPlan" />
                 </div>
             </jb-form-item>
@@ -123,7 +123,7 @@
                     <span
                         v-if="isVariabelEmpty"
                         class="plan-variable-empty">
-                        {{ $t('cron.该执行方案无全局变量') }}
+                        {{ '该执行方案无全局变量' }}
                     </span>
                     <global-variable-layout v-else type="vertical">
                         <global-variable
@@ -154,8 +154,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskService from '@service/task-manage';
+       import TaskService from '@service/task-manage';
     import TaskPlanService from '@service/task-plan';
     import TimeTaskService from '@service/time-task';
     import {
@@ -276,17 +275,17 @@
                     if (value === 'once') {
                         delete this.rules.cronExpression;
                         this.rules.executeTime = [
-                            { required: true, message: I18n.t('cron.单次执行时间必填'), trigger: 'blur' },
+                            { required: true, message: '单次执行时间必填', trigger: 'blur' },
                             {
                                 validator: value => new Date(value).getTime() > Date.now(),
-                                message: I18n.t('cron.执行时间无效（早于当前时间）'),
+                                message: '执行时间无效（早于当前时间）',
                                 trigger: 'blur',
                             },
                         ];
                     } else {
                         delete this.rules.executeTime;
                         this.rules.cronExpression = [
-                            { required: true, message: I18n.t('cron.请输入正确时间表达式'), trigger: 'blur' },
+                            { required: true, message: '请输入正确时间表达式', trigger: 'blur' },
                         ];
                     }
                 },
@@ -351,7 +350,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('cron.任务名称必填'),
+                        message: '任务名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -361,21 +360,21 @@
                     },
                     {
                         validator: this.checkName,
-                        message: I18n.t('cron.任务名称已存在，请重新输入'),
+                        message: '任务名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
                 taskTemplateId: [
                     {
                         required: true,
-                        message: I18n.t('cron.作业模板必填'),
+                        message: '作业模板必填',
                         trigger: 'blur',
                     },
                 ],
                 taskPlanId: [
                     {
                         required: true,
-                        message: I18n.t('cron.执行方案必填'),
+                        message: '执行方案必填',
                         trigger: 'blur',
                     },
                 ],
@@ -635,10 +634,10 @@
                         }).then(() => {
                             if (params.id) {
                                 // 编辑
-                                this.messageSuccess(I18n.t('cron.定时任务编辑成功'));
+                                this.messageSuccess('定时任务编辑成功');
                             } else {
                                 // 新建
-                                this.messageSuccess(I18n.t('cron.定时任务创建成功(默认关闭，请手动开启)'));
+                                this.messageSuccess('定时任务创建成功(默认关闭，请手动开启)');
                             }
                             
                             this.$emit('on-change');

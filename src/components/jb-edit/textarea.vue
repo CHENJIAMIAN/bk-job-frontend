@@ -51,8 +51,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import JbTextarea from '@components/jb-textarea';
+       import JbTextarea from '@components/jb-textarea';
 
     export default {
         name: 'JbEditTextarea',
@@ -252,7 +251,7 @@
                         [this.field]: this.newVal,
                     });
                     this.calcEllTextLength();
-                    this.messageSuccess(I18n.t('编辑成功'));
+                    this.messageSuccess('编辑成功');
                 })
                     .finally(() => {
                         this.isSubmiting = false;

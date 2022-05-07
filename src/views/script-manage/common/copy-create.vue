@@ -2,21 +2,21 @@
 
 <template>
     <layout class="script-manage-copy-create-box">
-        <div slot="title">{{ $t('script.新建脚本') }}</div>
+        <div slot="title">{{ '新建脚本' }}</div>
         <template slot="sub-header">
             <Icon
                 type="upload"
                 @click="handleUploadScript"
-                v-bk-tooltips="$t('上传脚本')"
+                v-bk-tooltips="'上传脚本'"
                 v-test="{ type: 'button', value: 'uploadScript' }" />
             <Icon
                 type="history"
                 @click.stop="handleShowHistory"
-                v-bk-tooltips="$t('历史缓存')"
+                v-bk-tooltips="'历史缓存'"
                 v-test="{ type: 'button', value: 'scriptEditHistory' }" />
             <Icon
                 type="full-screen"
-                v-bk-tooltips="$t('全屏')"
+                v-bk-tooltips="'全屏'"
                 @click="handleFullScreen"
                 v-test="{ type: 'button', value: 'scriptEditFullscreen' }" />
         </template>
@@ -28,20 +28,20 @@
                 :rules="rules"
                 v-test="{ type: 'form', value: 'copyCreateScript' }">
                 <jb-form-item
-                    :label="$t('script.版本号.label')"
+                    :label="'版本号'"
                     required
                     property="version">
                     <div class="script-version">
                         <jb-input
                             :value="formData.version"
-                            :placeholder="$t('script.输入版本号')"
+                            :placeholder="'输入版本号'"
                             :maxlength="30"
                             property="version"
                             @change="handleVersionChange" />
                         <Icon type="new-dark" svg class="new-flag" />
                     </div>
                 </jb-form-item>
-                <jb-form-item :label="$t('script.版本日志')">
+                <jb-form-item :label="'版本日志'">
                     <bk-input
                         v-model="formData.versionDesc"
                         type="textarea"
@@ -67,26 +67,25 @@
                 theme="primary"
                 @click="handleSubmit"
                 v-test="{ type: 'button', value: 'copyCreateScriptSubmit' }">
-                {{ $t('script.提交') }}
+                {{ '提交' }}
             </bk-button>
             <bk-button
                 class="mr10"
                 @click="handleDebugScript"
                 v-test="{ type: 'button', value: 'debugScript' }">
-                {{ $t('script.调试') }}
+                {{ '调试' }}
             </bk-button>
             <bk-button
                 @click="handleCancel"
                 v-test="{ type: 'button', value: 'copyCreateScriptCancel' }">
-                {{ $t('script.取消') }}
+                {{ '取消' }}
             </bk-button>
         </template>
     </layout>
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import ScriptManageService from '@service/script-manage';
+       import ScriptManageService from '@service/script-manage';
     import PublicScriptManageService from '@service/public-script-manage';
     import JbInput from '@components/jb-input';
     import AceEditor from '@components/ace-editor';
@@ -182,7 +181,7 @@
                 version: [
                     {
                         required: true,
-                        message: I18n.t('script.版本号必填'),
+                        message: '版本号必填',
                         trigger: 'blur',
                     },
                     {
@@ -192,14 +191,14 @@
                     },
                     {
                         validator: value => !this.versionMap[value],
-                        message: I18n.t('script.版本号已存在，请重新输入'),
+                        message: '版本号已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
                 content: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本内容不能为空'),
+                        message: '脚本内容不能为空',
                         trigger: 'change',
                     },
                     {
@@ -211,7 +210,7 @@
                             this.$store.commit('setScriptCheckError', data.some(_ => _.isDangerous));
                             return true;
                         }),
-                        message: I18n.t('script.脚本内容检测失败'),
+                        message: '脚本内容检测失败',
                         trigger: 'blur',
                     },
                 ],
@@ -264,7 +263,7 @@
              */
             handleSubmit () {
                 if (!this.formData.content) {
-                    this.messageError(I18n.t('script.脚本内容不能为空'));
+                    this.messageError('脚本内容不能为空');
                     return;
                 }
                 this.isSubmiting = true;
@@ -292,7 +291,7 @@
                             scriptVersionId: data.scriptVersionId,
                         });
                         window.changeAlert = false;
-                        this.messageSuccess(I18n.t('script.操作成功'));
+                        this.messageSuccess('操作成功');
                     });
                 })
                     .finally(() => {

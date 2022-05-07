@@ -2,7 +2,7 @@
 
 <template>
     <sideslider-box class="server-group-host-preview" :value="value" @change="handleClose">
-        <div slot="title">{{ $t('分组预览') }}——{{ data.name }}</div>
+        <div slot="title">{{ '分组预览' }}——{{ data.name }}</div>
         <div slot="desc">
             <statistics-text :data="statisticsData" />
             <action-extend :list="list" copyable />

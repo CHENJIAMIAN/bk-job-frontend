@@ -22,7 +22,7 @@
                         @click="handleTabChange(index)">
                         <div class="title">{{ log.version }}</div>
                         <div class="date">{{ log.time }}</div>
-                        <div v-if="index === 0" class="new-flag">{{ $t('当前版本') }}</div>
+                        <div v-if="index === 0" class="new-flag">{{ '当前版本' }}</div>
                     </div>
                 </scroll-faker>
             </div>

@@ -6,7 +6,7 @@
             <div class="speed-limit-wraper">
                 <div class="speed-limit-content form-item-content">
                     <bk-checkbox :value="enabled" @change="handleEnableChange">
-                        {{ $t('启用限速') }}
+                        {{ '启用限速' }}
                     </bk-checkbox>
                     <bk-input v-show="enabled" class="speed-limit-input" @change="handleChange" :value="formData[field]">
                         <template slot="append">
@@ -18,14 +18,13 @@
             </div>
         </jb-form-item>
         <div id="targetPathTips" class="speed-limit-tips">
-            <div class="row">{{ $t('请根据机器的网卡情况酌情配置速率，以免影响其他服务的正常使用；') }}</div>
-            <div class="row">{{ $t('未开启时，将按 Agent 默认配置规则限速 （Agent会根据机器资源使用情况，有自身保护机制）') }}</div>
+            <div class="row">{{ '请根据机器的网卡情况酌情配置速率，以免影响其他服务的正常使用；' }}</div>
+            <div class="row">{{ '未开启时，将按 Agent 默认配置规则限速 （Agent会根据机器资源使用情况，有自身保护机制）' }}</div>
         </div>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -35,7 +34,7 @@
             },
             label: {
                 type: String,
-                default: I18n.t('限速'),
+                default: '限速',
             },
             formData: {
                 type: Object,

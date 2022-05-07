@@ -12,18 +12,18 @@
                 auth="script/create"
                 @click="handleCreate"
                 class="w120">
-                {{ $t('script.新建') }}
+                {{ '新建' }}
             </auth-button>
             <bk-button
                 @click="handleBatchEditTag">
-                {{ $t('script.编辑标签') }}
+                {{ '编辑标签' }}
             </bk-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     @on-change="handleSearch"
                     :data="searchSelect"
-                    :placeholder="$t('script.搜索脚本名称，类型，场景标签，更新人...')"
+                    :placeholder="'搜索脚本名称，类型，场景标签，更新人...'"
                     style="width: 420px;" />
             </template>
         </list-action-layout>
@@ -42,7 +42,7 @@
                 width="300"
                 align="left" />
             <bk-table-column
-                :label="$t('script.脚本名称.colHead')"
+                :label="'脚本名称'"
                 prop="name"
                 key="name"
                 :min-width="300"
@@ -72,7 +72,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.type"
-                :label="$t('script.脚本语言')"
+                :label="'脚本语言'"
                 sortable
                 prop="type"
                 key="type"
@@ -83,7 +83,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.场景标签.colHead')"
+                :label="'场景标签'"
                 sortable
                 prop="tags"
                 key="tags"
@@ -107,7 +107,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.related"
-                :label="$t('script.被引用.colHead')"
+                :label="'被引用'"
                 prop="related"
                 key="related"
                 width="120"
@@ -118,8 +118,8 @@
                         text
                         class="mr20"
                         v-bk-tooltips.right.allowHtml="`
-                                    <div>${$t('script.作业模板引用')}: ${row.relatedTaskTemplateNum}</div>
-                                    <div>${$t('script.执行方案引用')}: ${row.relatedTaskPlanNum}</div>`"
+                                    <div>${'作业模板引用'}: ${row.relatedTaskTemplateNum}</div>
+                                    <div>${'执行方案引用'}: ${row.relatedTaskPlanNum}</div>`"
                         @click="handleShowRelated(row)">
                         <span>{{ row.relatedTaskTemplateNum }}</span>
                         <span> / </span>
@@ -129,7 +129,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.version"
-                :label="$t('script.线上版本')"
+                :label="'线上版本'"
                 show-overflow-tooltip
                 prop="version"
                 key="version"
@@ -141,7 +141,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('script.创建人.colHead')"
+                :label="'创建人'"
                 sortable
                 show-overflow-tooltip
                 prop="creator"
@@ -150,27 +150,27 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('script.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('script.更新人.colHead')"
+                :label="'更新人'"
                 width="160"
                 prop="lastModifyUser"
                 key="lastModifyUser"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('script.更新时间')"
+                :label="'更新时间'"
                 width="180"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 align="left" />
             <bk-table-column
-                :label="$t('script.操作')"
+                :label="'操作'"
                 :resizable="false"
                 fixed="right"
                 key="action"
@@ -184,11 +184,11 @@
                         auth="script/view"
                         :resource-id="row.id"
                         @click="handleVersion(row)">
-                        {{ $t('script.版本管理') }}
+                        {{ '版本管理' }}
                     </auth-button>
                     <span
                         class="mr10"
-                        :tippy-tips="row.isExecuteDisable ? $t('script.该脚本没有 “线上版本” 可执行，请前往版本管理内设置。') : ''">
+                        :tippy-tips="row.isExecuteDisable ? '该脚本没有 “线上版本” 可执行，请前往版本管理内设置。' : ''">
                         <auth-button
                             text
                             :permission="row.canView"
@@ -196,19 +196,19 @@
                             :resource-id="row.id"
                             
                             @click="handleExec(row)">
-                            {{ $t('script.去执行') }}
+                            {{ '去执行' }}
                         </auth-button>
                     </span>
                     <jb-popover-confirm
-                        :title="$t('script.确定删除该脚本？')"
-                        :content="$t('script.注意！脚本内的所有版本也将被清除')"
+                        :title="'确定删除该脚本？'"
+                        :content="'注意！脚本内的所有版本也将被清除'"
                         :confirm-handler="() => handleDelete(row)">
                         <auth-button
                             :permission="row.canManage"
                             auth="script/delete"
                             :resource-id="row.id"
                             text>
-                            {{ $t('script.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </template>
@@ -223,9 +223,9 @@
         </render-list>
         <jb-dialog
             v-model="isShowBatchEditTag"
-            :title="$t('script.编辑标签')"
+            :title="'编辑标签'"
             header-position="left"
-            :ok-text="$t('script.确定')"
+            :ok-text="'确定'"
             :width="480">
             <batch-edit-tag
                 v-if="isShowBatchEditTag"
@@ -236,7 +236,7 @@
             :is-show.sync="showRelated"
             :show-footer="false"
             quick-close
-            :title="$t('script.被引用.label')"
+            :title="'被引用'"
             :width="695">
             <script-related-info
                 from="scriptList"
@@ -245,8 +245,7 @@
     </layout>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TagManageService from '@service/tag-manage';
+       import TagManageService from '@service/tag-manage';
     import PublicTagManageService from '@service/public-tag-manage';
     import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
@@ -326,33 +325,33 @@
                 {
                     name: 'ID',
                     id: 'scriptId',
-                    description: I18n.t('script.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                 },
                 {
-                    name: I18n.t('script.脚本名称.colHead'),
+                    name: '脚本名称',
                     id: 'name',
                     default: true,
                 },
                 {
-                    name: I18n.t('script.脚本语言'),
+                    name: '脚本语言',
                     id: 'type',
                     remoteMethod: PublicScriptService.scriptTypeList,
                     remoteExecuteImmediate: true,
                 },
                 {
-                    name: I18n.t('script.场景标签.colHead'),
+                    name: '场景标签',
                     id: 'tags',
                     remoteMethod: this.tagSericeHandler.fetchTagOfSearch,
                     remoteExecuteImmediate: true,
                 },
                 {
-                    name: I18n.t('script.创建人.colHead'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('script.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -365,41 +364,41 @@
                 },
                 {
                     id: 'name',
-                    label: I18n.t('script.脚本名称.colHead'),
+                    label: '脚本名称',
                     disabled: true,
                 },
                 {
                     id: 'tags',
-                    label: I18n.t('script.场景标签.colHead'),
+                    label: '场景标签',
                     disabled: true,
                 },
                 {
                     id: 'type',
-                    label: I18n.t('script.脚本语言'),
+                    label: '脚本语言',
                 },
                 {
                     id: 'related',
-                    label: I18n.t('script.被引用.colHead'),
+                    label: '被引用',
                 },
                 {
                     id: 'version',
-                    label: I18n.t('script.线上版本'),
+                    label: '线上版本',
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('script.创建人.colHead'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('script.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('script.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('script.更新时间'),
+                    label: '更新时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -424,7 +423,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('script.脚本名称必填'),
+                        message: '脚本名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -563,7 +562,7 @@
                 //         this.$bkMessage({
                 //             limit: 1,
                 //             theme: 'error',
-                //             message: I18n.t('script.操作失败！请前往「版本管理」设置线上版后重试'),
+                //             message: '操作失败！请前往「版本管理」设置线上版后重试',
                 //         });
                 //         return;
                 //     }
@@ -582,14 +581,14 @@
              */
             handleDelete (scriptData) {
                 if (!scriptData.isEnableRemove) {
-                    this.messageError(I18n.t('script.脚本正被作业引用中，无法删除'));
+                    this.messageError('脚本正被作业引用中，无法删除');
                     return false;
                 }
                 return this.serviceHandler.scriptDelete({
                     id: scriptData.id,
                 }).then(() => {
                     this.fetchData();
-                    this.messageSuccess(I18n.t('script.删除成功'));
+                    this.messageSuccess('删除成功');
                     return true;
                 });
             },
@@ -614,8 +613,8 @@
                                 type="circle-italics-info"
                                 style="margin-left: 8px; font-size: 12px;" />
                             <div slot="content">
-                                <div>{ I18n.t('script.显示被作业引用的次数') }</div>
-                                <div>{ I18n.t('script.显示被执行方案引用的次数') }</div>
+                                <div>{ '显示被作业引用的次数' }</div>
+                                <div>{ '显示被执行方案引用的次数' }</div>
                             </div>
                         </bk-popover>
                     </span>

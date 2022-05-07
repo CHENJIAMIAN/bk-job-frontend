@@ -1,5 +1,4 @@
 
-
 import Vue from 'vue';
 import '@icon-cool/bk-icon-job';
 import '@icon-cool/bk-icon-job/src/index.js';
@@ -16,7 +15,6 @@ import '@/css/reset.css';
 import '@/css/app.css';
 import App from '@/App';
 import IframeApp from '@/iframe-app';
-import i18n from '@/i18n';
 
 /**
  * @desc 启动打印当前系统信息
@@ -50,9 +48,9 @@ window.addEventListener('beforeunload', (event) => {
     }
     const e = event || window.event;
     if (e) {
-        e.returnValue = window.BKApp.$t('离开将会导致未保存信息丢失');
+        e.returnValue = '离开将会导致未保存信息丢失';
     }
-    return window.BKApp.$t('离开将会导致未保存信息丢失');
+    return '离开将会导致未保存信息丢失';
 });
 
 const EntryApp = App;
@@ -62,6 +60,5 @@ window.BKApp = new Vue({
     router: createRouter({
     }),
     store,
-    i18n,
     render: h => h(EntryApp),
 });

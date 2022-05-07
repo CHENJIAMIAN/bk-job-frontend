@@ -1,11 +1,11 @@
 <template>
     <div class="task-manage-batch-edit-tag" v-bkloading="{ isLoading }">
         <div style="margin-bottom: 8px;">
-            {{ $t('template.范围') }}：{{ $t('template.共') }}<span class="strong number">{{ templateNums }}</span>{{ $t('template.个作业') }}
+            {{ '范围' }}：{{ '共' }}<span class="strong number">{{ templateNums }}</span>{{ '个作业' }}
         </div>
         <jb-form form-type="vertical">
             <jb-form-item
-                :label="$t('template.标签')"
+                :label="'标签'"
                 required
                 style="margin-bottom: 0;">
                 <div class="tag-panel">
@@ -35,13 +35,13 @@
                                     <template v-if="tagCheckInfoMap[tagItem.id]">
                                         <span
                                             v-if="tagCheckInfoMap[tagItem.id].checked"
-                                            v-bk-tooltips.right="$t('template.勾选范围里，全部作业使用')"
+                                            v-bk-tooltips.right="'勾选范围里，全部作业使用'"
                                             class="relate-all">
                                             All
                                         </span>
                                         <span
                                             v-if="tagCheckInfoMap[tagItem.id].indeterminate"
-                                            v-bk-tooltips.right="`${$t('template.勾选范围里，有')} ${tagRelateNumMap[tagItem.id]} ${$t('template.个作业使用')}`"
+                                            v-bk-tooltips.right="`${'勾选范围里，有'} ${tagRelateNumMap[tagItem.id]} ${'个作业使用'}`"
                                             class="relate-nums">
                                             {{ tagRelateNumMap[tagItem.id] }}/{{ templateNums }}
                                         </span>
@@ -58,8 +58,8 @@
                             v-else-if="search"
                             type="search"
                             style="margin-top: 20px;">
-                            <span>{{ $t('template.搜索结果为空') }}，</span>
-                            <bk-button text @click="handleClearSearch">{{ $t('template.清空搜索') }}</bk-button>
+                            <span>{{ '搜索结果为空' }}，</span>
+                            <bk-button text @click="handleClearSearch">{{ '清空搜索' }}</bk-button>
                         </Empty>
                     </div>
                     <auth-component auth="tag/create">
@@ -67,13 +67,13 @@
                             <bk-icon
                                 type="plus-circle"
                                 style=" margin-right: 8px; font-size: 16px;" />
-                            <span>{{ $t('template.新建标签') }}</span>
+                            <span>{{ '新建标签' }}</span>
                         </div>
                         <div slot="forbid" class="tag-create">
                             <bk-icon
                                 type="plus-circle"
                                 style=" margin-right: 8px; font-size: 16px;" />
-                            <span>{{ $t('template.新建标签') }}</span>
+                            <span>{{ '新建标签' }}</span>
                         </div>
                     </auth-component>
                 </div>
@@ -100,8 +100,7 @@
     import _ from 'lodash';
     import TagManageService from '@service/tag-manage';
     import TaskManageService from '@service/task-manage';
-    import I18n from '@/i18n';
-    import { encodeRegexp } from '@utils/assist';
+       import { encodeRegexp } from '@utils/assist';
     import OperationTag from '@components/operation-tag';
 
     export default {
@@ -295,7 +294,7 @@
                     deleteTagIdList,
                     idList: props.templateList.map(({ id }) => id),
                 }).then(() => {
-                    proxy.messageSuccess(I18n.t('template.编辑标签成功'));
+                    proxy.messageSuccess('编辑标签成功');
                     ctx.emit('on-change');
                 });
             };

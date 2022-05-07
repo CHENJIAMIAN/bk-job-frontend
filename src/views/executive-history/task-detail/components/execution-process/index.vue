@@ -2,7 +2,7 @@
 
 <template>
     <div
-        v-bk-tooltips="$t('history.定位到当前步骤')"
+        v-bk-tooltips="'定位到当前步骤'"
         class="task-exeution-process"
         @click="handleScrollToCurrentStep">
         {{ current }} / {{ total }}

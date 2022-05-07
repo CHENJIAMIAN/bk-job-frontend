@@ -36,24 +36,23 @@
             </div>
         </div>
         <template #footer>
-            <bk-button @click="handleCancel">{{ $t('template.取消') }}</bk-button>
-            <bk-button @click="handleLast">{{ $t('template.上一步') }}</bk-button>
+            <bk-button @click="handleCancel">{{ '取消' }}</bk-button>
+            <bk-button @click="handleLast">{{ '上一步' }}</bk-button>
             <jb-popover-confirm
-                :title="$t('template.是否确认同步？')"
-                :content="$t('template.关联定时任务的调整将立即生效')"
+                :title="'是否确认同步？'"
+                :content="'关联定时任务的调整将立即生效'"
                 :confirm-handler="handleSubmit">
                 <bk-button
                     theme="primary"
                     class="w120">
-                    {{ $t('template.立即同步') }}
+                    {{ '立即同步' }}
                 </bk-button>
             </jb-popover-confirm>
         </template>
     </layout>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskPlanService from '@service/task-plan';
+       import TaskPlanService from '@service/task-plan';
     import TimeTaskService from '@service/time-task';
     import {
         leaveConfirm,
@@ -166,7 +165,7 @@
             handleSubmit () {
                 const hasAllConfirm = this.timeTaskList.filter(item => item.enable).every(item => item.hasConfirm);
                 if (!hasAllConfirm) {
-                    this.messageWarn(I18n.t('template.有定时任务还未确认'));
+                    this.messageWarn('有定时任务还未确认');
                     return;
                 }
                 return TaskPlanService.planSyncInfo({
@@ -176,11 +175,11 @@
                 }).then(() => TimeTaskService.updatePlanTask({
                     cronJobInfoList: this.timeTaskList,
                 }), () => {
-                    this.messageError(I18n.t('template.执行方案同步失败'));
+                    this.messageError('执行方案同步失败');
                 })
                     .then(() => {
                         window.changeAlert = false;
-                        this.messageSuccess(I18n.t('template.同步成功'), () => {
+                        this.messageSuccess('同步成功', () => {
                             this.$router.push({
                                 name: 'viewPlan',
                                 params: {
@@ -193,7 +192,7 @@
                         });
                         return true;
                     }, () => {
-                        this.messageError(I18n.t('template.定时任务更新失败'));
+                        this.messageError('定时任务更新失败');
                     });
             },
             /**

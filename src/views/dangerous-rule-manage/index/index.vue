@@ -7,27 +7,27 @@
             v-test="{ type: 'list', value: 'dangerousRule' }">
             <thead>
                 <tr>
-                    <th style="width: 200px;">{{ $t('dangerousRule.语法检测表达式') }}</th>
-                    <th>{{ $t('dangerousRule.规则说明') }}</th>
-                    <th style="width: 300px;">{{ $t('dangerousRule.脚本类型') }}</th>
+                    <th style="width: 200px;">{{ '语法检测表达式' }}</th>
+                    <th>{{ '规则说明' }}</th>
+                    <th style="width: 300px;">{{ '脚本类型' }}</th>
                     <th style="width: 300px;">
-                        <span>{{ $t('dangerousRule.动作') }}</span>
+                        <span>{{ '动作' }}</span>
                         <bk-popover placement="right">
                             <Icon type="info" class="action-tips" />
                             <div slot="content">
-                                <div>{{ $t('dangerousRule.【扫描】') }}</div>
-                                <div>{{ $t('dangerousRule.命中规则的脚本执行任务仅会做记录，不会拦截') }}</div>
-                                <div style="margin-top: 8px;">{{ $t('dangerousRule.【拦截】') }}</div>
-                                <div>{{ $t('dangerousRule.命中规则的脚本执行任务会被记录，并中止运行') }}</div>
+                                <div>{{ '【扫描】' }}</div>
+                                <div>{{ '命中规则的脚本执行任务仅会做记录，不会拦截' }}</div>
+                                <div style="margin-top: 8px;">{{ '【拦截】' }}</div>
+                                <div>{{ '命中规则的脚本执行任务会被记录，并中止运行' }}</div>
                             </div>
                         </bk-popover>
                     </th>
                     <th style="width: 180px;">
-                        {{ $t('dangerousRule.操作') }}
+                        {{ '操作' }}
                         <Icon
                             v-bk-tooltips="{
                                 theme: 'dark',
-                                content: $t('dangerousRule.规则的顺位越高，表示执行优先度越高'),
+                                content: '规则的顺位越高，表示执行优先度越高',
                             }"
                             class="action-tips"
                             type="info" />
@@ -86,7 +86,7 @@
                                 class="arrow-btn mr10"
                                 text
                                 
-                                v-bk-tooltips.top="$t('dangerousRule.上移')"
+                                v-bk-tooltips.top="'上移'"
                                 @click="handleMove(index, -1)"
                                 v-test="{ type: 'button', value: 'upMoveRule' }">
                                 <Icon type="increase-line" />
@@ -95,19 +95,19 @@
                                 class="arrow-btn mr10"
                                 text
                                 
-                                v-bk-tooltips.top="$t('dangerousRule.下移')"
+                                v-bk-tooltips.top="'下移'"
                                 @click="handleMove(index, 1)"
                                 v-test="{ type: 'button', value: 'downMoveRule' }">
                                 <Icon type="decrease-line" />
                             </bk-button>
                             <jb-popover-confirm
-                                :title="$t('dangerousRule.确定删除该规则？')"
-                                :content="$t('dangerousRule.脚本编辑器中匹配该规则将不会再收到提醒')"
+                                :title="'确定删除该规则？'"
+                                :content="'脚本编辑器中匹配该规则将不会再收到提醒'"
                                 :confirm-handler="() => handleDelete(rule.id)">
                                 <bk-button
                                     text
                                     v-test="{ type: 'button', value: 'deleteRule' }">
-                                    {{ $t('dangerousRule.删除') }}
+                                    {{ '删除' }}
                                 </bk-button>
                             </jb-popover-confirm>
                         </div>
@@ -118,8 +118,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import DangerousRuleService from '@service/dangerous-rule';
+       import DangerousRuleService from '@service/dangerous-rule';
     import PublicScriptManageService from '@service/public-script-manage';
     import JbEditInput from '@components/jb-edit/input';
     import JbEditSelect from '@components/jb-edit/select';
@@ -157,19 +156,19 @@
                 expression: [
                     {
                         required: true,
-                        message: I18n.t('dangerousRule.语法检测表达式不能为空'),
+                        message: '语法检测表达式不能为空',
                     },
                 ],
                 description: [
                     {
                         required: true,
-                        message: I18n.t('dangerousRule.规则说明不能为空'),
+                        message: '规则说明不能为空',
                     },
                 ],
                 scriptTypeList: [
                     {
                         validator: value => value.length > 0,
-                        message: I18n.t('dangerousRule.脚本类型不能为空'),
+                        message: '脚本类型不能为空',
                     },
                 ],
             };
@@ -221,7 +220,7 @@
                     DangerousRuleService.update({
                         ...this.editRule,
                     }).then(() => {
-                        this.messageSuccess(I18n.t('dangerousRule.编辑成功'));
+                        this.messageSuccess('编辑成功');
                     });
                 }
             },
@@ -236,7 +235,7 @@
                     ...rule,
                     ...payload,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('dangerousRule.编辑成功'));
+                    this.messageSuccess('编辑成功');
                     Object.assign(rule, payload);
                 });
             },
@@ -261,7 +260,7 @@
                     const change = this.list[index + step];
                     this.list.splice(index, 1, change);
                     this.list.splice(index + step, 1, current);
-                    this.messageSuccess(step < 0 ? I18n.t('dangerousRule.上移成功') : I18n.t('dangerousRule.下移成功'));
+                    this.messageSuccess(step < 0 ? '上移成功' : '下移成功');
                 })
                     .finally(() => {
                         this.isLoading = false;
@@ -275,7 +274,7 @@
                 return DangerousRuleService.remove({
                     id,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('dangerousRule.删除成功'));
+                    this.messageSuccess('删除成功');
                     this.fetchData();
                 });
             },

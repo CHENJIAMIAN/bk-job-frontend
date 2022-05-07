@@ -1,7 +1,5 @@
 
 // 动态表单渲染列
-import I18n from '@/i18n';
-
 const noop = () => {};
 
 const parseVariableValue = (variableExpression, data) => {
@@ -61,8 +59,8 @@ const checkIsLinkAction = type => [
 
 const actionConfirmInfo = {
     DELETE: {
-        title: I18n.t('确定删除该文件(夹)？'),
-        content: I18n.t('文件源本体的该文件(夹)也会被删除，请谨慎操作！'),
+        title: '确定删除该文件(夹)？',
+        content: '文件源本体的该文件(夹)也会被删除，请谨慎操作！',
     },
 };
 

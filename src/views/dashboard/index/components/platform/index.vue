@@ -46,7 +46,7 @@
                 class="platform-flag"
                 style="font-size: 24px;" />
         </card-layout>
-        <card-layout :title="$t('dashboard.未知 OS')">
+        <card-layout :title="'未知 OS'">
             <div class="container">
                 <div class="nums">{{ data.OTHERS | formatNumber }}</div>
                 <div

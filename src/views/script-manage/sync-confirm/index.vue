@@ -4,14 +4,14 @@
     <div class="script-manage-sync-confirm" v-bkloading="{ isLoading }">
         <bk-input
             class="search-input"
-            :placeholder="$t('script.搜索作业模板')"
+            :placeholder="'搜索作业模板'"
             :clearable="true"
             right-icon="bk-icon icon-search"
             @change="handleInputChange"
             v-model="value" />
         <div class="table-top">
-            <span>{{ $t('script.同步作业模板') }}</span>
-            <span class="table-selected"> ({{ $t('script.已选') }} {{ selectedList.length }}/{{ data.length }}个)</span>
+            <span>{{ '同步作业模板' }}</span>
+            <span class="table-selected"> ({{ '已选' }} {{ selectedList.length }}/{{ data.length }}个)</span>
         </div>
         <bk-table
             :data="tableData"
@@ -19,7 +19,7 @@
             @selection-change="handleSelectionChange">
             <bk-table-column type="selection" width="60" />
             <bk-table-column
-                :label="$t('script.作业模板名称')"
+                :label="'作业模板名称'"
                 prop="name"
                 sortable>
                 <template slot-scope="{ row }">
@@ -33,10 +33,10 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.步骤名称')"
+                :label="'步骤名称'"
                 prop="stepName" />
             <bk-table-column
-                :label="$t('script.引用的版本号')"
+                :label="'引用的版本号'"
                 prop="version">
                 <template slot-scope="{ row }">
                     <bk-button
@@ -47,7 +47,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.引用版本状态')"
+                :label="'引用版本状态'"
                 prop="status"
                 :filters="statusFilters"
                 :filter-method="statusFilterMethod"
@@ -57,13 +57,13 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('script.操作')"
+                :label="'操作'"
                 width="150">
                 <template slot-scope="{ row }">
                     <bk-button
                         text
                         @click="handleComparison(row)">
-                        {{ $t('script.版本对比') }}
+                        {{ '版本对比' }}
                     </bk-button>
                 </template>
             </bk-table-column>
@@ -72,18 +72,18 @@
             <bk-button
                 class="mr10"
                 @click="handleCancel">
-                {{ $t('script.取消') }}
+                {{ '取消' }}
             </bk-button>
             <bk-button
                 class="w120"
                 theme="primary"
                 
                 @click="handleSync">
-                {{ $t('script.立即同步') }}
+                {{ '立即同步' }}
             </bk-button>
         </div>
         <element-teleport v-if="lastVersionScriptInfo.version">
-            <span> - {{ $t('script.同步至') }}</span>
+            <span> - {{ '同步至' }}</span>
             <span>{{ lastVersionScriptInfo.version }}</span>
         </element-teleport>
         <script-detail
@@ -91,7 +91,7 @@
             :script-version-id="selectScriptVersionId" />
         <jb-diff
             v-if="showDiff"
-            :title="$t('script.版本对比')"
+            :title="'版本对比'"
             :data="diffList"
             :old-version-id="selectScriptVersionId"
             :new-version-id="lastVersionScriptInfo.scriptVersionId"
@@ -100,8 +100,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
     import { checkPublicScript } from '@utils/assist';
     import JbDiff from '@components/jb-diff';
@@ -141,10 +140,10 @@
             this.scriptId = this.$route.params.scriptId;
             this.scriptVersionId = this.$route.params.scriptVersionId;
             this.statusFilters = [
-                { value: 0, text: I18n.t('script.未上线') },
-                { value: 1, text: I18n.t('script.已上线') },
-                { value: 2, text: I18n.t('script.已下线') },
-                { value: 3, text: I18n.t('script.已禁用') },
+                { value: 0, text: '未上线' },
+                { value: 1, text: '已上线' },
+                { value: 2, text: '已下线' },
+                { value: 3, text: '已禁用' },
             ];
             this.fetchData();
             this.fetchLastScriptVersionDetail();

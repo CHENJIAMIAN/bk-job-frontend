@@ -3,19 +3,19 @@
 <template>
     <div class="internal-variable-wrapper">
         <Icon type="close" class="close-dialog" @click.stop="handleClose(false)" />
-        <header>{{ $t('setting.内置变量列表') }}</header>
+        <header>{{ '内置变量列表' }}</header>
         <bk-tab :active="variableType"
             type="unborder-card"
             class="variable-tab"
             :before-toggle="handleTabChange">
-            <bk-tab-panel name="general" :label="$t('setting.通用变量')" />
-            <bk-tab-panel name="job" :label="$t('setting.作业变量')" />
-            <bk-tab-panel name="cron" :label="$t('setting.定时任务变量')" />
+            <bk-tab-panel name="general" :label="'通用变量'" />
+            <bk-tab-panel name="job" :label="'作业变量'" />
+            <bk-tab-panel name="cron" :label="'定时任务变量'" />
         </bk-tab>
         <bk-table class="variable-table" :data="renderList">
-            <bk-table-column :label="$t('setting.变量名称')" prop="name" />
-            <bk-table-column :label="$t('setting.含义')" prop="meaning" />
-            <bk-table-column :label="$t('setting.示例')" :width="320" prop="examples" />
+            <bk-table-column :label="'变量名称'" prop="name" />
+            <bk-table-column :label="'含义'" prop="meaning" />
+            <bk-table-column :label="'示例'" :width="320" prop="examples" />
         </bk-table>
     </div>
 </template>

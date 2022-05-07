@@ -75,8 +75,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import QueryGlobalSettingService from '@service/query-global-setting';
+       import QueryGlobalSettingService from '@service/query-global-setting';
 
     export default {
         data () {
@@ -91,7 +90,7 @@
         },
         created () {
             this.fetchRelatedSystemUrls();
-            document.title = I18n.t('无业务权限');
+            document.title = '无业务权限';
         },
         methods: {
             fetchRelatedSystemUrls () {
@@ -102,7 +101,7 @@
             },
             handleGoCreateApp () {
                 if (!this.relatedSystemUrls.BK_CMDB_ROOT_URL) {
-                    alert(I18n.t('网络错误，请刷新页面重试'));
+                    alert('网络错误，请刷新页面重试');
                     return;
                 }
                 window.open(`${this.relatedSystemUrls.BK_CMDB_ROOT_URL}/#/resource/business`);

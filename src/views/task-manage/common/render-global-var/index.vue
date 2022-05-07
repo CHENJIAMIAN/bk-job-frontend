@@ -10,14 +10,14 @@
                     text
                     @click="handleShowBatchOperation">
                     <Icon type="bulk-edit" />
-                    {{ $t('template.批量编辑') }}
+                    {{ '批量编辑' }}
                 </bk-button>
                 <bk-button
                     v-if="isEditOfPlan"
                     text
                     @click="handleShowBatchEditOfPlan">
                     <Icon type="bulk-edit" />
-                    {{ $t('template.批量编辑变量值') }}
+                    {{ '批量编辑变量值' }}
                 </bk-button>
             </div>
             <div class="task-global-variable-box">
@@ -66,14 +66,14 @@
                         v-test="{ type: 'button', value: 'create_global_variable' }"
                         @click="handleCreate">
                         <Icon type="plus" class="create-flag" />
-                        <span>{{ $t('template.全局变量.label') }}</span>
+                        <span>{{ '全局变量' }}</span>
                     </div>
                     <div
                         class="use-guide"
                         :class="{
                             active: isShowUseGuide,
                         }"
-                        v-bk-tooltips="$t('template.使用指引')"
+                        v-bk-tooltips="'使用指引'"
                         @click.stop="handleUseGuideToggle">
                         <Icon type="help-document-fill" />
                     </div>
@@ -95,7 +95,7 @@
             <jb-sideslider
                 v-if="isView || isEditOfPlan"
                 :is-show.sync="isShowDetail"
-                :title="$t('template.查看全局变量')"
+                :title="'查看全局变量'"
                 :show-footer="false"
                 ref="variableView"
                 :media="detailMedia">
@@ -107,7 +107,7 @@
             <jb-sideslider
                 v-if="isEditOfPlan"
                 :is-show.sync="isShowEditOfPlan"
-                :title="$t('template.编辑全局变量')"
+                :title="'编辑全局变量'"
                 :width="960">
                 <edit-of-plan
                     v-if="isShowEditOfPlan"
@@ -118,9 +118,9 @@
             <jb-sideslider
                 v-if="isEditOfPlan"
                 :is-show.sync="isShowBatchEditOfPlan"
-                :title="$t('template.批量编辑变量值')"
+                :title="'批量编辑变量值'"
                 :width="960"
-                :ok-text="$t('template.确定')"
+                :ok-text="'确定'"
                 footer-offset-target="variable-value">
                 <batch-edit-of-plan
                     v-if="isShowBatchEditOfPlan"
@@ -144,7 +144,7 @@
             <jb-sideslider
                 v-if="isOperation"
                 :is-show.sync="isShowBatchOperation"
-                :title="$t('template.批量编辑变量')"
+                :title="'批量编辑变量'"
                 :media="batchOperationMediaQuery">
                 <batch-operation
                     v-if="isShowBatchOperation"
@@ -156,8 +156,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import VariableModel from '@model/task/global-variable';
+       import VariableModel from '@model/task/global-variable';
     import VariableUseGuide from '@/views/task-manage/common/variable-use-guide';
     import Operation from './operation';
     import BatchOperation from './batch-operation';
@@ -200,7 +199,7 @@
             },
             defaultField: {
                 type: String,
-                default: I18n.t('template.初始值'),
+                default: '初始值',
             },
             diff: {
                 type: Object,
@@ -289,13 +288,13 @@
             operationSideSliderInfo () {
                 if (Object.keys(this.currentData).length < 1) {
                     return {
-                        title: I18n.t('template.新建全局变量'),
-                        okText: I18n.t('template.提交'),
+                        title: '新建全局变量',
+                        okText: '提交',
                     };
                 }
                 return {
-                    title: I18n.t('template.编辑全局变量'),
-                    okText: I18n.t('template.保存'),
+                    title: '编辑全局变量',
+                    okText: '保存',
                 };
             },
         },
@@ -368,8 +367,8 @@
              */
             handleDelete (index) {
                 this.$bkInfo({
-                    title: I18n.t('template.确定删除该全局变量？'),
-                    subTitle: I18n.t('template.若该变量被步骤引用，请及时检查并更新步骤设置'),
+                    title: '确定删除该全局变量？',
+                    subTitle: '若该变量被步骤引用，请及时检查并更新步骤设置',
                     confirmFn: () => {
                         const currentVar = this.variable[index];
                         if (currentVar.id > 0) {

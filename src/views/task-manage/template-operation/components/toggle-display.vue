@@ -9,11 +9,11 @@
             <div class="action" @click="handleToggle">
                 <template v-if="isOpen">
                     <Icon type="angle-double-up" class="toggle-arrow" />
-                    <span>{{ $t('template.收起更多设置') }}</span>
+                    <span>{{ '收起更多设置' }}</span>
                 </template>
                 <template v-else>
                     <Icon type="angle-double-down" class="toggle-arrow" />
-                    <span>{{ $t('template.展开更多设置') }}</span>
+                    <span>{{ '展开更多设置' }}</span>
                 </template>
             </div>
         </bk-form-item>

@@ -38,9 +38,9 @@
                     <Icon id="siteHelp" type="help-document-fill" />
                 </div>
                 <div slot="content">
-                    <div class="item" @click="handleLocationDocument">{{ $t('产品文档') }}</div>
-                    <div class="item" @click="handleShowSystemLog">{{ $t('版本日志') }}</div>
-                    <div class="item" @click="handleLocationFeedback">{{ $t('问题反馈') }}</div>
+                    <div class="item" @click="handleLocationDocument">{{ '产品文档' }}</div>
+                    <div class="item" @click="handleShowSystemLog">{{ '版本日志' }}</div>
+                    <div class="item" @click="handleLocationFeedback">{{ '问题反馈' }}</div>
                 </div>
             </bk-popover>
             <bk-popover theme="light site-header-dropdown" :arrow="false">
@@ -52,7 +52,7 @@
                     <div
                         class="item"
                         @click="handleLogout">
-                        {{ $t('退出登录') }}
+                        {{ '退出登录' }}
                     </div>
                 </template>
             </bk-popover>
@@ -63,7 +63,6 @@
 </template>
 <script>
     import Cookie from 'js-cookie';
-    import I18n, { setLocale } from '@/i18n';
     import UserService from '@service/user';
     import QueryGlobalSettingService from '@service/query-global-setting';
     import LogoutService from '@service/logout';
@@ -95,7 +94,7 @@
         },
         computed: {
             currentLangType () {
-                if (this.$i18n.locale === 'en-US') {
+                if ('zh-CN' === 'en-US') {
                     return 'lang-en';
                 }
                 return 'lang-zh';
@@ -144,7 +143,7 @@
                     })
                     .catch(() => {
                         this.titleConfig = {
-                            titleHead: I18n.t('蓝鲸作业平台'),
+                            titleHead: '蓝鲸作业平台',
                             titleSeparator: '|',
                         };
                     })
@@ -184,7 +183,6 @@
                     expires: 3600,
                     domain: window.location.hostname.replace(/.*(\.[^.]+\.[^.]+$)/, '$1'),
                 });
-                setLocale(lang);
             },
             /**
              * @desc 显示版本更新日志
@@ -197,7 +195,7 @@
              */
             handleLocationDocument () {
                 if (!this.relatedSystemUrls.BK_DOC_JOB_ROOT_URL) {
-                    this.messageError(I18n.t('网络错误，请刷新页面重试'));
+                    this.messageError('网络错误，请刷新页面重试');
                     return;
                 }
                 window.open(this.relatedSystemUrls.BK_DOC_JOB_ROOT_URL);
@@ -207,7 +205,7 @@
              */
             handleLocationFeedback () {
                 if (!this.relatedSystemUrls.BK_FEED_BACK_ROOT_URL) {
-                    this.messageError(I18n.t('网络错误，请刷新页面重试'));
+                    this.messageError('网络错误，请刷新页面重试');
                     return;
                 }
                 window.open(this.relatedSystemUrls.BK_FEED_BACK_ROOT_URL);
@@ -217,7 +215,7 @@
              */
             handleLogout () {
                 this.$bkInfo({
-                    title: I18n.t('确认退出登录？'),
+                    title: '确认退出登录？',
                     confirmFn: () => {
                         EventBus.$emit('logout');
                         LogoutService.logout();

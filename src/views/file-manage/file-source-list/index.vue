@@ -7,14 +7,14 @@
                 auth="file_source/create"
                 @click="handleCreate"
                 class="w120">
-                {{ $t('file.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     @on-change="handleSearch"
                     :data="searchSelect"
-                    :placeholder="$t('file.请输入文件源名称...')"
+                    :placeholder="'请输入文件源名称...'"
                     style="width: 480px;" />
             </template>
         </list-action-layout>
@@ -31,7 +31,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('file.文件源别名.colHead')"
+                :label="'文件源别名'"
                 sortable
                 align="left"
                 prop="alias"
@@ -48,14 +48,14 @@
                         }">
                         {{ row.alias || 'alias' }}
                     </auth-router-link>
-                    <!-- <span v-else v-bk-tooltips="$t('file.接入点异常，暂时不可用')">
+                    <!-- <span v-else v-bk-tooltips="'接入点异常，暂时不可用'">
                         <bk-button disabled text>{{ row.alias }}</bk-button>
                     </span> -->
                 </template>
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.code"
-                :label="$t('file.文件源标识.colHead')"
+                :label="'文件源标识'"
                 sortable
                 align="left"
                 show-overflow-tooltip
@@ -63,7 +63,7 @@
                 key="code" />
             <bk-table-column
                 v-if="allRenderColumnMap.status"
-                :label="$t('file.状态')"
+                :label="'状态'"
                 prop="status"
                 key="status">
                 <template slot-scope="{ row }">
@@ -73,21 +73,21 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.type"
-                :label="$t('file.类型.colHead')"
+                :label="'类型'"
                 prop="storageTypeText"
                 key="type" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('file.更新人')"
+                :label="'更新人'"
                 prop="lastModifyUser"
                 key="lastModifyUser" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('file.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime" />
             <bk-table-column
-                :label="$t('file.操作')"
+                :label="'操作'"
                 width="160"
                 key="action">
                 <div class="action-box" slot-scope="{ row }">
@@ -116,18 +116,18 @@
                         text
                         class="mr10"
                         @click="handleEdit(row)">
-                        {{ $t('file.配置更改') }}
+                        {{ '配置更改' }}
                     </auth-button>
                     <jb-popover-confirm
-                        :title="$t('file.确定删除该文件源？')"
-                        :content="$t('file.该操作只涉及在作业平台的文件源配置，不影响其本体的内容')"
+                        :title="'确定删除该文件源？'"
+                        :content="'该操作只涉及在作业平台的文件源配置，不影响其本体的内容'"
                         :confirm-handler="() => handleDelete(row)">
                         <auth-button
                             auth="file_source/delete"
                             :permission="row.canManage"
                             :resource-id="row.id"
                             text>
-                            {{ $t('file.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </div>
@@ -152,8 +152,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import FileManageService from '@service/file-source-manage';
+       import FileManageService from '@service/file-source-manage';
     import {
         listColumnsCache,
     } from '@utils/cache-helper';
@@ -191,13 +190,13 @@
             operationSidesliderInfo () {
                 if (this.fileSourceDetailInfo.id) {
                     return {
-                        title: I18n.t('file.编辑文件源'),
-                        okText: I18n.t('file.保存'),
+                        title: '编辑文件源',
+                        okText: '保存',
                     };
                 }
                 return {
-                    title: I18n.t('file.新建文件源'),
-                    okText: I18n.t('file.提交'),
+                    title: '新建文件源',
+                    okText: '提交',
                 };
             },
             allRenderColumnMap () {
@@ -212,36 +211,36 @@
             this.searchSelect = [
                 {
                     id: 'alias',
-                    name: I18n.t('file.文件源别名.colHead'),
+                    name: '文件源别名',
                     default: true,
                 },
             ];
             this.tableColumn = [
                 {
                     id: 'alias',
-                    label: I18n.t('file.文件源别名.colHead'),
+                    label: '文件源别名',
                     disabled: true,
                 },
                 {
                     id: 'code',
-                    label: I18n.t('file.文件源标识.colHead'),
+                    label: '文件源标识',
                 },
                 {
                     id: 'status',
-                    label: I18n.t('file.状态'),
+                    label: '状态',
                 },
                 {
                     id: 'type',
-                    label: I18n.t('file.类型.colHead'),
+                    label: '类型',
                     disabled: true,
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('file.更新人'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('file.更新时间'),
+                    label: '更新时间',
                 },
             ];
 
@@ -311,7 +310,7 @@
                     flag: value,
                     id: 4 || row.id,
                 }).then((res) => {
-                    this.messageSuccess(value ? I18n.t('file.开启成功') : I18n.t('file.关闭成功'));
+                    this.messageSuccess(value ? '开启成功' : '关闭成功');
                 })
                     .catch(() => {
                         row.enable = enableMemo;
@@ -350,7 +349,7 @@
             handleDelete (id) {
                 FileManageService.removeSource(id)
                     .then((res) => {
-                        this.messageSuccess(I18n.t('file.删除成功'));
+                        this.messageSuccess('删除成功');
                         this.fetchData();
                     });
             },

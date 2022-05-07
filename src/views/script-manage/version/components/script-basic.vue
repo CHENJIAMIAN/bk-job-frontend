@@ -11,7 +11,7 @@
             </div>
             <div class="detail-column" style="width: 270px;">
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.脚本名：') }}</div>
+                    <div class="item-label">{{ '脚本名：' }}</div>
                     <div class="item-value">
                         <auth-component
                             auth="script/edit"
@@ -26,13 +26,13 @@
                     </div>
                 </div>
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.更新人：') }}</div>
+                    <div class="item-label">{{ '更新人：' }}</div>
                     <div class="item-value">
                         <div class="text-box" v-bk-overflow-tips>{{ data.lastModifyUser }}</div>
                     </div>
                 </div>
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.创建人：') }}</div>
+                    <div class="item-label">{{ '创建人：' }}</div>
                     <div class="item-value">
                         <div class="text-box" v-bk-overflow-tips>{{ data.creator }}</div>
                     </div>
@@ -40,19 +40,19 @@
             </div>
             <div class="detail-column" style="width: 282px;">
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.脚本语言：') }}</div>
+                    <div class="item-label">{{ '脚本语言：' }}</div>
                     <div class="item-value">
                         <div class="text-box">{{ data.typeName }}</div>
                     </div>
                 </div>
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.更新时间：') }}</div>
+                    <div class="item-label">{{ '更新时间：' }}</div>
                     <div class="item-value">
                         <div class="text-box" v-bk-overflow-tips>{{ data.lastModifyTime }}</div>
                     </div>
                 </div>
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.创建时间：') }}</div>
+                    <div class="item-label">{{ '创建时间：' }}</div>
                     <div class="item-value" v-bk-overflow-tips>
                         <div class="text-box">{{ data.createTime }}</div>
                     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="detail-column last">
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.场景标签：') }}</div>
+                    <div class="item-label">{{ '场景标签：' }}</div>
                     <div class="item-value">
                         <auth-component
                             auth="script/edit"
@@ -76,12 +76,12 @@
                     </div>
                 </div>
                 <div class="detail-col">
-                    <div class="item-label">{{ $t('script.脚本描述：') }}</div>
+                    <div class="item-label">{{ '脚本描述：' }}</div>
                     <div class="item-value">
                         <jb-edit-textarea
                             field="scriptDesc"
                             single-row-render
-                            :placeholder="$t('script.在此处标注该脚本的备注和使用说明')"
+                            :placeholder="'在此处标注该脚本的备注和使用说明'"
                             :maxlength="500"
                             :rows="1"
                             :value="data.description"

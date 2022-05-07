@@ -2,7 +2,7 @@
 
 <template>
     <div class="setting-variable" v-bkloading="{ isLoading }">
-        <h2 class="title">{{ $t('history.全局变量') }}</h2>
+        <h2 class="title">{{ '全局变量' }}</h2>
         <smart-action offset-target="variable-value">
             <global-variable-layout>
                 <global-variable
@@ -18,9 +18,9 @@
                     class="w120 mr10"
                     :loading="isSubmiting"
                     @click="handleGoExec">
-                    {{ $t('history.执行') }}
+                    {{ '执行' }}
                 </bk-button>
-                <bk-button @click="handleCancle">{{ $t('history.取消') }}</bk-button>
+                <bk-button @click="handleCancle">{{ '取消' }}</bk-button>
             </template>
         </smart-action>
         <element-teleport v-if="taskName">
@@ -29,8 +29,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import TaskHostNodeModel from '@model/task-host-node';
     import GlobalVariableLayout from '@components/global-variable/layout';
     import GlobalVariable from '@components/global-variable/edit';
@@ -111,7 +110,7 @@
                         }).then(({ taskInstanceId }) => {
                             this.$bkMessage({
                                 theme: 'success',
-                                message: I18n.t('history.操作成功'),
+                                message: '操作成功',
                             });
                             window.changeAlert = false;
                             this.$router.push({

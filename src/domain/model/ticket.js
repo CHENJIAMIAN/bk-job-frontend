@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import Model from '@model/model';
 
 const APP_ID_SECRET_KEY = 'APP_ID_SECRET_KEY';
@@ -10,10 +8,10 @@ const SECRET_KEY = 'SECRET_KEY';
 
 export default class Ticket extends Model {
     static VOUCHER_TYPE_MAP = {
-        [APP_ID_SECRET_KEY]: I18n.t('AppID+SecretKey'),
-        [PASSWORD]: I18n.t('单一密码'),
-        [USERNAME_PASSWORD]: I18n.t('用户名+密码'),
-        [SECRET_KEY]: I18n.t('单一SecretKey'),
+        [APP_ID_SECRET_KEY]: 'AppID+SecretKey',
+        [PASSWORD]: '单一密码',
+        [USERNAME_PASSWORD]: '用户名+密码',
+        [SECRET_KEY]: '单一SecretKey',
     };
 
     constructor (payload) {

@@ -3,7 +3,7 @@
 <template>
     <card-layout
         class="tag-dashboard"
-        :title="$t('dashboard.标签')"
+        :title="'标签'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div
             ref="box"

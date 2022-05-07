@@ -16,8 +16,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import { taskImport } from '@utils/cache-helper';
     import Step1 from './pages/step1';
     import Step2 from './pages/step2';
@@ -51,11 +50,11 @@
         },
         created () {
             this.steps = [
-                { title: I18n.t('template.用户须知.header'), icon: 1 },
-                { title: I18n.t('template.文件包上传'), icon: 2 },
-                { title: I18n.t('template.导入内容确认'), icon: 3 },
-                { title: I18n.t('template.导入设置'), icon: 4 },
-                { title: I18n.t('template.开始导入'), icon: 5 },
+                { title: '用户须知.header', icon: 1 },
+                { title: '文件包上传', icon: 2 },
+                { title: '导入内容确认', icon: 3 },
+                { title: '导入设置', icon: 4 },
+                { title: '开始导入', icon: 5 },
             ];
             this.fetchData();
         },

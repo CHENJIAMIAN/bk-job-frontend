@@ -4,9 +4,7 @@
  * @desc 作业模板
 */
 
-import _ from 'lodash';
-import I18n from '@/i18n';
-import TagModel from '@model/tag';
+import _ from 'lodash';import TagModel from '@model/tag';
 import TaskStepModel from '@model/task/task-step';
 import GlobalVariableModel from '@model/task/global-variable';
 
@@ -66,14 +64,14 @@ export default class Task {
             STATUS_SCRIPT_NEED_UPDATE_AND_DISABLE,
         ].includes(this.scriptStatus)) {
         // eslint-disable-next-line max-len
-            stack.push(`<span tippy-tips="${I18n.t('引用脚本待更新')}"><i class="job-icon job-icon-script-update"></i></span>`);
+            stack.push(`<span tippy-tips="${'引用脚本待更新'}"><i class="job-icon job-icon-script-update"></i></span>`);
         }
         if ([
             STATUS_SCRIPT_DISABLED,
             STATUS_SCRIPT_NEED_UPDATE_AND_DISABLE,
         ].includes(this.scriptStatus)) {
         // eslint-disable-next-line max-len
-            stack.push(`<span tippy-tips="${I18n.t('引用脚本被禁用')}"><i class="job-icon job-icon-script-disable"></i></span>`);
+            stack.push(`<span tippy-tips="${'引用脚本被禁用'}"><i class="job-icon job-icon-script-disable"></i></span>`);
         }
         return `<span style="color: #EA3636">${stack.join('')}</span>`;
     }

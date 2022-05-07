@@ -4,12 +4,12 @@
     <div class="page-storage-strategy" v-bkloading="{ isLoading }">
         <div class="wraper">
             <div class="execute-block">
-                <div class="block-title">{{ $t('setting.执行历史保留') }}：</div>
+                <div class="block-title">{{ '执行历史保留' }}：</div>
                 <jb-form ref="form" :model="formData" :rules="rules" form-type="vertical">
                     <jb-form-item property="days">
                         <bk-input v-model="formData.days" type="number" :min="1">
                             <template slot="append">
-                                <div class="group-text">{{ $t('setting.天') }}</div>
+                                <div class="group-text">{{ '天' }}</div>
                             </template>
                         </bk-input>
                     </jb-form-item>
@@ -21,16 +21,15 @@
                     theme="primary"
                     :loading="isSubmiting"
                     @click="handleSave">
-                    {{ $t('setting.保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button @click="handleReset">{{ $t('setting.重置') }}</bk-button>
+                <bk-button @click="handleReset">{{ '重置' }}</bk-button>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import GlobalSettingService from '@service/global-setting';
+       import GlobalSettingService from '@service/global-setting';
 
     export default {
         name: '',
@@ -51,7 +50,7 @@
                 days: [
                     {
                         validator: value => value >= 1,
-                        message: I18n.t('setting.保留天数必须大于0'),
+                        message: '保留天数必须大于0',
                         trigger: 'blur',
                     },
                 ],
@@ -75,7 +74,7 @@
                     GlobalSettingService.updateHistroyExpire({
                         ...this.formData,
                     }).then(() => {
-                        this.messageSuccess(I18n.t('setting.设置执行保留时间成功'));
+                        this.messageSuccess('设置执行保留时间成功');
                     })
                         .finally(() => {
                             this.isSubmiting = false;

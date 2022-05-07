@@ -9,22 +9,22 @@
                     :loading="isConfirmLoading || isCronJobLoading"
                     
                     @click="handleConfirmAll">
-                    {{ $t('template.全部确认') }}
+                    {{ '全部确认' }}
                 </bk-button>
             </template>
         </list-action-layout>
         <div class="render-list-header">
             <div class="list-name">
-                <span>{{ $t('template.同步执行方案') }}</span>
-                <span class="total">（{{ $t('template.共') }} {{ data.length }} {{ $t('template.个.total') }}）</span>
+                <span>{{ '同步执行方案' }}</span>
+                <span class="total">（{{ '共' }} {{ data.length }} {{ '个'}}）</span>
             </div>
             <div class="item-status">
                 <template v-if="isCronJobLoading">
                     <Icon type="sync-pending" svg class="plan-cron-job-loading" />
                 </template>
                 <template v-else>
-                    <span class="confirmed">{{ planConfirmInfo.confirmed }}</span>{{ $t('template.个已就绪') }} ，
-                    <span class="unconfirmed">{{ planConfirmInfo.unconfirmed }}</span>{{ $t('template.个未就绪') }}
+                    <span class="confirmed">{{ planConfirmInfo.confirmed }}</span>{{ '个已就绪' }} ，
+                    <span class="unconfirmed">{{ planConfirmInfo.unconfirmed }}</span>{{ '个未就绪' }}
                 </template>
             </div>
         </div>
@@ -37,7 +37,7 @@
                 :row-class-name="calcRowClass"
                 selectable>
                 <bk-table-column
-                    :label="$t('template.执行方案.colHead')"
+                    :label="'执行方案'"
                     prop="name"
                     key="name"
                     align="left">
@@ -62,7 +62,7 @@
                     </template>
                 </bk-table-column>
                 <bk-table-column
-                    :label="$t('template.所属作业模板')"
+                    :label="'所属作业模板'"
                     prop="templateName"
                     key="templateName"
                     align="left">
@@ -81,7 +81,7 @@
                     </template>
                 </bk-table-column>
                 <bk-table-column
-                    :label="$t('template.状态')"
+                    :label="'状态'"
                     prop="statusText"
                     key="statusText2"
                     class-name="status-column"
@@ -95,14 +95,14 @@
                                 text
                                 class="ml10"
                                 @click="handleSyncRetry(row)">
-                                {{ $t('template.重试') }}
+                                {{ '重试' }}
                             </bk-button>
                         </div>
                     </template>
                 </bk-table-column>
                 <bk-table-column
                     :resizable="false"
-                    :label="$t('template.操作')"
+                    :label="'操作'"
                     width="280"
                     key="action"
                     align="left">
@@ -112,7 +112,7 @@
                                 
                                 text
                                 @click="handleGoDiff(row)">
-                                {{ $t('template.查看差异') }}
+                                {{ '查看差异' }}
                             </bk-button>
                         </span>
                         <!-- 定时任务加载中 -->
@@ -126,7 +126,7 @@
                                     :loading="row.isCronJobLoading"
                                     
                                     @click="handleConfirmCron(row)">
-                                    {{ $t('template.确认定时任务') }}
+                                    {{ '确认定时任务' }}
                                 </bk-button>
                             </span>
                             <div
@@ -141,20 +141,20 @@
         </div>
         <div class="sync-plan-action">
             <bk-button v-if="isFinished" class="w120" theme="primary" @click="handleFinish">
-                {{ $t('template.完成') }}
+                {{ '完成' }}
             </bk-button>
             <template v-else>
                 <bk-button class="mr10" @click="handleCancle">
-                    {{ $t('template.取消') }}
+                    {{ '取消' }}
                 </bk-button>
-                <span :tippy-tips="syncSubmitInvalid ? $t('template.所有方案均已同步至最新版') : ''">
+                <span :tippy-tips="syncSubmitInvalid ? '所有方案均已同步至最新版' : ''">
                     <bk-button
                         class="w120"
                         theme="primary"
                         :loading="isSyncLoading || isCronJobLoading"
                         
                         @click="handleSubmitSync">
-                        {{ $t('template.立即同步') }}
+                        {{ '立即同步' }}
                     </bk-button>
                 </span>
             </template>
@@ -168,8 +168,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskManageService from '@service/task-manage';
+       import TaskManageService from '@service/task-manage';
     import TaskPlanService from '@service/task-plan';
     import TimeTaskService from '@service/time-task';
     import SyncPlanVO from '@domain/variable-object/sync-plan';
@@ -482,11 +481,11 @@
                         currentSyncPlan.cronJobInfoList = cronJobInfoList;
                         if (isRequiredError) {
                             currentSyncPlan.status = SyncPlanVO.STATUS_CONFIRM_FAILED;
-                            currentSyncPlan.error = I18n.t('template.定时任务中必填变量未赋值');
+                            currentSyncPlan.error = '定时任务中必填变量未赋值';
                             errorNums += 1;
                         } else if (isPermissionError) {
                             currentSyncPlan.status = SyncPlanVO.STATUS_CONFIRM_FAILED;
-                            currentSyncPlan.error = I18n.t('template.没有定时任务管理权限，请手动确认');
+                            currentSyncPlan.error = '没有定时任务管理权限，请手动确认';
                             errorNums += 1;
                         } else {
                             currentSyncPlan.status = SyncPlanVO.STATUS_CONFIRMED;
@@ -495,7 +494,7 @@
                         .catch(() => {
                             // 定时任务确认失败
                             currentSyncPlan.status = SyncPlanVO.STATUS_CONFIRM_FAILED;
-                            currentSyncPlan.error = I18n.t('template.自动确认定时任务失败，请手动确认');
+                            currentSyncPlan.error = '自动确认定时任务失败，请手动确认';
                             errorNums += 1;
                         })
                         .finally(() => {
@@ -508,7 +507,7 @@
                     this.syncValueMemoMap = Object.freeze(syncValueMemoMap);
                     this.isComfirmAllFinished = true;
                     if (errorNums > 0) {
-                        this.messageError(`${errorNums} ${I18n.t('template.项执行方案的确认出现问题，请逐个确认')}`);
+                        this.messageError(`${errorNums} ${'项执行方案的确认出现问题，请逐个确认'}`);
                     }
                 });
             },
@@ -661,7 +660,7 @@
                     })
                     .catch(() => {
                         // 同步失败
-                        plan.error = I18n.t('template.同步请求失败，请重试');
+                        plan.error = '同步请求失败，请重试';
                         plan.status = SyncPlanVO.STATUS_SYNC_FAILED;
                     });
             },

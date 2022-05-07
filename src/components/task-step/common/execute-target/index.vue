@@ -7,7 +7,7 @@
             'only-host': mode === 'onlyHost',
         }">
         <jb-form-item
-            :label="$t('目标服务器')"
+            :label="'目标服务器'"
             required
             ref="targetServerRef"
             :property="property"
@@ -17,7 +17,7 @@
                     <!-- 快速执行场景只能操作主机列表 -->
                     <bk-button class="mr10" @click="handleShowChooseIp">
                         <Icon type="plus" />
-                        {{ $t('添加服务器') }}
+                        {{ '添加服务器' }}
                     </bk-button>
                 </template>
                 <template v-else>
@@ -28,13 +28,13 @@
                             :value="targetType"
                             :clearable="false"
                             @change="handleTargetTypeChange">
-                            <bk-option id="variable" :name="$t('全局变量')" />
-                            <bk-option id="hostNodeInfo" :name="$t('手动添加')" />
+                            <bk-option id="variable" :name="'全局变量'" />
+                            <bk-option id="hostNodeInfo" :name="'手动添加'" />
                         </bk-select>
                         <template v-if="isGolbalVariableType">
                             <bk-select
                                 class="server-global-variable-select"
-                                :placeholder="$t('请选择主机列表变量')"
+                                :placeholder="'请选择主机列表变量'"
                                 :value="localVariable"
                                 @change="handleVariableChange"
                                 :clearable="false">
@@ -48,7 +48,7 @@
                         <template v-else>
                             <bk-button class="w120 mr10" @click="handleShowChooseIp">
                                 <Icon type="plus" />
-                                {{ $t('添加服务器') }}
+                                {{ '添加服务器' }}
                             </bk-button>
                         </template>
                     </compose-form-item>
@@ -56,26 +56,26 @@
                 <template v-if="isShowServerAction">
                     <bk-dropdown-menu>
                         <bk-button class="mr10" type="primary" slot="dropdown-trigger">
-                            <span>{{ $t('复制IP') }}</span>
+                            <span>{{ '复制IP' }}</span>
                             <Icon type="down-small" class="action-flag" />
                         </bk-button>
                         <ul class="bk-dropdown-list" slot="dropdown-content">
-                            <li><a @click="handleCopyAll">{{ $t('全部IP') }}</a></li>
-                            <li><a @click="handleCopyFail">{{ $t('异常IP') }}</a></li>
+                            <li><a @click="handleCopyAll">{{ '全部IP' }}</a></li>
+                            <li><a @click="handleCopyFail">{{ '异常IP' }}</a></li>
                         </ul>
                     </bk-dropdown-menu>
                     <bk-button class="mr10" @click="handleClearAll">
-                        <span>{{ $t('清空') }}</span>
+                        <span>{{ '清空' }}</span>
                     </bk-button>
                     <bk-button type="primary" @click="handleRefreshHost">
-                        {{ $t('刷新状态') }}
+                        {{ '刷新状态' }}
                     </bk-button>
                 </template>
                 <bk-input
                     v-if="isShowHostSearchInput"
                     class="ip-search"
                     :value="searchText"
-                    :placeholder="$t('筛选主机')"
+                    :placeholder="'筛选主机'"
                     right-icon="bk-icon icon-search"
                     @change="handleHostSearch" />
             </div>
@@ -100,8 +100,7 @@
 <script>
     import _ from 'lodash';
     import TaskHostNodeModel from '@model/task-host-node';
-    import I18n from '@/i18n';
-    import { execCopy } from '@utils/assist';
+       import { execCopy } from '@utils/assist';
     import ComposeFormItem from '@components/compose-form-item';
     import ChooseIp from '@components/choose-ip';
     import ServerPanel from '@components/choose-ip/server-panel';
@@ -192,7 +191,7 @@
              */
             targetSelectorStyle () {
                 return {
-                    width: this.$i18n.locale === 'en-US' ? '156px' : '120px',
+                    width: 'zh-CN' === 'en-US' ? '156px' : '120px',
                 };
             },
         },
@@ -248,7 +247,7 @@
                         }
                         return !TaskHostNodeModel.isHostNodeInfoEmpty(this.localHost);
                     },
-                    message: I18n.t('目标服务器必填'),
+                    message: '目标服务器必填',
                     trigger: 'change',
                 },
             ];
@@ -305,11 +304,11 @@
             handleCopyAll () {
                 const allIP = this.$refs.serverPanel.getAllIP();
                 if (allIP.length < 1) {
-                    this.messageWarn(I18n.t('你还未选择主机'));
+                    this.messageWarn('你还未选择主机');
                     return;
                 }
                 
-                execCopy(allIP.join('\n'), `${I18n.t('复制成功')}（${allIP.length}${I18n.t('个IP')}）`);
+                execCopy(allIP.join('\n'), `${'复制成功'}（${allIP.length}${'个IP'}）`);
             },
             /**
              * @desc 复制所有异常主机
@@ -317,11 +316,11 @@
             handleCopyFail () {
                 const allFailIP = this.$refs.serverPanel.getAllIP(true);
                 if (allFailIP.length < 1) {
-                    this.messageWarn(I18n.t('暂无异常主机'));
+                    this.messageWarn('暂无异常主机');
                     return;
                 }
                 
-                execCopy(allFailIP.join('\n'), `${I18n.t('复制成功')}（${allFailIP.length}${I18n.t('个IP')}）`);
+                execCopy(allFailIP.join('\n'), `${'复制成功'}（${allFailIP.length}${'个IP'}）`);
             },
             /**
              * @desc 复制所有主机数据
@@ -329,7 +328,7 @@
             handleClearAll () {
                 const { hostNodeInfo } = new TaskHostNodeModel({});
                 this.localHost = Object.freeze(hostNodeInfo);
-                this.messageSuccess(I18n.t('清空成功'));
+                this.messageSuccess('清空成功');
                 this.triggerChange();
             },
             /**

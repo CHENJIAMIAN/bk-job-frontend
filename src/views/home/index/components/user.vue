@@ -22,21 +22,21 @@
             <div class="list-wraper">
                 <div class="data-row-header">
                     <div class="td-name">{{ listInfo.columnName }}</div>
-                    <div class="td-action">{{ $t('home.操作') }}</div>
+                    <div class="td-action">{{ '操作' }}</div>
                 </div>
                 <div
                     v-for="(item, index) in listData"
                     class="data-row"
                     :key="`${item.id}_${index}`">
                     <div class="td-name">{{ item.content }}</div>
-                    <div class="td-action" @click="handleGoDetail(item)">{{ $t('home.查看详情') }}</div>
+                    <div class="td-action" @click="handleGoDetail(item)">{{ '查看详情' }}</div>
                 </div>
             </div>
             <template #footer>
                 <bk-button
                     class="list-close-btn"
                     @click="handleHideList">
-                    {{ $t('home.关闭') }}
+                    {{ '关闭' }}
                 </bk-button>
             </template>
         </jb-dialog> -->
@@ -45,22 +45,21 @@
 <script>
     import _ from 'lodash';
     import marked from 'marked';
-    import I18n from '@/i18n';
-    import StatisticsIndexService from '@service/statistics-index';
+       import StatisticsIndexService from '@service/statistics-index';
     import UserService from '@service/user';
     import Greeting from './greeting';
 
     const dialogTitleMap = {
-        ForbiddenScriptFinder: I18n.t('home.使用禁用脚本的作业模板/执行方案'),
-        TaskPlanTargetChecker: I18n.t('home.存在异常 Agent 的执行方案'),
-        TimerTaskFailRateWatcher: I18n.t('home.周期成功率低于60%的定时任务'),
-        TimerTaskFailWatcher: I18n.t('home.近期执行失败的定时任务'),
+        ForbiddenScriptFinder: '使用禁用脚本的作业模板/执行方案',
+        TaskPlanTargetChecker: '存在异常 Agent 的执行方案',
+        TimerTaskFailRateWatcher: '周期成功率低于60%的定时任务',
+        TimerTaskFailWatcher: '近期执行失败的定时任务',
     };
     const columnNameMap = {
-        ForbiddenScriptFinder: I18n.t('home.作业模板/执行方案'),
-        TaskPlanTargetChecker: I18n.t('home.作业执行方案'),
-        TimerTaskFailRateWatcher: I18n.t('home.定时任务'),
-        TimerTaskFailWatcher: I18n.t('home.定时任务'),
+        ForbiddenScriptFinder: '作业模板/执行方案',
+        TaskPlanTargetChecker: '作业执行方案',
+        TimerTaskFailRateWatcher: '定时任务',
+        TimerTaskFailWatcher: '定时任务',
     };
 
     export default {
@@ -123,7 +122,7 @@
                             const formatLink = link => link.replace(/(?=( href))/g, ' target="_blank"');
                             let description = _.trim(formatLink(marked(item.description)), '\n');
                             if (dialogTitleMap[item.analysisTaskCode]) {
-                                description = description.replace(/(?=<\/p>$)/, `<span data-id="${item.id}" class="action-list">${I18n.t('home.查看列表')}</span>`);
+                                description = description.replace(/(?=<\/p>$)/, `<span data-id="${item.id}" class="action-list">${'查看列表'}</span>`);
                             }
                             const analysis = {
                                 ...item,

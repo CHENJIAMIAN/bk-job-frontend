@@ -3,7 +3,7 @@
 <template>
     <card-layout
         class="crontab-type-dashboard"
-        :title="$t('dashboard.定时任务类型分布')"
+        :title="'定时任务类型分布'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="wraper">
             <div ref="dashboard" style="width: 176px; height: 176px;" />
@@ -23,8 +23,7 @@
 <script>
     import _ from 'lodash';
     import echarts from 'lib/echarts.min.js';
-    import I18n from '@/i18n';
-    import StatisticsService from '@service/statistics';
+       import StatisticsService from '@service/statistics';
     import CardLayout from '../card-layout';
     import {
         chartsOptionsBase,
@@ -63,11 +62,11 @@
         created () {
             this.list = [
                 {
-                    label: I18n.t('dashboard.单次执行'),
+                    label: '单次执行',
                     key: 'SIMPLE',
                 },
                 {
-                    label: I18n.t('dashboard.周期执行'),
+                    label: '周期执行',
                     key: 'CRON',
                 },
             ];

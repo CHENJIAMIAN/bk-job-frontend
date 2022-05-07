@@ -3,7 +3,7 @@
 <template>
     <div>
         <jb-form-item>
-            <bk-checkbox v-model="executeBeforeNotify">{{ $t('cron.执行前通知') }}</bk-checkbox>
+            <bk-checkbox v-model="executeBeforeNotify">{{ '执行前通知' }}</bk-checkbox>
         </jb-form-item>
         <render-strategy v-if="executeBeforeNotify" left="55" class="notify-wraper">
             <execute-notify
@@ -11,7 +11,7 @@
                 v-bind="$attrs"
                 mode="execute-beofre"
                 :form-data="formData"
-                :notify-offset-label="$t('cron.执行前')" />
+                :notify-offset-label="'执行前'" />
         </render-strategy>
     </div>
 </template>

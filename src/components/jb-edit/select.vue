@@ -56,8 +56,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-
+   
     const compare = (pre, last) => {
         if (pre === last) {
             return true;
@@ -241,7 +240,7 @@
                             this.$emit('on-change', {
                                 [this.field]: this.localValue,
                             });
-                            this.messageSuccess(I18n.t('编辑成功'));
+                            this.messageSuccess('编辑成功');
                         })
                             .catch(() => {
                                 this.localValue = this.value;

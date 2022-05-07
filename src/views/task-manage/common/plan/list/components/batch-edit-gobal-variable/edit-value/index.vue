@@ -3,22 +3,22 @@
 <template>
     <div class="batch-edit-plan-global-variable">
         <div class="action-target-info">
-            <span class="label">{{ $t('template.更新范围') }}</span>
+            <span class="label">{{ '更新范围' }}</span>
             <span class="content-split">:</span>
             <span>
-                <span>{{ $t('template.已选') }}</span>
+                <span>{{ '已选' }}</span>
                 <span class="number strong">{{ planList.length }}</span>
-                <span>{{ $t('template.个执行方案，') }}{{ $t('template.来自') }}</span>
+                <span>{{ '个执行方案，' }}{{ '来自' }}</span>
                 <span class="number strong">{{ relatedTemplateNums }}</span>
-                <span>{{ $t('template.个作业模板') }}</span>
+                <span>{{ '个作业模板' }}</span>
             </span>
         </div>
         <div class="action-target-info" style="margin-top: 10px;">
-            <span class="label">{{ $t('template.选择变量') }}</span>
+            <span class="label">{{ '选择变量' }}</span>
             <span class="content-split" style="color: #ea3636;">*</span>
             <span>{{ selectResultText }}，</span>
-            <bk-button v-if="isHasSelectedAll" text @click="handleCancleSelectAll">{{ $t('template.取消全选') }}</bk-button>
-            <bk-button v-else text @click="handleSelectAll">{{ $t('template.全选') }}</bk-button>
+            <bk-button v-if="isHasSelectedAll" text @click="handleCancleSelectAll">{{ '取消全选' }}</bk-button>
+            <bk-button v-else text @click="handleSelectAll">{{ '全选' }}</bk-button>
         </div>
         <div class="global-variable-list">
             <div
@@ -48,8 +48,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskHostNodeModel from '@model/task-host-node';
+       import TaskHostNodeModel from '@model/task-host-node';
     import RenderGlobalVariable from './components/render-global-variable';
     import {
         genGlobalVariableKey,
@@ -84,7 +83,7 @@
                 return selectNums === Object.values(this.globalVariableMap).length;
             },
             selectResultText () {
-                return `${I18n.t('template.已选')} ${Object.values(this.selectVariableMap).length} / ${Object.values(this.globalVariableMap).length}`;
+                return `${'已选'} ${Object.values(this.selectVariableMap).length} / ${Object.values(this.globalVariableMap).length}`;
             },
             isSelectNotEmpty () {
                 return Object.values(this.selectVariableMap).length > 0;

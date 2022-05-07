@@ -13,7 +13,7 @@
                 <Empty
                     v-if="usedList.length < 1"
                     key="empty"
-                    :title="$t('template.暂无引用的变量')"
+                    :title="'暂无引用的变量'"
                     style="height: 160px; max-width: 960px; background-color: #f0f1f5;" />
                 <toggle-display
                     v-if="unusedList.length > 0"
@@ -36,17 +36,17 @@
                         class="w120 mr10"
                         :loading="isSubmiting"
                         @click="handleGoExec">
-                        {{ $t('template.执行') }}
+                        {{ '执行' }}
                     </bk-button>
                     <bk-button
                         @click="handleCancle">
-                        {{ $t('template.取消') }}
+                        {{ '取消' }}
                     </bk-button>
                     <bk-button
                         v-if="hasHostVariable"
                         class="remove-all"
                         @click="handleRemoveAllInvalidHost">
-                        {{ $t('template.移除无效主机') }}
+                        {{ '移除无效主机' }}
                     </bk-button>
                 </div>
             </template>
@@ -59,8 +59,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import TaskPlanService from '@service/task-plan';
     import { findUsedVariable } from '@utils/assist';
     import GlobalVariableLayout from '@components/global-variable/layout';
@@ -189,7 +188,7 @@
                     }).then(({ taskInstanceId }) => {
                         this.$bkMessage({
                             theme: 'success',
-                            message: I18n.t('template.执行成功'),
+                            message: '执行成功',
                         });
                         window.changeAlert = false;
                         this.$router.push({

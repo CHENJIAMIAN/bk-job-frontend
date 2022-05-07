@@ -13,10 +13,10 @@
         <jb-dialog
             v-model="isShowDetail"
             :width="1020"
-            :ok-text="$t('template.关闭')"
+            :ok-text="'关闭'"
             class="sync-ip-detail-dialog">
             <template #header>
-                <div>{{ $t('template.执行目标') }}</div>
+                <div>{{ '执行目标' }}</div>
                 <div class="display-diff">
                     <template v-if="diffEnable">
                         <bk-switcher
@@ -28,12 +28,12 @@
                     <template v-else>
                         <bk-switcher
                             :value="false"
-                            v-bk-tooltips="$t('template.无差异')"
+                            v-bk-tooltips="'无差异'"
                             disabled
                             theme="primary"
                             size="large" />
                     </template>
-                    {{ $t('template.显示差异') }}
+                    {{ '显示差异' }}
                 </div>
             </template>
             <div class="content-wraper">

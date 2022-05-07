@@ -2,15 +2,15 @@
 
 <template>
     <jb-form :model="formData" ref="varNamespaceForm">
-        <jb-form-item :label="$t('template.变量名称')">
+        <jb-form-item :label="'变量名称'">
             <bk-input v-model="formData.name" disabled />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量值')">
+        <jb-form-item :label="'变量值'">
             <bk-input
                 v-model="formData.defaultValue"
                 :native-attributes="{ autofocus: 'autofocus' }" />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量描述')">
+        <jb-form-item :label="'变量描述'">
             <bk-input
                 v-model="formData.description"
                 disabled
@@ -24,7 +24,7 @@
                 disabled
                 :true-value="1"
                 :false-value="0">
-                {{ $t('template.必填') }}
+                {{ '必填' }}
             </bk-checkbox>
         </jb-form-item>
     </jb-form>

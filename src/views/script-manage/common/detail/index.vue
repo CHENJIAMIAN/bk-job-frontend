@@ -15,7 +15,7 @@
             <Icon
                 v-if="contentTab === 'content'"
                 type="full-screen"
-                v-bk-tooltips="$t('全屏')"
+                v-bk-tooltips="'全屏'"
                 @click="handleFullScreen"
                 v-test="{ type: 'button', value: 'scriptEditFullscreen' }" />
         </template>
@@ -25,14 +25,14 @@
                 :class="{ active: contentTab === 'content' }"
                 @click="handleChangeDispaly('content')"
                 v-test="{ type: 'button', value: 'scriptContentTab' }">
-                {{ $t('script.脚本内容') }}
+                {{ '脚本内容' }}
             </div>
             <div
                 class="content-tab-item"
                 :class="{ active: contentTab === 'log' }"
                 @click="handleChangeDispaly('log')"
                 v-test="{ type: 'button', value: 'scriptVersionLogTab' }">
-                {{ $t('script.版本日志') }}
+                {{ '版本日志' }}
             </div>
         </div>
         <div class="version-content">
@@ -62,14 +62,14 @@
                 :loading="isExceLoading"
                 @click="handleGoExce"
                 v-test="{ type: 'button', value: 'execScript' }">
-                {{ $t('script.去执行') }}
+                {{ '去执行' }}
             </auth-button>
             <jb-popover-confirm
                 v-if="!scriptInfo.isOnline"
                 key="online"
                 class="mr10"
-                :title="$t('script.确定上线该版本？')"
-                :content="$t('script.上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用')"
+                :title="'确定上线该版本？'"
+                :content="'上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用'"
                 
                 :confirm-handler="handleOnline">
                 <auth-button
@@ -80,13 +80,13 @@
                     class="w120"
                     
                     v-test="{ type: 'button', value: 'onlineScript' }">
-                    {{ $t('script.上线') }}
+                    {{ '上线' }}
                 </auth-button>
             </jb-popover-confirm>
             <span
                 v-if="!scriptInfo.isDraft"
                 key="create"
-                :tippy-tips="isCopyCreateDisabled ? $t('script.已有[未上线]版本') : ''">
+                :tippy-tips="isCopyCreateDisabled ? '已有[未上线]版本' : ''">
                 <auth-button
                     :permission="scriptInfo.canClone"
                     :resource-id="scriptInfo.id"
@@ -95,20 +95,20 @@
                     class="w120 mr10"
                     @click="handleCopyAndCreate(scriptInfo)"
                     v-test="{ type: 'button', value: 'copyCreateScript' }">
-                    {{ $t('script.复制并新建') }}
+                    {{ '复制并新建' }}
                 </auth-button>
             </span>
             <bk-button
                 class="mr10"
                 @click="handleDebugScript"
                 v-test="{ type: 'button', value: 'debugScript' }">
-                {{ $t('script.调试') }}
+                {{ '调试' }}
             </bk-button>
             <span
                 v-if="scriptInfo.isOnline"
                 key="sync"
                 class="mr10"
-                :tippy-tips="!scriptInfo.syncEnabled ? $t('script.所有关联作业模板已是当前版本') : ''">
+                :tippy-tips="!scriptInfo.syncEnabled ? '所有关联作业模板已是当前版本' : ''">
                 <auth-button
                     :permission="scriptInfo.canManage"
                     :resource-id="scriptInfo.id"
@@ -116,7 +116,7 @@
                     
                     @click="handleGoSync"
                     v-test="{ type: 'button', value: 'syncScript' }">
-                    {{ $t('script.同步') }}
+                    {{ '同步' }}
                 </auth-button>
             </span>
             <auth-button
@@ -128,36 +128,36 @@
                 class="mr10"
                 @click="handleEdit(scriptInfo)"
                 v-test="{ type: 'button', value: 'editScript' }">
-                {{ $t('script.编辑') }}
+                {{ '编辑' }}
             </auth-button>
             <jb-popover-confirm
                 v-if="scriptInfo.isVersionEnableRemove"
                 key="delete"
                 class="mr10"
-                :title="$t('script.确定删除该版本？')"
-                :content="$t('script.删除后不可恢复，请谨慎操作！')"
+                :title="'确定删除该版本？'"
+                :content="'删除后不可恢复，请谨慎操作！'"
                 :confirm-handler="handleRemove">
                 <auth-button
                     :permission="scriptInfo.canManage"
                     :resource-id="scriptInfo.id"
                     auth="script/delete"
                     v-test="{ type: 'button', value: 'deleteScript' }">
-                    {{ $t('script.删除') }}
+                    {{ '删除' }}
                 </auth-button>
             </jb-popover-confirm>
             <jb-popover-confirm
                 v-if="scriptInfo.isOnline"
                 key="offline"
                 style="margin-left: auto;"
-                :title="$t('script.确定禁用该版本？')"
-                :content="$t('script.一旦禁用成功，线上引用该版本的作业脚本步骤都会执行失败，请务必谨慎操作！')"
+                :title="'确定禁用该版本？'"
+                :content="'一旦禁用成功，线上引用该版本的作业脚本步骤都会执行失败，请务必谨慎操作！'"
                 :confirm-handler="handleOffline">
                 <auth-button
                     :permission="scriptInfo.canManage"
                     :resource-id="scriptInfo.id"
                     auth="script/edit"
                     v-test="{ type: 'button', value: 'offlineScript' }">
-                    {{ $t('script.禁用') }}
+                    {{ '禁用' }}
                 </auth-button>
             </jb-popover-confirm>
         </template>
@@ -165,8 +165,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
     import {
         checkPublicScript,
@@ -279,7 +278,7 @@
                     id: this.scriptInfo.id,
                     versionId: this.scriptInfo.scriptVersionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.$emit('on-edit-change');
                 });
             },
@@ -290,7 +289,7 @@
                 return this.serviceHandler.scriptVersionRemove({
                     versionId: this.scriptInfo.scriptVersionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.删除成功'));
+                    this.messageSuccess('删除成功');
                     // 如果删除的是最后一个版本，成功后跳转到脚本列表
                     if (this.scriptVersionList.length < 2) {
                         const routerName = this.publicScript ? 'publicScriptList' : 'scriptList';
@@ -312,7 +311,7 @@
                     id: this.scriptInfo.id,
                     versionId: this.scriptInfo.scriptVersionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.$emit('on-edit-change');
                 });
             },

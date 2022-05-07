@@ -2,9 +2,7 @@
 
 /* eslint-disable no-param-reassign */
 import _ from 'lodash';
-import CrontabVariableModel from '@model/crontab/variable';
-import I18n from '@/i18n';
-import {
+import CrontabVariableModel from '@model/crontab/variable';import {
     prettyDateTimeFormat,
 } from '@utils/assist';
 import Translate from '@utils/cron/translate';
@@ -15,9 +13,9 @@ const STATUS_FAILURE = 2;
 
 export default class Crontab {
     static STATUS_MAP = {
-        [STATUS_NOTSTARTED]: I18n.t('未开始'),
-        [STATUS_SUCCESS]: I18n.t('成功'),
-        [STATUS_FAILURE]: I18n.t('失败'),
+        [STATUS_NOTSTARTED]: '未开始',
+        [STATUS_SUCCESS]: '成功',
+        [STATUS_FAILURE]: '失败',
         
     };
 
@@ -81,9 +79,9 @@ export default class Crontab {
      */
     get executeStrategyText () {
         if (this.cronExpression) {
-            return I18n.t('周期执行');
+            return '周期执行';
         }
-        return I18n.t('单次执行');
+        return '单次执行';
     }
 
     /**
@@ -194,8 +192,8 @@ export default class Crontab {
     get successRateTips () {
         const tips = `
             <p>
-                ${I18n.t('最近')}<span style="padding: 0 0.2em;">${this.totalCount}</span>${I18n.t('次')}
-                ${I18n.t('有')}<span style="padding: 0 0.2em;">${this.failCount}</span>${I18n.t('次失败')}:
+                ${'最近'}<span style="padding: 0 0.2em;">${this.totalCount}</span>${'次'}
+                ${'有'}<span style="padding: 0 0.2em;">${this.failCount}</span>${'次失败'}:
             </p>
         `;
         return this.lastFailRecord.slice(0, 5).reduce((result, item) => {

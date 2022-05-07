@@ -5,30 +5,30 @@
         mode="see"
         class="detail-layout-wrapper"
         v-bkloading="{ isLoading }">
-        <detail-item :label="$t('cron.任务名称：')">
+        <detail-item :label="'任务名称：'">
             {{ data.name }}
         </detail-item>
-        <detail-item :label="$t('cron.执行策略：')">
+        <detail-item :label="'执行策略：'">
             {{ data.executeStrategyText }}
         </detail-item>
-        <detail-item :label="$t('cron.执行时间：')">
+        <detail-item :label="'执行时间：'">
             <span
                 class="tips"
                 v-bk-tooltips.right="data.executeTimeTips">
                 {{ data.policeText }}
             </span>
         </detail-item>
-        <detail-item v-if="data.endTime" :label="$t('cron.结束时间：')">
+        <detail-item v-if="data.endTime" :label="'结束时间：'">
             {{ data.endTime }}
         </detail-item>
         <detail-item
             v-if="data.notifyOffset"
-            :label="data.executeStrategy === 'once' ? $t('cron.执行前通知：') : $t('cron.结束前通知：')">
-            {{ data.notifyOffset }}{{ $t('cron.分钟') }}
+            :label="data.executeStrategy === 'once' ? '执行前通知：' : '结束前通知：'">
+            {{ data.notifyOffset }}{{ '分钟' }}
         </detail-item>
         <detail-item
             v-if="renderRoleList.length > 0 || data.notifyUser.userList.length > 0"
-            :label="$t('cron.通知对象：')">
+            :label="'通知对象：'">
             <div class="approval-wraper">
                 <div v-for="role in renderRoleList" :key="role" class="item">
                     <Icon type="user-group-gray" class="approval-flag" />
@@ -40,10 +40,10 @@
                 </div>
             </div>
         </detail-item>
-        <detail-item v-if="renderChannel" :label="$t('cron.通知方式：')">
+        <detail-item v-if="renderChannel" :label="'通知方式：'">
             {{ renderChannel }}
         </detail-item>
-        <detail-item :label="$t('cron.执行方案：')">
+        <detail-item :label="'执行方案：'">
             {{ data.taskPlanName }}
         </detail-item>
         <render-strategy left="20" v-bkloading="{ isVarLoading }">
@@ -51,7 +51,7 @@
                 <span
                     v-if="currentPlanVariableList.length < 1"
                     class="plan-variable-empty">
-                    {{ $t('cron.该执行方案无全局变量') }}
+                    {{ '该执行方案无全局变量' }}
                 </span>
                 <global-variable-layout v-else>
                     <global-variable

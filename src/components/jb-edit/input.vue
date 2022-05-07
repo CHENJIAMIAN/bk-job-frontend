@@ -43,8 +43,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: 'JbEditInput',
         props: {
@@ -173,7 +172,7 @@
                             this.$emit('on-change', {
                                 [this.field]: this.newVal,
                             });
-                            this.messageSuccess(I18n.t('编辑成功'));
+                            this.messageSuccess('编辑成功');
                         })
                             .catch(() => {
                                 this.newVal = this.value;

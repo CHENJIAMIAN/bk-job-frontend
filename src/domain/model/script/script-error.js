@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 const ERROR_MAP = {
     1: 'info',
     2: 'warning',
@@ -23,7 +21,7 @@ export default class ScriptError {
     initText (payload) {
         let text = '';
         if (this.level === 3) {
-            text = `${I18n.t('检测到代码存在高危语句：')}\n${payload.matchContent}\n\n${I18n.t('详细说明：')}\n`;
+            text = `${'检测到代码存在高危语句：'}\n${payload.matchContent}\n\n${'详细说明：'}\n`;
         }
         return `${text}${payload.description}`;
     }

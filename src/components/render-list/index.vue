@@ -20,8 +20,8 @@
             <template slot="prepend">
                 <div v-if="selectNums > 0" class="jb-table-select-tips">
                     <!-- eslint-disable-next-line max-len -->
-                    <span>{{ $t('已选择.select') }}<span class="number strong">{{ selectNums }}</span>{{ $t('条.total') }}</span>
-                    <span class="action-clear" @click="handleClearAllSelect">，{{ $t('清除所有勾选') }}</span>
+                    <span>{{ '已选择'}}<span class="number strong">{{ selectNums }}</span>{{ '条'}}</span>
+                    <span class="action-clear" @click="handleClearAllSelect">，{{ '清除所有勾选' }}</span>
                 </div>
                 <slot name="prepend" />
             </template>
@@ -40,15 +40,15 @@
             <div v-if="isRequesting" slot="empty" style="height: 200px;" />
             <Empty v-else-if="isSearching" slot="empty" type="search">
                 <div>
-                    <div style="font-size: 14px; color: #63656e;">{{ $t('搜索结果为空') }}</div>
+                    <div style="font-size: 14px; color: #63656e;">{{ '搜索结果为空' }}</div>
                     <div style="margin-top: 8px; font-size: 12px; line-height: 16px; color: #979ba5;">
-                        <span>{{ $t('可以尝试调整关键词') }}</span>
+                        <span>{{ '可以尝试调整关键词' }}</span>
                         <template v-if="searchControl">
-                            <span>{{ $t('或') }}</span>
+                            <span>{{ '或' }}</span>
                             <bk-button
                                 text
                                 @click="handleClearSearch">
-                                {{ $t('清空搜索条件') }}
+                                {{ '清空搜索条件' }}
                             </bk-button>
                         </template>
                     </div>
@@ -59,8 +59,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import Empty from '@components/empty';
+       import Empty from '@components/empty';
     import EventBus from '@utils/event-bus';
     import {
         getOffset,
@@ -366,8 +365,8 @@
                         size="regular">
                         <icon class="select-menu-flag" type="down-small" />
                         <div slot="content" class="jb-table-select-plan">
-                            <div class="item" onClick={this.handlePageSelect}>{I18n.t('本页全选')}</div>
-                            <div class="item" onClick={this.fetchWhole}>{I18n.t('跨页全选')}</div>
+                            <div class="item" onClick={this.handlePageSelect}>{'本页全选'}</div>
+                            <div class="item" onClick={this.fetchWhole}>{'跨页全选'}</div>
                         </div>
                     </bk-popover>
                 </div>

@@ -21,14 +21,13 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
             title: {
                 type: String,
-                default: I18n.t('dashboard.接入业务量'),
+                default: '接入业务量',
             },
             titleTips: {
                 type: String,

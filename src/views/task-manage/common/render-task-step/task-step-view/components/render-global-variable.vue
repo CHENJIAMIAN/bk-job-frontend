@@ -10,7 +10,7 @@
             v-model="isShowDetail"
             :title="title"
             :width="1020"
-            :ok-text="$t('template.关闭')"
+            :ok-text="'关闭'"
             class="global-host-variable-detail-dialog">
             <template #header>
                 <div class="variable-title">
@@ -19,7 +19,7 @@
                 </div>
             </template>
             <div class="content-wraper">
-                <Empty v-if="isEmpty" :title="$t('template.变量值为空')" style="height: 100%;" />
+                <Empty v-if="isEmpty" :title="'变量值为空'" style="height: 100%;" />
                 <scroll-faker v-else>
                     <server-panel
                         detail-mode="dialog"
@@ -30,8 +30,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskHostNodeModel from '@model/task-host-node';
+       import TaskHostNodeModel from '@model/task-host-node';
     import ScrollFaker from '@components/scroll-faker';
     import ServerPanel from '@components/choose-ip/server-panel';
     import Empty from '@components/empty';
@@ -70,7 +69,7 @@
                 if (this.type) {
                     return this.type;
                 }
-                return `${I18n.t('template.全局变量.label')} - ${this.name}`;
+                return `${'全局变量'} - ${this.name}`;
             },
             isEmpty () {
                 return TaskHostNodeModel.isHostNodeInfoEmpty(this.hostNodeInfo);

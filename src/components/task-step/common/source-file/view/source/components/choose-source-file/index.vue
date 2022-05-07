@@ -8,7 +8,7 @@
         :esc-close="false"
         :mask-close="false"
         :width="1200"
-        :title="$t('选择文件源文件')"
+        :title="'选择文件源文件'"
         @input="handleCancle">
         <div v-bkloading="{ isLoading }">
             <component
@@ -26,10 +26,10 @@
                 theme="primary"
                 
                 @click="handleSubmit">
-                <span>{{ $t('添加') }}</span>
+                <span>{{ '添加' }}</span>
                 <span v-if="!isSelectedEmpty" class="result-nums">{{ fileLocation.length }}</span>
             </bk-button>
-            <bk-button @click="handleCancle">{{ $t('取消') }}</bk-button>
+            <bk-button @click="handleCancle">{{ '取消' }}</bk-button>
         </template>
     </jb-dialog>
 </template>

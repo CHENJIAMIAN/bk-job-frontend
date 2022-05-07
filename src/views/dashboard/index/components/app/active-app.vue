@@ -3,30 +3,30 @@
 <template>
     <card-layout
         class="app-item"
-        :title="$t('dashboard.活跃业务量')"
-        :title-tips="$t('dashboard.3 天内至少执行过一次任务的业务（定时任务除外）')">
+        :title="'活跃业务量'"
+        :title-tips="'3 天内至少执行过一次任务的业务（定时任务除外）'">
         <render-trend metric="ACTIVE_APP_COUNT" :date="date" />
         <div slot="extend">
-            <Icon type="line-chart-line" v-bk-tooltips="$t('dashboard.查看趋势图')" @click="handleShowTrend" />
-            <Icon type="table-line" v-bk-tooltips="$t('dashboard.查看列表')" @click="handleShowList" />
+            <Icon type="line-chart-line" v-bk-tooltips="'查看趋势图'" @click="handleShowTrend" />
+            <Icon type="table-line" v-bk-tooltips="'查看列表'" @click="handleShowList" />
         </div>
         <trend-dialog
             v-model="isShowTrend"
             metric="ACTIVE_APP_COUNT"
-            :title="$t('dashboard.活跃业务量趋势图')"
-            :name="$t('dashboard.活跃业务量')"
+            :title="'活跃业务量趋势图'"
+            :name="'活跃业务量'"
             :date="date" />
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
-                :title="$t('dashboard.活跃业务量列表')"
+                :title="'活跃业务量列表'"
                 :width="520"
                 :show-footer="false"
                 header-position="left">
                 <div style="margin-top: 12px;" v-bkloading="{ isLoading, opacity: 0.8 }">
                     <bk-table :data="listData" :max-height="420">
                         <bk-table-column
-                            :label="$t('dashboard.业务名')"
+                            :label="'业务名'"
                             prop="appName"
                             key="appName"
                             align="left" />

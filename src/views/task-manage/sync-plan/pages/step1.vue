@@ -5,15 +5,15 @@
         <div class="sync-plan-step1">
             <detail-layout>
                 <detail-item
-                    :label="$t('template.全局变量.label')"
+                    :label="'全局变量'"
                     style="margin-bottom: 20px;">
                     <render-global-var
                         :list="templateVariableList"
                         mode="diff"
-                        :default-field="$t('template.变量值')"
+                        :default-field="'变量值'"
                         :diff="variableDiff" />
                 </detail-item>
-                <detail-item :label="$t('template.执行步骤')">
+                <detail-item :label="'执行步骤'">
                     <render-task-step
                         :list="templateStepList"
                         mode="diff"
@@ -24,13 +24,13 @@
         <template #footer>
             <bk-button
                 @click="handleCancel">
-                {{ $t('template.取消') }}
+                {{ '取消' }}
             </bk-button>
             <bk-button
                 theme="primary"
                 class="w120"
                 @click="handleNext">
-                {{ $t('template.下一步') }}
+                {{ '下一步' }}
             </bk-button>
         </template>
     </layout>

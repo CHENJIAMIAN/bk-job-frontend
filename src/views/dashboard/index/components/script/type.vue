@@ -3,7 +3,7 @@
 <template>
     <card-layout
         class="script-type-dashboard"
-        :title="$t('dashboard.脚本类型分布')"
+        :title="'脚本类型分布'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="wraper">
             <div ref="dashboard" style="width: 180px; height: 180px;" />

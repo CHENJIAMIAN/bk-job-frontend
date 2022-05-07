@@ -8,9 +8,9 @@
             <table>
                 <thead>
                     <tr>
-                        <td style="width: 90px;">{{ $t('history.变量名称') }}</td>
-                        <td style="width: 90px;">{{ $t('history.变量类型') }}</td>
-                        <td>{{ $t('history.变量值') }}</td>
+                        <td style="width: 90px;">{{ '变量名称' }}</td>
+                        <td style="width: 90px;">{{ '变量类型' }}</td>
+                        <td>{{ '变量值' }}</td>
                     </tr>
                 </thead>
                 <tbody>

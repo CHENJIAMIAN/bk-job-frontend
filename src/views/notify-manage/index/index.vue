@@ -28,20 +28,19 @@
                     
                     :loading="isSubmiting"
                     @click="handleSave">
-                    {{ $t('notify.保存') }}
+                    {{ '保存' }}
                 </bk-button>
                 <bk-button
                     
                     @click="handleCancel">
-                    {{ $t('notify.重置') }}
+                    {{ '重置' }}
                 </bk-button>
             </div>
         </template>
     </smart-action>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import NotifyService from '@service/notify';
+       import NotifyService from '@service/notify';
     import NotifyCollapseItem from './components/notify-collapse-item';
     import TriggerSetting from './components/trigger-setting';
 
@@ -135,7 +134,7 @@
                 NotifyService.defaultPoliciesUpdate({
                     triggerPoliciesList,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('notify.保存成功'));
+                    this.messageSuccess('保存成功');
                     return this.fetchPoliciesList();
                 })
                     .finally(() => {

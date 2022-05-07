@@ -7,7 +7,7 @@
                 class="tab-item"
                 :class="{ active: listTab === 'launch' }"
                 @click="handleTabChange('launch')">
-                <div class="tab-name">{{ $t('cron.任务正常启动') }}</div>
+                <div class="tab-name">{{ '任务正常启动' }}</div>
                 <Icon
                     v-if="isLaunchLoading"
                     type="sync-pending"
@@ -19,7 +19,7 @@
                 class="tab-item"
                 :class="{ active: listTab === 'unlaunch' }"
                 @click="handleTabChange('unlaunch')">
-                <div class="tab-name">{{ $t('cron.任务未能启动') }}</div>
+                <div class="tab-name">{{ '任务未能启动' }}</div>
                 <Icon
                     v-if="isUnlaunchLoading"
                     type="sync-pending"

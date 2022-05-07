@@ -7,13 +7,13 @@
                 <img src="/static/images/export.svg">
                 <div class="title">
                     <div v-if="isExportSuccess">
-                        <div>{{ $t('template.作业导出成功！请及时保存并妥善保管。') }}</div>
+                        <div>{{ '作业导出成功！请及时保存并妥善保管。' }}</div>
                         <div class="export-download">
-                            <span>{{ $t('template.如果页面未出现提示保存窗口，请点击') }}</span>
-                            <span class="btn" @click="handleDownloadFile">{{ $t('template.重新下载文件') }}</span>
+                            <span>{{ '如果页面未出现提示保存窗口，请点击' }}</span>
+                            <span class="btn" @click="handleDownloadFile">{{ '重新下载文件' }}</span>
                         </div>
                     </div>
-                    <div v-else>{{ $t('template.正在导出作业，请稍候') }}<span class="loading" /></div>
+                    <div v-else>{{ '正在导出作业，请稍候' }}<span class="loading" /></div>
                 </div>
             </div>
             <div class="log-content">
@@ -26,14 +26,13 @@
                 theme="primary"
                 :loading="isFinishing"
                 @click="handleFinish">
-                {{ $t('template.完成') }}
+                {{ '完成' }}
             </bk-button>
         </div>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import {
         taskExport,
     } from '@utils/cache-helper';
@@ -105,19 +104,19 @@
                 };
                 
                 confirmDialog = this.$bkInfo({
-                    title: I18n.t('template.是否结束当前任务？'),
+                    title: '是否结束当前任务？',
                     subHeader: (() => (
                     <div>
                         <div style={{ color: '#63656e', fontSize: '14px', textAlign: 'center' }}>
-                            <p>{I18n.t('template.你可以选择保留或结束当前任务')}</p>
-                            <p>{I18n.t('template.（选择保留，后续可以从列表页重新进入）')}</p>
+                            <p>{'你可以选择保留或结束当前任务'}</p>
+                            <p>{'（选择保留，后续可以从列表页重新进入）'}</p>
                         </div>
                         <div style={{ padding: '20px 0', textAlign: 'center' }}>
                             <bk-button class="mr10" theme="primary" onClick={keepCallback}>
-                                {I18n.t('template.保留')}
+                                {'保留'}
                             </bk-button>
                             <bk-button ref="confirmBtn" onClick={finishCallback}>
-                                {I18n.t('template.结束')}
+                                {'结束'}
                             </bk-button>
                         </div>
                     </div>
@@ -194,7 +193,7 @@
                 BackupService.fetchExportFile({
                     id: this.id,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('template.下载文件成功'));
+                    this.messageSuccess('下载文件成功');
                 });
             },
             

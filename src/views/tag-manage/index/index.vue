@@ -9,13 +9,13 @@
                 theme="primary"
                 @click="handleCreate"
                 v-test="{ type: 'button', value: 'createTag' }">
-                {{ $t('tag.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     :data="searchSelect"
-                    :placeholder="$t('tag.请输入')"
+                    :placeholder="'请输入'"
                     style="width: 420px;"
                     @on-change="handleSearch" />
             </template>
@@ -35,7 +35,7 @@
                 key="id"
                 align="left" />
             <bk-table-column
-                :label="$t('tag.标签名.colHead')"
+                :label="'标签名'"
                 prop="name"
                 key="name"
                 sortable
@@ -44,7 +44,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.description"
-                :label="$t('tag.描述.colHead')"
+                :label="'描述'"
                 prop="descriptionText"
                 key="descriptionText"
                 min-width="200"
@@ -52,7 +52,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.relatedTaskTemplateNum"
-                :label="$t('tag.关联作业量.colHead')"
+                :label="'关联作业量'"
                 prop="relatedTaskTemplateNum"
                 key="relatedTaskTemplateNum"
                 width="150"
@@ -79,7 +79,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.relatedScriptNum"
-                :label="$t('tag.关联脚本量.colHead')"
+                :label="'关联脚本量'"
                 prop="relatedScriptNum"
                 key="relatedScriptNum"
                 width="170"
@@ -106,34 +106,34 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('tag.创建人')"
+                :label="'创建人'"
                 prop="creator"
                 key="creator"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('tag.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('tag.更新人.colHead')"
+                :label="'更新人'"
                 prop="lastModifyUser"
                 key="lastModifyUser"
                 width="160"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('tag.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 width="180"
                 align="left" />
             <bk-table-column
-                :label="$t('tag.操作')"
+                :label="'操作'"
                 :resizable="false"
                 key="action"
                 fixed="right"
@@ -147,7 +147,7 @@
                         text
                         @click="handleEdit(row)"
                         v-test="{ type: 'button', value: 'editTag' }">
-                        {{ $t('tag.编辑') }}
+                        {{ '编辑' }}
                     </auth-button>
                     <bk-button
                         class="mr10"
@@ -156,11 +156,11 @@
                         text
                         @click="handleEditRelate(row)"
                         v-test="{ type: 'button', value: 'editTagRelate' }">
-                        {{ $t('tag.批量流转关联项') }}
+                        {{ '批量流转关联项' }}
                     </bk-button>
                     <jb-popover-confirm
-                        :title="$t('tag.确认删除该标签？')"
-                        :content="$t('tag.关联的作业、脚本，将同时移除本标签')"
+                        :title="'确认删除该标签？'"
+                        :content="'关联的作业、脚本，将同时移除本标签'"
                         :confirm-handler="() => handleDelete(row.id)">
                         <auth-button
                             text
@@ -168,7 +168,7 @@
                             auth="tag/delete"
                             :resource-id="row.id"
                             v-test="{ type: 'button', value: 'deleteTag' }">
-                            {{ $t('tag.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </template>
@@ -190,8 +190,8 @@
         <jb-dialog
             v-model="isShowEditRelate"
             :width="480"
-            :title="$t('tag.批量流转关联项')"
-            :ok-text="$t('tag.提交')"
+            :title="'批量流转关联项'"
+            :ok-text="'提交'"
             header-position="left">
             <batch-edit-relate
                 v-if="isShowEditRelate"
@@ -203,8 +203,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import NotifyService from '@service/notify';
+       import NotifyService from '@service/notify';
     import TagManageService from '@service/tag-manage';
     import { listColumnsCache } from '@utils/cache-helper';
     import ListActionLayout from '@components/list-action-layout';
@@ -253,18 +252,18 @@
             this.dataSource = TagManageService.fetchTagList;
             this.searchSelect = [
                 {
-                    name: I18n.t('tag.标签名.colHead'),
+                    name: '标签名',
                     id: 'name',
                     default: true,
                 },
                 {
-                    name: I18n.t('tag.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('tag.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -277,39 +276,39 @@
                 },
                 {
                     id: 'name',
-                    label: I18n.t('tag.标签名.colHead'),
+                    label: '标签名',
                     disabled: true,
                 },
                 {
                     id: 'description',
-                    label: I18n.t('tag.描述.colHead'),
+                    label: '描述',
                     disabled: true,
                 },
                 {
                     id: 'relatedTaskTemplateNum',
-                    label: I18n.t('tag.关联作业量.colHead'),
+                    label: '关联作业量',
                     disabled: true,
                 },
                 {
                     id: 'relatedScriptNum',
-                    label: I18n.t('tag.关联脚本量.colHead'),
+                    label: '关联脚本量',
                     disabled: true,
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('tag.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('tag.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('tag.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('tag.更新时间'),
+                    label: '更新时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -412,7 +411,7 @@
                     id,
                 }).then(() => {
                     this.fetchData();
-                    this.messageSuccess(I18n.t('tag.删除成功'));
+                    this.messageSuccess('删除成功');
                 });
             },
         },

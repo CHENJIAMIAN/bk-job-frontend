@@ -5,14 +5,14 @@
         <div>
             <div
                 class="action-btn"
-                v-bk-tooltips.bottom="$t('history.全局变量')"
+                v-bk-tooltips.bottom="'全局变量'"
                 @click="handleShowGlobalVariable">
                 <Icon type="global-var-line" />
             </div>
             <jb-sideslider
                 :is-show.sync="isShow"
                 :quick-close="true"
-                :title="$t('history.全局变量')"
+                :title="'全局变量'"
                 :show-footer="false"
                 :width="960">
                 <global-variable :id="taskInstanceId" />

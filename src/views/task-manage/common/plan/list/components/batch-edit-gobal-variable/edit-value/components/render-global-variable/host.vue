@@ -11,7 +11,7 @@
         <div>
             <bk-button v-if="isValueEmpty" @click="handleChooseIp" style="width: 160px;">
                 <Icon type="plus" />
-                {{ $t('template.添加服务器') }}
+                {{ '添加服务器' }}
             </bk-button>
             <div v-else class="host-value-text" @click="handleChooseIp">
                 <div class="host-type">

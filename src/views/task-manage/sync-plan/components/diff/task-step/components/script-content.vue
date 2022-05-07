@@ -2,13 +2,13 @@
 
 <template>
     <div class="sync-plan-script-content">
-        <span class="sript-content-text">{{ $t('template.查看脚本') }}</span>
+        <span class="sript-content-text">{{ '查看脚本' }}</span>
         <Icon class="script-content-detail" type="audit" @click="handleView" />
         <div v-if="isShowContent" ref="dialog" class="script-diff-dialog" :style="dialogStyles">
             
             <div class="content-title">
-                <div class="content-old">{{ $t('template.同步前') }}</div>
-                <div class="content-new">{{ $t('template.同步后') }}</div>
+                <div class="content-old">{{ '同步前' }}</div>
+                <div class="content-new">{{ '同步后' }}</div>
             </div>
             <div class="content-wraper" v-bkloading="{ isLoading }">
                 <scroll-faker>

@@ -15,8 +15,7 @@
     </jb-popover-confirm>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import ActionConfirm from './confirm';
+       import ActionConfirm from './confirm';
     import ActionConfirmForced from './confirm-forced';
     import ActionConfirmRetry from './confirm-retry';
     import ActionAllRetry from './all-retry';
@@ -39,53 +38,53 @@
     const actionMap = {
         confirm: {
             operationCode: ACTION_CONFIRM,
-            title: I18n.t('history.确定继续执行？'),
-            desc: I18n.t('history.将继续执行后面的步骤'),
+            title: '确定继续执行？',
+            desc: '将继续执行后面的步骤',
         },
         confirmForced: {
             operationCode: ACTION_CONFIRM_FORCED,
-            title: I18n.t('history.确定终止流程？'),
-            desc: I18n.t('history.人工确认步骤终止后，需「重新发起确认」才可恢复'),
+            title: '确定终止流程？',
+            desc: '人工确认步骤终止后，需「重新发起确认」才可恢复',
         },
         confirmRetry: {
             operationCode: ACTION_CONFIRM_RETRY,
-            title: I18n.t('history.确定重新发起确认？'),
-            desc: I18n.t('history.将会再次发送消息通知相关的确认人'),
+            title: '确定重新发起确认？',
+            desc: '将会再次发送消息通知相关的确认人',
         },
         allRetry: {
             operationCode: ACTION_ALL_RETRY,
-            title: I18n.t('history.确定全部重试？'),
-            desc: I18n.t('history.该步骤的所有IP 都将重新执行'),
+            title: '确定全部重试？',
+            desc: '该步骤的所有IP 都将重新执行',
         },
         failIpRetry: {
             operationCode: ACTION_FAIL_IP_RETRY,
-            title: I18n.t('history.确定失败IP重试？'),
-            desc: I18n.t('history.仅作用于本次执行失败的 IP'),
+            title: '确定失败IP重试？',
+            desc: '仅作用于本次执行失败的 IP',
         },
         skip: {
             operationCode: ACTION_SKIP,
-            title: I18n.t('history.确定进入下一步？'),
-            desc: I18n.t('history.跳过当前步骤进入下一步'),
+            title: '确定进入下一步？',
+            desc: '跳过当前步骤进入下一步',
         },
         forced: {
             operationCode: '',
-            title: I18n.t('history.确定终止执行任务？'),
-            desc: I18n.t('history.终止动作仅对当前还未执行完成的IP有效'),
+            title: '确定终止执行任务？',
+            desc: '终止动作仅对当前还未执行完成的IP有效',
         },
         forcedRetry: {
             operationCode: ACTION_ALL_RETRY,
-            title: I18n.t('history.确定重试并继续？'),
-            desc: I18n.t('history.该步骤的所有IP 都将重新执行'),
+            title: '确定重试并继续？',
+            desc: '该步骤的所有IP 都将重新执行',
         },
         forcedSkip: {
             operationCode: ACTION_FORCED_SKIP,
-            title: I18n.t('history.确定跳过并进入下一步？'),
-            desc: I18n.t('history.将不再等待强制终止动作的结果，直接进入下一步'),
+            title: '确定跳过并进入下一步？',
+            desc: '将不再等待强制终止动作的结果，直接进入下一步',
         },
         next: {
             operationCode: ACTION_NEXT,
-            title: I18n.t('history.确定进入下一步？'),
-            desc: I18n.t('history.跳过当前步骤进入下一步'),
+            title: '确定进入下一步？',
+            desc: '跳过当前步骤进入下一步',
         },
     };
 

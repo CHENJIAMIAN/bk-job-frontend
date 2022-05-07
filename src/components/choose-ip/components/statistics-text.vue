@@ -3,11 +3,11 @@
 <template>
     <span class="statistics-text">
         <template v-if="data.success > 0">
-            {{ $t('正常') }}:<span class="success number">{{ data.success }}</span>
+            {{ '正常' }}:<span class="success number">{{ data.success }}</span>
         </template>
         <template v-if="data.fail > 0">
             <span v-if="data.success > 0" style="padding-left: 16px;" />
-            {{ $t('异常') }}:<span class="error number">{{ data.fail }}</span>
+            {{ '异常' }}:<span class="error number">{{ data.fail }}</span>
         </template>
     </span>
 </template>

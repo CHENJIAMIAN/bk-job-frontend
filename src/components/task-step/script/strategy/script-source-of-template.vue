@@ -2,15 +2,15 @@
 
 <template>
     <div class="script-source-of-template">
-        <jb-form-item class="script-source-item" :label="$t('脚本来源')" required>
+        <jb-form-item class="script-source-item" :label="'脚本来源'" required>
             <bk-radio-group @change="handleScriptSourceChange" :value="sourceType">
-                <bk-radio-button value="local">{{ $t('手工录入') }}</bk-radio-button>
-                <bk-radio-button value="refer">{{ $t('脚本引用') }}</bk-radio-button>
+                <bk-radio-button value="local">{{ '手工录入' }}</bk-radio-button>
+                <bk-radio-button value="refer">{{ '脚本引用' }}</bk-radio-button>
             </bk-radio-group>
         </jb-form-item>
         <jb-form-item
             ref="scriptId"
-            :label="$t('脚本引用')"
+            :label="'脚本引用'"
             v-show="isScriptRefer"
             required
             property="scriptId"
@@ -24,17 +24,17 @@
                         :clearable="false">
                         <bk-option
                             :id="2"
-                            :name="$t('业务脚本')">
-                            {{ $t('业务脚本') }}
+                            :name="'业务脚本'">
+                            {{ '业务脚本' }}
                         </bk-option>
                         <bk-option
                             :id="3"
-                            :name="$t('公共脚本')">
-                            {{ $t('公共脚本') }}
+                            :name="'公共脚本'">
+                            {{ '公共脚本' }}
                         </bk-option>
                     </bk-select>
                     <bk-select
-                        :placeholder="$t('选择引用脚本')"
+                        :placeholder="'选择引用脚本'"
                         style="width: 375px;"
                         :value="formData[scriptVersionIdField]"
                         @change="handleScriptVersionIdChange"
@@ -43,7 +43,7 @@
                         <component
                             :is="scriptGroupComponent"
                             v-for="(group, index) in scriptListDisplay"
-                            :name="index === 0 ? $t('当前脚本') : $t('其它脚本')"
+                            :name="index === 0 ? '当前脚本' : '其它脚本'"
                             :key="index">
                             <auth-option
                                 v-for="(option, itemIndex) in group"
@@ -70,11 +70,11 @@
                     v-if="formData[scriptStatusField]"
                     type="script-update"
                     class="update-flag"
-                    :tippy-tips="$t('引用脚本待更新')" />
+                    :tippy-tips="'引用脚本待更新'" />
                 <div
                     v-if="formData[scriptVersionIdField]"
                     class="refer-script-detail"
-                    :tippy-tips="$t('脚本详情')"
+                    :tippy-tips="'脚本详情'"
                     @click="handleGoScriptDetail">
                     <Icon type="jump" />
                 </div>
@@ -84,8 +84,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import ScriptManageService from '@service/script-manage';
+       import ScriptManageService from '@service/script-manage';
     import PublicScriptManageService from '@service/public-script-manage';
     import TaskStepModel from '@model/task/task-step';
     import ComposeFormItem from '@components/compose-form-item';
@@ -193,8 +192,8 @@
              */
             newBtnText () {
                 return this.formData[this.scriptSourceField] === TaskStepModel.scriptStep.TYPE_SOURCE_BUSINESS
-                    ? I18n.t('新建业务脚本')
-                    : I18n.t('新建公共脚本');
+                    ? '新建业务脚本'
+                    : '新建公共脚本';
             },
             /**
              * @desc 表单想验证规则
@@ -206,7 +205,7 @@
                 if (this.isScriptRefer) {
                     return [{
                         required: true,
-                        message: I18n.t('请选择引用脚本'),
+                        message: '请选择引用脚本',
                         trigger: 'blur',
                     }];
                 }
@@ -328,12 +327,12 @@
                 const currentScriptList = [];
                 const oldVersionScript = {
                     ...this.defaultScript,
-                    name: `${this.defaultScript.name}（${I18n.t('当前版本')}）`,
+                    name: `${this.defaultScript.name}（${'当前版本'}）`,
                 };
                 currentScriptList.push(oldVersionScript);
                 const [newVersionScript] = _.remove(targetList, item => item.id === oldVersionScript.id);
                 if (newVersionScript) {
-                    newVersionScript.name = `${newVersionScript.name}（${I18n.t('新版本')}）`;
+                    newVersionScript.name = `${newVersionScript.name}（${'新版本'}）`;
                     currentScriptList.unshift(newVersionScript);
                 }
                 

@@ -46,7 +46,7 @@
         <template v-else>
             <bk-input
                 ref="input"
-                :placeholder="$t('template.请输入标签名...')"
+                :placeholder="'请输入标签名...'"
                 :value="displayName"
                 @change="handleChange"
                 @blur="handleBlur"
@@ -73,8 +73,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import { tagNameRule } from '@utils/validator';
+       import { tagNameRule } from '@utils/validator';
 
     export default {
         name: '',
@@ -136,8 +135,8 @@
              */
             errorTipsConfig () {
                 const errorMap = {
-                    1: I18n.t('template.标签名不可为空'),
-                    2: I18n.t('template.标签名已存在，请重新输入'),
+                    1: '标签名不可为空',
+                    2: '标签名已存在，请重新输入',
                     3: tagNameRule.message,
                 };
                 return {

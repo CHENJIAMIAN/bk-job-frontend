@@ -7,7 +7,7 @@
                 ref="search"
                 :data="searchSelect"
                 :parse-url="false"
-                :placeholder="$t('cron.搜索指定任务ID 或 根据字段筛选结果')"
+                :placeholder="'搜索指定任务ID 或 根据字段筛选结果'"
                 :append-value="searchAppendValue"
                 @on-change="handleSearch"
                 style="width: 510px;" />
@@ -15,7 +15,7 @@
                 <bk-date-picker
                     ref="datePicker"
                     :value="defaultDateTime"
-                    :placeholder="$t('cron.选择日期')"
+                    :placeholder="'选择日期'"
                     :shortcuts="shortcuts"
                     type="datetimerange"
                     :shortcut-close="true"
@@ -42,7 +42,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('cron.任务状态.colHead')"
+                :label="'任务状态'"
                 prop="statusDesc"
                 key="statusDesc"
                 align="left">
@@ -51,19 +51,19 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('cron.执行人.colHead')"
+                :label="'执行人'"
                 prop="operator"
                 key="operator"
                 width="160"
                 align="left" />
             <bk-table-column
-                :label="$t('cron.开始时间.colHead')"
+                :label="'开始时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
-                :label="$t('cron.耗时时长')"
+                :label="'耗时时长'"
                 prop="totalTimeText"
                 key="totalTimeText"
                 width="160"
@@ -72,8 +72,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import NotifyService from '@service/notify';
     import { prettyDateTimeFormat } from '@utils/assist';
     import JbSearchSelect from '@components/jb-search-select';
@@ -110,11 +109,11 @@
                 this.searchParams.status = 4;
                 this.searchAppendValue = [
                     {
-                        name: I18n.t('cron.任务状态.label'),
+                        name: '任务状态',
                         id: 'status',
                         values: [{
                             id: this.searchParams.status,
-                            name: I18n.t('cron.执行失败'),
+                            name: '执行失败',
                         }],
                     },
                 ];
@@ -127,57 +126,57 @@
                 {
                     name: 'ID',
                     id: 'taskInstanceId',
-                    description: I18n.t('cron.搜索条件带任务ID时，将自动忽略其他条件'),
+                    description: '搜索条件带任务ID时，将自动忽略其他条件',
                     default: true,
                     validate (values, item) {
                         const validate = (values || []).every(_ => /^(\d*)$/.test(_.name));
-                        return !validate ? I18n.t('cron.ID只支持数字') : true;
+                        return !validate ? 'ID只支持数字' : true;
                     },
                 },
                 {
-                    name: I18n.t('cron.任务状态.colHead'),
+                    name: '任务状态',
                     id: 'status',
                     children: [
                         {
-                            name: I18n.t('cron.等待执行'),
+                            name: '等待执行',
                             id: 1,
                         },
                         {
-                            name: I18n.t('cron.正在执行'),
+                            name: '正在执行',
                             id: 2,
                         },
                         {
-                            name: I18n.t('cron.执行成功'),
+                            name: '执行成功',
                             id: 3,
                         },
                         {
-                            name: I18n.t('cron.执行失败'),
+                            name: '执行失败',
                             id: 4,
                         },
                         {
-                            name: I18n.t('cron.等待确认'),
+                            name: '等待确认',
                             id: 7,
                         },
                         {
-                            name: I18n.t('cron.强制终止中'),
+                            name: '强制终止中',
                             id: 10,
                         },
                         {
-                            name: I18n.t('cron.强制终止成功'),
+                            name: '强制终止成功',
                             id: 11,
                         },
                         {
-                            name: I18n.t('cron.强制终止失败'),
+                            name: '强制终止失败',
                             id: 12,
                         },
                         {
-                            name: I18n.t('cron.确认终止'),
+                            name: '确认终止',
                             id: 13,
                         },
                     ],
                 },
                 {
-                    name: I18n.t('cron.执行人.colHead'),
+                    name: '执行人',
                     id: 'operator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -186,7 +185,7 @@
             
             this.shortcuts = [
                 {
-                    text: I18n.t('cron.近1小时'),
+                    text: '近1小时',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -195,7 +194,7 @@
                     },
                 },
                 {
-                    text: I18n.t('cron.近12小时'),
+                    text: '近12小时',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -204,7 +203,7 @@
                     },
                 },
                 {
-                    text: I18n.t('cron.近1天'),
+                    text: '近1天',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -213,7 +212,7 @@
                     },
                 },
                 {
-                    text: I18n.t('cron.近7天'),
+                    text: '近7天',
                     value () {
                         const end = new Date();
                         const start = new Date();
@@ -226,7 +225,7 @@
         mounted () {
             this.fetchData();
             this.$refs.datePicker.shortcut = {
-                text: `${this.defaultDateTime[0]} ${I18n.t('cron.至今')}`,
+                text: `${this.defaultDateTime[0]} ${'至今'}`,
             };
         },
         methods: {

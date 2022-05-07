@@ -1,45 +1,45 @@
 
 
 <template>
-    <card-layout class="execute-fail-dashboard" :title="$t('dashboard.累计执行失败次数')">
+    <card-layout class="execute-fail-dashboard" :title="'累计执行失败次数'">
         <render-trend metric="FAILED_TASK_COUNT" :date="date" />
         <div slot="extend">
             <Icon
                 type="line-chart-line"
-                v-bk-tooltips="$t('dashboard.查看趋势图')"
+                v-bk-tooltips="'查看趋势图'"
                 @click="handleShowTrend" />
             <Icon
                 type="table-line"
-                v-bk-tooltips="$t('dashboard.查看列表')"
+                v-bk-tooltips="'查看列表'"
                 @click="handleShowList" />
         </div>
         <trend-dialog
             v-model="isShowTrend"
             metric="FAILED_TASK_COUNT"
-            :title="$t('dashboard.累计执行失败次数趋势图')"
-            :name="$t('dashboard.累计执行失败次数')"
+            :title="'累计执行失败次数趋势图'"
+            :name="'累计执行失败次数'"
             :date="date" />
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
-                :title="$t('dashboard.累计执行失败次数列表')"
+                :title="'累计执行失败次数列表'"
                 :width="520"
                 :show-footer="false"
                 header-position="left">
                 <div style="margin-top: 12px;" v-bkloading="{ isLoading, opacity: 0.8 }">
                     <bk-table :data="listData" :max-height="420">
                         <bk-table-column
-                            :label="$t('dashboard.业务名')"
+                            :label="'业务名'"
                             prop="appName"
                             key="appName"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.失败次数')"
+                            :label="'失败次数'"
                             prop="value"
                             key="value"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.占比')"
+                            :label="'占比'"
                             prop="ratio"
                             key="ratio"
                             align="left" />

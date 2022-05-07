@@ -8,7 +8,7 @@
             :readonly="readonly"
             @change="handleChange"
             v-bk-tooltips="descPopover" />
-        <p v-if="isError" class="variable-error">{{ $t('该变量的值必填') }}</p>
+        <p v-if="isError" class="variable-error">{{ '该变量的值必填' }}</p>
     </div>
 </template>
 <script>

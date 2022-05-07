@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'script_manage',
     name: 'scriptManage',
@@ -10,7 +8,7 @@ export default {
         name: 'scriptList',
     },
     meta: {
-        title: I18n.t('脚本管理'),
+        title: '脚本管理',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'scriptList',
             component: () => import('@views/script-manage/list/'),
             meta: {
-                pageTitle: I18n.t('脚本管理'),
+                pageTitle: '脚本管理',
                 skeleton: 'taskList',
                 full: true,
             },
@@ -29,7 +27,7 @@ export default {
             name: 'createScript',
             component: () => import('@views/script-manage/create/'),
             meta: {
-                title: I18n.t('新建脚本'),
+                title: '新建脚本',
             },
         },
         {
@@ -37,7 +35,7 @@ export default {
             name: 'scriptVersion',
             component: () => import('@views/script-manage/version'),
             meta: {
-                title: I18n.t('版本管理'),
+                title: '版本管理',
                 skeleton: 'scriptVersion',
             },
         },
@@ -46,7 +44,7 @@ export default {
             name: 'scriptSync',
             component: () => import('@views/script-manage/sync-confirm'),
             meta: {
-                title: I18n.t('同步确认'),
+                title: '同步确认',
             },
         },
         {
@@ -54,7 +52,7 @@ export default {
             name: 'scriptSyncTask',
             component: () => import('@views/script-manage/sync-task'),
             meta: {
-                title: I18n.t('同步任务'),
+                title: '同步任务',
             },
         },
     ],

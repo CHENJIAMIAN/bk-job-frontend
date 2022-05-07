@@ -3,7 +3,7 @@
 <template>
     <div class="exception-box">
         <img src="/static/images/404.png" alt="">
-        <p>{{ $t('没找到页面！') }}</p>
+        <p>{{ '没找到页面！' }}</p>
     </div>
 </template>
 <style scoped lang="postcss">

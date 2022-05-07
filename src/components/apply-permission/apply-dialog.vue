@@ -35,8 +35,7 @@
 </template>
 <script>
     import PermissionCheckService from '@service/permission-check';
-    import I18n from '@/i18n';
-    import AskPermission from './index';
+       import AskPermission from './index';
 
     export default {
         components: {
@@ -63,9 +62,9 @@
             },
         },
         created () {
-            this.applyText = I18n.t('去申请');
-            this.appliedText = I18n.t('已申请');
-            this.cancelText = I18n.t('取消');
+            this.applyText = '去申请';
+            this.appliedText = '已申请';
+            this.cancelText = '取消';
         },
         methods: {
             /**

@@ -10,13 +10,13 @@
                     @click="handleChooseIp"
                     v-bk-tooltips="descPopover">
                     <Icon type="plus" />
-                    {{ $t('添加服务器') }}
+                    {{ '添加服务器' }}
                 </bk-button>
                 <bk-button
                     v-show="isNotEmpty"
                     
                     @click="handleClear">
-                    {{ $t('清空') }}
+                    {{ '清空' }}
                 </bk-button>
             </div>
             <server-panel
@@ -27,7 +27,7 @@
                 detail-fullscreen
                 :editable="!readonly"
                 @on-change="handleChange" />
-            <p v-if="isError" class="variable-error">{{ $t('该变量的值必填') }}</p>
+            <p v-if="isError" class="variable-error">{{ '该变量的值必填' }}</p>
         </div>
         <choose-ip
             v-model="isShowChooseIp"

@@ -1,7 +1,7 @@
 
 
 <template>
-    <jb-form-item :label="$t('错误处理')">
+    <jb-form-item :label="'错误处理'">
         <div class="error-handle-wraper">
             <bk-checkbox
                 v-bk-tooltips="tips"
@@ -9,14 +9,13 @@
                 :true-value="1"
                 :false-value="0"
                 @change="handleChange">
-                {{ $t('自动忽略错误') }}
+                {{ '自动忽略错误' }}
             </bk-checkbox>
         </div>
     </jb-form-item>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -31,7 +30,7 @@
         },
         created () {
             this.tips = {
-                content: I18n.t('步骤有执行失败的目标，将会自动忽略并进入下一步'),
+                content: '步骤有执行失败的目标，将会自动忽略并进入下一步',
                 width: 310,
                 placement: 'right',
             };

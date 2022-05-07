@@ -10,16 +10,16 @@
         </div>
         <div class="info">
             <div :class="diffValue.type">
-                <span class="label">{{ $t('template.变量类型：') }}</span>
+                <span class="label">{{ '变量类型：' }}</span>
                 <span class="value">{{ data.typeText }}</span>
             </div>
             <div :class="diffValue.name">
-                <span class="label">{{ $t('template.变量名称：') }}</span>
+                <span class="label">{{ '变量名称：' }}</span>
                 <span class="value">{{ data.name }}</span>
             </div>
             <template v-if="data.isHost">
                 <div :class="diffValue.defaultTargetValue">
-                    <span class="label">{{ $t('template.变量值：') }}</span>
+                    <span class="label">{{ '变量值：' }}</span>
                     <span class="value">{{ data.valueText }}</span>
                     <host-detail
                         class="host-value-detail"
@@ -30,20 +30,20 @@
             </template>
             <template v-else>
                 <div :class="diffValue.defaultValue">
-                    <span class="label">{{ $t('template.变量值：') }}</span>
+                    <span class="label">{{ '变量值：' }}</span>
                     <span class="value">{{ data.valueText }}</span>
                 </div>
             </template>
             <div :class="diffValue.description">
-                <span class="label">{{ $t('template.变量描述：') }}</span>
+                <span class="label">{{ '变量描述：' }}</span>
                 <span class="value">{{ data.description || '-' }}</span>
             </div>
             <div :class="diffValue.changeable">
-                <span class="label">{{ $t('template.赋值可变：') }}</span>
+                <span class="label">{{ '赋值可变：' }}</span>
                 <span class="value">{{ data.changeableText }}</span>
             </div>
             <div :class="diffValue.required">
-                <span class="label">{{ $t('template.必填：') }}</span>
+                <span class="label">{{ '必填：' }}</span>
                 <span class="value">{{ data.requiredText }}</span>
             </div>
         </div>

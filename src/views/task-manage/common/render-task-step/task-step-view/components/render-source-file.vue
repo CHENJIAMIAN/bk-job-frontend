@@ -10,7 +10,7 @@
                 v-if="isShowLocalFile"
                 name="local"
                 :active="activeResult">
-                <span class="collapse-title">{{ $t('template.已选择') }}<span class="number strong">{{ localFileList.length }}</span>{{ $t('template.个本地文件') }}</span>
+                <span class="collapse-title">{{ '已选择' }}<span class="number strong">{{ localFileList.length }}</span>{{ '个本地文件' }}</span>
                 <template #content>
                     <table>
                         <tbody>
@@ -26,12 +26,12 @@
                 v-if="isShowSourceFile"
                 name="source"
                 :active="activeResult">
-                <span class="collapse-title">{{ $t('template.已选择') }}<span class="number strong">{{ sourceFileList.length }}</span>{{ $t('template.个文件源文件') }}</span>
+                <span class="collapse-title">{{ '已选择' }}<span class="number strong">{{ sourceFileList.length }}</span>{{ '个文件源文件' }}</span>
                 <template #content>
                     <table>
                         <thead>
-                            <th style="width: 40%;">{{ $t('文件名称') }}</th>
-                            <th>{{ $t('文件源.text') }}</th>
+                            <th style="width: 40%;">{{ '文件名称' }}</th>
+                            <th>{{ '文件源'}}</th>
                         </thead>
                         <tbody class="source-file-list">
                             <tr v-for="(row, index) in sourceFileList" :key="index">
@@ -53,14 +53,14 @@
                 v-if="isShowServerFile"
                 name="server"
                 :active="activeResult">
-                <span class="collapse-title">{{ $t('template.已选择') }}<span class="number strong">{{ serverFileList.length }}</span>{{ $t('template.个服务器文件') }}</span>
+                <span class="collapse-title">{{ '已选择' }}<span class="number strong">{{ serverFileList.length }}</span>{{ '个服务器文件' }}</span>
                 <template #content>
                     <table>
                         <thead>
-                            <th style="width: 40%;">{{ $t('template.文件路径') }}</th>
-                            <th style="width: 15%;">{{ $t('template.服务器列表') }}</th>
-                            <th>{{ $t('template.Agent 状态') }}</th>
-                            <th style="width: 20%;">{{ $t('template.服务器账号') }}</th>
+                            <th style="width: 40%;">{{ '文件路径' }}</th>
+                            <th style="width: 15%;">{{ '服务器列表' }}</th>
+                            <th>{{ 'Agent 状态' }}</th>
+                            <th style="width: 20%;">{{ '服务器账号' }}</th>
                         </thead>
                         <tbody>
                             <tr v-for="(row, index) in serverFileList" :key="index">
@@ -75,7 +75,7 @@
                                     </td>
                                     <td>
                                         <render-server-agent
-                                            :title="`${$t('template.全局变量.label')} - ${row.host.variable}`"
+                                            :title="`${'全局变量'} - ${row.host.variable}`"
                                             :host-node-info="findVariableValue(row.host.variable)" />
                                     </td>
                                 </template>
@@ -85,7 +85,7 @@
                                     </td>
                                     <td>
                                         <render-server-agent
-                                            :title="$t('template.服务器文件-服务器列表')"
+                                            :title="'服务器文件-服务器列表'"
                                             :host-node-info="row.host.hostNodeInfo" />
                                     </td>
                                 </template>

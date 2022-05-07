@@ -17,7 +17,7 @@
             <template slot="action">
                 <Icon
                     type="variable"
-                    v-bk-tooltips="$t('scriptTemplate.内置变量')"
+                    v-bk-tooltips="'内置变量'"
                     @click="handleSidePanelShow('renderVariable')" />
             </template>
             <div
@@ -44,10 +44,10 @@
                 style="width: 86px;"
                 :loading="isSubmiting"
                 @click="handleSave">
-                {{ $t('scriptTemplate.保存') }}
+                {{ '保存' }}
             </bk-button>
-            <div class="action-btn mr10" @click="handleEditReset">{{ $t('scriptTemplate.重置') }}</div>
-            <div class="action-btn" @click="handleUseDefault">{{ $t('scriptTemplate.还原默认') }}</div>
+            <div class="action-btn mr10" @click="handleEditReset">{{ '重置' }}</div>
+            <div class="action-btn" @click="handleUseDefault">{{ '还原默认' }}</div>
             <div
                 class="action-btn"
                 :class="{
@@ -55,15 +55,14 @@
                 }"
                 style="margin-left: 60px;"
                 @click="handleSidePanelShow('previewTemplate')">
-                {{ $t('scriptTemplate.渲染预览') }}
+                {{ '渲染预览' }}
             </div>
         </div>
     </div>
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import ScriptTemplateService from '@service/script-template';
+       import ScriptTemplateService from '@service/script-template';
     import {
         getOffset,
         leaveConfirm,
@@ -205,7 +204,7 @@
                 }).then(() => {
                     window.changeAlert = false;
                     this.templateMap[this.scriptLanguage] = this.scriptLanguage;
-                    this.messageSuccess(I18n.t('scriptTemplate.保存成功'));
+                    this.messageSuccess('保存成功');
                 })
                     .finally(() => {
                         this.isSubmiting = false;
@@ -216,14 +215,14 @@
              */
             handleEditReset () {
                 this.$refs.editor.setValue(this.templateMap[this.scriptLanguage]);
-                this.messageSuccess(I18n.t('scriptTemplate.重置成功'));
+                this.messageSuccess('重置成功');
             },
             /**
              * @desc 还原脚本模板为默认脚本
              */
             handleUseDefault () {
                 this.$refs.editor.resetValue();
-                this.messageSuccess(I18n.t('scriptTemplate.还原默认成功'));
+                this.messageSuccess('还原默认成功');
             },
         },
     };

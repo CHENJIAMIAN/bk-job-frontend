@@ -1,7 +1,7 @@
 
 
 <template>
-    <jb-form-item ref="item" :label="$t('脚本内容')" required :property="contentField" :rules="rules">
+    <jb-form-item ref="item" :label="'脚本内容'" required :property="contentField" :rules="rules">
         <ace-editor
             ref="aceEditor"
             v-bkloading="{ isLoading: isContentLoading, opacity: .2 }"
@@ -9,14 +9,13 @@
             :lang="lang"
             :readonly="isReadonly"
             :constants="scriptVariables"
-            :readonly-tips="$t('引用的脚本不支持编辑')"
+            :readonly-tips="'引用的脚本不支持编辑'"
             @on-mode-change="handleTypeChange"
             @change="handleChange" />
     </jb-form-item>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import TaskStepModel from '@model/task/task-step';
     import AceEditor from '@components/ace-editor';
     import {
@@ -71,7 +70,7 @@
                         this.rules = [
                             {
                                 required: true,
-                                message: I18n.t('脚本内容必填'),
+                                message: '脚本内容必填',
                                 trigger: 'change',
                             },
                             {
@@ -83,7 +82,7 @@
                                     this.$store.commit('setScriptCheckError', data.some(_ => _.isDangerous));
                                     return true;
                                 }),
-                                message: I18n.t('脚本内容检测失败'),
+                                message: '脚本内容检测失败',
                                 trigger: 'blur',
                             },
                         ];

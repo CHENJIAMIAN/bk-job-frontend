@@ -1,8 +1,6 @@
 
 
-/* eslint-disable no-param-reassign */
-import I18n from '@/i18n';
-import Model from '@model/model';
+/* eslint-disable no-param-reassign */import Model from '@model/model';
 
 const STATUS_ABNORMAL = 0; // 异常
 const STATUS_NORMAL = 1; // 正常
@@ -13,9 +11,9 @@ const STORAGE_TYPE_FILE_SYSTEM = 'FILE_SYSTEM';
 
 export default class SourceFile extends Model {
     static STATUS_TEXT_MAP = {
-        [STATUS_ABNORMAL]: I18n.t('异常'),
-        [STATUS_NORMAL]: I18n.t('正常'),
-        [STATUS_UNKNOWN]: I18n.t('未知'),
+        [STATUS_ABNORMAL]: '异常',
+        [STATUS_NORMAL]: '正常',
+        [STATUS_UNKNOWN]: '未知',
     };
 
     static STATUS_ICON_MAP = {
@@ -25,8 +23,8 @@ export default class SourceFile extends Model {
     };
 
     static STORAGE_TYPE_MAP = {
-        [STORAGE_TYPE_OSS]: I18n.t('对象存储'),
-        [STORAGE_TYPE_FILE_SYSTEM]: I18n.t('文件系统'),
+        [STORAGE_TYPE_OSS]: '对象存储',
+        [STORAGE_TYPE_FILE_SYSTEM]: '文件系统',
     };
 
     // 文件名前缀默认值
@@ -102,9 +100,9 @@ export default class SourceFile extends Model {
         let styles = 'display: inline-block; font-size: 12px; padding: 0 3px;';
         if (this.publicFlag) {
             styles += 'background: #EBF2FF; color: #699DF4;';
-            return `<span style="${styles}" tippy-tips="${I18n.t('公共存储')}">${I18n.t('公')}</span>`;
+            return `<span style="${styles}" tippy-tips="${'公共存储'}">${'公'}</span>`;
         }
         styles += 'background: #F0F1F5; color: #979BA5;';
-        return `<span style="${styles}" tippy-tips="${I18n.t('私有存储')}">${I18n.t('私')}</span>`;
+        return `<span style="${styles}" tippy-tips="${'私有存储'}">${'私'}</span>`;
     }
 }

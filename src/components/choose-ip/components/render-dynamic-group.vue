@@ -4,13 +4,13 @@
     <div class="choose-ip-dynamic-group" v-bkloading="{ isLoading }">
         <div class="group-search">
             <bk-input
-                :placeholder="$t('搜索分组名称')"
+                :placeholder="'搜索分组名称'"
                 right-icon="bk-icon icon-search"
                 @input="handleGroupSearch" />
         </div>
         <template v-if="!isLoading">
             <div v-if="hasNotGroup" class="group-empty">
-                {{ $t('无数据') }}，<a :href="CMDBCreateGroupUrl" target="_blank">{{ $t('去创建') }}</a>
+                {{ '无数据' }}，<a :href="CMDBCreateGroupUrl" target="_blank">{{ '去创建' }}</a>
             </div>
             <div v-else class="group-list">
                 <host-table :list="renderList">
@@ -23,8 +23,8 @@
                                         @click.native="handleToggleWholeAll" />
                                 </div>
                             </th>
-                            <th style="width: 450px;">{{ $t('分组名称') }}</th>
-                            <th>{{ $t('操作') }}</th>
+                            <th style="width: 450px;">{{ '分组名称' }}</th>
+                            <th>{{ '操作' }}</th>
                         </tr>
                     </thead>
                     <tbody v-if="renderList.length > 0">
@@ -35,7 +35,7 @@
                                 </td>
                                 <td @click="handleGroupCheck(group.id)">{{ group.name }}</td>
                                 <td>
-                                    <bk-button text @click="handlePreview(group)">{{ $t('预览') }}</bk-button>
+                                    <bk-button text @click="handlePreview(group)">{{ '预览' }}</bk-button>
                                 </td>
                             </tr>
                         </template>

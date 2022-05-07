@@ -3,12 +3,12 @@
 <template>
     <jb-collapse-item name="node">
         <span class="panel-title">
-            <span>{{ $t('已选择.result') }}</span>
+            <span>{{ '已选择'}}</span>
             <span class="strong number">{{ data.length }}</span>
-            <span>{{ $t('个节点.result') }}</span>
+            <span>{{ '个节点'}}</span>
         </span>
         <action-extend v-if="editable">
-            <div class="action-item" @click="handleRemoveAll">{{ $t('移除全部') }}</div>
+            <div class="action-item" @click="handleRemoveAll">{{ '移除全部' }}</div>
         </action-extend>
         <template #content>
             <div class="server-panel-node-view" v-bkloading="{ isLoading }">
@@ -23,8 +23,8 @@
                         slot="appendBefore">
                         <tr v-for="(row, index) in invalidList" :key="`invalid_${index}`">
                             <td class="table-cell">
-                                <span class="invalid" v-bk-tooltips="$t('该节点在配置平台已被删除')">
-                                    {{ $t('无效') }}
+                                <span class="invalid" v-bk-tooltips="'该节点在配置平台已被删除'">
+                                    {{ '无效' }}
                                 </span>
                                 <span>{{ row.type }}#{{ row.id }}</span>
                             </td>
@@ -33,7 +33,7 @@
                                 <bk-button
                                     text
                                     @click="handleInvalidRemove(index)">
-                                    {{ $t('移除') }}
+                                    {{ '移除' }}
                                 </bk-button>
                             </td>
                         </tr>
@@ -59,9 +59,9 @@
                                 <div
                                     v-else
                                     class="cell-text">
-                                    <span>{{ $t('共') }}</span>
+                                    <span>{{ '共' }}</span>
                                     <span class="number strong">{{ row.total }}</span>
-                                    <span>{{ $t('台主机.result') }}</span>
+                                    <span>{{ '台主机'}}</span>
                                 </div>
                             </td>
                             <td @click="handleViewHostList(row.key)">
@@ -74,7 +74,7 @@
                                 <bk-button
                                     text
                                     @click="handleRemoveOne(index)">
-                                    {{ $t('移除') }}
+                                    {{ '移除' }}
                                 </bk-button>
                             </td>
                         </tr>
@@ -96,8 +96,7 @@
 <script>
     import _ from 'lodash';
     import AppService from '@service/app-manage';
-    import I18n from '@/i18n';
-    import JbCollapseItem from '@components/jb-collapse-item';
+       import JbCollapseItem from '@components/jb-collapse-item';
     import ActionExtend from '../components/action-extend';
     import HostTable from '../components/host-table';
     import StatisticsText from '../components/statistics-text';
@@ -310,7 +309,7 @@
              */
             handleRemoveAll () {
                 if (this.data.length < 1) {
-                    this.messageSuccess(I18n.t('你还未选择节点'));
+                    this.messageSuccess('你还未选择节点');
                     return;
                 }
                 // 内部显示删除
@@ -318,7 +317,7 @@
                 this.nodeMap = {};
                 this.invalidList = [];
                 this.triggerChange();
-                this.messageSuccess(I18n.t('移除成功'));
+                this.messageSuccess('移除成功');
             },
             /**
              * @desc 移除节点
@@ -332,7 +331,7 @@
                 this.list = Object.freeze(list);
                 delete this.nodeMap[currentNode.id];
                 this.triggerChange();
-                this.messageSuccess(I18n.t('移除成功'));
+                this.messageSuccess('移除成功');
             },
             /**
              * @desc 查看阶段的主机详情

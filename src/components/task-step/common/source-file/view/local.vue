@@ -9,10 +9,10 @@
                     <td style="width: auto;">
                         <template v-if="row.fileSize > 0">
                             <p v-if="row.uploadStatus !== 'danger'">
-                                {{ $t('本地文件') }}（{{ row.fileSizeText }}）
+                                {{ '本地文件' }}（{{ row.fileSizeText }}）
                             </p>
                             <p v-else style="color: #ff5656;">
-                                {{ $t('上传失败') }}
+                                {{ '上传失败' }}
                             </p>
                             <div class="upload-progress">
                                 <transition name="fade">
@@ -30,7 +30,7 @@
                             <bk-button
                                 text
                                 @click="handlerRemove(index)">
-                                {{ $t('移除') }}
+                                {{ '移除' }}
                             </bk-button>
                         </div>
                     </td>
@@ -46,8 +46,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import QuertGlobalSettingService from '@service/query-global-setting';
     import SourceFileVO from '@domain/variable-object/source-file';
     import { encodeRegexp } from '@utils/assist';
@@ -200,17 +199,17 @@
                 });
                 
                 if (includeStask.length > 0) {
-                    this.messageError(`${I18n.t('文件')}[${includeStask.join(' / ')}]${I18n.t('的类型不在允许范围：')}${suffixList.join('、')}`);
+                    this.messageError(`${'文件'}[${includeStask.join(' / ')}]${'的类型不在允许范围：'}${suffixList.join('、')}`);
                 }
                 if (excludeStask.length > 0) {
-                    this.messageError(`${I18n.t('文件')}[${excludeStask.join(' / ')}]${I18n.t('的类型在不允许范围：')}${suffixList.join('、')}`);
+                    this.messageError(`${'文件'}[${excludeStask.join(' / ')}]${'的类型在不允许范围：'}${suffixList.join('、')}`);
                 }
                 if (sameStack.length > 0) {
-                    this.messageError(`${I18n.t('文件')}[${sameStack.join(' / ')}]${I18n.t('已添加')}`);
+                    this.messageError(`${'文件'}[${sameStack.join(' / ')}]${'已添加'}`);
                 }
                 if (largeStack.length > 0) {
                     // eslint-disable-next-line max-len
-                    this.messageError(`${I18n.t('文件')}[${largeStack.join(' / ')}]${I18n.t('上传失败（本地文件最大仅支持')}${this.fileMaxUploadSizeText}）`);
+                    this.messageError(`${'文件'}[${largeStack.join(' / ')}]${'上传失败（本地文件最大仅支持'}${this.fileMaxUploadSizeText}）`);
                 }
                 if (uploadFileQueue.length < 1) {
                     this.$refs.uploadInput.value = '';

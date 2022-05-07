@@ -21,7 +21,7 @@
                         <bk-table-column
                             key="index"
                             width="60"
-                            :label="$t('service.序号.colHead')">
+                            :label="'序号'">
                             <template slot-scope="{ $index }">
                                 #{{ $index + 1 }}
                             </template>
@@ -30,7 +30,7 @@
                             prop="name"
                             key="name"
                             width="420"
-                            :label="$t('service.实例名.colHead')">
+                            :label="'实例名'">
                             <template slot-scope="scope">
                                 {{ scope.row.name }}
                             </template>
@@ -39,11 +39,11 @@
                             prop="version"
                             key="version"
                             width="310"
-                            :label="$t('service.版本号.label')" />
+                            :label="'版本号'" />
                         <bk-table-column
                             prop="status"
                             key="status"
-                            :label="$t('service.状态.colHead')">
+                            :label="'状态'">
                             <template slot-scope="scope">
                                 <Icon :type="statusIcon(scope.row)" svg />
                                 <span v-html="statusHtml(scope.row)" />
@@ -53,7 +53,7 @@
                             prop="ip"
                             key="ip"
                             width="150"
-                            :label="$t('service.绑定IP.colHead')">
+                            :label="'绑定IP'">
                             <template slot-scope="scope">
                                 <span class="service-ip" @click="handleCopyIp(scope.row.ip)">
                                     {{ scope.row.ip }}
@@ -66,18 +66,18 @@
                             prop="port"
                             key="port"
                             width="100"
-                            :label="$t('service.端口.colHead')" />
+                            :label="'端口'" />
                     </bk-table>
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('service.服务名.colHead')"
+                :label="'服务名'"
                 prop="name"
                 width="480"
                 key="name"
                 align="left" />
             <bk-table-column
-                :label="$t('service.版本号.colHead')"
+                :label="'版本号'"
                 prop="version"
                 width="310"
                 key="version"
@@ -87,7 +87,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('service.实例状态.colHead')"
+                :label="'实例状态'"
                 prop="instanceList"
                 key="instanceList"
                 align="left">
@@ -104,8 +104,7 @@
 </template>
  
 <script>
-    import I18n from '@/i18n';
-    import ServiceStateService from '@service/service-state';
+       import ServiceStateService from '@service/service-state';
     import {
         execCopy,
     } from '@utils/assist';
@@ -211,9 +210,9 @@
             statusHtml (row) {
                 const styles = 'color: #aaacb5';
                 const statusHtmlMap = {
-                    0: `<span>${I18n.t('异常')}<span style="${styles}"> #SERVICE UNAVAILABLE (503)</span></span>`,
-                    1: `<span>${I18n.t('正常')}</span>`,
-                    '-1': `<span>${I18n.t('未知')}<span style="${styles}"> #NO MAPPING</span></span>`,
+                    0: `<span>${'异常'}<span style="${styles}"> #SERVICE UNAVAILABLE (503)</span></span>`,
+                    1: `<span>${'正常'}</span>`,
+                    '-1': `<span>${'未知'}<span style="${styles}"> #NO MAPPING</span></span>`,
                 };
                 return statusHtmlMap[row.status];
             },
@@ -236,13 +235,13 @@
             instanceTips (row) {
                 let tipsStr = '';
                 if (row.abnormalNum) {
-                    tipsStr = `${I18n.t('异常')}: ${row.abnormalNum}`;
+                    tipsStr = `${'异常'}: ${row.abnormalNum}`;
                 }
                 if (row.unknownNum) {
-                    tipsStr += ` ${I18n.t('未知')}: ${row.unknownNum}`;
+                    tipsStr += ` ${'未知'}: ${row.unknownNum}`;
                 }
                 if (row.normalNum) {
-                    tipsStr += ` ${I18n.t('正常')}: ${row.normalNum}`;
+                    tipsStr += ` ${'正常'}: ${row.normalNum}`;
                 }
                 return { content: tipsStr, placement: 'top' };
             },
@@ -251,7 +250,7 @@
              * @desc 复制IP
              */
             handleCopyIp (ip) {
-                execCopy(ip, `${I18n.t('复制成功')}`);
+                execCopy(ip, `${'复制成功'}`);
             },
         },
     };

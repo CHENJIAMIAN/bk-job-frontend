@@ -2,17 +2,17 @@
 
 <template>
     <jb-form :model="formData" ref="varHostForm">
-        <jb-form-item :label="$t('template.变量名称')">
+        <jb-form-item :label="'变量名称'">
             <bk-input v-model="formData.name" disabled />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量值')">
+        <jb-form-item :label="'变量值'">
             <section>
                 <bk-button @click="handleShowChooseIp">
                     <Icon type="plus" />
-                    {{ $t('template.选择主机') }}
+                    {{ '选择主机' }}
                 </bk-button>
                 <bk-button style="margin-left: 10px;" v-if="isShowClear" @click="handleClear">
-                    {{ $t('template.清空') }}
+                    {{ '清空' }}
                 </bk-button>
             </section>
             <server-panel
@@ -22,11 +22,11 @@
                 detail-fullscreen
                 @on-change="handleHostChange" />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量描述')">
+        <jb-form-item :label="'变量描述'">
             <bk-input v-model="formData.description" disabled type="textarea" :row="5" maxlength="100" />
         </jb-form-item>
         <jb-form-item>
-            <bk-checkbox v-model="formData.required" disabled :true-value="1" :false-value="0">{{ $t('template.必填') }}</bk-checkbox>
+            <bk-checkbox v-model="formData.required" disabled :true-value="1" :false-value="0">{{ '必填' }}</bk-checkbox>
         </jb-form-item>
         <choose-ip
             v-model="isShowChooseIp"

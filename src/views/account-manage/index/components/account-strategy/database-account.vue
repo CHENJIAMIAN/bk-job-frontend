@@ -3,7 +3,7 @@
 <template functional>
     <div key="databaseAccount">
         <jb-form-item
-            :label="parent.$t('account.数据库类型')"
+            :label="'数据库类型'"
             required>
             <bk-select
                 style="width: 100%;"
@@ -17,7 +17,7 @@
             </bk-select>
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.名称')"
+            :label="'名称'"
             required
             property="account">
             <jb-input
@@ -27,58 +27,58 @@
                 @change="value => props.change('account', value)" />
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.别名')"
+            :label="'别名'"
             required
             property="alias">
             <jb-input
-                :placeholder="parent.$t('account.在出现同名账号的情况下，账号的别名显得格外重要...')"
+                :placeholder="'在出现同名账号的情况下，账号的别名显得格外重要...'"
                 :value="props.formData.alias"
                 @change="value => props.change('alias', value)"
                 :maxlength="32" />
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.密码')"
+            :label="'密码'"
             property="dbPassword">
             <bk-input
-                :placeholder="parent.$t('account.输入密码')"
+                :placeholder="'输入密码'"
                 key="database-password"
                 type="password"
                 :value="props.formData.dbPassword"
                 @change="value => props.change('dbPassword', value)" />
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.确认密码')"
+            :label="'确认密码'"
             property="rePassword">
             <bk-input
-                :placeholder="parent.$t('account.输入确认密码')"
+                :placeholder="'输入确认密码'"
                 key="database-repassword"
                 type="password"
                 :value="props.formData.rePassword"
                 @change="value => props.change('rePassword', value)" />
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.端口')"
+            :label="'端口'"
             required
             property="dbPort">
             <bk-input
-                :placeholder="parent.$t('account.输入确认端口')"
+                :placeholder="'输入确认端口'"
                 type="number"
                 :value="props.formData.dbPort"
                 @change="value => props.change('dbPort', value)" />
         </jb-form-item>
         <jb-form-item
-            :label="parent.$t('account.依赖系统账号')"
+            :label="'依赖系统账号'"
             required
             property="dbSystemAccountId">
             <account-select
-                :placeholder="parent.$t('account.选择依赖系统账号')"
+                :placeholder="'选择依赖系统账号'"
                 :value="props.formData.dbSystemAccountId"
                 type="system"
                 @change="value => props.change('dbSystemAccountId', value)" />
         </jb-form-item>
-        <jb-form-item :label="parent.$t('account.描述')">
+        <jb-form-item :label="'描述'">
             <bk-input
-                :placeholder="parent.$t('account.输入账号描述')"
+                :placeholder="'输入账号描述'"
                 :value="props.formData.remark"
                 type="textarea"
                 :maxlength="200"

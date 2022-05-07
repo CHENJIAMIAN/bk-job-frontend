@@ -3,18 +3,18 @@
 <template>
     <div class="notify-set-manange" v-bkloading="{ isLoading }">
         <jb-form v-if="!isLoading" :model="formData" class="wraper">
-            <div class="block-title">{{ $t('setting.用户可选择的通知渠道') }}：</div>
+            <div class="block-title">{{ '用户可选择的通知渠道' }}：</div>
             <notify-channel
                 :channle-list="channleList"
                 :channel-code="formData.channelCode"
                 :handle-toggle-channel="handleToggleChannel"
                 :handle-edit-template="handleEditTemplate" />
             <div class="backlist block-title">
-                <span v-bk-tooltips="backlistConfig">{{ $t('setting.通讯黑名单') }}:</span>
+                <span v-bk-tooltips="backlistConfig">{{ '通讯黑名单' }}:</span>
             </div>
             <div>
                 <jb-user-selector
-                    :placeholder="$t('setting.请输入')"
+                    :placeholder="'请输入'"
                     :user="formData.users"
                     :show-role="false"
                     @on-change="handleBlackListChange" />
@@ -25,12 +25,12 @@
                     :loading="isSubmiting"
                     class="w120 mr10"
                     @click="handleSave">
-                    {{ $t('setting.保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button @click="handleReset">{{ $t('setting.重置') }}</bk-button>
+                <bk-button @click="handleReset">{{ '重置' }}</bk-button>
             </div>
         </jb-form>
-        <jb-sideslider :is-show.sync="showTemplateEdit" :title="$t('setting.消息模板编辑')" :width="680">
+        <jb-sideslider :is-show.sync="showTemplateEdit" :title="'消息模板编辑'" :width="680">
             <edit-of-template ref="editTemplate" :data="templateDetail" @on-change="handleNotifyContent" />
             <template #footer>
                 <bk-button
@@ -38,17 +38,16 @@
                     class="slider-action"
                     :loading="isSaveLoading"
                     @click="handleTriggerSave">
-                    {{ $t('setting.保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button class="slider-action" @click="handleTriggerReset">{{ $t('setting.重置') }}</bk-button>
-                <bk-button class="slider-action" @click="handleTriggerInit">{{ $t('setting.初始化') }}</bk-button>
+                <bk-button class="slider-action" @click="handleTriggerReset">{{ '重置' }}</bk-button>
+                <bk-button class="slider-action" @click="handleTriggerInit">{{ '初始化' }}</bk-button>
             </template>
         </jb-sideslider>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import _ from 'lodash';
+       import _ from 'lodash';
     import GlobalSettingService from '@service/global-setting';
     import NotifyChannel from '../components/notify-channel-table';
     import JbSideslider from '@components/jb-sideslider';
@@ -85,7 +84,7 @@
             this.backlistConfig = {
                 width: 202,
                 placement: 'top',
-                content: I18n.t('setting.「通讯黑名单」的人员将不会接收到任何来自作业平台的消息'),
+                content: '「通讯黑名单」的人员将不会接收到任何来自作业平台的消息',
             };
             this.fetchAllChannelConfig();
             this.fetchAllUserBlacklist();
@@ -149,16 +148,16 @@
                     GlobalSettingService.updateNotifyChannel({
                         channelCodeStr: this.formData.channelCode.join(','),
                     }).catch(() => {
-                        this.messageError(I18n.t('setting.保存通知渠道失败'));
+                        this.messageError('保存通知渠道失败');
                     }),
                     GlobalSettingService.updateUserBlacklist({
                         usersStr: this.formData.users.join(','),
                     }).catch(() => {
-                        this.messageError(I18n.t('setting.保存黑名单失败'));
+                        this.messageError('保存黑名单失败');
                     }),
                 ]).then(() => {
                     window.changeAlert = false;
-                    this.messageSuccess(I18n.t('setting.保存成功'));
+                    this.messageSuccess('保存成功');
                 })
                     .finally(() => {
                         this.isSubmiting = false;
@@ -183,7 +182,7 @@
                     GlobalSettingService.updateNotifyTemplate(params)
                         .then((data) => {
                             this.showTemplateEdit = false;
-                            this.messageSuccess(I18n.t('setting.保存成功'));
+                            this.messageSuccess('保存成功');
                         })
                         .finally(() => {
                             this.isSaveLoading = false;

@@ -41,8 +41,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import { execCopy } from '@utils/assist';
+       import { execCopy } from '@utils/assist';
     import JbTagSelect from '@components/jb-tag-select';
 
     let copyMemo = [];
@@ -141,7 +140,7 @@
                     [this.field]: this.localValue.map(({ id }) => ({ id })),
                 }).then(() => {
                     this.memoValue = this.localValue;
-                    this.messageSuccess(I18n.t('编辑成功'));
+                    this.messageSuccess('编辑成功');
                     this.$emit('on-change', {
                         [this.field]: this.localValue,
                     });
@@ -203,7 +202,7 @@
                 if (this.localValue.length < 1) {
                     this.$bkMessage({
                         theme: 'warning',
-                        message: I18n.t('标签为空'),
+                        message: '标签为空',
                     });
                     return;
                 }
@@ -217,7 +216,7 @@
                 if (copyMemo.length < 1) {
                     this.$bkMessage({
                         theme: 'warning',
-                        message: I18n.t('请先复制标签'),
+                        message: '请先复制标签',
                     });
                     return;
                 }

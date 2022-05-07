@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'cron',
     name: 'cronJob',
@@ -18,7 +16,7 @@ export default {
             name: 'cronList',
             component: () => import('@views/cron-job/list'),
             meta: {
-                title: I18n.t('定时任务'),
+                title: '定时任务',
                 full: false,
                 skeleton: 'list',
             },

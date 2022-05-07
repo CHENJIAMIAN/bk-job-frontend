@@ -4,11 +4,11 @@
     <div class="server-file-edit-box" v-bkloading="{ isLoading }">
         <table>
             <thead>
-                <th>{{ $t('文件路径') }}</th>
-                <th>{{ $t('服务器列表') }}</th>
-                <th>{{ $t('Agent 状态') }}</th>
-                <th>{{ $t('服务器账号') }}</th>
-                <th>{{ $t('操作') }}</th>
+                <th>{{ '文件路径' }}</th>
+                <th>{{ '服务器列表' }}</th>
+                <th>{{ 'Agent 状态' }}</th>
+                <th>{{ '服务器账号' }}</th>
+                <th>{{ '操作' }}</th>
             </thead>
             <tbody>
                 <tr v-for="(row, index) in serverFileList" :key="index">
@@ -40,7 +40,7 @@
                                 v-if="!row.host.variable"
                                 type="info"
                                 class="error-tips"
-                                v-bk-tooltips="$t('全局变量被删除，重新设置')" />
+                                v-bk-tooltips="'全局变量被删除，重新设置'" />
                         </div>
                         <!-- 手动添加主机 -->
                         <div
@@ -53,14 +53,14 @@
                         <!-- 展示服务器列表主机信息 -->
                         <render-server-agent
                             v-if="!row.isVar"
-                            :title="`${$t('服务器文件-服务器列表')}`"
+                            :title="`${'服务器文件-服务器列表'}`"
                             :host-node-info="row.host.hostNodeInfo"
                             key="host"
                             :separator="agentSeparator" />
                         <!-- 展示变量的主机信息 -->
                         <render-server-agent
                             v-else
-                            :title="`${$t('全局变量')} - ${row.host.variable}`"
+                            :title="`${'全局变量'} - ${row.host.variable}`"
                             :host-node-info="findVariableValue(row.serverDesc)"
                             :key="row.serverDesc"
                             :separator="agentSeparator" />
@@ -74,7 +74,7 @@
                     </td>
                     <td>
                         <bk-button text @click="handlerRemove(index)">
-                            {{ $t('移除') }}
+                            {{ '移除' }}
                         </bk-button>
                     </td>
                 </tr>

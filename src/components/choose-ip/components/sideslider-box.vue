@@ -22,7 +22,7 @@
                         </scroll-faker>
                     </div>
                     <div class="box-footer">
-                        <bk-button theme="primary" @click="handleClose">{{ $t('关闭') }}</bk-button>
+                        <bk-button theme="primary" @click="handleClose">{{ '关闭' }}</bk-button>
                     </div>
                 </div>
                 <div class="box-mask" @click="handleClose" />

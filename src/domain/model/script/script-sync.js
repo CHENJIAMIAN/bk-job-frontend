@@ -1,8 +1,6 @@
 
 
 import Model from '@model/model';
-import I18n from '@/i18n';
-
 const STATUS_DRAFT = 0; // 未上线
 const STATUS_ONLINE = 1; // 已上线
 const STATUS_OFFLINE = 2; // 已下线
@@ -13,10 +11,10 @@ const SYNC_STATUS_FAILED = 2;
 
 export default class ScriptSync extends Model {
     static STATUS_TEXT_MAP = {
-        [STATUS_DRAFT]: I18n.t('未上线'),
-        [STATUS_ONLINE]: I18n.t('已上线'),
-        [STATUS_OFFLINE]: I18n.t('已下线'),
-        [STATUS_DISABLED]: I18n.t('已禁用'),
+        [STATUS_DRAFT]: '未上线',
+        [STATUS_ONLINE]: '已上线',
+        [STATUS_OFFLINE]: '已下线',
+        [STATUS_DISABLED]: '已禁用',
     };
 
     static SYNC_STATUS_ICON_MAP = {
@@ -80,12 +78,12 @@ export default class ScriptSync extends Model {
      */
     get syncStatusMsg () {
         if (this.syncStatus === 1) {
-            return I18n.t('同步成功');
+            return '同步成功';
         }
         if (this.syncStatus === 2) {
-            return I18n.t('同步失败');
+            return '同步失败';
         }
-        return I18n.t('正在同步');
+        return '正在同步';
     }
 
     /**

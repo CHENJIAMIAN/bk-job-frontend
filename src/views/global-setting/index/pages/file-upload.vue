@@ -7,7 +7,7 @@
         <smart-action offset-target="input-wraper">
             <jb-form style="width: 480px; margin-bottom: 20px;">
                 <div class="block-title">
-                    {{ $t('setting.本地文件上传大小限制') }}:
+                    {{ '本地文件上传大小限制' }}:
                 </div>
                 <jb-form-item>
                     <div class="input-wraper">
@@ -22,7 +22,7 @@
                     </div>
                 </jb-form-item>
                 <div class="block-title">
-                    {{ $t('setting.本地文件上传后缀限制') }}:
+                    {{ '本地文件上传后缀限制' }}:
                 </div>
                 <jb-form-item style="margin-bottom: 10px;">
                     <bk-radio-group
@@ -30,13 +30,13 @@
                         class="restrict-mode-radio"
                         @change="handleRestSuffixError">
                         <bk-radio-button :value="-1">
-                            {{ $t('setting.不限制') }}
+                            {{ '不限制' }}
                         </bk-radio-button>
                         <bk-radio-button :value="1">
-                            {{ $t('setting.设置允许范围') }}
+                            {{ '设置允许范围' }}
                         </bk-radio-button>
                         <bk-radio-button :value="0">
-                            {{ $t('setting.设置禁止范围') }}
+                            {{ '设置禁止范围' }}
                         </bk-radio-button>
                     </bk-radio-group>
                 </jb-form-item>
@@ -58,7 +58,7 @@
                     theme="primary"
                     :loading="isSubmiting"
                     @click="handleSubmit">
-                    {{ $t('setting.保存') }}
+                    {{ '保存' }}
                 </bk-button>
             </template>
         </smart-action>
@@ -66,11 +66,10 @@
 </template>
 <script>
     import GlobalSettingService from '@service/global-setting';
-    import I18n from '@/i18n';
-
+   
     const checkSuffixError = (suffixList) => {
         if (suffixList.length < 1) {
-            return I18n.t('setting.不允许为空');
+            return '不允许为空';
         }
         const errorStack = [];
         const renameStack = [];
@@ -110,7 +109,7 @@
             }, []).join('；');
             suffixError += renameError;
         }
-        return suffixError ? `${I18n.t('setting..开头，后面跟上不超过24个英文字符，中间不允许出现空格：')}${suffixError}` : '';
+        return suffixError ? `${'.开头，后面跟上不超过24个英文字符，中间不允许出现空格：'}${suffixError}` : '';
     };
 
     export default {
@@ -174,7 +173,7 @@
                 this.isSubmiting = true;
                 GlobalSettingService.saveFileUpload(params)
                     .then(() => {
-                        this.messageSuccess(I18n.t('setting.保存成功'));
+                        this.messageSuccess('保存成功');
                     })
                     .finally(() => {
                         this.isSubmiting = false;

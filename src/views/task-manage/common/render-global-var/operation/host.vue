@@ -3,24 +3,24 @@
 <template>
     <div>
         <jb-form ref="varHostForm" :model="formData" :rules="rules">
-            <jb-form-item :label="$t('template.变量名称')" required :property="'name'">
+            <jb-form-item :label="'变量名称'" required :property="'name'">
                 <jb-input
                     v-model="formData.name"
                     :maxlength="30"
-                    :placeholder="$t('template.变量名仅支持大小写英文字母或下划线 [必填]')" />
+                    :placeholder="'变量名仅支持大小写英文字母或下划线 [必填]'" />
             </jb-form-item>
             <jb-form-item
                 ref="defaultTargetValue"
-                :label="$t('template.初始值')"
-                :desc="$t('template.仅作用于创建执行方案时的初始变量值，后续更改不会同步到执行方案')"
+                :label="'初始值'"
+                :desc="'仅作用于创建执行方案时的初始变量值，后续更改不会同步到执行方案'"
                 property="defaultTargetValue">
                 <div>
                     <bk-button class="mr10" @click="handleOpenChooseIp">
                         <Icon type="plus" />
-                        {{ $t('template.选择主机') }}
+                        {{ '选择主机' }}
                     </bk-button>
                     <bk-button v-if="isShowClear" @click="handleClearDefault">
-                        {{ $t('template.清空') }}
+                        {{ '清空' }}
                     </bk-button>
                 </div>
                 <server-panel
@@ -31,16 +31,16 @@
                     detail-fullscreen
                     @on-change="handleHostChange" />
             </jb-form-item>
-            <jb-form-item :label="$t('template.变量描述')">
+            <jb-form-item :label="'变量描述'">
                 <bk-input
                     v-model="formData.description"
-                    :placeholder="$t('template.这里可以备注变量的用途、使用说明等信息 [可选]')"
+                    :placeholder="'这里可以备注变量的用途、使用说明等信息 [可选]'"
                     type="textarea"
                     maxlength="100" />
             </jb-form-item>
             <jb-form-item style="margin-bottom: 0;">
                 <bk-checkbox v-model="formData.required" :true-value="1" :false-value="0">
-                    {{ $t('template.执行时必填') }}
+                    {{ '执行时必填' }}
                 </bk-checkbox>
             </jb-form-item>
         </jb-form>
@@ -51,8 +51,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskGlobalVariableModel from '@model/task/global-variable';
+       import TaskGlobalVariableModel from '@model/task/global-variable';
     import TaskHostNodeModel from '@model/task-host-node';
     import {
         globalVariableNameRule,
@@ -98,7 +97,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.变量名称必填'),
+                        message: '变量名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -108,7 +107,7 @@
                     },
                     {
                         validator: val => !this.variable.some(item => item.name === val),
-                        message: I18n.t('template.变量名称已存在，请重新输入'),
+                        message: '变量名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],

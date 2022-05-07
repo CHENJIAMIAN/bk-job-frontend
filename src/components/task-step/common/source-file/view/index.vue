@@ -12,9 +12,9 @@
                 name="local"
                 :active="activeResult">
                 <span>
-                    <span>{{ $t('已选择.result') }}<span class="number strong">{{ localFileList.length }}</span>{{ $t('个本地文件') }}</span>
+                    <span>{{ '已选择'}}<span class="number strong">{{ localFileList.length }}</span>{{ '个本地文件' }}</span>
                     <action-extend>
-                        <div class="action-item" @click="handleRemoveAllLocal">{{ $t('移除全部') }}</div>
+                        <div class="action-item" @click="handleRemoveAllLocal">{{ '移除全部' }}</div>
                     </action-extend>
                 </span>
                 <template #content>
@@ -30,7 +30,7 @@
                 content-hidden-type="hidden"
                 name="source"
                 :active="activeResult">
-                <span>{{ $t('已选择.result') }}<span class="number strong">{{ sourceFileList.length }}</span>{{ $t('个源文件文件') }}</span>
+                <span>{{ '已选择'}}<span class="number strong">{{ sourceFileList.length }}</span>{{ '个源文件文件' }}</span>
                 <template #content>
                     <source-file
                         ref="sourceFile"
@@ -43,7 +43,7 @@
                 content-hidden-type="hidden"
                 name="server"
                 :active="activeResult">
-                <span>{{ $t('已选择.result') }}<span class="number strong">{{ serverFileList.length }}</span>{{ $t('个服务器文件') }}</span>
+                <span>{{ '已选择'}}<span class="number strong">{{ serverFileList.length }}</span>{{ '个服务器文件' }}</span>
                 <template #content>
                     <server-file
                         v-bind="$attrs"

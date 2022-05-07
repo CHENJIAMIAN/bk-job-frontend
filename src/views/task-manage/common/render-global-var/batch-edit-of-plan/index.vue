@@ -9,7 +9,7 @@
         <Empty
             v-if="usedList.length < 1"
             key="empty"
-            :title="$t('template.暂无引用的变量')"
+            :title="'暂无引用的变量'"
             style="height: 160px; max-width: 960px; background-color: #f0f1f5;" />
         <toggle-display
             v-if="unusedList.length > 0"

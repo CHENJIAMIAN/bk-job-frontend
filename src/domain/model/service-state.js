@@ -1,6 +1,5 @@
 
 
-// import I18n from '@/i18n'
 import Model from '@model/model';
 
 // const STATUS_ABNORMAL = 0 // 异常

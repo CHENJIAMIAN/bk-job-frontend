@@ -3,7 +3,7 @@
 <template>
     <jb-form form-type="vertical">
         <jb-form-item
-            :label="$t('template.变量类型')"
+            :label="'变量类型'"
             required
             :desc="nametips">
             <bk-radio-group v-model="globalType">
@@ -11,32 +11,32 @@
                     class="item"
                     value="string"
                     
-                    :name="$t('template.字符串')">
-                    {{ $t('template.字符串') }}
+                    :name="'字符串'">
+                    {{ '字符串' }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="namespace"
                     >
-                    {{ $t('template.命名空间') }}
+                    {{ '命名空间' }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="host"
                     >
-                    {{ $t('template.主机列表') }}
+                    {{ '主机列表' }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="password"
                     >
-                    {{ $t('template.密文') }}
+                    {{ '密文' }}
                 </bk-radio-button>
                 <bk-radio-button
                     class="item"
                     value="array"
                     >
-                    {{ $t('template.数组') }}
+                    {{ '数组' }}
                 </bk-radio-button>
             </bk-radio-group>
         </jb-form-item>
@@ -48,8 +48,7 @@
     </jb-form>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import VarString from './string';
+       import VarString from './string';
     import VarNamespace from './namespace';
     import VarHost from './host';
     import VarPassword from './password';
@@ -114,7 +113,7 @@
         created () {
             this.nametips = {
                 theme: 'dark',
-                content: I18n.t('template.在步骤参数或脚本内使用 ${变量名} 即可获取到变量值'),
+                content: '在步骤参数或脚本内使用 ${变量名} 即可获取到变量值',
                 width: 200,
             };
         },

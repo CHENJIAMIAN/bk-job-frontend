@@ -4,15 +4,15 @@
     <div class="job-execute-record" v-bkloading="{ isLoading }">
         <template v-if="!isLoading">
             <bk-table v-if="data.length > 0" :data="data">
-                <bk-table-column :label="$t('history.时间')" prop="createTime" width="180" />
-                <bk-table-column :label="$t('history.操作人')" prop="operator" width="120" />
-                <bk-table-column :label="$t('history.操作')" prop="operationName" width="120" />
+                <bk-table-column :label="'时间'" prop="createTime" width="180" />
+                <bk-table-column :label="'操作人'" prop="operator" width="120" />
+                <bk-table-column :label="'操作'" prop="operationName" width="120" />
                 <bk-table-column
-                    :label="$t('history.步骤')"
+                    :label="'步骤'"
                     prop="stepName"
                     show-overflow-tooltip
                     class-name="step-name" />
-                <bk-table-column :label="$t('history.详情')">
+                <bk-table-column :label="'详情'">
                     <template slot-scope="{ row }">
                         <bk-button
                             v-if="row.detailEnable"
@@ -28,8 +28,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import Empty from '@components/empty';
 
     export default {
@@ -85,7 +84,7 @@
                 const { stepInstanceId, retryCount = 0 } = this.$route.query;
                 if (parseInt(stepInstanceId, 10) === payload.stepInstanceId
                     && parseInt(retryCount, 10) === payload.retry) {
-                    this.messageWarn(I18n.t('history.正在查看'));
+                    this.messageWarn('正在查看');
                     return;
                 }
                 

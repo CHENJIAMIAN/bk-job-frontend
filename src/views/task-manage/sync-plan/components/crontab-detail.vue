@@ -7,17 +7,17 @@
             'is-loading': isLoading,
         }"
         v-bkloading="{ isLoading }">
-        <bk-alert :title="$t('template.同步执行方案需要重新确认定时任务的全局变量，不使用的定时任务可以直接停用。')" />
+        <bk-alert :title="'同步执行方案需要重新确认定时任务的全局变量，不使用的定时任务可以直接停用。'" />
         <div class="title">
-            <span>「{{ info.name }}」{{ $t('template.的全局变量') }}</span>
-            <span v-if="!data.enable" class="disable">{{ $t('template.已停用') }}</span>
-            <span v-else-if="data.hasConfirm" class="confirm">{{ $t('template.已确认') }}</span>
-            <span v-else class="waiting">{{ $t('template.待确认') }}</span>
+            <span>「{{ info.name }}」{{ '的全局变量' }}</span>
+            <span v-if="!data.enable" class="disable">{{ '已停用' }}</span>
+            <span v-else-if="data.hasConfirm" class="confirm">{{ '已确认' }}</span>
+            <span v-else class="waiting">{{ '待确认' }}</span>
         </div>
         <div v-if="!isLoading">
             <empty v-if="isEmpty">
-                <p>{{ $t('template.无关联的全局变量') }}</p>
-                <p style="margin-top: 8px;">{{ $t('template.已直接确认') }}</p>
+                <p>{{ '无关联的全局变量' }}</p>
+                <p style="margin-top: 8px;">{{ '已直接确认' }}</p>
             </empty>
             <global-variable-layout v-else>
                 <div>
@@ -40,13 +40,13 @@
                                 class="job-button"
                                 
                                 @click="handleSubmit">
-                                {{ $t('template.确认') }}
+                                {{ '确认' }}
                             </bk-button>
                             <bk-button
                                 class="job-button"
                                 
                                 @click="handleReset">
-                                {{ $t('template.重置') }}
+                                {{ '重置' }}
                             </bk-button>
                         </template>
                         <bk-button
@@ -55,7 +55,7 @@
                             class="job-button"
                             
                             @click="handleToggleEdit">
-                            {{ $t('template.编辑') }}
+                            {{ '编辑' }}
                         </bk-button>
                     </div>
                 </div>
@@ -65,8 +65,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TimeTaskService from '@service/time-task';
+       import TimeTaskService from '@service/time-task';
     import GlobalVariableLayout from '@components/global-variable/layout';
     import GlobalVariable from '@components/global-variable/edit';
     import Empty from '@components/empty';
@@ -165,7 +164,7 @@
                         this.isEditing = false;
                         this.info.hasConfirm = true;
                         this.info.variableValue = Object.freeze(variableValue);
-                        this.messageSuccess(I18n.t('template.定时任务确认成功'));
+                        this.messageSuccess('定时任务确认成功');
                         this.$emit('on-change', Object.freeze(variableValue));
                     });
             },

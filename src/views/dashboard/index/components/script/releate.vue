@@ -4,8 +4,8 @@
     <card-layout
         class="script-ralate-dashboard"
         v-bkloading="{ isLoading, opacity: 0.8 }"
-        :title="$t('dashboard.使用率')"
-        :title-tips="$t('dashboard.被作业模板引用的脚本总数（去重）/ 脚本总数，比率越高代表脚本在作业的使用率越高')">
+        :title="'使用率'"
+        :title-tips="'被作业模板引用的脚本总数（去重）/ 脚本总数，比率越高代表脚本在作业的使用率越高'">
         <div class="nums">{{ rate }}</div>
     </card-layout>
 </template>

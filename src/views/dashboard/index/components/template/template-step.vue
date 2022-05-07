@@ -3,47 +3,47 @@
 <template>
     <card-layout
         class="template-step-card"
-        :title="$t('dashboard.作业步骤类型使用占比')"
+        :title="'作业步骤类型使用占比'"
         v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="wraper">
             <div ref="dashboard" style="width: 180px; height: 180px;" />
             <div class="data-info">
                 <div class="row">
-                    <div class="data-label" @mouseover="handleMouseover($t('dashboard.文件分发'))">
+                    <div class="data-label" @mouseover="handleMouseover('文件分发')">
                         <div :style="calcItemCircleStyles('fileStep')" />
-                        <div>{{ $t('dashboard.文件分发') }}</div>
+                        <div>{{ '文件分发' }}</div>
                     </div>
                     <div class="data-content">
-                        <div class="content-item" @mouseover="handleMouseover($t('dashboard.本地文件源'))">
+                        <div class="content-item" @mouseover="handleMouseover('本地文件源')">
                             <div class="local-file-dot" />
-                            <div>{{ $t('dashboard.本地文件源') }}</div>
+                            <div>{{ '本地文件源' }}</div>
                         </div>
-                        <div class="content-item" @mouseover="handleMouseover($t('dashboard.服务器文件源'))">
+                        <div class="content-item" @mouseover="handleMouseover('服务器文件源')">
                             <div class="server-file-dot" />
-                            <div>{{ $t('dashboard.服务器文件源') }}</div>
+                            <div>{{ '服务器文件源' }}</div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="data-label" @mouseover="handleMouseover($t('dashboard.脚本执行'))">
+                    <div class="data-label" @mouseover="handleMouseover('脚本执行')">
                         <div :style="calcItemCircleStyles('scriptStep')" />
-                        <div>{{ $t('dashboard.脚本执行') }}</div>
+                        <div>{{ '脚本执行' }}</div>
                     </div>
                     <div class="data-content">
-                        <div class="content-item" @mouseover="handleMouseover($t('dashboard.手工录入'))">
+                        <div class="content-item" @mouseover="handleMouseover('手工录入')">
                             <div class="local-script-dot" />
-                            <div>{{ $t('dashboard.手工录入') }}</div>
+                            <div>{{ '手工录入' }}</div>
                         </div>
-                        <div class="content-item" @mouseover="handleMouseover($t('dashboard.脚本引用'))">
+                        <div class="content-item" @mouseover="handleMouseover('脚本引用')">
                             <div class="refer-script-dot" />
-                            <div>{{ $t('dashboard.脚本引用') }}</div>
+                            <div>{{ '脚本引用' }}</div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="data-label" @mouseover="handleMouseover($t('dashboard.人工确认'))">
+                    <div class="data-label" @mouseover="handleMouseover('人工确认')">
                         <div :style="calcItemCircleStyles('confirmStep')" />
-                        <div>{{ $t('dashboard.人工确认') }}</div>
+                        <div>{{ '人工确认' }}</div>
                     </div>
                 </div>
             </div>
@@ -53,8 +53,7 @@
 <script>
     import _ from 'lodash';
     import echarts from 'lib/echarts.min.js';
-    import I18n from '@/i18n';
-    import StatisticsService from '@service/statistics';
+       import StatisticsService from '@service/statistics';
     import CardLayout from '../card-layout';
     import {
         chartsOptionsBase,
@@ -96,13 +95,13 @@
         },
         created () {
             this.list = [
-                I18n.t('dashboard.文件分发'),
-                I18n.t('dashboard.本地文件源'),
-                I18n.t('dashboard.服务器文件源'),
-                I18n.t('dashboard.脚本执行'),
-                I18n.t('dashboard.手工录入'),
-                I18n.t('dashboard.脚本引用'),
-                I18n.t('dashboard.人工确认'),
+                '文件分发',
+                '本地文件源',
+                '服务器文件源',
+                '脚本执行',
+                '手工录入',
+                '脚本引用',
+                '人工确认',
             ];
             this.fetchData();
         },
@@ -126,7 +125,7 @@
                     ...chartsOptionsBase,
                     series: [
                         {
-                            name: I18n.t('dashboard.作业步骤'),
+                            name: '作业步骤',
                             type: 'pie',
                             label: {
                                 show: false,
@@ -141,21 +140,21 @@
                             data: [
                                 {
                                     value: this.data.FILE_LOCAL + this.data.FILE_SERVER,
-                                    name: I18n.t('dashboard.文件分发'),
+                                    name: '文件分发',
                                     itemStyle: {
                                         color: colorMap.fileStep,
                                     },
                                 },
                                 {
                                     value: this.data.SCRIPT_MANUAL + this.data.SCRIPT_REF,
-                                    name: I18n.t('dashboard.脚本执行'),
+                                    name: '脚本执行',
                                     itemStyle: {
                                         color: colorMap.scriptStep,
                                     },
                                 },
                                 {
                                     value: this.data.CONFIRM,
-                                    name: I18n.t('dashboard.人工确认'),
+                                    name: '人工确认',
                                     itemStyle: {
                                         color: colorMap.confirmStep,
                                     },
@@ -163,7 +162,7 @@
                             ],
                         },
                         {
-                            name: I18n.t('dashboard.作业步骤'),
+                            name: '作业步骤',
                             type: 'pie',
                             label: {
                                 show: false,
@@ -177,35 +176,35 @@
                             data: [
                                 {
                                     value: this.data.FILE_LOCAL,
-                                    name: I18n.t('dashboard.本地文件源'),
+                                    name: '本地文件源',
                                     itemStyle: {
                                         color: '#2E2E99',
                                     },
                                 },
                                 {
                                     value: this.data.FILE_SERVER,
-                                    name: I18n.t('dashboard.服务器文件源'),
+                                    name: '服务器文件源',
                                     itemStyle: {
                                         color: '#3786AD',
                                     },
                                 },
                                 {
                                     value: this.data.SCRIPT_MANUAL,
-                                    name: I18n.t('dashboard.手工录入'),
+                                    name: '手工录入',
                                     itemStyle: {
                                         color: '#74C2C2',
                                     },
                                 },
                                 {
                                     value: this.data.SCRIPT_REF,
-                                    name: I18n.t('dashboard.脚本引用'),
+                                    name: '脚本引用',
                                     itemStyle: {
                                         color: '#9AD69A',
                                     },
                                 },
                                 {
                                     value: this.data.CONFIRM,
-                                    name: I18n.t('dashboard.人工确认'),
+                                    name: '人工确认',
                                     itemStyle: {
                                         color: '#D4E6C1',
                                     },

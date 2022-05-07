@@ -2,16 +2,16 @@
 
 <template>
     <div class="script-source-of-execution">
-        <jb-form-item class="script-source-item" :label="$t('脚本来源')" required>
+        <jb-form-item class="script-source-item" :label="'脚本来源'" required>
             <bk-radio-group @change="handleScriptSourceChange" :value="scriptSource">
-                <bk-radio-button value="local">{{ $t('手工录入') }}</bk-radio-button>
-                <bk-radio-button value="refer">{{ $t('脚本引用') }}</bk-radio-button>
+                <bk-radio-button value="local">{{ '手工录入' }}</bk-radio-button>
+                <bk-radio-button value="refer">{{ '脚本引用' }}</bk-radio-button>
             </bk-radio-group>
         </jb-form-item>
         <jb-form-item
             ref="scriptId"
             v-if="isScriptRefer"
-            :label="$t('脚本引用')"
+            :label="'脚本引用'"
             required
             property="scriptId"
             :rules="rules">
@@ -22,12 +22,12 @@
                         @change="handleReferScriptTypeChange"
                         :value="referType"
                         :clearable="false">
-                        <bk-option :id="2" :name="$t('业务脚本')">{{ $t('业务脚本') }}</bk-option>
-                        <bk-option :id="3" :name="$t('公共脚本')">{{ $t('公共脚本') }}</bk-option>
+                        <bk-option :id="2" :name="'业务脚本'">{{ '业务脚本' }}</bk-option>
+                        <bk-option :id="3" :name="'公共脚本'">{{ '公共脚本' }}</bk-option>
                     </bk-select>
                     <bk-select
                         :key="referType"
-                        :placeholder="$t('选择引用脚本')"
+                        :placeholder="'选择引用脚本'"
                         class="refer-script-list"
                         :value="formData[scriptVersionIdField]"
                         @change="handleScriptVersionIdChange"
@@ -56,7 +56,7 @@
                 <div
                     v-if="formData[scriptVersionIdField]"
                     class="refer-script-detail"
-                    :tippy-tips="$t('脚本详情')"
+                    :tippy-tips="'脚本详情'"
                     @click="handleGoScriptDetail">
                     <Icon type="jump" />
                 </div>
@@ -65,8 +65,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
     import TaskStepModel from '@model/task/task-step';
     import ComposeFormItem from '@components/compose-form-item';
@@ -160,8 +159,8 @@
              */
             newBtnText () {
                 return this.formData[this.scriptSourceField] === TaskStepModel.scriptStep.TYPE_SOURCE_BUSINESS
-                    ? I18n.t('新建业务脚本')
-                    : I18n.t('新建公共脚本');
+                    ? '新建业务脚本'
+                    : '新建公共脚本';
             },
             /**
              * @desc 表单想验证规则
@@ -173,7 +172,7 @@
                 if (this.isScriptRefer) {
                     return [{
                         required: true,
-                        message: I18n.t('请选择引用脚本'),
+                        message: '请选择引用脚本',
                         trigger: 'blur',
                     }];
                 }

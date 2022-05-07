@@ -37,7 +37,7 @@
                     class="add-host-btn offset-left"
                     @click="handleShowChooseIp">
                     <Icon type="plus" style="margin-right: 6px;" />
-                    {{ $t('添加服务器') }}
+                    {{ '添加服务器' }}
                 </div>
                 <jb-edit-host
                     v-else
@@ -85,8 +85,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import { globalVariableNameRule } from '@utils/validator';
+       import { globalVariableNameRule } from '@utils/validator';
     import GlobalVariableModel from '@model/task/global-variable';
     import ChooseIp from '@components/choose-ip';
     import JbEditHost from '@components/jb-edit/host';
@@ -148,27 +147,27 @@
             this.typeList = [
                 {
                     id: GlobalVariableModel.TYPE_STRING,
-                    name: I18n.t('template.字符串'),
+                    name: '字符串',
                 },
                 {
                     id: GlobalVariableModel.TYPE_NAMESPACE,
-                    name: I18n.t('template.命名空间'),
+                    name: '命名空间',
                 },
                 {
                     id: GlobalVariableModel.TYPE_HOST,
-                    name: I18n.t('template.主机列表'),
+                    name: '主机列表',
                 },
                 {
                     id: GlobalVariableModel.TYPE_PASSWORD,
-                    name: I18n.t('template.密文'),
+                    name: '密文',
                 },
                 {
                     id: GlobalVariableModel.TYPE_RELATE_ARRAY,
-                    name: I18n.t('template.关联数组'),
+                    name: '关联数组',
                 },
                 {
                     id: GlobalVariableModel.TYPE_INDEX_ARRAY,
-                    name: I18n.t('template.索引数组'),
+                    name: '索引数组',
                 },
             ];
         },
@@ -180,13 +179,13 @@
                 this.isShowNameError = true;
                 this.errorNameText = '';
                 if (!this.formData.name) {
-                    this.errorNameText = I18n.t('template.变量名称必填');
+                    this.errorNameText = '变量名称必填';
                 }
                 if (!globalVariableNameRule.validator(this.formData.name)) {
                     this.errorNameText = globalVariableNameRule.message;
                 }
                 if (this.variableNameList.includes(this.formData.name)) {
-                    this.errorNameText = I18n.t('template.变量名称已存在，请重新输入');
+                    this.errorNameText = '变量名称已存在，请重新输入';
                 }
                 if (this.errorNameText) {
                     return Promise.reject(new Error(this.errorNameText));

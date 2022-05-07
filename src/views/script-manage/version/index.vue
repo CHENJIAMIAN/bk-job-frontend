@@ -8,18 +8,18 @@
                 <bk-button
                     ref="newVersion"
                     @click="handlNewVersion">
-                    {{ $t('script.新建版本') }}
+                    {{ '新建版本' }}
                 </bk-button>
                 <bk-button
                     
                     @click="handlShowDiff">
-                    {{ $t('script.版本对比') }}
+                    {{ '版本对比' }}
                 </bk-button>
                 <template #right>
                     <jb-search-select
                         @on-change="handleSearch"
                         :data="searchSelect"
-                        :placeholder="$t('script.直接输入 版本号 或 更新人 进行全局模糊搜索')"
+                        :placeholder="'直接输入 版本号 或 更新人 进行全局模糊搜索'"
                         :show-condition="false"
                         style="width: 420px;" />
                 </template>
@@ -50,14 +50,14 @@
                         </bk-table-column>
                         <bk-table-column
                             v-if="allColumnMap.scriptVersionId"
-                            :label="$t('script.版本 ID')"
+                            :label="'版本 ID'"
                             prop="scriptVersionId"
                             key="scriptVersionId"
                             align="left"
                             width="100" />
                         <bk-table-column
                             v-if="allColumnMap.version"
-                            :label="$t('script.版本号.colHead')"
+                            :label="'版本号'"
                             prop="version"
                             key="version"
                             align="left"
@@ -69,7 +69,7 @@
                         </bk-table-column>
                         <bk-table-column
                             v-if="allColumnMap.relatedTaskNum"
-                            :label="$t('script.被引用.colHead')"
+                            :label="'被引用'"
                             prop="relatedTaskNum"
                             key="relatedTaskNum"
                             :render-header="renderHeader"
@@ -80,8 +80,8 @@
                                     class="mr20"
                                     text
                                     v-bk-tooltips.allowHtml="`
-                                    <div>${$t('script.作业模板引用')}: ${row.relatedTaskTemplateNum}</div>
-                                    <div>${$t('script.执行方案引用')}: ${row.relatedTaskPlanNum}</div>`"
+                                    <div>${'作业模板引用'}: ${row.relatedTaskTemplateNum}</div>
+                                    <div>${'执行方案引用'}: ${row.relatedTaskPlanNum}</div>`"
                                     @click="handleShowRelated(row)">
                                     <span>
                                         {{ row.relatedTaskTemplateNum }}
@@ -95,14 +95,14 @@
                         </bk-table-column>
                         <bk-table-column
                             v-if="allColumnMap.lastModifyUser"
-                            :label="$t('script.更新人.colHead')"
+                            :label="'更新人'"
                             prop="lastModifyUser"
                             key="lastModifyUser"
                             align="left"
                             width="160" />
                         <bk-table-column
                             v-if="allColumnMap.lastModifyTime"
-                            :label="$t('script.更新时间')"
+                            :label="'更新时间'"
                             prop="lastModifyTime"
                             key="lastModifyTime"
                             align="left"
@@ -110,7 +110,7 @@
                             :sortable="true" />
                         <bk-table-column
                             v-if="allColumnMap.statusDesc"
-                            :label="$t('script.状态')"
+                            :label="'状态'"
                             prop="statusDesc"
                             key="statusDesc"
                             align="left"
@@ -126,7 +126,7 @@
                         </bk-table-column>
                         <bk-table-column
                             v-if="!isListFlod"
-                            :label="$t('script.操作')"
+                            :label="'操作'"
                             prop="action"
                             key="action"
                             align="left"
@@ -135,8 +135,8 @@
                                 <jb-popover-confirm
                                     v-if="!row.isOnline"
                                     class="mr10"
-                                    :title="$t('script.确定上线该版本？')"
-                                    :content="$t('script.上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用')"
+                                    :title="'确定上线该版本？'"
+                                    :content="'上线后，之前的线上版本将被置为「已下线」状态，但不影响作业使用'"
                                     
                                     :confirm-handler="() => handleOnline(row.id, row.scriptVersionId)">
                                     <auth-button
@@ -145,20 +145,20 @@
                                         auth="script/edit"
                                         
                                         text>
-                                        {{ $t('script.上线') }}
+                                        {{ '上线' }}
                                     </auth-button>
                                 </jb-popover-confirm>
                                 <jb-popover-confirm
                                     class="mr10"
-                                    :title="$t('script.确定禁用该版本？')"
-                                    :content="$t('script.一旦禁用成功，线上引用该版本的作业脚本步骤都会执行失败，请务必谨慎操作！')"
+                                    :title="'确定禁用该版本？'"
+                                    :content="'一旦禁用成功，线上引用该版本的作业脚本步骤都会执行失败，请务必谨慎操作！'"
                                     :confirm-handler="() => handleOffline(row.id, row.scriptVersionId)">
                                     <auth-button
                                         :permission="row.canManage"
                                         :resource-id="row.id"
                                         auth="script/edit"
                                         text>
-                                        {{ $t('script.禁用') }}
+                                        {{ '禁用' }}
                                     </auth-button>
                                 </jb-popover-confirm>
                                 <auth-button
@@ -168,11 +168,11 @@
                                     auth="script/edit"
                                     text
                                     @click="handleEdit(row)">
-                                    {{ $t('script.编辑') }}
+                                    {{ '编辑' }}
                                 </auth-button>
                                 <span
                                     class="mr10"
-                                    :tippy-tips="isCopyCreateDisabled ? $t('script.已有[未上线]版本') : ''">
+                                    :tippy-tips="isCopyCreateDisabled ? '已有[未上线]版本' : ''">
                                     <auth-button
                                         :permission="row.canClone"
                                         :resource-id="row.id"
@@ -180,7 +180,7 @@
                                         
                                         text
                                         @click="handleToggleCopyCreate(row)">
-                                        {{ $t('script.复制并新建') }}
+                                        {{ '复制并新建' }}
                                     </auth-button>
                                 </span>
                                 <auth-button
@@ -190,9 +190,9 @@
                                     :resource-id="row.id"
                                     
                                     @click="handleGoExce(row)">
-                                    {{ $t('script.去执行') }}
+                                    {{ '去执行' }}
                                 </auth-button>
-                                <span :tippy-tips="!row.syncEnabled ? $t('script.所有关联作业模板已是当前版本') : ''">
+                                <span :tippy-tips="!row.syncEnabled ? '所有关联作业模板已是当前版本' : ''">
                                     <auth-button
                                         :permission="row.canManage"
                                         :resource-id="row.id"
@@ -201,19 +201,19 @@
                                         
                                         @click="handleSync(row)"
                                         text>
-                                        {{ $t('script.同步') }}
+                                        {{ '同步' }}
                                     </auth-button>
                                 </span>
                                 <jb-popover-confirm
-                                    :title="$t('script.确定删除该版本？')"
-                                    :content="$t('script.删除后不可恢复，请谨慎操作！')"
+                                    :title="'确定删除该版本？'"
+                                    :content="'删除后不可恢复，请谨慎操作！'"
                                     :confirm-handler="() => handleRemove(row.scriptVersionId)">
                                     <auth-button
                                         :permission="row.canManage"
                                         :resource-id="row.id"
                                         auth="script/delete"
                                         text>
-                                        {{ $t('script.删除') }}
+                                        {{ '删除' }}
                                     </auth-button>
                                 </jb-popover-confirm>
                             </div>
@@ -247,7 +247,7 @@
         <div style="display: none;">
             <div id="newVersionDisableActions" style="padding: 16px 12px;">
                 <div style="margin-bottom: 17px; font-size: 14px; line-height: 22px; color: #313238;">
-                    {{ $t('script.已有[未上线]版本') }}
+                    {{ '已有[未上线]版本' }}
                 </div>
                 <div>
                     <bk-button
@@ -255,12 +255,12 @@
                         size="small"
                         style="margin-right: 8px;"
                         @click="handleEditDraftVersion">
-                        {{ $t('script.前往编辑') }}
+                        {{ '前往编辑' }}
                     </bk-button>
                     <bk-button
                         size="small"
                         @click="handleNewVersionClose">
-                        {{ $t('script.取消') }}
+                        {{ '取消' }}
                     </bk-button>
                 </div>
             </div>
@@ -270,7 +270,7 @@
         </element-teleport>
         <Diff
             v-if="showDiff"
-            :title="$t('script.版本对比')"
+            :title="'版本对比'"
             :data="dataMemo"
             :old-version-id="diffInfo.oldVersionId"
             :new-version-id="diffInfo.newVersionId"
@@ -280,7 +280,7 @@
             :is-show.sync="showRelated"
             :show-footer="false"
             quick-close
-            :title="$t('script.被引用.label')"
+            :title="'被引用'"
             :width="695">
             <script-related-info
                 :info="relatedScriptInfo"
@@ -289,8 +289,8 @@
         <jb-dialog
             v-model="isShowNewVersion"
             header-position="left"
-            :title="$t('script.新建版本')"
-            :ok-text="$t('script.确定')"
+            :title="'新建版本'"
+            :ok-text="'确定'"
             :mask-close="false"
             :width="480">
             <new-version
@@ -303,8 +303,7 @@
 <script>
     import _ from 'lodash';
     import Tippy from 'bk-magic-vue/lib/utils/tippy';
-    import I18n from '@/i18n';
-    import ScriptService from '@service/script-manage';
+       import ScriptService from '@service/script-manage';
     import PublicScriptService from '@service/public-script-manage';
     import NotifyService from '@service/notify';
     import ScriptModel from '@model/script/script';
@@ -482,12 +481,12 @@
             
             this.searchSelect = [
                 {
-                    name: I18n.t('script.版本号.colHead'),
+                    name: '版本号',
                     id: 'version',
                     default: true,
                 },
                 {
-                    name: I18n.t('script.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -496,29 +495,29 @@
             this.tableColumn = [
                 {
                     id: 'scriptVersionId',
-                    label: I18n.t('script.版本 ID'),
+                    label: '版本 ID',
                 },
                 {
                     id: 'version',
-                    label: I18n.t('script.版本号.colHead'),
+                    label: '版本号',
                     disabled: true,
                 },
                 {
                     id: 'relatedTaskNum',
-                    label: I18n.t('script.被引用.colHead'),
+                    label: '被引用',
                     disabled: true,
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('script.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('script.更新时间'),
+                    label: '更新时间',
                 },
                 {
                     id: 'statusDesc',
-                    label: I18n.t('script.状态'),
+                    label: '状态',
                     disabled: true,
                 },
             ];
@@ -738,7 +737,7 @@
                     id,
                     versionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.fetchData();
                 });
             },
@@ -752,7 +751,7 @@
                     id,
                     versionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.fetchData();
                 });
             },
@@ -764,7 +763,7 @@
                 return this.serviceHandler.scriptVersionRemove({
                     versionId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('script.删除成功'));
+                    this.messageSuccess('删除成功');
                     this.fetchData();
                 });
             },
@@ -961,8 +960,8 @@
                                 type="circle-italics-info"
                                 style="margin-left: 8px; font-size: 12px;" />
                             <div slot="content">
-                                <div>{ I18n.t('script.显示被作业引用的次数') }</div>
-                                <div>{ I18n.t('script.显示被执行方案引用的次数') }</div>
+                                <div>{ '显示被作业引用的次数' }</div>
+                                <div>{ '显示被执行方案引用的次数' }</div>
                             </div>
                         </bk-popover>
                     </span>

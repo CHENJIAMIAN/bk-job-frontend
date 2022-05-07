@@ -9,7 +9,7 @@
             :key="`${formData.category}_${formData.type}`"
             form-type="vertical"
             v-test="{ type: 'form', value: 'createAccount' }">
-            <jb-form-item :label="$t('account.用途')" required style="margin-bottom: 20px;">
+            <jb-form-item :label="'用途'" required style="margin-bottom: 20px;">
                 <div class="radio-button-group-wraper">
                     <bk-radio-group
                         :value="formData.category"
@@ -36,8 +36,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import QueryGlobalSettingService from '@service/query-global-setting';
+       import QueryGlobalSettingService from '@service/query-global-setting';
     import AccountManageService from '@service/account-manage';
     import AccountModel from '@model/account';
     import { accountAliasNameRule } from '@utils/validator';
@@ -132,7 +131,7 @@
                     account: [
                         {
                             required: true,
-                            message: I18n.t('account.名称必填'),
+                            message: '名称必填',
                             trigger: 'blur',
                         },
                         
@@ -140,7 +139,7 @@
                     alias: [
                         {
                             required: true,
-                            message: I18n.t('account.别名必填'),
+                            message: '别名必填',
                             trigger: 'blur',
                         },
                         {
@@ -166,28 +165,28 @@
                         dbPassword: [
                             {
                                 validator: value => !/[\u4e00-\u9fa5]/.test(value),
-                                message: I18n.t('account.密码不支持中文'),
+                                message: '密码不支持中文',
                                 trigger: 'blur',
                             },
                         ],
                         rePassword: [
                             {
                                 validator: value => this.formData.rePassword === this.formData.dbPassword,
-                                message: I18n.t('account.密码不一致'),
+                                message: '密码不一致',
                                 trigger: 'blur',
                             },
                         ],
                         dbPort: [
                             {
                                 required: true,
-                                message: I18n.t('account.端口必填'),
+                                message: '端口必填',
                                 trigger: 'blur',
                             },
                         ],
                         dbSystemAccountId: [
                             {
                                 required: true,
-                                message: I18n.t('account.依赖系统账号必填'),
+                                message: '依赖系统账号必填',
                                 trigger: 'blur',
                             },
                         ],
@@ -221,19 +220,19 @@
                     password: [
                         {
                             required: true,
-                            message: I18n.t('account.密码必填'),
+                            message: '密码必填',
                             trigger: 'blur',
                         },
                         {
                             validator: value => !/[\u4e00-\u9fa5]/.test(value),
-                            message: I18n.t('account.密码不支持中文'),
+                            message: '密码不支持中文',
                             trigger: 'blur',
                         },
                     ],
                     rePassword: [
                         {
                             validator: value => value === this.formData.password,
-                            message: I18n.t('account.密码不一致'),
+                            message: '密码不一致',
                             trigger: 'blur',
                         },
                     ],
@@ -246,11 +245,11 @@
             this.categoryList = [
                 {
                     value: AccountModel.OS,
-                    name: I18n.t('account.系统账号'),
+                    name: '系统账号',
                 },
                 {
                     value: AccountModel.DB,
-                    name: I18n.t('account.数据库账号'),
+                    name: '数据库账号',
                 },
             ];
 
@@ -324,7 +323,7 @@
                 delete params.rePassword;
                 return AccountManageService.createAccount(params)
                     .then(() => {
-                        this.messageSuccess(I18n.t('account.新建账号成功'));
+                        this.messageSuccess('新建账号成功');
                         this.$emit('on-change');
                     });
             },
@@ -336,7 +335,7 @@
                 delete params.rePassword;
                 return AccountManageService.updateAccount(params)
                     .then(() => {
-                        this.messageSuccess(I18n.t('account.编辑账号成功'));
+                        this.messageSuccess('编辑账号成功');
                         this.$emit('on-change');
                     });
             },
@@ -369,7 +368,7 @@
              */
             submit () {
                 if (this.isRulesLoadingError) {
-                    this.messageWarn(I18n.t('account.命名规则请求失败无法执行当前操作，请刷新页面'));
+                    this.messageWarn('命名规则请求失败无法执行当前操作，请刷新页面');
                     return Promise.reject(Error('rule error'));
                 }
                 return this.$refs.operateAccountForm.validate()

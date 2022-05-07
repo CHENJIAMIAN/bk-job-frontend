@@ -5,11 +5,11 @@
         <div class="action" @click="handleToggle">
             <template v-if="isOpen">
                 <Icon type="angle-double-up" class="toggle-arrow" />
-                <span>{{ $t('收起未引用的变量') }} ({{ count }})</span>
+                <span>{{ '收起未引用的变量' }} ({{ count }})</span>
             </template>
             <template v-else>
                 <Icon type="angle-double-down" class="toggle-arrow" />
-                <span>{{ $t('展开未引用的变量') }} ({{ count }})</span>
+                <span>{{ '展开未引用的变量' }} ({{ count }})</span>
             </template>
         </div>
         <div v-show="isOpen">

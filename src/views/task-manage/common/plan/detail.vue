@@ -16,8 +16,8 @@
                         v-if="planInfo.cronJobCount > 0"
                         class="cron-job-tag"
                         v-bk-tooltips.html="`
-                            <div>${$t('template.有')} ${planInfo.cronJobCount} ${$t('template.个定时任务')}</div>
-                            <div>${$t('template.点击前往查看')}</div>
+                            <div>${'有'} ${planInfo.cronJobCount} ${'个定时任务'}</div>
+                            <div>${'点击前往查看'}</div>
                         `"
                         @click="handleGoCronList">
                         <Icon type="job-timing" svg />
@@ -30,18 +30,18 @@
                         auth="job_template/view"
                         text
                         @click="handleGoTemplate">
-                        <span>{{ $t('template.所属作业模板') }}</span>
+                        <span>{{ '所属作业模板' }}</span>
                         <Icon type="jump" />
                     </auth-button>
                 </div>
                 <jb-form form-type="vertical">
                     <jb-form-item
-                        :label="$t('template.全局变量.label')"
+                        :label="'全局变量'"
                         style="margin-bottom: 30px;">
                         <render-global-var
                             :key="id"
                             :list="usedVariableList"
-                            :default-field="$t('template.变量值')" />
+                            :default-field="'变量值'" />
                         <toggle-display
                             v-if="unusedVariableList.length > 0"
                             :count="unusedVariableList.length"
@@ -49,11 +49,11 @@
                             <render-global-var
                                 :key="id"
                                 :list="unusedVariableList"
-                                :default-field="$t('template.变量值')"
+                                :default-field="'变量值'"
                                 style="margin-top: 18px;" />
                         </toggle-display>
                     </jb-form-item>
-                    <jb-form-item :label="$t('template.执行步骤')">
+                    <jb-form-item :label="'执行步骤'">
                         <render-task-step
                             :key="id"
                             :list="planInfo.enableStepList"
@@ -68,7 +68,7 @@
                             :loading="execLoading"
                             @click="handleExec"
                             v-test="{ type: 'button', value: 'execPlan' }">
-                            {{ $t('template.去执行') }}
+                            {{ '去执行' }}
                         </bk-button>
                         <bk-popover placement="top">
                             <auth-button
@@ -78,15 +78,15 @@
                                 auth="job_plan/edit"
                                 @click="handleEdit"
                                 v-test="{ type: 'button', value: 'editPlan' }">
-                                <span>{{ $t('template.编辑') }}</span>
+                                <span>{{ '编辑' }}</span>
                                 <span style="font-size: 12px; color: #979ba5;">
                                     ({{ planInfo.enableStepNums }}/{{ planInfo.templateStepNums }})
                                 </span>
                             </auth-button>
                             <div slot="content">
-                                <p>{{ $t('template.共有') }} {{ planInfo.templateStepNums }} {{ $t('template.个步骤，') }}</p>
+                                <p>{{ '共有' }} {{ planInfo.templateStepNums }} {{ '个步骤，' }}</p>
                                 <!-- eslint-disable-next-line max-len -->
-                                <p>{{ $t('template.当前已选中') }} {{ planInfo.enableStepNums }} {{ $t('template.个.select') }}</p>
+                                <p>{{ '当前已选中' }} {{ planInfo.enableStepNums }} {{ '个'}}</p>
                             </div>
                         </bk-popover>
                         <auth-button
@@ -94,9 +94,9 @@
                             auth="cron/create"
                             @click="handleGoCron"
                             v-test="{ type: 'button', value: 'createCrontab' }">
-                            {{ $t('template.定时执行') }}
+                            {{ '定时执行' }}
                         </auth-button>
-                        <span :tippy-tips="!planInfo.needUpdate ? $t('template.无需同步') : ''">
+                        <span :tippy-tips="!planInfo.needUpdate ? '无需同步' : ''">
                             <auth-button
                                 class="action-update"
                                 
@@ -104,16 +104,16 @@
                                 auth="job_plan/sync"
                                 @click="handleSync"
                                 v-test="{ type: 'button', value: 'syncPlan' }">
-                                <span>{{ $t('template.去同步') }}</span>
+                                <span>{{ '去同步' }}</span>
                                 <div v-if="planInfo.needUpdate" class="update-flag">
-                                    <Icon type="sync-8" :tippy-tips="$t('template.未同步')" />
+                                    <Icon type="sync-8" :tippy-tips="'未同步'" />
                                 </div>
                             </auth-button>
                         </span>
                         <jb-popover-confirm
                             class="action-del"
-                            :title="$t('template.确定删除该执行方案？')"
-                            :content="$t('template.若已设置了定时任务，需要先删除才能操作')"
+                            :title="'确定删除该执行方案？'"
+                            :content="'若已设置了定时任务，需要先删除才能操作'"
                             :confirm-handler="handleDelete">
                             <auth-button
                                 class="delete-btn"
@@ -121,7 +121,7 @@
                                 :resource-id="id"
                                 auth="job_plan/delete"
                                 v-test="{ type: 'button', value: 'deletePlan' }">
-                                {{ $t('template.删除') }}
+                                {{ '删除' }}
                             </auth-button>
                         </jb-popover-confirm>
                     </div>
@@ -131,8 +131,7 @@
     </permission-section>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskPlanService from '@service/task-plan';
+       import TaskPlanService from '@service/task-plan';
     import TaskExecuteService from '@service/task-execute';
     import { findUsedVariable } from '@utils/assist';
     import PermissionSection from '@components/apply-permission/apply-section';
@@ -231,7 +230,7 @@
                 }).then(({ taskInstanceId }) => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('template.操作成功'),
+                        message: '操作成功',
                     });
                     this.$router.push({
                         name: 'historyTask',
@@ -316,7 +315,7 @@
                 }).then(() => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('template.操作成功'),
+                        message: '操作成功',
                     });
                     setTimeout(() => {
                         this.$emit('on-delete');
@@ -348,8 +347,8 @@
             handleExec () {
                 if (!this.planInfo.variableList.length) {
                     this.$bkInfo({
-                        title: I18n.t('template.确认执行？'),
-                        subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
+                        title: '确认执行？',
+                        subTitle: '未设置全局变量，点击确认将直接执行。',
                         confirmFn: () => {
                             this.fetchTaskExecution();
                         },

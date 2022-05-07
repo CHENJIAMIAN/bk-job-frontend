@@ -11,37 +11,37 @@
                 }"
                 :rows="inputRows"
                 :value="ipInputText"
-                :placeholder="$t('请输入 IP 地址，多IP可用 空格 换行 ; , |分隔 \n带云区域请用冒号分隔，如（ 0:192.168.1.101 ）')"
+                :placeholder="'请输入 IP 地址，多IP可用 空格 换行 ; , |分隔 \n带云区域请用冒号分隔，如（ 0:192.168.1.101 ）'"
                 @change="handleIPChange" />
         </div>
         <div class="input-action">
             <div v-if="isError" class="input-error">
-                <div>{{ $t('以上内容存在错误：') }}</div>
+                <div>{{ '以上内容存在错误：' }}</div>
                 <div v-if="invalidIPList.length > 0">
-                    <span>{{ $t('IP 在本业务下不存在') }}</span>
+                    <span>{{ 'IP 在本业务下不存在' }}</span>
                     <Icon
                         type="ip-audit"
                         class="error-action"
-                        v-bk-tooltips="$t('标识错误')"
+                        v-bk-tooltips="'标识错误'"
                         @click="handleHighlightInvilad" />
                     <Icon
                         type="delete"
                         class="error-action"
-                        v-bk-tooltips="$t('一键清除')"
+                        v-bk-tooltips="'一键清除'"
                         @click="handleRemoveInvalid" />
                 </div>
                 <div v-if="invalidIPList.length > 0 && errorIPList.length > 0">；</div>
                 <div v-if="errorIPList.length > 0">
-                    <span>{{ $t('内容格式错误，无法识别') }}</span>
+                    <span>{{ '内容格式错误，无法识别' }}</span>
                     <Icon
                         type="ip-audit"
                         class="error-action"
-                        v-bk-tooltips="$t('标识错误')"
+                        v-bk-tooltips="'标识错误'"
                         @click="handleHightlightError" />
                     <Icon
                         type="delete"
                         class="error-action"
-                        v-bk-tooltips="$t('一键清除')"
+                        v-bk-tooltips="'一键清除'"
                         @click="handleRemoveError" />
                 </div>
             </div>
@@ -51,7 +51,7 @@
                 outline
                 :loading="isSubmiting"
                 @click="handleAddHost">
-                <span>{{ $t('添加到已选择') }}</span>
+                <span>{{ '添加到已选择' }}</span>
                 <div
                     v-if="inputItemList.length > 0"
                     ref="inputNumber"

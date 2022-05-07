@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'execute',
     name: 'executiveHistory',
@@ -10,7 +8,7 @@ export default {
         name: 'historyList',
     },
     meta: {
-        title: I18n.t('执行历史'),
+        title: '执行历史',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'historyList',
             component: () => import('@views/executive-history/list'),
             meta: {
-                pageTitle: I18n.t('执行历史'),
+                pageTitle: '执行历史',
                 skeleton: 'list',
             },
         },
@@ -28,7 +26,7 @@ export default {
             name: 'historyTask',
             component: () => import('@views/executive-history/task-detail'),
             meta: {
-                title: I18n.t('作业执行详情'),
+                title: '作业执行详情',
                 skeleton: 'taskExecutiveDetail',
             },
         },
@@ -37,7 +35,7 @@ export default {
             name: 'historyStep',
             component: () => import('@views/executive-history/step-detail'),
             meta: {
-                title: I18n.t('步骤执行详情'),
+                title: '步骤执行详情',
                 full: true,
                 skeleton: 'taskStepExecutiveDetail',
             },
@@ -47,7 +45,7 @@ export default {
             name: 'redoTask',
             component: () => import('@views/executive-history/redo-task'),
             meta: {
-                title: I18n.t('重做执行方案'),
+                title: '重做执行方案',
                 skeleton: 'setVariable',
             },
         },

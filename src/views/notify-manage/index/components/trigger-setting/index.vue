@@ -1,7 +1,7 @@
 
 <template>
     <jb-form class="notify-trigger-setting">
-        <jb-form-item :label="$t('notify.操作类型')">
+        <jb-form-item :label="'操作类型'">
             <bk-checkbox-group
                 class="input"
                 :value="localValue.resourceTypeList"
@@ -14,20 +14,20 @@
                 </bk-checkbox>
             </bk-checkbox-group>
         </jb-form-item>
-        <jb-form-item :label="$t('notify.通知对象')">
+        <jb-form-item :label="'通知对象'">
             <jb-user-selector
                 class="input"
-                :placeholder="$t('notify.请输入')"
+                :placeholder="'请输入'"
                 :user="localValue.extraObserverList"
                 :role="localValue.roleList"
                 :filter-list="['JOB_EXTRA_OBSERVER']"
                 @on-change="handleUserChange" />
         </jb-form-item>
-        <jb-form-item :label="$t('notify.通知方式')">
+        <jb-form-item :label="'通知方式'">
             <table class="notify-way-table input">
                 <thead>
-                    <th style="width: 95px;">{{ $t('notify.状态') }}</th>
-                    <th>{{ $t('notify.通知方式') }}</th>
+                    <th style="width: 95px;">{{ '状态' }}</th>
+                    <th>{{ '通知方式' }}</th>
                 </thead>
                 <tbody>
                     <tr v-for="(executeStatus, index) in [{},{},{}]" :key="index">

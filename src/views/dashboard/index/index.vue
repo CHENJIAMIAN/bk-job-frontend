@@ -4,17 +4,17 @@
     <div class="dashboard-page">
         <div class="operation-bar">
             <div class="app-select">
-                <bk-button theme="primary" @click="handleScreenshot">{{ $t('dashboard.截图') }}</bk-button>
+                <bk-button theme="primary" @click="handleScreenshot">{{ '截图' }}</bk-button>
             </div>
             <div class="date-setting">
                 <div class="date-info">
-                    <p>{{ $t('dashboard.数据初始时间') }}：{{ dateInfo.STATISTICS_DATA_START_DATE }}</p>
-                    <p>{{ $t('dashboard.最近更新时间') }}：{{ dateInfo.STATISTICS_DATA_UPDATE_TIME }}</p>
+                    <p>{{ '数据初始时间' }}：{{ dateInfo.STATISTICS_DATA_START_DATE }}</p>
+                    <p>{{ '最近更新时间' }}：{{ dateInfo.STATISTICS_DATA_UPDATE_TIME }}</p>
                 </div>
                 <bk-date-picker
                     class="date-picker"
                     :value="date"
-                    :placeholder="$t('dashboard.选择日期')"
+                    :placeholder="'选择日期'"
                     :clearable="false"
                     @change="handleDateChange" />
             </div>
@@ -26,7 +26,7 @@
             style="height: calc(100vh - 161px);">
             <div ref="content" class="dashboard-wraper">
                 <div class="section-block">
-                    <div class="section-title">{{ $t('dashboard.业务类') }}</div>
+                    <div class="section-title">{{ '业务类' }}</div>
                     <div class="section-content">
                         <div class="content-left">
                             <app-dashboard :date="date" />
@@ -38,7 +38,7 @@
                 </div>
                 <lower-component>
                     <div class="section-block">
-                        <div class="section-title">{{ $t('dashboard.资源类') }}</div>
+                        <div class="section-title">{{ '资源类' }}</div>
                         <div class="section-content">
                             <div class="content-left">
                                 <template-dashboard :date="date" />
@@ -66,7 +66,7 @@
                 </lower-component>
                 <lower-component>
                     <div class="section-block">
-                        <div class="section-title">{{ $t('dashboard.执行类') }}</div>
+                        <div class="section-title">{{ '执行类' }}</div>
                         <div class="section-content">
                             <execute-dashboard :date="date" />
                         </div>

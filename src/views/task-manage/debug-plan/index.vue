@@ -4,7 +4,7 @@
     <div>
         <smart-action class="edit-execute-plan" offset-target="detail-content">
             <detail-layout mode="see">
-                <detail-item :label="$t('template.全局变量：')" class="gloval-var-item">
+                <detail-item :label="'全局变量：'" class="gloval-var-item">
                     <render-global-var
                         :list="variableList"
                         :select-value="selectedVariable"
@@ -13,19 +13,19 @@
                 <detail-item label="" class="task-step-item">
                     <div class="task-step-selection">
                         <!-- eslint-disable-next-line max-len -->
-                        <div>{{ $t('template.选择要调试的步骤') }}（ {{ formData.enableSteps.length }} / {{ taskStepList.length }} ）</div>
+                        <div>{{ '选择要调试的步骤' }}（ {{ formData.enableSteps.length }} / {{ taskStepList.length }} ）</div>
                         <div class="step-check">
                             <bk-button
                                 v-if="hasSelectAll"
                                 text
                                 @click="handleDeselectAll">
-                                {{ $t('template.取消全选') }}
+                                {{ '取消全选' }}
                             </bk-button>
                             <bk-button
                                 v-else
                                 text
                                 @click="handleSelectAll">
-                                {{ $t('template.全选') }}
+                                {{ '全选' }}
                             </bk-button>
                         </div>
                     </div>
@@ -43,14 +43,14 @@
                         class="w120 mr10"
                         
                         @click="handleSubmitExec">
-                        {{ $t('template.去执行') }}
+                        {{ '去执行' }}
                     </bk-button>
-                    <bk-button @click="handleCancle">{{ $t('template.取消') }}</bk-button>
+                    <bk-button @click="handleCancle">{{ '取消' }}</bk-button>
                     <bk-button
                         
                         class="plan-save"
                         @click="handleSavePlan">
-                        {{ $t('template.另存为') }}
+                        {{ '另存为' }}
                     </bk-button>
                 </div>
             </template>
@@ -59,18 +59,18 @@
         <jb-dialog
             v-model="isShowSave"
             class="save-debug-plan-dialog"
-            :title="$t('template.另存为执行方案')"
+            :title="'另存为执行方案'"
             header-position="left"
             render-directive="if"
             :mask-close="false"
             :esc-close="false"
             :width="480">
             <jb-form ref="editPlanForm" :model="planFormData" form-type="vertical" :rules="rules">
-                <jb-form-item :label="$t('template.执行方案名称')" required property="name">
+                <jb-form-item :label="'执行方案名称'" required property="name">
                     <bk-input
                         v-model="planFormData.name"
                         :native-attributes="{ autofocus: 'autofocus' }"
-                        :placeholder="$t('template.请输入执行方案名称')"
+                        :placeholder="'请输入执行方案名称'"
                         @keydown="handleEnter" />
                 </jb-form-item>
             </jb-form>
@@ -80,16 +80,15 @@
                     class="mr10"
                     :loading="isPlanCreating"
                     @click="handleSubmitCreatePlan">
-                    {{ $t('template.确定') }}
+                    {{ '确定' }}
                 </bk-button>
-                <bk-button @click="handleCloseSave">{{ $t('template.取消') }}</bk-button>
+                <bk-button @click="handleCloseSave">{{ '取消' }}</bk-button>
             </div>
         </jb-dialog>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import ExecPlanService from '@service/task-plan';
     import BackTop from '@components/back-top';
     import DetailLayout from '@components/detail-layout';
@@ -157,7 +156,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.方案名称必填'),
+                        message: '方案名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -167,7 +166,7 @@
                     },
                     {
                         validator: this.checkName,
-                        message: I18n.t('template.方案名称已存在，请重新输入'),
+                        message: '方案名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],
@@ -216,7 +215,7 @@
                 }).then(({ taskInstanceId }) => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('template.操作成功'),
+                        message: '操作成功',
                     });
                     this.$router.push({
                         name: 'historyTask',
@@ -276,8 +275,8 @@
                     .then(() => {
                         if (this.variableList.length < 1) {
                             this.$bkInfo({
-                                title: I18n.t('template.确认执行？'),
-                                subTitle: I18n.t('template.未设置全局变量，点击确认将直接执行。'),
+                                title: '确认执行？',
+                                subTitle: '未设置全局变量，点击确认将直接执行。',
                                 confirmFn: () => {
                                     this.taskExecution();
                                 },
@@ -380,17 +379,17 @@
                                 return (
                                 <div>
                                     <bk-button style={{ marginRight: '10px' }} text onClick={handleGoDebug}>
-                                        {I18n.t('template.返回继续调试')}
+                                        {'返回继续调试'}
                                     </bk-button>
                                     <bk-button text onClick={handleGoPlanDetail}>
-                                        {I18n.t('template.立即前往查看')}
+                                        {'立即前往查看'}
                                     </bk-button>
                                 </div>
                                 );
                             };
                             confirmInfo = this.$bkInfo({
                                 type: 'success',
-                                title: I18n.t('template.另存执行方案成功'),
+                                title: '另存执行方案成功',
                                 showFooter: false,
                                 subHeader: subHeader(),
                             });

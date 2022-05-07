@@ -26,7 +26,7 @@
         <div v-if="historyEnable" class="execution-history" :class="{ active: isShowHistory }">
             <div class="toggle-btn" @click="handleShowHistory">
                 <Icon class="toggle-flag" type="angle-double-left" />
-                <div class="return-edit">{{ $t('history.返回编辑') }}</div>
+                <div class="return-edit">{{ '返回编辑' }}</div>
             </div>
             <div class="history-content">
                 <template v-if="taskExecutionDetail.taskExecution.isScript">
@@ -53,8 +53,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import {
         buildURLParams,
     } from '@utils/assist';
@@ -228,7 +227,7 @@
                 if (step.isNotStart) {
                     this.$bkMessage({
                         theme: 'warning',
-                        message: I18n.t('history.该步骤还未执行'),
+                        message: '该步骤还未执行',
                         limit: 1,
                     });
                     return;
@@ -237,7 +236,7 @@
                 if (step.isApproval) {
                     this.$bkMessage({
                         theme: 'warning',
-                        message: I18n.t('history.人工确认步骤不支持查看步骤详情'),
+                        message: '人工确认步骤不支持查看步骤详情',
                         limit: 1,
                     });
                     return;

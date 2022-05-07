@@ -3,7 +3,7 @@
 <template>
     <div class="script-list-tag-panel" v-bkloading="{ isLoading }">
         <tab-item
-            :name="$t('script.全部脚本')"
+            :name="'全部脚本'"
             :id="1"
             :value="classesId"
             icon="business-manage"
@@ -11,7 +11,7 @@
             :tooltips-disabled="true"
             @on-select="handleClassesSelect" />
         <tab-item
-            :name="$t('script.未分类')"
+            :name="'未分类'"
             :id="2"
             :value="classesId"
             icon="unclassified"
@@ -36,8 +36,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import ScriptManageService from '@service/script-manage';
+       import ScriptManageService from '@service/script-manage';
     import PublicScriptManageService from '@service/public-script-manage';
     import TagManageService from '@service/tag-manage';
     import PubliceTagManageService from '@service/public-tag-manage';
@@ -168,7 +167,7 @@
             handleEdit (payload) {
                 TagManageService.updateTag(payload)
                     .then(() => {
-                        this.messageSuccess(I18n.t('script.标签名更新成功'));
+                        this.messageSuccess('标签名更新成功');
                         this.fetchTagList();
                     });
             },

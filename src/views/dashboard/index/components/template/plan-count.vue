@@ -3,28 +3,28 @@
 <template>
     <card-layout
         class="plan-count-dashboard"
-        :title="$t('dashboard.执行方案量')">
+        :title="'执行方案量'">
         <render-trend metric="TASK_PLAN_COUNT" :date="date" />
         <div slot="extend">
             <Icon
                 type="line-chart-line"
-                v-bk-tooltips="$t('dashboard.查看趋势图')"
+                v-bk-tooltips="'查看趋势图'"
                 @click="handleShowTrend" />
             <Icon
                 type="table-line"
-                v-bk-tooltips="$t('dashboard.查看列表')"
+                v-bk-tooltips="'查看列表'"
                 @click="handleShowList" />
         </div>
         <trend-dialog
             v-model="isShowTrend"
             metric="TASK_PLAN_COUNT"
-            :title="$t('dashboard.执行方案量趋势图')"
-            :name="$t('dashboard.执行方案量')"
+            :title="'执行方案量趋势图'"
+            :name="'执行方案量'"
             :date="date" />
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
-                :title="$t('dashboard.执行方案量列表')"
+                :title="'执行方案量列表'"
                 :width="520"
                 :show-footer="false"
                 header-position="left">
@@ -33,17 +33,17 @@
                     v-bkloading="{ isLoading: isListLoading, opacity: 0.8 }">
                     <bk-table :data="listData" :max-height="420">
                         <bk-table-column
-                            :label="$t('dashboard.业务名')"
+                            :label="'业务名'"
                             prop="appName"
                             key="appName"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.执行方案量')"
+                            :label="'执行方案量'"
                             prop="value"
                             key="value"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.占比')"
+                            :label="'占比'"
                             prop="ratio"
                             key="ratio"
                             align="left" />

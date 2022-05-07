@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'dangerous_rule_manage',
     component: () => import('@views/dangerous-rule-manage/index.vue'),
@@ -18,7 +16,7 @@ export default {
             name: 'dangerousRuleList',
             component: () => import('@views/dangerous-rule-manage/index/index.vue'),
             meta: {
-                title: I18n.t('高危语句规则'),
+                title: '高危语句规则',
                 skeleton: 'list',
             },
         },

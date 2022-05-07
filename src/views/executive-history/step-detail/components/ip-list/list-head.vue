@@ -27,7 +27,7 @@
                             v-if="item.label === 'IP'"
                             class="copy-ip-btn"
                             @click="handleCopyIP">
-                            {{ $t('history.复制') }}
+                            {{ '复制' }}
                         </span>
                         <span v-if="item.orderField" class="sort-box" :data-order="item.order">
                             <span class="top" :class="{ active: item.order === 1 }" />

@@ -35,8 +35,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         props: {
             maxHeight: {
@@ -65,10 +64,10 @@
             },
         },
         created () {
-            this.titleText = I18n.t('该操作需要以下权限');
-            this.actionText = I18n.t('需申请的权限');
-            this.resourceText = I18n.t('关联的资源实例');
-            this.errorTips = I18n.t('你已拥有权限，请刷新页面');
+            this.titleText = '该操作需要以下权限';
+            this.actionText = '需申请的权限';
+            this.resourceText = '关联的资源实例';
+            this.errorTips = '你已拥有权限，请刷新页面';
         },
     };
 </script>

@@ -28,7 +28,7 @@
                 v-if="showEdit"
                 ref="pathEdit"
                 class="file-path-edit"
-                :placeholder="$t('Enter 换行可输入多个路径')"
+                :placeholder="'Enter 换行可输入多个路径'"
                 :value="tempValue"
                 @input="handleEditChange"
                 @blur="handleEditSubmit" />
@@ -37,7 +37,7 @@
             <smart-input
                 class="file-path-create"
                 ref="pathSubmit"
-                :placeholder="$t('Enter 换行可输入多个路径')"
+                :placeholder="'Enter 换行可输入多个路径'"
                 @input="handleCreateSubmit"
                 @blur="handleCreteaBlur" />
         </template>
@@ -48,8 +48,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import SmartInput from '@components/smart-input';
+       import SmartInput from '@components/smart-input';
     import {
         filePathRule,
     } from '@utils/validator';
@@ -126,7 +125,7 @@
             handleEditChange (value) {
                 this.error = '';
                 if (!value) {
-                    this.error = I18n.t('路径不能为空');
+                    this.error = '路径不能为空';
                 }
                 this.tempValue = value;
             },
@@ -140,7 +139,7 @@
                 
                 const hasError = !realValue.every(item => filePathRule.validator(item));
                 if (hasError) {
-                    this.error = I18n.t('路径格式不正确');
+                    this.error = '路径格式不正确';
                     this.showEdit = true;
                     this.$refs.pathEdit.focused = true;
                     return;
@@ -154,7 +153,7 @@
                 const realValue = formatValue(this.tempValue);
                 const isError = !realValue.every(item => filePathRule.validator(item));
                 if (isError) {
-                    this.error = I18n.t('路径格式不正确');
+                    this.error = '路径格式不正确';
                     return;
                 }
                 this.error = '';

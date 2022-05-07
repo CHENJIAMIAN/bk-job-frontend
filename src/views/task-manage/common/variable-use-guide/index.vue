@@ -3,19 +3,19 @@
 <template>
     <div class="variable-use-guide">
         <div class="header">
-            <div>{{ $t('template.使用指引') }}</div>
+            <div>{{ '使用指引' }}</div>
             <div class="tab-container">
                 <div
                     class="tab-item"
                     :class="{ active: tab === 'global' }"
                     @click="handleTabToggle('global')">
-                    {{ $t('template.全局变量.tab') }}
+                    {{ '全局变量'}}
                 </div>
                 <div
                     class="tab-item"
                     :class="{ active: tab === 'magic' }"
                     @click="handleTabToggle('magic')">
-                    {{ $t('template.魔法变量') }}
+                    {{ '魔法变量' }}
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
                     global: globalVariableEN,
                     magic: magicVariableEN,
                 };
-                if (this.$i18n.locale === 'zh-CN') {
+                if ('zh-CN' === 'zh-CN') {
                     Object.assign(contentMap, {
                         global: globalVariable,
                         magic: magicVariable,

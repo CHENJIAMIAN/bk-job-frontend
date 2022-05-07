@@ -4,7 +4,7 @@
             class="check-all"
             v-bind="allCheckStatus"
             @click.native="handleCheckToggle">
-            {{ $t('notify.全选') }}
+            {{ '全选' }}
         </bk-checkbox>
         <bk-checkbox-group
             class="check-item"

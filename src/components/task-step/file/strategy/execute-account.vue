@@ -1,7 +1,7 @@
 
 
 <template>
-    <jb-form-item :label="$t('执行账号')" required :property="field" :rules="rules">
+    <jb-form-item :label="'执行账号'" required :property="field" :rules="rules">
         <account-select
             class="form-item-content"
             :value="formData[field]"
@@ -10,8 +10,7 @@
     </jb-form-item>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import AccountSelect from '@components/account-select';
+       import AccountSelect from '@components/account-select';
 
     export default {
         components: {
@@ -31,7 +30,7 @@
             this.rules = [
                 {
                     required: true,
-                    message: I18n.t('执行账号必填'),
+                    message: '执行账号必填',
                     trigger: 'blur',
                 },
             ];

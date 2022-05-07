@@ -20,21 +20,21 @@
                     <div class="loading-flag">
                         <Icon type="loading-circle" />
                     </div>
-                    <div>{{ $t('history.加载中') }}</div>
+                    <div>{{ '加载中' }}</div>
                 </div>
                 <template v-if="list.length < 1 && !listLoading">
                     <Empty v-if="!searchValue" style="height: 100%;" />
                     <Empty v-else type="search" style="height: 100%;">
                         <div>
-                            <div style="font-size: 14px; color: #63656e;">{{ $t('搜索结果为空') }}</div>
+                            <div style="font-size: 14px; color: #63656e;">{{ '搜索结果为空' }}</div>
                             <div style="margin-top: 8px; font-size: 12px; line-height: 16px; color: #979ba5;">
-                                <span>{{ $t('可以尝试调整关键词') }}</span>
+                                <span>{{ '可以尝试调整关键词' }}</span>
                                 <template>
-                                    <span>{{ $t('或') }}</span>
+                                    <span>{{ '或' }}</span>
                                     <bk-button
                                         text
                                         @click="handleClearSearch">
-                                        {{ $t('清空搜索条件') }}
+                                        {{ '清空搜索条件' }}
                                     </bk-button>
                                 </template>
                             </div>
@@ -47,12 +47,12 @@
             v-show="isSetting"
             class="list-column-select">
             <div class="select-body">
-                <div class="title">{{ $t('history.字段显示设置') }}</div>
+                <div class="title">{{ '字段显示设置' }}</div>
                 <bk-checkbox
                     @click.native="handleToggleAll"
                     :indeterminate="isIndeterminate"
                     :checked="isAllColumn">
-                    {{ $t('history.全选') }}
+                    {{ '全选' }}
                 </bk-checkbox>
                 <bk-checkbox-group v-model="tempAllShowColumn">
                     <bk-checkbox
@@ -70,10 +70,10 @@
                 <bk-button
                     theme="primary"
                     @click="handleSubmitSetting">
-                    {{ $t('history.确定') }}
+                    {{ '确定' }}
                 </bk-button>
                 <bk-button @click="handleHideSetting">
-                    {{ $t('history.取消') }}
+                    {{ '取消' }}
                 </bk-button>
             </div>
         </div>
@@ -81,8 +81,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import {
+       import {
         getOffset,
     } from '@utils/assist';
     import Empty from '@components/empty';
@@ -139,14 +138,14 @@
                 list: [{},{},{}],
                 columnList: Object.freeze([
                     {
-                        label: I18n.t('history.IP'),
+                        label: 'IP',
                         name: 'displayIp',
                         width: '140',
                         checked: true,
                         disabled: true,
                     },
                     {
-                        label: I18n.t('history.耗时(s)'),
+                        label: '耗时(s)',
                         name: 'totalTime',
                         orderField: 'totalTime',
                         order: '',
@@ -154,7 +153,7 @@
                         checked: true,
                     },
                     {
-                        label: I18n.t('history.云区域'),
+                        label: '云区域',
                         name: 'cloudAreaName',
                         orderField: 'cloudAreaId',
                         order: '',
@@ -162,7 +161,7 @@
                         checked: true,
                     },
                     {
-                        label: I18n.t('history.返回码'),
+                        label: '返回码',
                         name: 'exitCode',
                         orderField: 'exitCode',
                         order: '',

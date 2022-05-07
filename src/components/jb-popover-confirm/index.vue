@@ -35,8 +35,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: 'JbPopoverConfirm',
         props: {
@@ -50,11 +49,11 @@
             },
             confirmText: {
                 type: String,
-                default: I18n.t('确定'),
+                default: '确定',
             },
             cancelText: {
                 type: String,
-                default: I18n.t('取消'),
+                default: '取消',
             },
             placement: {
                 type: String,

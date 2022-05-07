@@ -13,7 +13,7 @@
                 <Icon
                     v-if="item.tagMaxLength"
                     class="max-length-info"
-                    v-bk-tooltips="$t('history.分组标签长度最大支持256，超过会被自动截断，请留意！')"
+                    v-bk-tooltips="'分组标签长度最大支持256，超过会被自动截断，请留意！'"
                     type="info" />
                 <div class="group-nums">{{ item.agentTaskSize }}</div>
             </div>
@@ -33,7 +33,7 @@
                         <Icon
                             v-if="item.tagMaxLength"
                             class="max-length-info"
-                            v-bk-tooltips="$t('history.分组标签长度最大支持256，超过会被自动截断，请留意！')"
+                            v-bk-tooltips="'分组标签长度最大支持256，超过会被自动截断，请留意！'"
                             type="info" />
                         <div class="group-nums">{{ item.agentTaskSize }}</div>
                     </div>
@@ -44,8 +44,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -67,7 +66,7 @@
                 if (this.toggleGroup.find(_ => _.groupName === this.chooseGroupName)) {
                     return this.chooseGroupName;
                 }
-                return I18n.t('history.更多分组');
+                return '更多分组';
             },
             showGroupToggle () {
                 return this.toggleGroup.length > 0;

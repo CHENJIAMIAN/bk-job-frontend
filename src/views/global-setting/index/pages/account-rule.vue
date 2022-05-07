@@ -9,16 +9,16 @@
                     <div class="expression-input">
                         <bk-input
                             :value="rule.expression"
-                            :placeholder="$t('setting.请输入命名规则')"
+                            :placeholder="'请输入命名规则'"
                             @change="value => handleChange('expression', value, index)" />
                     </div>
                     <div class="rule">
                         <bk-input
                             :value="rule.description"
-                            :placeholder="$t('setting.请输入命名规则提醒文案')"
+                            :placeholder="'请输入命名规则提醒文案'"
                             @change="value => handleChange('description', value, index)" />
                     </div>
-                    <bk-button text class="reset" @click="handleReset(index)">{{ $t('setting.恢复默认') }}</bk-button>
+                    <bk-button text class="reset" @click="handleReset(index)">{{ '恢复默认' }}</bk-button>
                 </div>
             </div>
             <template #action>
@@ -26,15 +26,14 @@
                     theme="primary"
                     :loading="isSubmitting"
                     class="w120 mr10"
-                    @click="handleSave">{{ $t('setting.保存') }}</bk-button>
-                <bk-button @click="handleResetAll">{{ $t('setting.重置') }}</bk-button>
+                    @click="handleSave">{{ '保存' }}</bk-button>
+                <bk-button @click="handleResetAll">{{ '重置' }}</bk-button>
             </template>
         </smart-action>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import _ from 'lodash';
+       import _ from 'lodash';
     import GlobalSettingService from '@service/global-setting';
     import SmartAction from '@components/smart-action';
 
@@ -84,7 +83,7 @@
                     rules: this.currentRules,
                 }).then(() => {
                     window.changeAlert = false;
-                    this.messageSuccess(I18n.t('setting.账号命名规则保存成功'));
+                    this.messageSuccess('账号命名规则保存成功');
                 })
                     .finally(() => {
                         this.isSubmitting = false;

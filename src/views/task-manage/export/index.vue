@@ -16,8 +16,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import BackupService from '@service/backup';
+       import BackupService from '@service/backup';
     import { taskExport } from '@utils/cache-helper';
     import Step1 from './components/step1';
     import Step2 from './components/step2';
@@ -49,10 +48,10 @@
         },
         created () {
             this.steps = [
-                { title: I18n.t('template.用户须知.header'), icon: 1 },
-                { title: I18n.t('template.导出内容确认'), icon: 2 },
-                { title: I18n.t('template.导出设置'), icon: 3 },
-                { title: I18n.t('template.开始导出'), icon: 4 },
+                { title: '用户须知.header', icon: 1 },
+                { title: '导出内容确认', icon: 2 },
+                { title: '导出设置', icon: 3 },
+                { title: '开始导出', icon: 4 },
             ];
             this.fetchData();
         },
@@ -74,7 +73,7 @@
                             // 检测本地操作缓存
                             // 没有本地操作缓存——返回作业列表
                             if (!taskExportInfo.ids || taskExportInfo.ids.length < 1) {
-                                this.messageError(I18n.t('template.你还未选择导出作业'), () => {
+                                this.messageError('你还未选择导出作业', () => {
                                     this.$router.push({
                                         name: 'taskList',
                                     });

@@ -1,9 +1,7 @@
 
 
 import _ from 'lodash';
-import TaskHostNodeModel from '@model/task-host-node';
-import I18n from '@/i18n';
-import { bytePretty } from '@utils/assist';
+import TaskHostNodeModel from '@model/task-host-node';import { bytePretty } from '@utils/assist';
 
 const AGENT_STATUS_NORMAL = 1; // 正常
 const AGENT_STATUS_ABNORMAL = 0; // 异常
@@ -16,9 +14,9 @@ const FILE_TYPE_SOURCE = 3;
 
 export default class SourceFile {
     static statusAgentMap = {
-        [AGENT_STATUS_NORMAL]: I18n.t('正常'),
-        [AGENT_STATUS_ABNORMAL]: I18n.t('异常'),
-        [AGENT_STATUS_UNINSTALLED]: I18n.t('未安装'),
+        [AGENT_STATUS_NORMAL]: '正常',
+        [AGENT_STATUS_ABNORMAL]: '异常',
+        [AGENT_STATUS_UNINSTALLED]: '未安装',
     };
 
     static typeServer = FILE_TYPE_SERVER;
@@ -185,13 +183,13 @@ export default class SourceFile {
         // eslint-disable-next-line max-len
         const getHtml = (len, text) => `<span><span class="strong number">${len}</span>${text}</span>`;
         if (ipList.length > 0) {
-            textArr.push(getHtml(ipList.length, I18n.t('台主机.result')));
+            textArr.push(getHtml(ipList.length, '台主机.result'));
         }
         if (topoNodeList.length > 0) {
-            textArr.push(getHtml(topoNodeList.length, I18n.t('个节点.result')));
+            textArr.push(getHtml(topoNodeList.length, '个节点.result'));
         }
         if (dynamicGroupList.length > 0) {
-            textArr.push(getHtml(dynamicGroupList.length, I18n.t('个分组.result')));
+            textArr.push(getHtml(dynamicGroupList.length, '个分组.result'));
         }
         return `${textArr.join('<span class="sep-location"></span>\n')}`;
     }

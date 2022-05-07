@@ -1,8 +1,6 @@
 
 
 /* eslint-disable no-underscore-dangle */
-import I18n from '@/i18n';
-
 const STATUS_CRON_JOB_LOADING = -1;
 const STATUS_DEFAULT = 0;
 const STATUS_CONFIRM_QUEUE = 2;
@@ -30,16 +28,16 @@ export default class SyncPlan {
 
     static STATUS_TEXT_MAP = {
         [STATUS_CRON_JOB_LOADING]: '',
-        [STATUS_DEFAULT]: I18n.t('未就绪'),
-        [STATUS_CONFIRM_QUEUE]: I18n.t('等待确认中'),
-        [STATUS_CONFIRM_PENDGING]: I18n.t('确认中'),
-        [STATUS_CONFIRM_FAILED]: I18n.t('未就绪，确认失败'),
-        [STATUS_CONFIRMED]: I18n.t('已就绪'),
-        [STATUS_SYNC_QUEUE]: I18n.t('等待同步中'),
-        [STATUS_SYNC_PENDING]: I18n.t('同步中'),
-        [STATUS_SYNC_FAILED]: I18n.t('同步失败'),
-        [STATUS_SYNCED]: I18n.t('同步成功'),
-        [STATUS_PERMISSION]: I18n.t('无同步权限'),
+        [STATUS_DEFAULT]: '未就绪',
+        [STATUS_CONFIRM_QUEUE]: '等待确认中',
+        [STATUS_CONFIRM_PENDGING]: '确认中',
+        [STATUS_CONFIRM_FAILED]: '未就绪，确认失败',
+        [STATUS_CONFIRMED]: '已就绪',
+        [STATUS_SYNC_QUEUE]: '等待同步中',
+        [STATUS_SYNC_PENDING]: '同步中',
+        [STATUS_SYNC_FAILED]: '同步失败',
+        [STATUS_SYNCED]: '同步成功',
+        [STATUS_PERMISSION]: '无同步权限',
     };
 
     static STATUS_ICON_MAP = {
@@ -191,7 +189,7 @@ export default class SyncPlan {
     // 不能查看差异的原因
     get disableDiffTips () {
         if (!this.needUpdate) {
-            return I18n.t('方案已是最新版，无差异');
+            return '方案已是最新版，无差异';
         }
         return '';
     }
@@ -199,10 +197,10 @@ export default class SyncPlan {
     // 无需确认的原因
     get disableConfirmTips () {
         if (!this.needUpdate) {
-            return I18n.t('该方案已同步，无需处理');
+            return '该方案已同步，无需处理';
         }
         if (this.cronJobCount < 1) {
-            return I18n.t('无关联定时任务，系统自动确认');
+            return '无关联定时任务，系统自动确认';
         }
         return '';
     }

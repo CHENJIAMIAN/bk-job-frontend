@@ -27,14 +27,14 @@
                 <div class="log-search-box">
                     <compose-form-item>
                         <bk-select v-model="searchModel" :clearable="false" style="width: 100px;">
-                            <bk-option id="log" :name="$t('history.搜索日志')" />
-                            <bk-option id="ip" :name="$t('history.搜索 IP')" />
+                            <bk-option id="log" :name="'搜索日志'" />
+                            <bk-option id="ip" :name="'搜索 IP'" />
                         </bk-select>
                         <bk-input
                             :value="params.keyword"
                             key="log"
                             
-                            :tippy-tips="isFile ? $t('history.分发文件步骤不支持日志搜索') : ''"
+                            :tippy-tips="isFile ? '分发文件步骤不支持日志搜索' : ''"
                             right-icon="bk-icon icon-search"
                             style="width: 292px;"
                             @keyup="handleLogSearch" />
@@ -109,8 +109,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import {
         execCopy,
     } from '@utils/assist';
@@ -213,9 +212,9 @@
                     }
                 }
                 if (this.isFile) {
-                    text = `${text} ${I18n.t('history.分发文件')}`;
+                    text = `${text} ${'分发文件'}`;
                 } else {
-                    text = `${text} ${I18n.t('history.脚本执行')}`;
+                    text = `${text} ${'脚本执行'}`;
                 }
                 
                 return text;
@@ -396,13 +395,13 @@
                     if (data.length < 1) {
                         this.$bkMessage({
                             theme: 'warning',
-                            message: I18n.t('history.暂无可复制IP'),
+                            message: '暂无可复制IP',
                             limit: 1,
                         });
                         return;
                     }
                     const ipText = data.map(item => item.ip).join('\n');
-                    const successMessage = `${I18n.t('history.复制成功')}（${data.length} ${I18n.t('history.个')}IP）`;
+                    const successMessage = `${'复制成功'}（${data.length} ${'个'}IP）`;
                     execCopy(ipText, successMessage);
                 });
             },
@@ -415,7 +414,7 @@
                 }).then(() => {
                     this.$bkMessage({
                         theme: 'success',
-                        message: I18n.t('history.导出日志操作成功'),
+                        message: '导出日志操作成功',
                     });
                 });
             },
@@ -444,7 +443,7 @@
                 return TaskExecuteService.updateTaskExecutionStepOperateTerminate({
                     taskInstanceId: this.taskInstanceId,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('history.操作成功'));
+                    this.messageSuccess('操作成功');
                     this.$refs.taskStatus.reLoading();
                     this.$refs.executionHistorySelect.reLoading();
                     this.fetchStep();
@@ -469,7 +468,7 @@
                     this.$bkMessage({
                         limit: 1,
                         theme: 'success',
-                        message: I18n.t('history.操作成功'),
+                        message: '操作成功',
                     });
                     this.fetchStep();
                     return true;

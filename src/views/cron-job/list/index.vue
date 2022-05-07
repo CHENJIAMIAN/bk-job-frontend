@@ -10,14 +10,14 @@
                 @click="handleCreate"
                 class="w120"
                 v-test="{ type: 'button', value: 'createCrontab' }">
-                {{ $t('cron.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     @on-change="handleSearch"
                     :data="searchSelect"
-                    :placeholder="$t('cron.搜索任务ID，任务名称，更新人...')"
+                    :placeholder="'搜索任务ID，任务名称，更新人...'"
                     style="width: 480px;" />
             </template>
         </list-action-layout>
@@ -36,7 +36,7 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.name"
-                :label="$t('cron.任务名称.colHead')"
+                :label="'任务名称'"
                 sortable
                 prop="name"
                 key="name"
@@ -57,7 +57,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.planName"
-                :label="$t('cron.执行方案名称')"
+                :label="'执行方案名称'"
                 key="planName"
                 min-width="200"
                 align="left"
@@ -87,7 +87,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.policeText"
-                :label="$t('cron.执行策略.colHead')"
+                :label="'执行策略'"
                 prop="policeText"
                 key="policeText"
                 width="180"
@@ -102,21 +102,21 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('cron.创建人')"
+                :label="'创建人'"
                 prop="creator"
                 key="creator"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('cron.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('cron.更新人.colHead')"
+                :label="'更新人'"
                 sortable
                 prop="lastModifyUser"
                 key="lastModifyUser"
@@ -124,14 +124,14 @@
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('cron.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastExecuteStatus"
-                :label="$t('cron.最新执行结果')"
+                :label="'最新执行结果'"
                 sortable
                 prop="lastExecuteStatus"
                 key="lastExecuteStatus"
@@ -147,7 +147,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.successRateText"
-                :label="$t('cron.周期成功率')"
+                :label="'周期成功率'"
                 :render-header="renderHeader"
                 key="successRateText"
                 width="150"
@@ -171,7 +171,7 @@
                                         <bk-button
                                             text
                                             @click="handleHistoryRecord(row, true)">
-                                            {{ $t('cron.更多失败记录') }}
+                                            {{ '更多失败记录' }}
                                         </bk-button>
                                     </div>
                                 </div>
@@ -181,7 +181,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('cron.操作')"
+                :label="'操作'"
                 :resizable="false"
                 width="200"
                 key="action"
@@ -203,11 +203,11 @@
                         text
                         @click="handleEdit(row)"
                         v-test="{ type: 'button', value: 'editCrontab' }">
-                        {{ $t('cron.编辑') }}
+                        {{ '编辑' }}
                     </auth-button>
                     <jb-popover-confirm
-                        :title="$t('cron.确定删除该定时任务？')"
-                        :content="$t('cron.删除后不可恢复，请谨慎操作！')"
+                        :title="'确定删除该定时任务？'"
+                        :content="'删除后不可恢复，请谨慎操作！'"
                         :confirm-handler="instance => handleDelete(row)">
                         <auth-button
                             auth="cron/delete"
@@ -215,14 +215,14 @@
                             :permission="row.canManage"
                             text
                             v-test="{ type: 'button', value: 'deleteCrontab' }">
-                            {{ $t('cron.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                     <bk-button
                         text
                         @click="handleHistoryRecord(row)"
                         v-test="{ type: 'button', value: 'crontabExecRecord' }">
-                        {{ $t('cron.执行记录') }}
+                        {{ '执行记录' }}
                     </bk-button>
                 </template>
             </bk-table-column>
@@ -246,7 +246,7 @@
         </jb-sideslider>
         <jb-sideslider
             :is-show.sync="showDetail"
-            :title="$t('cron.定时任务详情')"
+            :title="'定时任务详情'"
             :width="960">
             <task-detail :data="cronJobDetailInfo" />
             <template #footer>
@@ -254,7 +254,7 @@
                     theme="primary"
                     @click="handleToggelEdit"
                     v-test="{ type: 'button', value: 'showCrontabDetail' }">
-                    {{ $t('cron.编辑') }}
+                    {{ '编辑' }}
                 </bk-button>
             </template>
         </jb-sideslider>
@@ -265,7 +265,7 @@
             transfer
             :width="960">
             <div slot="header">
-                <span>{{ $t('cron.定时执行记录') }}</span>
+                <span>{{ '定时执行记录' }}</span>
                 <span style="font-size: 12px; color: #313238;">（{{ cronJobDetailInfo.name }}）</span>
             </div>
             <history-record
@@ -277,8 +277,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TimeTaskService from '@service/time-task';
+       import TimeTaskService from '@service/time-task';
     import NotifyService from '@service/notify';
     import { listColumnsCache } from '@utils/cache-helper';
     import ListActionLayout from '@components/list-action-layout';
@@ -334,13 +333,13 @@
             operationSidesliderInfo () {
                 if (this.cronJobDetailInfo.id) {
                     return {
-                        title: I18n.t('cron.编辑定时任务'),
-                        okText: I18n.t('cron.保存'),
+                        title: '编辑定时任务',
+                        okText: '保存',
                     };
                 }
                 return {
-                    title: I18n.t('cron.新建定时任务'),
-                    okText: I18n.t('cron.提交'),
+                    title: '新建定时任务',
+                    okText: '提交',
                 };
             },
         },
@@ -355,30 +354,30 @@
                 {
                     name: 'ID',
                     id: 'cronJobId',
-                    description: I18n.t('cron.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                     validate (values, item) {
                         const validate = (values || []).every(_ => /^(\d*)$/.test(_.name));
-                        return !validate ? I18n.t('cron.ID只支持数字') : true;
+                        return !validate ? 'ID只支持数字' : true;
                     },
                 },
                 {
-                    name: I18n.t('cron.任务名称.colHead'),
+                    name: '任务名称',
                     id: 'name',
                     default: true,
                 },
                 {
-                    name: I18n.t('cron.执行方案ID'),
+                    name: '执行方案ID',
                     id: 'planId',
                     default: true,
                 },
                 {
-                    name: I18n.t('cron.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('cron.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -391,42 +390,42 @@
                 },
                 {
                     id: 'name',
-                    label: I18n.t('cron.任务名称.colHead'),
+                    label: '任务名称',
                     disabled: true,
                 },
                 {
                     id: 'planName',
-                    label: I18n.t('cron.执行方案名称'),
+                    label: '执行方案名称',
                 },
                 {
                     id: 'policeText',
-                    label: I18n.t('cron.执行策略.colHead'),
+                    label: '执行策略',
                     disabled: true,
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('cron.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('cron.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('cron.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('cron.更新时间'),
+                    label: '更新时间',
                 },
                 {
                     id: 'lastExecuteStatus',
-                    label: I18n.t('cron.最新执行结果'),
+                    label: '最新执行结果',
                     disabled: true,
                 },
                 {
                     id: 'successRateText',
-                    label: I18n.t('cron.周期成功率'),
+                    label: '周期成功率',
                     disabled: true,
                 },
             ];
@@ -518,12 +517,12 @@
                             type="circle-italics-info"
                             style="margin-left: 8px; font-size: 12px;" />
                         <div slot="content">
-                            <div style="font-weight: bold">{ I18n.t('cron.「周期成功率」采样规则和计算公式') }</div>
-                            <div style="margin-top: 8px; font-weight: bold">{ I18n.t('cron.采样规则：') }</div>
-                            <div>{ I18n.t('cron.近 24小时执行次数 ＞10，则 “分母” 为近 24 小时执行总数') }</div>
-                            <div>{ I18n.t('cron.近 24小时执行次数 ≤ 10，则 “分母” 为近 10 次执行任务') }</div>
-                            <div style="margin-top: 6px; font-weight: bold">{ I18n.t('cron.计算公式：') }</div>
-                            <div>{ I18n.t('cron.成功次数(分子) / 分母 * 100 = 周期成功率（%）') }</div>
+                            <div style="font-weight: bold">{ '「周期成功率」采样规则和计算公式' }</div>
+                            <div style="margin-top: 8px; font-weight: bold">{ '采样规则：' }</div>
+                            <div>{ '近 24小时执行次数 ＞10，则 “分母” 为近 24 小时执行总数' }</div>
+                            <div>{ '近 24小时执行次数 ≤ 10，则 “分母” 为近 10 次执行任务' }</div>
+                            <div style="margin-top: 6px; font-weight: bold">{ '计算公式：' }</div>
+                            <div>{ '成功次数(分子) / 分母 * 100 = 周期成功率（%）' }</div>
                         </div>
                     </bk-popover>
                 </span>
@@ -608,7 +607,7 @@
                     id: crontabData.id,
                     enable,
                 }).then(() => {
-                    this.messageSuccess(enable ? I18n.t('cron.开启成功') : I18n.t('cron.关闭成功'));
+                    this.messageSuccess(enable ? '开启成功' : '关闭成功');
                 })
                     .catch(() => {
                         crontabData.enable = enableMemo;
@@ -624,7 +623,7 @@
                 return TimeTaskService.timeTaskDelete({
                     id: crontabData.id,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('cron.删除定时任务成功'));
+                    this.messageSuccess('删除定时任务成功');
                     this.fetchData();
                     return true;
                 });

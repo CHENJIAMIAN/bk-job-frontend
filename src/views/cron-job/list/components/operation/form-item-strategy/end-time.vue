@@ -2,7 +2,7 @@
 
 <template>
     <jb-form-item>
-        <bk-checkbox :value="isEndTime" @change="handleChange">{{ $t('cron.设置结束时间') }}</bk-checkbox>
+        <bk-checkbox :value="isEndTime" @change="handleChange">{{ '设置结束时间' }}</bk-checkbox>
         <div v-if="isEndTime">
             <bk-date-picker
                 style="width: 100%;"
@@ -11,7 +11,7 @@
                 :transfer="true"
                 :clearable="false"
                 type="datetime"
-                :placeholder="$t('cron.选择日期时间')"
+                :placeholder="'选择日期时间'"
                 @change="handleEndTimeChange" />
         </div>
     </jb-form-item>

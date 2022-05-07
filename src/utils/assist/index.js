@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import { messageSuccess } from '@/common/bkmagic';
 
 export * from './permission';
@@ -37,7 +35,7 @@ export const formatScriptTypeValue = (value) => {
     return typeMap[key] || key;
 };
 
-export const execCopy = (value, message = I18n.t('复制成功')) => {
+export const execCopy = (value, message = '复制成功') => {
     const textarea = document.createElement('textarea');
     document.body.appendChild(textarea);
     textarea.value = value;

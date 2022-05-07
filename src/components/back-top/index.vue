@@ -3,7 +3,7 @@
 <template>
     <div
         v-if="isShow"
-        v-bk-tooltips="$t('回到顶部')"
+        v-bk-tooltips="'回到顶部'"
         class="job-back-top"
         :class="classes"
         :style="styles"

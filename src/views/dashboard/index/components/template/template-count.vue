@@ -3,45 +3,45 @@
 <template>
     <card-layout
         class="template-count-dashboard"
-        :title="$t('dashboard.作业模板量')">
+        :title="'作业模板量'">
         <render-trend metric="TASK_TEMPLATE_COUNT" :date="date" />
         <div slot="extend">
             <Icon
                 type="line-chart-line"
-                v-bk-tooltips="$t('dashboard.查看趋势图')"
+                v-bk-tooltips="'查看趋势图'"
                 @click="handleShowTrend" />
             <Icon
                 type="table-line"
-                v-bk-tooltips="$t('dashboard.查看列表')"
+                v-bk-tooltips="'查看列表'"
                 @click="handleShowList" />
         </div>
         <trend-dialog
             v-model="isShowTrend"
             metric="TASK_TEMPLATE_COUNT"
-            :title="$t('dashboard.作业模板量趋势图')"
-            :name="$t('dashboard.作业模板量')"
+            :title="'作业模板量趋势图'"
+            :name="'作业模板量'"
             :date="date" />
         <lower-component level="custom" :custom="isShowList">
             <jb-dialog
                 v-model="isShowList"
-                :title="$t('dashboard.作业模板量列表')"
+                :title="'作业模板量列表'"
                 :width="520"
                 :show-footer="false"
                 header-position="left">
                 <div style="margin-top: 12px;" v-bkloading="{ isLoading: isListLoading, opacity: 0.8 }">
                     <bk-table :data="listData" :max-height="420">
                         <bk-table-column
-                            :label="$t('dashboard.业务名')"
+                            :label="'业务名'"
                             prop="appName"
                             key="appName"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.作业模板量')"
+                            :label="'作业模板量'"
                             prop="value"
                             key="value"
                             align="left" />
                         <bk-table-column
-                            :label="$t('dashboard.占比')"
+                            :label="'占比'"
                             prop="ratio"
                             key="ratio"
                             align="left" />

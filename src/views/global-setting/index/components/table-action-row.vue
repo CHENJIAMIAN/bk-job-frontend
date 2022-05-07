@@ -6,7 +6,7 @@
             <td colspan="4">
                 <bk-button text @click="handleToggle">
                     <Icon type="plus" />
-                    {{ $t('setting.新增检测规则') }}
+                    {{ '新增检测规则' }}
                 </bk-button>
             </td>
         </tr>
@@ -31,15 +31,14 @@
                 </bk-select>
             </td>
             <td>
-                <bk-button text @click="handleSubmit">{{ $t('setting.保存') }}</bk-button>
-                <bk-button text @click="handleCancel">{{ $t('setting.取消') }}</bk-button>
+                <bk-button text @click="handleSubmit">{{ '保存' }}</bk-button>
+                <bk-button text @click="handleCancel">{{ '取消' }}</bk-button>
             </td>
         </tr>
     </tbody>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import GlobalSettingService from '@service/global-setting';
+       import GlobalSettingService from '@service/global-setting';
     import PublicScriptManageService from '@service/public-script-manage';
 
     const generatorDefautlData = () => ({
@@ -79,7 +78,7 @@
                     return;
                 }
                 if (!this.formData.expression || !this.formData.description) {
-                    this.messageError(I18n.t('setting.请填写完整的语法检测表达式和说明'));
+                    this.messageError('请填写完整的语法检测表达式和说明');
                     return;
                 }
                 this.isSubmiting = true;
@@ -87,7 +86,7 @@
                     id: -1,
                     ...this.formData,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('setting.新增成功'));
+                    this.messageSuccess('新增成功');
                     this.$emit('on-change');
                     this.handleCancel();
                 })

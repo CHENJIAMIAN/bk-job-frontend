@@ -7,14 +7,14 @@
                 class="tab-item"
                 :class="{ active: listTab === 'template' }"
                 @click="handleTabChange('template')">
-                <div class="tab-name">{{ $t('script.作业模板引用') }}</div>
+                <div class="tab-name">{{ '作业模板引用' }}</div>
                 <div class="tab-nums">{{ info.relatedTaskTemplateNum }}</div>
             </div>
             <div
                 class="tab-item"
                 :class="{ active: listTab === 'plan' }"
                 @click="handleTabChange('plan')">
-                <div class="tab-name">{{ $t('script.执行方案引用') }}</div>
+                <div class="tab-name">{{ '执行方案引用' }}</div>
                 <div class="tab-nums">{{ info.relatedTaskPlanNum }}</div>
             </div>
         </div>

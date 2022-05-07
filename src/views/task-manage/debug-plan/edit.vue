@@ -2,17 +2,17 @@
 
 <template>
     <div class="edit-execute-plan" v-bkloading="{ isLoading }">
-        <bk-alert class="info" :title="$t('template.调试方案的特殊性：不可删除、始终与作业模板同步、不能被API调用、只能在作业平台使用')" />
+        <bk-alert class="info" :title="'调试方案的特殊性：不可删除、始终与作业模板同步、不能被API调用、只能在作业平台使用'" />
         <smart-action offset-target="bk-form-content">
             <jb-form ref="editPlanForm" :model="formData" :rules="rules">
-                <jb-form-item :label="$t('template.全局变量.label')">
+                <jb-form-item :label="'全局变量'">
                     <render-global-var
                         :list="variableList"
                         :select-value="selectedVariable"
                         mode="editOfPlan"
                         @on-change="handleGlobalVariableChange" />
                 </jb-form-item>
-                <jb-form-item :label="$t('template.执行步骤')" required property="enableSteps">
+                <jb-form-item :label="'执行步骤'" required property="enableSteps">
                     <render-task-step
                         :list="taskStepList"
                         :select-value="formData.enableSteps"
@@ -26,16 +26,15 @@
                     class="w120 mr10"
                     :loading="isSubmitLoading"
                     @click="handleSumbit">
-                    {{ $t('template.保存') }}
+                    {{ '保存' }}
                 </bk-button>
-                <bk-button @click="handleCancle">{{ $t('template.取消') }}</bk-button>
+                <bk-button @click="handleCancle">{{ '取消' }}</bk-button>
             </template>
         </smart-action>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskPlanService from '@service/task-plan';
+       import TaskPlanService from '@service/task-plan';
     import JbForm from '@components/jb-form';
     import {
         findUsedVariable,
@@ -81,7 +80,7 @@
                 enableSteps: [
                     {
                         validator: () => this.formData.enableSteps.length,
-                        message: I18n.t('template.执行步骤必填'),
+                        message: '执行步骤必填',
                         trigger: 'blur',
                     },
                 ],
@@ -152,7 +151,7 @@
                         .then((data) => {
                             this.$bkMessage({
                                 theme: 'success',
-                                message: I18n.t('template.操作成功'),
+                                message: '操作成功',
                             });
                             this.$router.push({
                                 name: 'debugPlan',

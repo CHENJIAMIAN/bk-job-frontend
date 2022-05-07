@@ -11,8 +11,8 @@
                 <item-factory
                     name="scriptName"
                     field="name"
-                    :label="$t('execution.脚本名称')"
-                    :placeholder="$t('execution.取一个便于记忆的任务名，方便后续在历史记录中快速定位...')"
+                    :label="'脚本名称'"
+                    :placeholder="'取一个便于记忆的任务名，方便后续在历史记录中快速定位...'"
                     :form-data="formData"
                     @on-change="handleChange" />
                 <item-factory
@@ -63,12 +63,12 @@
                         theme="primary"
                         @click="handleSubmit"
                         v-test="{ type: 'button', value: 'fastExecuteScriptSubmit' }">
-                        {{ $t('execution.执行') }}
+                        {{ '执行' }}
                     </bk-button>
                     <bk-button
                         @click="handleCancel"
                         v-test="{ type: 'button', value: 'fastExecuteScriptCancel' }">
-                        {{ $t('execution.重置') }}
+                        {{ '重置' }}
                     </bk-button>
                 </div>
             </template>
@@ -76,7 +76,7 @@
         <div v-if="historyList.length > 0" class="execution-history" :class="{ active: isShowHistory }">
             <div class="toggle-btn" @click="handleShowHistory">
                 <Icon class="toggle-flag" type="angle-double-left" />
-                <div class="recent-result">{{ $t('execution.最近结果') }}</div>
+                <div class="recent-result">{{ '最近结果' }}</div>
             </div>
             <div class="history-content">
                 <div
@@ -92,8 +92,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import TaskStepModel from '@model/task/task-step';
     import TaskHostNodeModel from '@model/task-host-node';
     import ItemFactory from '@components/task-step/script/item-factory';
@@ -109,7 +108,7 @@
     const getDefaultData = () => ({
         isScriptContentLoading: false,
         // 快速执行name
-        name: genDefaultName(I18n.t('execution.快速执行脚本')),
+        name: genDefaultName('快速执行脚本'),
         // 脚本来源
         scriptSource: TaskStepModel.scriptStep.TYPE_SOURCE_LOCAL,
         // 脚本类型，默认shell

@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import TaskHostNodeModel from '@model/task-host-node';
 
 const TYPE_STRING = 1;
@@ -27,12 +25,12 @@ export default class GlobalVariable {
     };
 
     static typeTextMap = {
-        [TYPE_STRING]: I18n.t('字符串'),
-        [TYPE_NAMESPACE]: I18n.t('命名空间'),
-        [TYPE_HOST]: I18n.t('主机列表'),
-        [TYPE_PASSWORD]: I18n.t('密文'),
-        [TYPE_RELATE_ARRAY]: I18n.t('数组'),
-        [TYPE_INDEX_ARRAY]: I18n.t('数组'),
+        [TYPE_STRING]: '字符串',
+        [TYPE_NAMESPACE]: '命名空间',
+        [TYPE_HOST]: '主机列表',
+        [TYPE_PASSWORD]: '密文',
+        [TYPE_RELATE_ARRAY]: '数组',
+        [TYPE_INDEX_ARRAY]: '数组',
     };
     
     constructor (payload, isClone = false) {
@@ -121,7 +119,7 @@ export default class GlobalVariable {
      * @returns { String }
      */
     get changeableText () {
-        return this.changeable ? I18n.t('是') : I18n.t('否');
+        return this.changeable ? '是' : '否';
     }
 
     /**
@@ -129,7 +127,7 @@ export default class GlobalVariable {
      * @returns { String }
      */
     get requiredText () {
-        return this.required ? I18n.t('是') : I18n.t('否');
+        return this.required ? '是' : '否';
     }
 
     /**

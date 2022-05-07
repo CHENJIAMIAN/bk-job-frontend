@@ -15,13 +15,13 @@
             </div>
             <div v-if="!data.isNotStart" class="step-info">
                 <detail-layout>
-                    <detail-item :label="`${$t('history.步骤名称')}：`">
+                    <detail-item :label="`${'步骤名称'}：`">
                         {{ data.name }}
                     </detail-item>
-                    <detail-item :label="`${$t('history.开始时间.label')}：`">
+                    <detail-item :label="`${'开始时间'}：`">
                         {{ data.startTime }}
                     </detail-item>
-                    <detail-item :label="`${$t('history.结束时间')}：`">
+                    <detail-item :label="`${'结束时间'}：`">
                         {{ data.endTime || '--' }}
                     </detail-item>
                 </detail-layout>

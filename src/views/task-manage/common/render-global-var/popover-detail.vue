@@ -12,23 +12,23 @@
                 <span
                     v-if="editOfPlan && !selectValue.includes(data.name)"
                     class="tag">
-                    {{ $t('template.未引用') }}
+                    {{ '未引用' }}
                 </span>
             </div>
             <detail-layout>
-                <detail-item :label="$t('template.变量类型：')">
+                <detail-item :label="'变量类型：'">
                     {{ data.typeText }}
                 </detail-item>
                 <detail-item :label="`${defaultField}：`">
                     {{ data.valueText }}
                 </detail-item>
-                <detail-item :label="$t('template.变量描述：')">
+                <detail-item :label="'变量描述：'">
                     {{ data.description || '--' }}
                 </detail-item>
-                <detail-item :label="$t('template.必填：')">
+                <detail-item :label="'必填：'">
                     {{ data.requiredText }}
                 </detail-item>
-                <detail-item :label="$t('template.赋值可变：')">
+                <detail-item :label="'赋值可变：'">
                     {{ data.changeableText }}
                 </detail-item>
             </detail-layout>
@@ -36,8 +36,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import DetailLayout from '@components/detail-layout';
+       import DetailLayout from '@components/detail-layout';
     import DetailItem from '@components/detail-layout/item';
 
     export default {
@@ -61,7 +60,7 @@
             },
             defaultField: {
                 type: String,
-                default: I18n.t('template.初始值'),
+                default: '初始值',
             },
         },
         data () {

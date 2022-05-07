@@ -8,7 +8,7 @@
             @on-change="handleSearch"
             :parse-url="false"
             :data="searchSelect"
-            :placeholder="$t('ticket.搜索文件源别名...')" />
+            :placeholder="'搜索文件源别名...'" />
         <render-list
             ref="fileSourcelist"
             :data-source="fetchFileSourceList"
@@ -19,7 +19,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('ticket.文件源别名')"
+                :label="'文件源别名'"
                 sortable
                 align="left"
                 show-overflow-tooltip>
@@ -40,13 +40,13 @@
                     </auth-router-link>
                     <span
                         v-else
-                        v-bk-tooltips="$t('ticket.接入点异常，暂时不可用')">
+                        v-bk-tooltips="'接入点异常，暂时不可用'">
                         <bk-button disabled text>{{ row.alias }}</bk-button>
                     </span>
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('ticket.文件源标识')"
+                :label="'文件源标识'"
                 sortable
                 align="left"
                 width="160"
@@ -54,7 +54,7 @@
                 prop="code" />
             <bk-table-column
                 width="80"
-                :label="$t('ticket.状态')">
+                :label="'状态'">
                 <template slot-scope="{ row }">
                     <Icon :type="row.statusIcon" svg />
                     {{ row.statusText }}
@@ -62,18 +62,17 @@
             </bk-table-column>
             <bk-table-column
                 width="120"
-                :label="$t('ticket.更新人')"
+                :label="'更新人'"
                 prop="lastModifyUser" />
             <bk-table-column
                 width="180"
-                :label="$t('ticket.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime" />
         </render-list>
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import FileManageService from '@service/file-source-manage';
+       import FileManageService from '@service/file-source-manage';
     import JbSearchSelect from '@components/jb-search-select';
     import RenderList from '@components/render-list';
 
@@ -100,7 +99,7 @@
             this.fetchFileSourceList = FileManageService.fetchFileSourceList;
             this.searchSelect = [
                 {
-                    name: I18n.t('ticket.文件源别名'),
+                    name: '文件源别名',
                     id: 'alias',
                 },
             ];

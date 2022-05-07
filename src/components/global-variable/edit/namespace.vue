@@ -11,7 +11,7 @@
         <p
             v-if="isError"
             class="variable-error">
-            {{ $t('该变量的值必填') }}
+            {{ '该变量的值必填' }}
         </p>
     </div>
 </template>

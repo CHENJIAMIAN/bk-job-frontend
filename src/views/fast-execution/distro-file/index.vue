@@ -8,12 +8,12 @@
                 ref="pushFileForm"
                 v-test="{ type: 'form', value: 'pushFile' }"
                 :model="formData">
-                <card-layout :title="$t('execution.基本信息')" class="block">
+                <card-layout :title="'基本信息'" class="block">
                     <item-factory
                         name="stepName"
                         field="name"
-                        :label="$t('execution.任务名称')"
-                        :placeholder="$t('execution.取一个便于记忆的任务名，方便后续在历史记录中快速定位...')"
+                        :label="'任务名称'"
+                        :placeholder="'取一个便于记忆的任务名，方便后续在历史记录中快速定位...'"
                         :form-data="formData"
                         @on-change="handleChange" />
                     <item-factory
@@ -24,24 +24,24 @@
                     <item-factory
                         name="speedLimit"
                         field="uploadSpeedLimit"
-                        :label="$t('execution.上传限速')"
+                        :label="'上传限速'"
                         :form-data="formData"
                         @on-change="handleChange" />
                     <item-factory
                         name="speedLimit"
                         field="downloadSpeedLimit"
-                        :label="$t('execution.下载限速')"
+                        :label="'下载限速'"
                         :form-data="formData"
                         @on-change="handleChange" />
                 </card-layout>
-                <card-layout :title="$t('execution.文件来源')" class="block">
+                <card-layout :title="'文件来源'" class="block">
                     <item-factory
                         name="sourceFileOfExecution"
                         field="fileSourceList"
                         :form-data="formData"
                         @on-change="handleChange" />
                 </card-layout>
-                <card-layout :title="$t('execution.传输目标')" class="block" style="margin-bottom: 0;">
+                <card-layout :title="'传输目标'" class="block" style="margin-bottom: 0;">
                     <item-factory
                         ref="targetPath"
                         name="targetPath"
@@ -73,19 +73,19 @@
                     :loading="isSubmiting"
                     @click="handleSubmit"
                     v-test="{ type: 'button', value: 'fastPushFileSubmit' }">
-                    {{ $t('execution.执行') }}
+                    {{ '执行' }}
                 </bk-button>
                 <bk-button
                     @click="handleCancel"
                     v-test="{ type: 'button', value: 'fastPushFileReset' }">
-                    {{ $t('execution.重置') }}
+                    {{ '重置' }}
                 </bk-button>
             </template>
         </smart-action>
         <div v-if="historyList.length > 0" class="execution-history" :class="{ active: isShowHistory }">
             <div class="toggle-btn" @click="handleShowHistory">
                 <Icon class="toggle-flag" type="angle-double-left" />
-                <div class="recent-result">{{ $t('execution.最近结果') }}</div>
+                <div class="recent-result">{{ '最近结果' }}</div>
             </div>
             <div class="history-content">
                 <div
@@ -104,8 +104,7 @@
     import {
         mapState,
     } from 'vuex';
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import TaskStepModel from '@model/task/task-step';
     import TaskHostNodeModel from '@model/task-host-node';
     import JbForm from '@components/jb-form';
@@ -122,7 +121,7 @@
 
     const getDefaultData = () => ({
         // 快速执行name
-        name: genDefaultName(I18n.t('execution.快速执行分发文件')),
+        name: genDefaultName('快速执行分发文件'),
         // 源文件列表
         fileSourceList: [{},{},{}],
         // 超时
@@ -318,10 +317,10 @@
                             return resolve();
                         }
                         this.$bkInfo({
-                            title: I18n.t('execution.您有未保存的源文件'),
+                            title: '您有未保存的源文件',
                             type: 'warning',
-                            okText: I18n.t('execution.继续执行'),
-                            cancelText: I18n.t('execution.去保存'),
+                            okText: '继续执行',
+                            cancelText: '去保存',
                             confirmFn: () => {
                                 setTimeout(() => {
                                     resolve();
@@ -350,11 +349,11 @@
                         }
                         if (sameHost) {
                             this.$bkInfo({
-                                title: I18n.t('execution.源和目标服务器相同'),
-                                subTitle: I18n.t('execution.检测到文件传输源和目标服务器是同一批，若是单台建议使用本地 cp 方式效率会更高，请问你是否确定参数无误？'),
+                                title: '源和目标服务器相同',
+                                subTitle: '检测到文件传输源和目标服务器是同一批，若是单台建议使用本地 cp 方式效率会更高，请问你是否确定参数无误？',
                                 width: 500,
-                                okText: I18n.t('execution.好的，我调整一下'),
-                                cancelText: I18n.t('execution.是的，确定无误'),
+                                okText: '好的，我调整一下',
+                                cancelText: '是的，确定无误',
                                 confirmFn: () => {
                                     reject(new Error('execute'));
                                 },
@@ -371,10 +370,10 @@
                         if (detectionSourceFileDupLocation(this.formData.fileSourceList)) {
                             // 有重名目录和文件
                             this.$bkInfo({
-                                title: I18n.t('execution.源文件可能出现同名'),
-                                subTitle: I18n.t('execution.多文件源传输场景下容易出现同名文件覆盖的问题，你可以在目标路径中使用 [源服务器IP] 的变量来尽可能规避风险。'),
-                                okText: I18n.t('execution.好的，我调整一下'),
-                                cancelText: I18n.t('execution.已知悉，确定执行'),
+                                title: '源文件可能出现同名',
+                                subTitle: '多文件源传输场景下容易出现同名文件覆盖的问题，你可以在目标路径中使用 [源服务器IP] 的变量来尽可能规避风险。',
+                                okText: '好的，我调整一下',
+                                cancelText: '已知悉，确定执行',
                                 closeIcon: false,
                                 width: 500,
                                 confirmFn: () => {

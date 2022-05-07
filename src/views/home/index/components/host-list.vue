@@ -10,13 +10,13 @@
             @page-change="handlePageChange"
             @page-limit-change="handleLimitChange">
             <bk-table-column prop="ip" label="IP" class-name="ip-item" />
-            <bk-table-column :label="$t('home.云区域')">
+            <bk-table-column :label="'云区域'">
                 <template slot-scope="{ row }">{{ row.cloudAreaInfo.name || '--' }}</template>
             </bk-table-column>
-            <bk-table-column :label="$t('home.主机名')">
+            <bk-table-column :label="'主机名'">
                 <template slot-scope="{ row }">{{ row.ipDesc || '--' }}</template>
             </bk-table-column>
-            <bk-table-column :label="$t('home.操作系统名称')">
+            <bk-table-column :label="'操作系统名称'">
                 <template slot-scope="{ row }">{{ row.os || '--' }}</template>
             </bk-table-column>
         </bk-table>

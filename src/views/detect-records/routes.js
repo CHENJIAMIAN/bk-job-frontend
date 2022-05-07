@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'detect_records',
     name: 'detectRecords',
@@ -10,7 +8,7 @@ export default {
         name: 'detectRecordsList',
     },
     meta: {
-        title: I18n.t('检测记录'),
+        title: '检测记录',
         group: 'manage',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'detectRecordsList',
             component: () => import('@views/detect-records/list'),
             meta: {
-                pageTitle: I18n.t('检测记录'),
+                pageTitle: '检测记录',
                 skeleton: 'list',
             },
         },

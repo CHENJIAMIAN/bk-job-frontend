@@ -23,21 +23,21 @@
                     </div>
                 </scroll-faker>
             </template>
-            <Empty v-else :title="$t('home.暂无执行记录')" class="record-empty" />
+            <Empty v-else :title="'暂无执行记录'" class="record-empty" />
             <div class="record-actions">
                 <bk-radio-group
                     :value="recordOperator"
                     @change="handleRecordFilterChange"
                     class="record-filter">
                     <bk-radio-button value="">
-                        {{ $t('home.全部') }}
+                        {{ '全部' }}
                     </bk-radio-button>
                     <bk-radio-button :value="userInfo.username">
-                        {{ $t('home.我执行') }}
+                        {{ '我执行' }}
                     </bk-radio-button>
                 </bk-radio-group>
                 <router-link :to="{ name: 'historyList' }" class="action-btn">
-                    {{ $t('home.更多') }}
+                    {{ '更多' }}
                 </router-link>
             </div>
         </div>

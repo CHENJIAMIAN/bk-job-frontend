@@ -9,8 +9,7 @@
         :handle-change-status="handleChangeStatus" />
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TaskExecuteService from '@service/task-execute';
+       import TaskExecuteService from '@service/task-execute';
     import ThemeNormal from './theme/normal';
     import ThemeApproval from './theme/approval';
     import StepAction from '../../../common/step-action';
@@ -42,7 +41,7 @@
                 if (this.data.isNotStart) {
                     this.$bkMessage({
                         theme: 'warning',
-                        message: I18n.t('history.该步骤还未执行'),
+                        message: '该步骤还未执行',
                         limit: 1,
                     });
                     return;
@@ -59,7 +58,7 @@
                     this.$bkMessage({
                         limit: 1,
                         theme: 'success',
-                        message: I18n.t('history.操作成功'),
+                        message: '操作成功',
                     });
                     this.$emit('on-update');
                     return true;

@@ -10,8 +10,8 @@
             @mouseover="handleShow"
             @mouseleave="handleClose">
             <template v-if="copyable">
-                <div class="action-item" @click="handleCopyAll">{{ $t('复制全部IP') }}</div>
-                <div class="action-item" @click="handleCopyFail">{{ $t('复制异常IP') }}</div>
+                <div class="action-item" @click="handleCopyAll">{{ '复制全部IP' }}</div>
+                <div class="action-item" @click="handleCopyFail">{{ '复制异常IP' }}</div>
             </template>
             <slot />
         </div>
@@ -21,8 +21,7 @@
     import {
         execCopy,
     } from '@utils/assist';
-    import I18n from '@/i18n';
-
+   
     const instanceMap = {};
 
     export default {
@@ -91,7 +90,7 @@
              */
             handleCopyAll () {
                 if (this.list.length < 1 && this.invalidList.length < 1) {
-                    this.messageWarn(I18n.t('你还未选择主机'));
+                    this.messageWarn('你还未选择主机');
                     return;
                 }
                 let allIP = this.list.map(host => host.ip);
@@ -99,14 +98,14 @@
                 allIP = [
                     ...allIP, ...allInvalidList,
                 ];
-                execCopy(allIP.join('\n'), `${I18n.t('复制成功')}（${allIP.length}${I18n.t('个IP')}）`);
+                execCopy(allIP.join('\n'), `${'复制成功'}（${allIP.length}${'个IP'}）`);
             },
             /**
              * @desc 复制异常主机
              */
             handleCopyFail () {
                 if (this.list.length < 1 && this.invalidList.length < 1) {
-                    this.messageWarn(I18n.t('你还未选择主机'));
+                    this.messageWarn('你还未选择主机');
                     return;
                 }
                 let allFailIp = [];
@@ -116,14 +115,14 @@
                     }
                 });
                 if (allFailIp.length < 1 && this.invalidList.length < 1) {
-                    this.messageWarn(I18n.t('暂无异常主机'));
+                    this.messageWarn('暂无异常主机');
                     return;
                 }
                 const allInvalidList = this.invalidList.map(host => host.ip);
                 allFailIp = [
                     ...allFailIp, ...allInvalidList,
                 ];
-                execCopy(allFailIp.join('\n'), `${I18n.t('复制成功')}（${allFailIp.length}${I18n.t('个异常IP')}）`);
+                execCopy(allFailIp.join('\n'), `${'复制成功'}（${allFailIp.length}${'个异常IP'}）`);
             },
             handleShow () {
                 clearTimeout(this.leaveTimer);

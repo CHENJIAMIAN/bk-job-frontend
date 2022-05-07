@@ -3,14 +3,14 @@
 <template>
     <div v-if="isShowNotify">
         <jb-form-item>
-            <bk-checkbox v-model="isFinishBeforeNotify">{{ $t('cron.结束前通知') }}</bk-checkbox>
+            <bk-checkbox v-model="isFinishBeforeNotify">{{ '结束前通知' }}</bk-checkbox>
         </jb-form-item>
         <render-strategy v-if="isFinishBeforeNotify" left="55" class="notify-wraper">
             <execute-notify
                 v-on="$listeners"
                 v-bind="$attrs"
                 :form-data="formData"
-                :notify-offset-label="$t('cron.结束前')" />
+                :notify-offset-label="'结束前'" />
         </render-strategy>
     </div>
 </template>

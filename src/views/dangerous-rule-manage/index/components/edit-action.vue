@@ -26,8 +26,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -57,11 +56,11 @@
             this.actionList = [
                 {
                     id: 1,
-                    name: I18n.t('dangerousRule.扫描'),
+                    name: '扫描',
                 },
                 {
                     id: 2,
-                    name: I18n.t('dangerousRule.拦截'),
+                    name: '拦截',
                 },
             ];
         },

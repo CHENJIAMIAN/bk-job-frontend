@@ -6,22 +6,22 @@
             <div class="sync-wraper">
                 <div class="sync-layout sync-header">
                     <div class="sync-before">
-                        <div class="title">{{ $t('template.同步前') }}</div>
+                        <div class="title">{{ '同步前' }}</div>
                     </div>
                     <div class="sync-after">
-                        <div class="title">{{ $t('template.同步后') }}</div>
+                        <div class="title">{{ '同步后' }}</div>
                     </div>
                 </div>
                 <div class="sync-content">
                     <scroll-faker id="asynContent">
                         <div class="sync-layout">
                             <div class="sync-before block-title">
-                                {{ $t('template.全局变量.label') }}
-                                <span class="global-variable-tips">{{ $t('template.全局变量的 “初始值” 不会被同步到执行方案') }}</span>
+                                {{ '全局变量' }}
+                                <span class="global-variable-tips">{{ '全局变量的 “初始值” 不会被同步到执行方案' }}</span>
                             </div>
                             <div class="sync-after block-title">
-                                {{ $t('template.全局变量.label') }}
-                                <span class="global-variable-tips">{{ $t('template.全局变量的 “初始值” 不会被同步到执行方案') }}</span>
+                                {{ '全局变量' }}
+                                <span class="global-variable-tips">{{ '全局变量的 “初始值” 不会被同步到执行方案' }}</span>
                             </div>
                         </div>
                         <template v-for="index in templateVariableList.length">
@@ -42,8 +42,8 @@
                             </div>
                         </template>
                         <div class="sync-layout">
-                            <div class="sync-before block-title">{{ $t('template.作业步骤.label') }}</div>
-                            <div class="sync-after block-title">{{ $t('template.作业步骤.label') }}</div>
+                            <div class="sync-before block-title">{{ '作业步骤' }}</div>
+                            <div class="sync-after block-title">{{ '作业步骤' }}</div>
                         </div>
                         <template v-for="index in templateStepList.length">
                             <div class="sync-layout" :key="`${'step' + index}`">
@@ -71,14 +71,14 @@
             <side-anchor class="side-anchor" :variable="templateVariableList" :step="templateStepList" />
         </div>
         <template #footer>
-            <bk-button @click="handleCancel">{{ $t('template.取消') }}</bk-button>
-            <bk-button @click="handleLast">{{ $t('template.上一步') }}</bk-button>
+            <bk-button @click="handleCancel">{{ '取消' }}</bk-button>
+            <bk-button @click="handleLast">{{ '上一步' }}</bk-button>
             <bk-button
                 v-if="!isView"
                 theme="primary"
                 class="w120"
                 @click="handleNext">
-                {{ $t('template.下一步') }}
+                {{ '下一步' }}
             </bk-button>
         </template>
     </layout>

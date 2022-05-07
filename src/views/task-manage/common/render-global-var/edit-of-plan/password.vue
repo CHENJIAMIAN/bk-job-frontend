@@ -2,17 +2,17 @@
 
 <template>
     <jb-form :model="formData" ref="varPasswordForm">
-        <jb-form-item :label="$t('template.变量名称')">
+        <jb-form-item :label="'变量名称'">
             <bk-input v-model="formData.name" disabled />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量值')">
+        <jb-form-item :label="'变量值'">
             <bk-input
                 v-model="formData.defaultValue"
                 type="password"
                 :password-icon="[]"
                 :native-attributes="{ autofocus: 'autofocus' }" />
         </jb-form-item>
-        <jb-form-item :label="$t('template.变量描述')">
+        <jb-form-item :label="'变量描述'">
             <bk-input v-model="formData.description" disabled type="textarea" :row="8" maxlength="100" />
         </jb-form-item>
         <jb-form-item>
@@ -21,7 +21,7 @@
                 disabled
                 :true-value="1"
                 :false-value="0">
-                {{ $t('template.必填') }}
+                {{ '必填' }}
             </bk-checkbox>
         </jb-form-item>
     </jb-form>

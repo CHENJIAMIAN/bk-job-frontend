@@ -6,10 +6,10 @@
             {{ data.typeDesc }}:<span class="value">{{ data.name }}</span>
         </div>
         <div>
-            {{ $t('history.步骤状态') }}:<span class="value">--</span>
+            {{ '步骤状态' }}:<span class="value">--</span>
         </div>
         <div>
-            {{ $t('history.步骤耗时') }}:<span class="value">--</span>
+            {{ '步骤耗时' }}:<span class="value">--</span>
         </div>
     </div>
 </template>

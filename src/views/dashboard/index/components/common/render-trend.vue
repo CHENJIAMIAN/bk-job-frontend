@@ -12,7 +12,7 @@
                     'equal': data.yoyTrend === 0,
                 }"
                 style="margin-top: 12px;">
-                <span class="label">{{ $t('dashboard.同比') }}</span>
+                <span class="label">{{ '同比' }}</span>
                 <span>
                     <Icon v-if="data.yoyTrend < 0" type="decrease-line" />
                     <Icon v-if="data.yoyTrend === 0" type="equally" />
@@ -28,7 +28,7 @@
                     'equal': data.momTrend === 0,
                 }"
                 style="margin-top: 10px;">
-                <span class="label">{{ $t('dashboard.环比') }}</span>
+                <span class="label">{{ '环比' }}</span>
                 <span>
                     <Icon v-if="data.momTrend < 0" type="decrease-line" />
                     <Icon v-if="data.momTrend === 0" type="equally" />

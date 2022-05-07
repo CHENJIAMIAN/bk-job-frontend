@@ -1,20 +1,19 @@
 
 
 <template>
-    <jb-form-item :label="$t('传输模式')" required>
+    <jb-form-item :label="'传输模式'" required>
         <div class="form-item-content">
             <div class="file-step-transfer-mode-wraper">
                 <bk-radio-group class="radio-check" :value="formData[field]" @change="handleChange">
-                    <bk-radio v-bk-tooltips="constraintTips" :value="2">{{ $t('强制模式') }}</bk-radio>
-                    <bk-radio v-bk-tooltips="strictTips" :value="1">{{ $t('严谨模式') }}</bk-radio>
+                    <bk-radio v-bk-tooltips="constraintTips" :value="2">{{ '强制模式' }}</bk-radio>
+                    <bk-radio v-bk-tooltips="strictTips" :value="1">{{ '严谨模式' }}</bk-radio>
                 </bk-radio-group>
             </div>
         </div>
     </jb-form-item>
 </template>
 <script>
-    import I18n from '@/i18n';
-
+   
     export default {
         name: '',
         props: {
@@ -59,15 +58,15 @@
         },
         created () {
             this.strictTips = {
-                content: I18n.t('严谨判断目标路径是否存在，若不存在将直接终止任务。'),
+                content: '严谨判断目标路径是否存在，若不存在将直接终止任务。',
                 width: 180,
             };
             this.constraintTips = {
-                content: I18n.t('不论目标路径是否存在，都将强制按照用户填写的目标路径进行传输（路径不存在会自动创建）。'),
+                content: '不论目标路径是否存在，都将强制按照用户填写的目标路径进行传输（路径不存在会自动创建）。',
                 width: 210,
             };
             this.safeTips = {
-                content: I18n.t('避免因源或目标机器有同名文件时被覆盖，该模式下将按用户选择的规则在目标路径后面追加创建相应的文件夹。'),
+                content: '避免因源或目标机器有同名文件时被覆盖，该模式下将按用户选择的规则在目标路径后面追加创建相应的文件夹。',
                 width: 210,
             };
         },

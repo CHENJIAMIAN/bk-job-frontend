@@ -4,7 +4,7 @@
     <div>
         <jb-form-item
             ref="item"
-            :label="$t('源文件')"
+            :label="'源文件'"
             required
             :property="field"
             :rules="rules">
@@ -13,24 +13,24 @@
                     class="mr10"
                     @click="handleAddServerFile">
                     <Icon type="plus" />
-                    {{ $t('添加服务器文件') }}
+                    {{ '添加服务器文件' }}
                 </bk-button>
                 <bk-button
                     v-if="ENABLE_FEATURE_FILE_MANAGE"
                     class="mr10"
                     @click="handleAddSourceFile">
                     <Icon type="plus" />
-                    {{ $t('添加文件源文件') }}
+                    {{ '添加文件源文件' }}
                 </bk-button>
                 <bk-button
                     class="mr10"
                     :loading="isConfigLoading"
                     @click="handlerUploadLocalFile">
                     <Icon type="plus" />
-                    {{ $t('添加本地文件') }}
+                    {{ '添加本地文件' }}
                 </bk-button>
                 <span class="source-file-tips">
-                    {{ $t('添加本地文件会有同名文件覆盖风险') }}
+                    {{ '添加本地文件会有同名文件覆盖风险' }}
                     <Icon
                         type="info"
                         class="tips-flag"
@@ -47,18 +47,17 @@
                 @on-change="handleSourceFileChange" />
         </jb-form-item>
         <div id="uploadFileTips" class="upload-file-tips">
-            <div class="row">{{ $t('支持中文文件名，本地上传文件大小不能超过') }} {{ fileMaxUploadSize }}</div>
-            <div class="row">{{ $t('文件名支持使用通配符，如： /tmp/jobsvr_2020*.log') }}</div>
-            <div class="row">{{ $t('文件名支持正则表达式写法以匹配多个文件，文件名前 需加 REGEX: 前缀，如：/tmp/REGEX:myfile-[A-Za-z]{0,10}.tar.gz') }}</div>
-            <div class="row">{{ $t('如需分发文件目录，文件名请以/结束') }}</div>
+            <div class="row">{{ '支持中文文件名，本地上传文件大小不能超过' }} {{ fileMaxUploadSize }}</div>
+            <div class="row">{{ '文件名支持使用通配符，如： /tmp/jobsvr_2020*'}}</div>
+            <div class="row">{{ '文件名支持正则表达式写法以匹配多个文件，文件名前 需加 REGEX: 前缀，如：/tmp/REGEX:myfile-[A-Za-z]{0,10}'}}</div>
+            <div class="row">{{ '如需分发文件目录，文件名请以/结束' }}</div>
         </div>
     </div>
 </template>
 <script>
     import _ from 'lodash';
     import { mapMutations } from 'vuex';
-    import I18n from '@/i18n';
-    import QuertGlobalSettingService from '@service/query-global-setting';
+       import QuertGlobalSettingService from '@service/query-global-setting';
     import ViewFile from './view';
 
     export default {
@@ -121,7 +120,7 @@
                         }
                         return this.sourceFileList.length;
                     },
-                    message: I18n.t('源文件必填'),
+                    message: '源文件必填',
                     trigger: 'blur',
                 },
                 {
@@ -139,7 +138,7 @@
                         this.updateFileUploadFailed(false);
                         return true;
                     },
-                    message: I18n.t('本地源文件上传失败'),
+                    message: '本地源文件上传失败',
                     trigger: 'blur',
                 },
                 {
@@ -157,7 +156,7 @@
                         this.updateFileUploading(false);
                         return true;
                     },
-                    message: I18n.t('本地源文件上传未完成'),
+                    message: '本地源文件上传未完成',
                     trigger: 'change',
                 },
                 {
@@ -175,7 +174,7 @@
                         }
                         return true;
                     },
-                    message: I18n.t('服务器源文件路径必填'),
+                    message: '服务器源文件路径必填',
                     trigger: 'change',
                 },
                 {
@@ -193,7 +192,7 @@
                         }
                         return true;
                     },
-                    message: I18n.t('服务器源文件中服务器列表不能为空'),
+                    message: '服务器源文件中服务器列表不能为空',
                     trigger: 'change',
                 },
             ];

@@ -12,19 +12,19 @@
                 class="w120 mr10"
                 @click="handleCreate"
                 v-test="{ type: 'button', value: 'templateCreate' }">
-                {{ $t('template.新建') }}
+                {{ '新建' }}
             </auth-button>
             <bk-badge
                 class="mr10"
                 theme="#3a84ff"
                 :visible="backupInfo.importJob.length > 0"
                 :val="backupInfo.importJob.length">
-                <span :tippy-tips="backupInfo.importJob.length > 0 ? $t('template.有一项导入任务正在进行中') : ''">
+                <span :tippy-tips="backupInfo.importJob.length > 0 ? '有一项导入任务正在进行中' : ''">
                     <auth-button
                         auth="job_template/create"
                         @click="handleImport"
                         v-test="{ type: 'button', value: 'templateImport' }">
-                        {{ $t('template.导入') }}
+                        {{ '导入' }}
                     </auth-button>
                 </span>
             </bk-badge>
@@ -33,28 +33,28 @@
                 theme="#3a84ff"
                 :visible="backupInfo.exportJob.length > 0"
                 :val="backupInfo.exportJob.length">
-                <span :tippy-tips="backupInfo.exportJob.length > 0 ? $t('template.有一项导出任务正在进行中') : ''">
+                <span :tippy-tips="backupInfo.exportJob.length > 0 ? '有一项导出任务正在进行中' : ''">
                     <bk-button
                         @click="handleExport"
                         v-test="{ type: 'button', value: 'templateExport' }">
-                        {{ $t('template.导出') }}
+                        {{ '导出' }}
                     </bk-button>
                 </span>
             </bk-badge>
             <bk-button
                 @click="handleBatchEditTag"
                 v-test="{ type: 'button', value: 'templateTagEdit' }">
-                {{ $t('template.编辑标签') }}
+                {{ '编辑标签' }}
             </bk-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     :append-value="searchValue"
                     :data="searchData"
-                    :placeholder="$t('template.输入 作业模板名、标签名 或 更新人 进行搜索...')"
+                    :placeholder="'输入 作业模板名、标签名 或 更新人 进行搜索...'"
                     style="width: 420px;"
                     @on-change="handleSearch" />
-                <bk-button @click="handleMyTask">{{ $t('template.我的作业') }}</bk-button>
+                <bk-button @click="handleMyTask">{{ '我的作业' }}</bk-button>
             </template>
         </list-action-layout>
         <div class="task-list-wraper">
@@ -76,7 +76,7 @@
                 <bk-table-column
                     v-if="allRenderColumnMap.name"
                     class-name="task-name-column"
-                    :label="$t('template.作业模板名称')"
+                    :label="'作业模板名称'"
                     prop="name"
                     min-width="300"
                     key="name"
@@ -123,7 +123,7 @@
                 </bk-table-column>
                 <bk-table-column
                     v-if="allRenderColumnMap.tags"
-                    :label="$t('template.场景标签.colHead')"
+                    :label="'场景标签'"
                     prop="tags"
                     key="tags"
                     width="200"
@@ -146,35 +146,35 @@
                 </bk-table-column>
                 <bk-table-column
                     v-if="allRenderColumnMap.statusText"
-                    :label="$t('template.状态')"
+                    :label="'状态'"
                     width="100"
                     prop="statusText"
                     key="statusText"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.creator"
-                    :label="$t('template.创建人')"
+                    :label="'创建人'"
                     width="120"
                     prop="creator"
                     key="creator"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.createTime"
-                    :label="$t('template.创建时间')"
+                    :label="'创建时间'"
                     prop="createTime"
                     key="createTime"
                     width="180"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.lastModifyUser"
-                    :label="$t('template.更新人.colHead')"
+                    :label="'更新人'"
                     width="160"
                     prop="lastModifyUser"
                     key="lastModifyUser"
                     align="left" />
                 <bk-table-column
                     v-if="allRenderColumnMap.lastModifyTime"
-                    :label="$t('template.更新时间')"
+                    :label="'更新时间'"
                     width="180"
                     prop="lastModifyTime"
                     key="lastModifyTime"
@@ -183,7 +183,7 @@
                     key="action"
                     :resizable="false"
                     fixed="right"
-                    :label="$t('template.操作')"
+                    :label="'操作'"
                     width="130">
                     <template slot-scope="{ row }">
                         <router-link
@@ -193,7 +193,7 @@
                                 params: { templateid: 4 || row.id },
                             }"
                             v-test="{ type: 'link', value: 'planDetail' }">
-                            {{ $t('template.执行方案.label') }}
+                            {{ '执行方案' }}
                         </router-link>
                         <router-link
                             class="mr10"
@@ -203,7 +203,7 @@
                                 query: { from: 'taskList' },
                             }"
                             v-test="{ type: 'link', value: 'debugTemplate' }">
-                            {{ $t('template.调试') }}
+                            {{ '调试' }}
                         </router-link>
                         <list-operation-extend>
                             <auth-component
@@ -214,13 +214,13 @@
                                     class="action-item"
                                     @click="handleEdit(row.id)"
                                     v-test="{ type: 'button', value: 'editTemplate' }">
-                                    {{ $t('template.编辑') }}
+                                    {{ '编辑' }}
                                 </div>
                                 <div
                                     class="action-item"
                                     slot="forbid"
                                     v-test="{ type: 'button', value: 'editTemplate' }">
-                                    {{ $t('template.编辑') }}
+                                    {{ '编辑' }}
                                 </div>
                             </auth-component>
                             <auth-component
@@ -231,18 +231,18 @@
                                     class="action-item"
                                     @click="handleClone(row.id)"
                                     v-test="{ type: 'button', value: 'cloneTemplate' }">
-                                    {{ $t('template.克隆') }}
+                                    {{ '克隆' }}
                                 </div>
                                 <div
                                     class="action-item"
                                     slot="forbid"
                                     v-test="{ type: 'button', value: 'cloneTemplate' }">
-                                    {{ $t('template.克隆') }}
+                                    {{ '克隆' }}
                                 </div>
                             </auth-component>
                             <jb-popover-confirm
-                                :title="$t('template.确定删除该作业？')"
-                                :content="$t('template.注意！模板下关联的所有执行方案也将被清除')"
+                                :title="'确定删除该作业？'"
+                                :content="'注意！模板下关联的所有执行方案也将被清除'"
                                 :confirm-handler="() => handleDelete(row.id)">
                                 <auth-component
                                     :permission="row.canDelete"
@@ -251,13 +251,13 @@
                                     <div
                                         class="action-item"
                                         v-test="{ type: 'button', value: 'deleteTemplate' }">
-                                        {{ $t('template.删除') }}
+                                        {{ '删除' }}
                                     </div>
                                     <div
                                         class="action-item"
                                         slot="forbid"
                                         v-test="{ type: 'button', value: 'deleteTemplate' }">
-                                        {{ $t('template.删除') }}
+                                        {{ '删除' }}
                                     </div>
                                 </auth-component>
                             </jb-popover-confirm>
@@ -275,9 +275,9 @@
         </div>
         <jb-dialog
             v-model="isShowBatchEdit"
-            :title="$t('template.编辑标签')"
+            :title="'编辑标签'"
             header-position="left"
-            :ok-text="$t('template.确定')"
+            :ok-text="'确定'"
             :width="480">
             <batch-edit-tag
                 v-if="isShowBatchEdit"
@@ -287,8 +287,7 @@
     </Layout>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TagManageService from '@service/tag-manage';
+       import TagManageService from '@service/tag-manage';
     import TaskService from '@service/task-manage';
     import BackupService from '@service/backup';
     import UserService from '@service/user';
@@ -397,31 +396,31 @@
                 {
                     name: 'ID',
                     id: 'templateId',
-                    description: I18n.t('template.将覆盖其它条件'),
+                    description: '将覆盖其它条件',
                     validate (values, item) {
                         const validate = (values || []).every(_ => /^(\d*)$/.test(_.name));
-                        return !validate ? I18n.t('template.ID只支持数字') : true;
+                        return !validate ? 'ID只支持数字' : true;
                     },
                 },
                 {
-                    name: I18n.t('template.作业模板名称'),
+                    name: '作业模板名称',
                     id: 'name',
                     default: true,
                 },
                 {
-                    name: I18n.t('template.场景标签.colHead'),
+                    name: '场景标签',
                     id: 'tags',
                     remoteMethod: TagManageService.fetchTagOfSearch,
                     remoteExecuteImmediate: true,
                 },
                 {
-                    name: I18n.t('template.更新人.colHead'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('template.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -434,32 +433,32 @@
                 },
                 {
                     id: 'name',
-                    label: I18n.t('template.作业模板名称'),
+                    label: '作业模板名称',
                     disabled: true,
                 },
                 {
                     id: 'tags',
-                    label: I18n.t('template.场景标签.colHead'),
+                    label: '场景标签',
                 },
                 {
                     id: 'statusText',
-                    label: I18n.t('template.状态'),
+                    label: '状态',
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('template.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('template.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('template.更新人.colHead'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('template.更新时间'),
+                    label: '更新时间',
                 },
             ];
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -572,10 +571,10 @@
                 };
                 if (this.backupInfo.exportJob.length > 0 && this.listSelect.length > 0) {
                     this.$bkInfo({
-                        title: I18n.t('template.上一次任务还未完成'),
-                        subTitle: I18n.t('template.您上一次的任务还在后台运行中，请先等待完成后再发起新的任务。'),
-                        okText: I18n.t('template.查看'),
-                        cancelText: I18n.t('template.返回'),
+                        title: '上一次任务还未完成',
+                        subTitle: '您上一次的任务还在后台运行中，请先等待完成后再发起新的任务。',
+                        okText: '查看',
+                        cancelText: '返回',
                         confirmFn,
                     });
                 } else {
@@ -601,7 +600,7 @@
             handleMyTask () {
                 const currentUserName = this.currentUser.username;
                 const creator = {
-                    name: I18n.t('template.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     values: [
                         {
@@ -675,7 +674,7 @@
                     id,
                 }).then(() => {
                     this.fetchData();
-                    this.messageSuccess(I18n.t('template.删除模板成功'));
+                    this.messageSuccess('删除模板成功');
                     this.$refs.tagPanelRef.init();
                     return true;
                 });
@@ -690,7 +689,7 @@
                     id: task.id,
                 }).then(() => {
                     task.toggleFavored();
-                    this.messageSuccess(task.favored ? I18n.t('template.收藏成功') : I18n.t('template.取消收藏成功'));
+                    this.messageSuccess(task.favored ? '收藏成功' : '取消收藏成功');
                 });
             },
         },

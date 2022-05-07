@@ -5,7 +5,7 @@
         <div class="topology-data" v-bkloading="{ isLoading: topologyLoading }">
             <div class="topology-node-search">
                 <bk-input
-                    :placeholder="$t('搜索拓扑节点')"
+                    :placeholder="'搜索拓扑节点'"
                     right-icon="bk-icon icon-search"
                     @input="handleNodeSearch" />
             </div>
@@ -26,11 +26,11 @@
                                     @click="handleFilterEmptyToggle">
                                     <template v-if="isRenderEmptyTopoNode">
                                         <Icon type="eye-slash-shape" />
-                                        <span>{{ $t('隐藏空节点') }}</span>
+                                        <span>{{ '隐藏空节点' }}</span>
                                     </template>
                                     <template v-else>
                                         <Icon type="eye-shape" />
-                                        <span>{{ $t('恢复完整拓扑') }}</span>
+                                        <span>{{ '恢复完整拓扑' }}</span>
                                     </template>
                                 </div>
                                 <div class="node-count">{{ data.payload.count }}</div>
@@ -43,7 +43,7 @@
         </div>
         <div class="host-list">
             <mult-input
-                :placeholder="$t('输入 主机 IP / 主机名 / 操作系统 / 云区域 进行搜索...')"
+                :placeholder="'输入 主机 IP / 主机名 / 操作系统 / 云区域 进行搜索...'"
                 class="host-search"
                 @input="handleHostSearch" />
             <host-table
@@ -57,15 +57,15 @@
                                 :value="isCheckedAll"
                                 @click.native="handleToggleWholeAll" />
                         </th>
-                        <th style="width: 18.9%;">{{ $t('主机IP') }}</th>
-                        <th style="width: 12.8%;">{{ $t('云区域') }}</th>
+                        <th style="width: 18.9%;">{{ '主机IP' }}</th>
+                        <th style="width: 12.8%;">{{ '云区域' }}</th>
                         <th style="width: 13.4%;">
                             <div
                                 class="head-cell"
                                 :class="{
                                     'is-filtered': agentFilter !== '',
                                 }">
-                                <span>{{ $t('Agent 状态') }}</span>
+                                <span>{{ 'Agent 状态' }}</span>
                                 <dropdown-menu>
                                     <Icon type="filter-fill" class="filer-flag" />
                                     <div slot="menu">
@@ -73,26 +73,26 @@
                                             class="dropdown-menu-item"
                                             :class="{ active: agentFilter === '' }"
                                             @click="handleAgentFiler('')">
-                                            {{ $t('全部') }}
+                                            {{ '全部' }}
                                         </div>
                                         <div
                                             class="dropdown-menu-item"
                                             :class="{ active: agentFilter === 0 }"
                                             @click="handleAgentFiler(0)">
-                                            {{ $t('异常') }}
+                                            {{ '异常' }}
                                         </div>
                                         <div
                                             class="dropdown-menu-item"
                                             :class="{ active: agentFilter === 1 }"
                                             @click="handleAgentFiler(1)">
-                                            {{ $t('正常') }}
+                                            {{ '正常' }}
                                         </div>
                                     </div>
                                 </dropdown-menu>
                             </div>
                         </th>
-                        <th>{{ $t('主机名') }}</th>
-                        <th style="width: 14.7%;">{{ $t('操作系统名称') }}</th>
+                        <th>{{ '主机名' }}</th>
+                        <th style="width: 14.7%;">{{ '操作系统名称' }}</th>
                     </tr>
                 </thead>
                 <tbody v-if="renderList.length > 0">
@@ -113,11 +113,11 @@
                             <td>
                                 <span v-if="row.alive">
                                     <icon svg type="normal" style="vertical-align: middle;" />
-                                    <span style="vertical-align: middle;">{{ $t('正常') }}</span>
+                                    <span style="vertical-align: middle;">{{ '正常' }}</span>
                                 </span>
                                 <span v-else>
                                     <icon svg type="abnormal" style="vertical-align: middle;" />
-                                    <span style="vertical-align: middle;">{{ $t('异常') }}</span>
+                                    <span style="vertical-align: middle;">{{ '异常' }}</span>
                                 </span>
                             </td>
                             <td>

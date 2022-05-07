@@ -9,12 +9,12 @@
                 <Icon :type="data.icon" />
             </div>
             <div>{{ data.name }}</div>
-            <div class="confirm-flag">{{ $t('history.已确认') }}</div>
+            <div class="confirm-flag">{{ '已确认' }}</div>
         </div>
         <div class="approval-container">
             <div class="approval-info">
                 <div v-if="data.roleNameList.length || data.userList.length" class="approval-person">
-                    <span class="persion-label">{{ $t('history.确认人') }}：</span>
+                    <span class="persion-label">{{ '确认人' }}：</span>
                     <div v-for="item in data.roleNameList" :key="`role_${item}`" class="person">
                         <Icon type="user-group-gray" class="role-flag" />
                         {{ item }}
@@ -25,7 +25,7 @@
                     </div>
                 </div>
                 <div v-if="data.notifyChannelNameList.length > 0" class="approval-channel">
-                    {{ $t('history.通知方式') }}：<span>{{ data.notifyChannelNameList.join('，') }}</span>
+                    {{ '通知方式' }}：<span>{{ data.notifyChannelNameList.join('，') }}</span>
                 </div>
             </div>
             <div v-if="data.confirmMessage" class="step-message">{{ data.confirmMessage }}</div>
@@ -36,7 +36,7 @@
                 type="textarea"
                 :rows="3"
                 :maxlength="100"
-                :placeholder="$t('history.可在此处输入确认或终止的因由')" />
+                :placeholder="'可在此处输入确认或终止的因由'" />
             <div v-else-if="data.operator" class="confirm-reason-text">
                 <div class="person">{{ data.operator }}</div>
                 <span v-html="data.confirmReasonHtml" />

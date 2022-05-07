@@ -4,12 +4,12 @@
     <jb-collapse-item name="group">
         <!-- eslint-disable-next-line max-len -->
         <span class="panel-title">
-            <span>{{ $t('已选择.result') }}</span>
+            <span>{{ '已选择'}}</span>
             <span class="strong number">{{ data.length }}</span>
-            <span>{{ $t('个动态分组') }}</span>
+            <span>{{ '个动态分组' }}</span>
         </span>
         <action-extend v-if="editable">
-            <div class="action-item" @click="handleRemoveAll">{{ $t('移除全部') }}</div>
+            <div class="action-item" @click="handleRemoveAll">{{ '移除全部' }}</div>
         </action-extend>
         <template #content>
             <div v-bkloading="{ isLoading }">
@@ -28,7 +28,7 @@
                             <td class="table-cell">
                                 <span
                                     class="invalid"
-                                    :tippy-tips="$t('该分组在配置平台已被删除')">{{ $t('无效') }}</span>
+                                    :tippy-tips="'该分组在配置平台已被删除'">{{ '无效' }}</span>
                                 <span>{{ row }}</span>
                             </td>
                             <td colspan="2">--</td>
@@ -36,7 +36,7 @@
                                 <bk-button
                                     text
                                     @click="handleInvalidRemove(index)">
-                                    {{ $t('移除') }}
+                                    {{ '移除' }}
                                 </bk-button>
                             </td>
                         </tr>
@@ -59,7 +59,7 @@
                                 <bk-button
                                     text
                                     @click="handleRemove(index)">
-                                    {{ $t('移除') }}
+                                    {{ '移除' }}
                                 </bk-button>
                             </td>
                         </tr>
@@ -78,8 +78,7 @@
 <script>
     import _ from 'lodash';
     import AppService from '@service/app-manage';
-    import I18n from '@/i18n';
-    import JbCollapseItem from '@components/jb-collapse-item';
+       import JbCollapseItem from '@components/jb-collapse-item';
     import ActionExtend from '../components/action-extend';
     import HostTable from '../components/host-table';
     import StatisticsText from '../components/statistics-text';
@@ -241,14 +240,14 @@
              */
             handleRemoveAll () {
                 if (this.data.length < 1) {
-                    this.messageSuccess(I18n.t('你还未选择动态分组'));
+                    this.messageSuccess('你还未选择动态分组');
                     return;
                 }
                 this.list = [];
                 this.groupMap = {};
                 this.invalidList = [];
                 this.triggerChange();
-                this.messageSuccess(I18n.t('移除成功'));
+                this.messageSuccess('移除成功');
             },
             /**
              * @desc 移除分组
@@ -261,7 +260,7 @@
                 this.list = Object.freeze(list);
                 delete this.groupMap[currentNode.id];
                 this.triggerChange();
-                this.messageSuccess(I18n.t('移除成功'));
+                this.messageSuccess('移除成功');
             },
             /**
              * @desc 查看分组的主机详情

@@ -3,7 +3,7 @@
 <template>
     <jb-form form-type="vertical">
         <jb-form-item
-            :label="$t('template.变量类型')"
+            :label="'变量类型'"
             required
             :desc="nametips">
             <div class="variable-type-wraper">
@@ -12,37 +12,37 @@
                         class="item"
                         value="string"
                         
-                        :name="$t('template.字符串')"
-                        v-bk-tooltips="$t('template.普通的字符串变量，可跨主机、跨步骤使用')">
-                        {{ $t('template.字符串') }}
+                        :name="'字符串'"
+                        v-bk-tooltips="'普通的字符串变量，可跨主机、跨步骤使用'">
+                        {{ '字符串' }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="namespace"
                         
-                        v-bk-tooltips="$t('template.同一主机对象的共享变量，无法跨主机使用')">
-                        {{ $t('template.命名空间') }}
+                        v-bk-tooltips="'同一主机对象的共享变量，无法跨主机使用'">
+                        {{ '命名空间' }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="host"
                         
-                        v-bk-tooltips="$t('template.通过拓扑、动态分组或属性筛选的主机对象')">
-                        {{ $t('template.主机列表') }}
+                        v-bk-tooltips="'通过拓扑、动态分组或属性筛选的主机对象'">
+                        {{ '主机列表' }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="password"
                         
-                        v-bk-tooltips="$t('template.经过加密处理的变量，不会以明文形式外显')">
-                        {{ $t('template.密文') }}
+                        v-bk-tooltips="'经过加密处理的变量，不会以明文形式外显'">
+                        {{ '密文' }}
                     </bk-radio-button>
                     <bk-radio-button
                         class="item"
                         value="array"
                         
-                        v-bk-tooltips="$t('template.Array 格式的字符串，支持关联或索引数组')">
-                        {{ $t('template.数组') }}
+                        v-bk-tooltips="'Array 格式的字符串，支持关联或索引数组'">
+                        {{ '数组' }}
                     </bk-radio-button>
                 </bk-radio-group>
             </div>
@@ -56,8 +56,7 @@
     </jb-form>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import VarString from './string';
+       import VarString from './string';
     import VarNamespace from './namespace';
     import VarHost from './host';
     import VarPassword from './password';
@@ -124,7 +123,7 @@
         created () {
             this.nametips = {
                 theme: 'dark',
-                content: I18n.t('template.在步骤参数或脚本内使用 ${变量名} 即可获取到变量值'),
+                content: '在步骤参数或脚本内使用 ${变量名} 即可获取到变量值',
                 width: 200,
             };
         },

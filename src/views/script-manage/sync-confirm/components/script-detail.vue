@@ -7,7 +7,7 @@
         @update:isShow="handleCancel"
         :quick-close="true"
         :width="900"
-        :title="$t('script.查看脚本')">
+        :title="'查看脚本'">
         <div v-if="isShow" v-bkloading="{ isLoading }">
             <script-detail v-if="!isLoading" :script-info="scriptInfo" :offset-bottom="0" />
         </div>

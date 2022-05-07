@@ -5,13 +5,13 @@
         <div>
             <div
                 class="action-btn"
-                v-bk-tooltips.bottom="$t('history.步骤内容')"
+                v-bk-tooltips.bottom="'步骤内容'"
                 @click="handleShowStepDetail">
                 <Icon type="detail-line" />
             </div>
             <jb-sideslider
                 :is-show.sync="isShow"
-                :title="$t('history.查看步骤内容')"
+                :title="'查看步骤内容'"
                 :quick-close="true"
                 :show-footer="false"
                 :width="960">

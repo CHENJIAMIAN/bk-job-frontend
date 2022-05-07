@@ -7,7 +7,7 @@
             form-type="vertical"
             :model="formData"
             :rules="rules">
-            <jb-form-item :label="$t('whiteIP.目标业务.label')">
+            <jb-form-item :label="'目标业务'">
                 <div class="app-wraper">
                     <bk-select
                         v-model="scopeLocalKeyList"
@@ -24,7 +24,7 @@
                 </div>
             </jb-form-item>
             <jb-form-item
-                :label="$t('whiteIP.云区域')"
+                :label="'云区域'"
                 required
                 property="cloudAreaId">
                 <bk-select
@@ -44,13 +44,13 @@
                 required
                 property="ipStr">
                 <bk-input
-                    :placeholder="$t('whiteIP.输入IP，以“回车”分隔')"
+                    :placeholder="'输入IP，以“回车”分隔'"
                     class="input"
                     type="textarea"
                     v-model="formData.ipStr" />
             </jb-form-item>
             <jb-form-item
-                :label="$t('whiteIP.备注')"
+                :label="'备注'"
                 required
                 property="remark">
                 <bk-input
@@ -60,7 +60,7 @@
                     :maxlength="100" />
             </jb-form-item>
             <jb-form-item
-                :label="$t('whiteIP.生效范围.label')"
+                :label="'生效范围'"
                 required
                 property="actionScopeIdList"
                 style="margin-bottom: 0;">
@@ -80,8 +80,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import WhiteIpService from '@service/white-ip';
+       import WhiteIpService from '@service/white-ip';
     import AppManageService from '@service/app-manage';
 
     const getDefaultData = () => ({
@@ -159,14 +158,14 @@
                 ipStr: [
                     {
                         required: true,
-                        message: I18n.t('whiteIP.IP必填'),
+                        message: 'IP必填',
                         trigger: 'blur',
                     },
                 ],
                 remark: [
                     {
                         required: true,
-                        message: I18n.t('whiteIP.备注必填'),
+                        message: '备注必填',
                         trigger: 'blur',
                     },
 
@@ -174,7 +173,7 @@
                 actionScopeIdList: [
                     {
                         validator: value => value.length > 0,
-                        message: I18n.t('whiteIP.生效范围必填'),
+                        message: '生效范围必填',
                         trigger: 'blur',
                     },
                 ],
@@ -254,7 +253,7 @@
                         });
                         return WhiteIpService.whiteIpUpdate(params)
                             .then(() => {
-                                this.messageSuccess(this.formData.id ? I18n.t('whiteIP.编辑成功') : I18n.t('whiteIP.新建成功'));
+                                this.messageSuccess(this.formData.id ? '编辑成功' : '新建成功');
                                 this.$emit('on-update');
                             });
                     });

@@ -5,15 +5,15 @@
         <table class="rule-table">
             <thead>
                 <tr>
-                    <th style="width: 20%;">{{ $t('setting.语法检测表达式') }}</th>
-                    <th>{{ $t('setting.规则说明') }}</th>
-                    <th style="width: 300px;">{{ $t('setting.脚本类型') }}</th>
+                    <th style="width: 20%;">{{ '语法检测表达式' }}</th>
+                    <th>{{ '规则说明' }}</th>
+                    <th style="width: 300px;">{{ '脚本类型' }}</th>
                     <th style="width: 240px;">
-                        {{ $t('setting.操作') }}
+                        {{ '操作' }}
                         <Icon
                             v-bk-tooltips="{
                                 theme: 'light',
-                                content: $t('setting.规则的顺位越高，表示执行优先度越高'),
+                                content: '规则的顺位越高，表示执行优先度越高',
                             }"
                             class="action-tips"
                             type="info" />
@@ -57,19 +57,19 @@
                                 text
                                 
                                 @click="handleMove(index, -1)">
-                                {{ $t('setting.上移') }}
+                                {{ '上移' }}
                             </bk-button>
                             <bk-button
                                 text
                                 
                                 @click="handleMove(index, 1)">
-                                {{ $t('setting.下移') }}
+                                {{ '下移' }}
                             </bk-button>
                             <jb-popover-confirm
-                                :title="$t('setting.确定删除该规则？')"
-                                :content="$t('setting.脚本编辑器中匹配该规则将不会再收到提醒')"
+                                :title="'确定删除该规则？'"
+                                :content="'脚本编辑器中匹配该规则将不会再收到提醒'"
                                 :confirm-handler="() => handleDelete(rule.id)">
-                                <bk-button text>{{ $t('setting.删除') }}</bk-button>
+                                <bk-button text>{{ '删除' }}</bk-button>
                             </jb-popover-confirm>
                         </div>
                     </td>
@@ -79,8 +79,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import GlobalSettingService from '@service/global-setting';
+       import GlobalSettingService from '@service/global-setting';
     import PublicScriptManageService from '@service/public-script-manage';
     import JbEditInput from '@components/jb-edit/input';
     import JbPopoverConfirm from '@components/jb-popover-confirm';
@@ -148,7 +147,7 @@
                     GlobalSettingService.updateDangerousRules({
                         ...this.editRule,
                     }).then(() => {
-                        this.messageSuccess(I18n.t('setting.编辑成功'));
+                        this.messageSuccess('编辑成功');
                     });
                 }
             },
@@ -186,7 +185,7 @@
                     const change = this.list[index + step];
                     this.list.splice(index, 1, change);
                     this.list.splice(index + step, 1, current);
-                    this.messageSuccess(step < 0 ? I18n.t('setting.上移成功') : I18n.t('setting.下移成功'));
+                    this.messageSuccess(step < 0 ? '上移成功' : '下移成功');
                 })
                     .finally(() => {
                         this.isLoading = false;
@@ -200,7 +199,7 @@
                 return GlobalSettingService.deleteDangerousRule({
                     id,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('setting.删除成功'));
+                    this.messageSuccess('删除成功');
                     this.fetchData();
                     return true;
                 });

@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'plan_manage',
     name: 'planManage',
@@ -10,7 +8,7 @@ export default {
         name: 'planList',
     },
     meta: {
-        title: I18n.t('执行方案'),
+        title: '执行方案',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'planList',
             component: () => import('@views/task-manage/plan-list'),
             meta: {
-                pageTitle: I18n.t('执行方案'),
+                pageTitle: '执行方案',
                 skeleton: 'list',
             },
         },
@@ -28,7 +26,7 @@ export default {
             name: 'syncPlanBatch',
             component: () => import('@views/task-manage/sync-plan-batch'),
             meta: {
-                title: I18n.t('批量同步'),
+                title: '批量同步',
                 skeleton: 'list',
             },
         },

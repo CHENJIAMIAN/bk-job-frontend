@@ -4,7 +4,7 @@
     <div class="sync-step-server-file">
         <bk-collapse class="host-detail" :value="activeResult" v-if="isShowLocalFile || isShowServerFile">
             <jb-collapse-item name="local" :active="activeResult" v-if="isShowLocalFile">
-                <span class="collapse-title">{{ $t('template.已选择') }}<span class="number">{{ localFileCount }}</span>{{ $t('template.个本地文件') }}</span>
+                <span class="collapse-title">{{ '已选择' }}<span class="number">{{ localFileCount }}</span>{{ '个本地文件' }}</span>
                 <template #content>
                     <table class="file-table">
                         <tbody>
@@ -22,13 +22,13 @@
                 </template>
             </jb-collapse-item>
             <jb-collapse-item name="server" :active="activeResult" v-if="isShowServerFile">
-                <span class="collapse-title">{{ $t('template.已选择') }}<span class="number">{{ serverFileCount }}</span>{{ $t('template.个服务器文件') }}</span>
+                <span class="collapse-title">{{ '已选择' }}<span class="number">{{ serverFileCount }}</span>{{ '个服务器文件' }}</span>
                 <template #content>
                     <table class="file-table">
                         <thead>
-                            <th>{{ $t('template.文件路径') }}</th>
-                            <th>{{ $t('template.服务器列表') }}</th>
-                            <th>{{ $t('template.服务器账号') }}</th>
+                            <th>{{ '文件路径' }}</th>
+                            <th>{{ '服务器列表' }}</th>
+                            <th>{{ '服务器账号' }}</th>
                         </thead>
                         <tbody>
                             <tr

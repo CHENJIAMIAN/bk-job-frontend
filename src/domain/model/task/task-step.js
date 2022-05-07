@@ -4,9 +4,7 @@
  * @desc 作业模板步骤模型
  *
 */
-import _ from 'lodash';
-import I18n from '@/i18n';
-import Model from '@model/model';
+import _ from 'lodash';import Model from '@model/model';
 import TaskScriptStep from '@model/task/task-script-step';
 import TaskFileStep from '@model/task/task-file-step';
 import TaskApprovalStep from '@model/task/task-approval-step';
@@ -25,9 +23,9 @@ export default class TaskStep extends Model {
     static approvalStep = TaskApprovalStep;
 
     static typeTextMap = {
-        [TYPE_SCRIPT]: I18n.t('执行脚本'),
-        [TYPE_FILE]: I18n.t('分发文件'),
-        [TYPE_APPROVAL]: I18n.t('人工审核'),
+        [TYPE_SCRIPT]: '执行脚本',
+        [TYPE_FILE]: '分发文件',
+        [TYPE_APPROVAL]: '人工审核',
     };
 
     static iconMap = {

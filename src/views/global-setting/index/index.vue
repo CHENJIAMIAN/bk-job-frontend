@@ -3,11 +3,11 @@
 <template>
     <div class="page-global-set-up">
         <bk-tab :active="page" :before-toggle="handleTabChange" class="page-tab">
-            <bk-tab-panel name="notify" :label="$t('setting.通知设置')" />
-            <!-- <bk-tab-panel name="strategy" :label="$t('setting.存储策略')" /> -->
-            <bk-tab-panel name="account" :label="$t('setting.账号命名规则')" />
-            <bk-tab-panel name="platform" :label="$t('setting.平台信息')" />
-            <bk-tab-panel name="fileUpload" :label="$t('setting.文件上传设置')" />
+            <bk-tab-panel name="notify" :label="'通知设置'" />
+            <!-- <bk-tab-panel name="strategy" :label="'存储策略'" /> -->
+            <bk-tab-panel name="account" :label="'账号命名规则'" />
+            <bk-tab-panel name="platform" :label="'平台信息'" />
+            <bk-tab-panel name="fileUpload" :label="'文件上传设置'" />
         </bk-tab>
         <div class="set-up-wraper">
             <transition name="slide">

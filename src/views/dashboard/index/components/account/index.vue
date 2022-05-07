@@ -2,7 +2,7 @@
 
 <template>
     <div class="account-dashboard" v-bkloading="{ isLoading, opacity: 0.8 }">
-        <card-layout :title="$t('dashboard.Linux 账号数')">
+        <card-layout :title="'Linux 账号数'">
             <div class="item-content">
                 <div class="nums">{{ data.LINUX }}</div>
                 <div
@@ -13,7 +13,7 @@
             </div>
             <Icon type="linux" class="type-flag" style="font-size: 37px;" />
         </card-layout>
-        <card-layout :title="$t('dashboard.Windows 账号数')">
+        <card-layout :title="'Windows 账号数'">
             <div class="item-content">
                 <div class="nums">{{ data.WINDOWS | formatNumber }}</div>
                 <div
@@ -24,7 +24,7 @@
             </div>
             <Icon type="windows" class="type-flag" style="font-size: 36px;" />
         </card-layout>
-        <card-layout :title="$t('dashboard.DB 账号数')">
+        <card-layout :title="'DB 账号数'">
             <div class="item-content">
                 <div class="nums">{{ data.DB | formatNumber }}</div>
                 <div

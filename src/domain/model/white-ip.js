@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import Model from '@model/model';
 
 export default class WhiteIp extends Model {
@@ -23,7 +21,7 @@ export default class WhiteIp extends Model {
         if (this.ipList.length < 2) {
             return this.ipList[0];
         }
-        return `${I18n.t('共')}${this.ipList.length}${I18n.t('个')}`;
+        return `${'共'}${this.ipList.length}${'个'}`;
     }
 
     get scopeText () {

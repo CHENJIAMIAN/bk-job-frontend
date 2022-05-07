@@ -3,21 +3,21 @@
         <table>
             <thead>
                 <tr>
-                    <th style="width: 130px;">{{ $t('template.变量类型') }}<span class="require-flag" /></th>
-                    <th>{{ $t('template.变量名称') }}<span class="require-flag" /></th>
+                    <th style="width: 130px;">{{ '变量类型' }}<span class="require-flag" /></th>
+                    <th>{{ '变量名称' }}<span class="require-flag" /></th>
                     <th>
-                        <span v-bk-tooltips="$t('template.请输入变量的初始值 [可选]')" class="hover-tips">
-                            {{ $t('template.初始值') }}
+                        <span v-bk-tooltips="'请输入变量的初始值 [可选]'" class="hover-tips">
+                            {{ '初始值' }}
                         </span>
                     </th>
-                    <th style="width: 320px;">{{ $t('template.变量描述') }}</th>
+                    <th style="width: 320px;">{{ '变量描述' }}</th>
                     <th style="width: 80px;">
-                        <span v-bk-tooltips="$t('template.变量的值在执行中可变')" class="hover-tips">
-                            {{ $t('template.赋值可变') }}
+                        <span v-bk-tooltips="'变量的值在执行中可变'" class="hover-tips">
+                            {{ '赋值可变' }}
                         </span>
                     </th>
-                    <th style="width: 100px;">{{ $t('template.执行时必填') }}</th>
-                    <th style="width: 80px;">{{ $t('template.操作') }}</th>
+                    <th style="width: 100px;">{{ '执行时必填' }}</th>
+                    <th style="width: 80px;">{{ '操作' }}</th>
                 </tr>
             </thead>
             <template v-for="(variableItem, index) in variableList">
@@ -47,7 +47,7 @@
             class="empty-box"
             @click="handleAppendVariable(0)">
             <Icon type="add-fill" />
-            <span>{{ $t('template.全局变量.label') }}</span>
+            <span>{{ '全局变量' }}</span>
         </div>
     </div>
 </template>

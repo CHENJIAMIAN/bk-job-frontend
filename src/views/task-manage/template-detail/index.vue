@@ -3,7 +3,7 @@
 <template>
     <smart-action class="task-template-detail" offset-target="detail-content">
         <detail-layout class="task-template-detail-layout" mode="see">
-            <detail-item :label="$t('template.模板名称：')">
+            <detail-item :label="'模板名称：'">
                 <auth-component
                     auth="job_template/edit"
                     :resource-id="taskId">
@@ -16,7 +16,7 @@
                     <div slot="forbid">{{ formData.name }}</div>
                 </auth-component>
             </detail-item>
-            <detail-item :label="$t('template.场景标签：')">
+            <detail-item :label="'场景标签：'">
                 <auth-component
                     auth="job_template/edit"
                     :resource-id="taskId">
@@ -28,24 +28,24 @@
                     <div slot="forbid">{{ formData.tagText }}</div>
                 </auth-component>
             </detail-item>
-            <detail-item :label="$t('template.模板描述：')">
+            <detail-item :label="'模板描述：'">
                 <auth-component
                     auth="job_template/edit"
                     :resource-id="taskId">
                     <jb-edit-textarea
                         class="input"
                         field="description"
-                        :placeholder="$t('template.填写该模板的功能介绍等详细描述...')"
+                        :placeholder="'填写该模板的功能介绍等详细描述...'"
                         :maxlength="500"
                         :value="formData.description"
                         :remote-hander="handleUpdateTemplate" />
                     <div slot="forbid">{{ formData.description || '--' }}</div>
                 </auth-component>
             </detail-item>
-            <detail-item :label="$t('template.全局变量：')" class="gloval-var-item">
+            <detail-item :label="'全局变量：'" class="gloval-var-item">
                 <render-global-var :list="formData.variables" />
             </detail-item>
-            <detail-item :label="$t('template.作业步骤：')" class="task-step-item">
+            <detail-item :label="'作业步骤：'" class="task-step-item">
                 <render-task-step
                     ref="step"
                     :list="formData.stepList"
@@ -59,7 +59,7 @@
                     class="w120 mr10"
                     @click="handleGoExec"
                     v-test="{ type: 'button', value: 'planList' }">
-                    {{ $t('template.选择方案') }}
+                    {{ '选择方案' }}
                 </bk-button>
                 <auth-button
                     class="mr10"
@@ -67,7 +67,7 @@
                     auth="job_template/debug"
                     @click="handleGoDebug"
                     v-test="{ type: 'button', value: 'debugTemplate' }">
-                    {{ $t('template.调试') }}
+                    {{ '调试' }}
                 </auth-button>
                 <auth-button
                     class="mr10"
@@ -75,7 +75,7 @@
                     auth="job_template/edit"
                     @click="handleGoEdit"
                     v-test="{ type: 'button', value: 'editTemplate' }">
-                    {{ $t('template.编辑') }}
+                    {{ '编辑' }}
                 </auth-button>
                 <span v-bk-tooltips="notNeedUpdateTips">
                     <bk-button
@@ -83,23 +83,23 @@
                         :loading="isPlanListLoading"
                         @click="handleGoSyncPlan"
                         v-test="{ type: 'button', value: 'syncPlan' }">
-                        {{ $t('template.同步方案') }}
-                        <div v-if="!isNotNeedUpdate" class="update-flag" v-bk-tooltips="$t('template.待同步')">
+                        {{ '同步方案' }}
+                        <div v-if="!isNotNeedUpdate" class="update-flag" v-bk-tooltips="'待同步'">
                             <Icon type="sync-8" />
                         </div>
                     </bk-button>
                 </span>
                 <jb-popover-confirm
                     class="action-del"
-                    :title="$t('template.确定删除该作业模板？')"
-                    :content="$t('template.注意！模板下关联的所有执行方案也将被清除')"
+                    :title="'确定删除该作业模板？'"
+                    :content="'注意！模板下关联的所有执行方案也将被清除'"
                     :confirm-handler="handleDelete">
                     <auth-button
                         class="delete-btn"
                         :resource-id="taskId"
                         auth="job_template/delete"
                         v-test="{ type: 'button', value: 'deleteTemplate' }">
-                        {{ $t('template.删除') }}
+                        {{ '删除' }}
                     </auth-button>
                 </jb-popover-confirm>
             </div>
@@ -112,8 +112,7 @@
 </template>
 <script>
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import TaskManageService from '@service/task-manage';
+       import TaskManageService from '@service/task-manage';
     import TaskPlanService from '@service/task-plan';
     import { taskTemplateName } from '@utils/validator';
     import DetailLayout from '@components/detail-layout';
@@ -180,10 +179,10 @@
              */
             notNeedUpdateTips () {
                 if (this.planList.length < 1) {
-                    return I18n.t('template.该模板下面没有执行方案');
+                    return '该模板下面没有执行方案';
                 }
                 if (this.planList.every(_ => !_.needUpdate)) {
-                    return I18n.t('template.该模板下面的所有执行方案已是最新版');
+                    return '该模板下面的所有执行方案已是最新版';
                 }
                 return '';
             },
@@ -201,7 +200,7 @@
                 name: [
                     {
                         required: true,
-                        message: I18n.t('template.模板名称必填'),
+                        message: '模板名称必填',
                         trigger: 'blur',
                     },
                     {
@@ -211,7 +210,7 @@
                     },
                     {
                         validator: this.checkName,
-                        message: I18n.t('template.模板名称已存在，请重新输入'),
+                        message: '模板名称已存在，请重新输入',
                         trigger: 'blur',
                     },
                 ],

@@ -1,11 +1,11 @@
 <template>
     <div class="script-manage-batch-edit-tag" v-bkloading="{ isLoading }">
         <div style="margin-bottom: 8px;">
-            {{ $t('script.范围') }}：{{ $t('script.共') }}<span class="strong number">{{ templateNums }}</span>{{ $t('script.个脚本') }}
+            {{ '范围' }}：{{ '共' }}<span class="strong number">{{ templateNums }}</span>{{ '个脚本' }}
         </div>
         <jb-form form-type="vertical">
             <jb-form-item
-                :label="$t('script.标签')"
+                :label="'标签'"
                 required
                 style="margin-bottom: 0;">
                 <div class="tag-panel">
@@ -35,13 +35,13 @@
                                     <template v-if="tagCheckInfoMap[tagItem.id]">
                                         <span
                                             v-if="tagCheckInfoMap[tagItem.id].checked"
-                                            v-bk-tooltips.right="$t('script.勾选范围里，全部脚本使用')"
+                                            v-bk-tooltips.right="'勾选范围里，全部脚本使用'"
                                             class="relate-all">
                                             All
                                         </span>
                                         <span
                                             v-if="tagCheckInfoMap[tagItem.id].indeterminate"
-                                            v-bk-tooltips.right="`${$t('script.勾选范围里，有')} ${tagRelateNumMap[tagItem.id]} ${$t('script.个脚本使用')}`"
+                                            v-bk-tooltips.right="`${'勾选范围里，有'} ${tagRelateNumMap[tagItem.id]} ${'个脚本使用'}`"
                                             class="relate-nums">
                                             {{ tagRelateNumMap[tagItem.id] }}/{{ templateNums }}
                                         </span>
@@ -58,11 +58,11 @@
                             v-else-if="search"
                             type="search"
                             style="margin-top: 20px;">
-                            <span>{{ $t('script.搜索结果为空') }}，</span>
+                            <span>{{ '搜索结果为空' }}，</span>
                             <bk-button
                                 text
                                 @click="handleClearSearch">
-                                {{ $t('script.清空搜索') }}
+                                {{ '清空搜索' }}
                             </bk-button>
                         </Empty>
                     </div>
@@ -72,13 +72,13 @@
                                 <bk-icon
                                     type="plus-circle"
                                     style=" margin-right: 8px; font-size: 16px;" />
-                                <span>{{ $t('script.新建标签') }}</span>
+                                <span>{{ '新建标签' }}</span>
                             </div>
                             <div slot="forbid" class="tag-create">
                                 <bk-icon
                                     type="plus-circle"
                                     style=" margin-right: 8px; font-size: 16px;" />
-                                <span>{{ $t('script.新建标签') }}</span>
+                                <span>{{ '新建标签' }}</span>
                             </div>
                         </auth-component>
                     </template>
@@ -104,8 +104,7 @@
         getCurrentInstance,
     } from '@vue/composition-api';
     import _ from 'lodash';
-    import I18n from '@/i18n';
-    import PubliceTagManageService from '@service/public-tag-manage';
+       import PubliceTagManageService from '@service/public-tag-manage';
     import TagManageService from '@service/tag-manage';
     import ScriptManageService from '@service/script-manage';
     import PublicScriptManageService from '@service/public-script-manage';
@@ -302,7 +301,7 @@
                     deleteTagIdList,
                     idList: props.scriptList.map(({ id }) => id),
                 }).then(() => {
-                    proxy.messageSuccess(I18n.t('script.编辑标签成功'));
+                    proxy.messageSuccess('编辑标签成功');
                     ctx.emit('on-change');
                 });
             };

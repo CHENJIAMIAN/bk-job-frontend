@@ -15,10 +15,10 @@
         <table v-if="isShowRelateList">
             <thead>
                 <tr>
-                    <th style="width: 230px;">{{ $t('template.执行方案.colHead') }}</th>
-                    <th style="width: 205px;">{{ $t('template.作业模板') }}</th>
-                    <th style="width: 185px;">{{ $t('template.原始值') }}</th>
-                    <th>{{ $t('template.更新值') }}</th>
+                    <th style="width: 230px;">{{ '执行方案' }}</th>
+                    <th style="width: 205px;">{{ '作业模板' }}</th>
+                    <th style="width: 185px;">{{ '原始值' }}</th>
+                    <th>{{ '更新值' }}</th>
                 </tr>
             </thead>
             <tbody>

@@ -7,15 +7,15 @@
         </div>
         <div class="agent-statistics-detail">
             <div class="detail-item normal"
-                @mouseover="handlePieScale($t('home.正常'))"
+                @mouseover="handlePieScale('正常')"
                 @click="handleShowAgentDetail('normal', agentInfo.normalNum)">
-                <span>{{ $t('home.正常') }}</span>
+                <span>{{ '正常' }}</span>
                 <span class="detail-value">{{ agentInfo.normalNum }}</span>
             </div>
             <div class="detail-item fail"
-                @mouseover="handlePieScale($t('home.异常'))"
+                @mouseover="handlePieScale('异常')"
                 @click="handleShowAgentDetail('fail', agentInfo.normalNum)">
-                <span>{{ $t('home.异常') }}</span>
+                <span>{{ '异常' }}</span>
                 <span class="detail-value">{{ agentInfo.abnormalNum }}</span>
             </div>
         </div>
@@ -23,7 +23,7 @@
             <div slot="title">{{ listTitle }}</div>
             <div slot="desc">
                 <action-extend>
-                    <div class="action-item" @click="handleCopyAll">{{ $t('home.复制全部') }}</div>
+                    <div class="action-item" @click="handleCopyAll">{{ '复制全部' }}</div>
                 </action-extend>
             </div>
             <host-list :status-type="statusType" />
@@ -31,8 +31,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import echarts from 'lib/echarts.min.js';
+       import echarts from 'lib/echarts.min.js';
     import HomeService from '@service/home';
     import SidesliderBox from '@components/choose-ip/components/sideslider-box';
     import ActionExtend from '@components/choose-ip/components/action-extend';
@@ -60,15 +59,15 @@
         computed: {
             listTitle () {
                 const statusListMap = {
-                    normal: I18n.t('home.Agent 正常的机器列表：'),
-                    fail: I18n.t('home.Agent 异常的机器列表：'),
+                    normal: 'Agent 正常的机器列表：',
+                    fail: 'Agent 异常的机器列表：',
                 };
                 return statusListMap[this.statusType];
             },
             defaultHighlight () {
                 return (this.agentInfo.abnormalNum || !this.agentInfo.normalNum)
-                    ? this.$t('home.异常')
-                    : this.$t('home.正常');
+                    ? '异常'
+                    : '正常';
             },
         },
         created () {
@@ -99,7 +98,7 @@
             },
             handleCopyAll () {
                 const allIP = this.allHostList.map(_ => _.split(':').pop());
-                execCopy(allIP.join('\n'), `${I18n.t('home.复制成功')}（${allIP.length}${I18n.t('home.个IP')}）`);
+                execCopy(allIP.join('\n'), `${'复制成功'}（${allIP.length}${'个IP'}）`);
             },
             fetchAllAgentStatus () {
                 const agentStatus = this.statusType === 'fail' ? 0 : 1;
@@ -111,8 +110,8 @@
             },
             handlePieScale (curName) {
                 const statusMap = [
-                    this.$t('home.正常'),
-                    this.$t('home.异常'),
+                    '正常',
+                    '异常',
                 ];
                 const selectItem = [
                     curName,
@@ -174,7 +173,7 @@
                                 {
                                     value: this.agentInfo.normalNum,
                                     key: 'normal',
-                                    name: this.$t('home.正常'),
+                                    name: '正常',
                                     itemStyle: {
                                         color: '#2DCB9D',
                                     },
@@ -187,7 +186,7 @@
                                 {
                                     value: this.agentInfo.abnormalNum,
                                     key: 'fail',
-                                    name: this.$t('home.异常'),
+                                    name: '异常',
                                     itemStyle: {
                                         color: '#FF565C',
                                     },

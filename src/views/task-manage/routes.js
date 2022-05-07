@@ -1,7 +1,5 @@
 
 
-import I18n from '@/i18n';
-
 export default {
     path: 'task_manage',
     name: 'taskManage',
@@ -10,7 +8,7 @@ export default {
         name: 'taskList',
     },
     meta: {
-        title: I18n.t('作业'),
+        title: '作业',
         group: 'business',
     },
     children: [
@@ -19,7 +17,7 @@ export default {
             name: 'taskList',
             component: () => import('@views/task-manage/list'),
             meta: {
-                pageTitle: I18n.t('作业'),
+                pageTitle: '作业',
                 full: true,
                 skeleton: 'taskList',
             },
@@ -29,7 +27,7 @@ export default {
             name: 'templateDetail',
             component: () => import('@views/task-manage/template-detail'),
             meta: {
-                title: I18n.t('查看作业模板'),
+                title: '查看作业模板',
                 skeleton: 'taskDetail',
             },
         },
@@ -38,7 +36,7 @@ export default {
             name: 'templateCreate',
             component: () => import('@views/task-manage/template-operation'),
             meta: {
-                title: I18n.t('新建作业模板'),
+                title: '新建作业模板',
             },
         },
         {
@@ -46,7 +44,7 @@ export default {
             name: 'taskImport',
             component: () => import('@views/task-manage/import'),
             meta: {
-                title: I18n.t('导入作业'),
+                title: '导入作业',
                 full: true,
             },
         },
@@ -55,7 +53,7 @@ export default {
             name: 'taskExport',
             component: () => import('@views/task-manage/export'),
             meta: {
-                title: I18n.t('导出作业'),
+                title: '导出作业',
                 full: true,
             },
         },
@@ -65,7 +63,7 @@ export default {
             name: 'templateEdit',
             component: () => import('@views/task-manage/template-operation'),
             meta: {
-                title: I18n.t('编辑作业模板'),
+                title: '编辑作业模板',
                 skeleton: 'taskDetail',
             },
         },
@@ -74,7 +72,7 @@ export default {
             name: 'templateClone',
             component: () => import('@views/task-manage/template-operation'),
             meta: {
-                title: I18n.t('克隆作业模板'),
+                title: '克隆作业模板',
                 skeleton: 'taskDetail',
             },
         },
@@ -83,7 +81,7 @@ export default {
             name: 'viewPlan',
             component: () => import('@views/task-manage/template-plan-list'),
             meta: {
-                title: I18n.t('查看执行方案'),
+                title: '查看执行方案',
                 skeleton: 'list',
             },
         },
@@ -92,7 +90,7 @@ export default {
             name: 'syncPlan',
             component: () => import('@views/task-manage/sync-plan'),
             meta: {
-                title: I18n.t('同步确认'),
+                title: '同步确认',
                 full: true,
             },
         },
@@ -101,7 +99,7 @@ export default {
             name: 'debugPlan',
             component: () => import('@views/task-manage/debug-plan/index'),
             meta: {
-                title: I18n.t('调试'),
+                title: '调试',
                 skeleton: 'setVariable',
             },
         },
@@ -110,7 +108,7 @@ export default {
             name: 'settingVariable',
             component: () => import('@views/task-manage/setting-variable'),
             meta: {
-                title: I18n.t('设置全局变量'),
+                title: '设置全局变量',
                 skeleton: 'setVariable',
             },
         },

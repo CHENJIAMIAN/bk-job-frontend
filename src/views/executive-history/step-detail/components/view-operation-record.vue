@@ -5,14 +5,14 @@
         <div>
             <div
                 class="action-btn"
-                v-bk-tooltips.bottom="$t('history.操作记录')"
+                v-bk-tooltips.bottom="'操作记录'"
                 @click="handleShowOperationRecord">
                 <Icon type="history" />
             </div>
             <jb-sideslider
                 :is-show.sync="isShow"
                 :quick-close="true"
-                :title="$t('history.操作记录')"
+                :title="'操作记录'"
                 :show-footer="false"
                 :width="900">
                 <operation-record

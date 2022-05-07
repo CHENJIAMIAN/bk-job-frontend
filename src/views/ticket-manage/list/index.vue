@@ -9,14 +9,14 @@
                 @click="handleCreate"
                 class="w120"
                 v-test="{ type: 'button', value: 'createTicket' }">
-                {{ $t('ticket.新建') }}
+                {{ '新建' }}
             </auth-button>
             <template #right>
                 <jb-search-select
                     ref="search"
                     @on-change="handleSearch"
                     :data="searchSelect"
-                    :placeholder="$t('ticket.搜索 ID、名称、描述、创建人、更新人...')"
+                    :placeholder="'搜索 ID、名称、描述、创建人、更新人...'"
                     style="width: 480px;" />
             </template>
         </list-action-layout>
@@ -28,7 +28,7 @@
             v-test="{ type: 'list', value: 'ticket' }">
             <bk-table-column
                 v-if="allRenderColumnMap.id"
-                :label="$t('ticket.凭证ID')"
+                :label="'凭证ID'"
                 width="300"
                 prop="id"
                 key="id"
@@ -38,7 +38,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('ticket.凭证名称')"
+                :label="'凭证名称'"
                 sortable
                 prop="name"
                 key="name"
@@ -50,7 +50,7 @@
                 </template>
             </bk-table-column>
             <bk-table-column
-                :label="$t('ticket.类型.colHead')"
+                :label="'类型'"
                 prop="type"
                 key="type"
                 align="left"
@@ -63,7 +63,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.description"
-                :label="$t('ticket.描述')"
+                :label="'描述'"
                 prop="description"
                 key="description"
                 min-width="150"
@@ -74,7 +74,7 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.related"
-                :label="$t('ticket.被引用.colHead')"
+                :label="'被引用'"
                 prop="related"
                 key="related"
                 width="100"
@@ -100,34 +100,34 @@
             </bk-table-column>
             <bk-table-column
                 v-if="allRenderColumnMap.creator"
-                :label="$t('ticket.创建人')"
+                :label="'创建人'"
                 width="120"
                 prop="creator"
                 key="creator"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.createTime"
-                :label="$t('ticket.创建时间')"
+                :label="'创建时间'"
                 prop="createTime"
                 key="createTime"
                 width="180"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyUser"
-                :label="$t('ticket.更新人')"
+                :label="'更新人'"
                 prop="lastModifyUser"
                 key="lastModifyUser"
                 width="120"
                 align="left" />
             <bk-table-column
                 v-if="allRenderColumnMap.lastModifyTime"
-                :label="$t('ticket.更新时间')"
+                :label="'更新时间'"
                 prop="lastModifyTime"
                 key="lastModifyTime"
                 width="180"
                 align="left" />
             <bk-table-column
-                :label="$t('ticket.操作')"
+                :label="'操作'"
                 :resizable="false"
                 key="action"
                 fixed="right"
@@ -142,11 +142,11 @@
                         class="mr10"
                         @click="handleEdit(row)"
                         v-test="{ type: 'list', value: 'editTicket' }">
-                        {{ $t('ticket.编辑') }}
+                        {{ '编辑' }}
                     </auth-button>
                     <jb-popover-confirm
-                        :title="$t('ticket.确定删除该凭证？')"
-                        :content="$t('ticket.正在被文件源使用的凭证无法删除，如需删除请先解除引用关系。')"
+                        :title="'确定删除该凭证？'"
+                        :content="'正在被文件源使用的凭证无法删除，如需删除请先解除引用关系。'"
                         :confirm-handler="() => handleDelete(row.id)">
                         <auth-button
                             auth="ticket/edit"
@@ -154,7 +154,7 @@
                             :resource-id="row.id"
                             text
                             v-test="{ type: 'list', value: 'deleteTicket' }">
-                            {{ $t('ticket.删除') }}
+                            {{ '删除' }}
                         </auth-button>
                     </jb-popover-confirm>
                 </template>
@@ -171,7 +171,7 @@
             :is-show.sync="showRelatedSideslider"
             :show-footer="false"
             :width="900"
-            :title="$t('ticket.被引用.label')">
+            :title="'被引用'">
             <related-ticket
                 :credential-id="credentialId" />
         </jb-sideslider>
@@ -186,8 +186,7 @@
     </div>
 </template>
 <script>
-    import I18n from '@/i18n';
-    import TicketService from '@service/ticket-manage';
+       import TicketService from '@service/ticket-manage';
     import NotifyService from '@service/notify';
     import { listColumnsCache } from '@utils/cache-helper';
     import RenderList from '@components/render-list';
@@ -235,14 +234,14 @@
             operationSidesliderInfo () {
                 if (!this.ticketDetailInfo.id) {
                     return {
-                        title: I18n.t('ticket.新建凭证'),
-                        okText: I18n.t('ticket.提交'),
+                        title: '新建凭证',
+                        okText: '提交',
                         
                     };
                 }
                 return {
-                    title: I18n.t('ticket.编辑凭证'),
-                    okText: I18n.t('ticket.保存'),
+                    title: '编辑凭证',
+                    okText: '保存',
                 };
             },
         },
@@ -251,19 +250,19 @@
             this.sourceFilters = [
                 {
                     value: 'APP_ID_SECRET_KEY',
-                    text: I18n.t('AppID+SecretKey'),
+                    text: 'AppID+SecretKey',
                 },
                 {
                     value: 'PASSWORD',
-                    text: I18n.t('单一密码'),
+                    text: '单一密码',
                 },
                 {
                     value: 'USERNAME_PASSWORD',
-                    text: I18n.t('用户名+密码'),
+                    text: '用户名+密码',
                 },
                 {
                     value: 'SECRET_KEY',
-                    text: I18n.t('单一SecretKey'),
+                    text: '单一SecretKey',
                 },
             ];
             this.searchSelect = [
@@ -274,21 +273,21 @@
                 },
                 {
                     id: 'name',
-                    name: I18n.t('ticket.名称'),
+                    name: '名称',
                     default: true,
                 },
                 {
-                    name: I18n.t('ticket.描述'),
+                    name: '描述',
                     id: 'description',
                 },
                 {
-                    name: I18n.t('ticket.创建人'),
+                    name: '创建人',
                     id: 'creator',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
                 },
                 {
-                    name: I18n.t('ticket.更新人'),
+                    name: '更新人',
                     id: 'lastModifyUser',
                     remoteMethod: NotifyService.fetchUsersOfSearch,
                     inputInclude: true,
@@ -297,48 +296,48 @@
             this.tableColumn = [
                 {
                     id: 'id',
-                    label: I18n.t('ticket.凭证ID'),
+                    label: '凭证ID',
                 },
                 {
                     id: 'name',
-                    label: I18n.t('ticket.名称'),
+                    label: '名称',
                     disabled: true,
                 },
                 {
                     id: 'type',
-                    label: I18n.t('ticket.类型.colHead'),
+                    label: '类型',
                     disabled: true,
                 },
                 {
                     id: 'description',
-                    label: I18n.t('ticket.描述'),
+                    label: '描述',
                 },
                 {
                     id: 'related',
-                    label: I18n.t('ticket.被引用.colHead'),
+                    label: '被引用',
                 },
                 {
                     id: 'creator',
-                    label: I18n.t('ticket.创建人'),
+                    label: '创建人',
                 },
                 {
                     id: 'createTime',
-                    label: I18n.t('ticket.创建时间'),
+                    label: '创建时间',
                 },
                 {
                     id: 'lastModifyUser',
-                    label: I18n.t('ticket.更新人'),
+                    label: '更新人',
                 },
                 {
                     id: 'lastModifyTime',
-                    label: I18n.t('ticket.更新时间'),
+                    label: '更新时间',
                 },
             ];
             this.typeMap = {
-                APP_ID_SECRET_KEY: I18n.t('AppID+SecretKey'),
-                PASSWORD: I18n.t('单一密码'),
-                USERNAME_PASSWORD: I18n.t('用户名+密码'),
-                SECRET_KEY: I18n.t('单一SecretKey'),
+                APP_ID_SECRET_KEY: 'AppID+SecretKey',
+                PASSWORD: '单一密码',
+                USERNAME_PASSWORD: '用户名+密码',
+                SECRET_KEY: '单一SecretKey',
             };
 
             const columnsCache = listColumnsCache.getItem(TABLE_COLUMN_CACHE);
@@ -449,7 +448,7 @@
                 TicketService.remove({
                     id,
                 }).then(() => {
-                    this.messageSuccess(I18n.t('ticket.删除成功'));
+                    this.messageSuccess('删除成功');
                     this.fetchData();
                     this.relatedNum = [];
                     this.fetchCitedNum();

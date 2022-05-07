@@ -1,6 +1,4 @@
 
-
-import I18n from '@/i18n';
 import {
     transformTimeFriendly,
 } from '@utils/assist';
@@ -169,9 +167,9 @@ export default class TaskExecutionResultStep {
      */
     get typeDesc () {
         const typeMap = {
-            [TYPE_SCRIPT]: I18n.t('执行脚本'),
-            [TYPE_FILE]: I18n.t('分发文件'),
-            [TYPE_APPROVAL]: I18n.t('人工确认'),
+            [TYPE_SCRIPT]: '执行脚本',
+            [TYPE_FILE]: '分发文件',
+            [TYPE_APPROVAL]: '人工确认',
         };
         return typeMap[this.type];
     }
@@ -234,7 +232,7 @@ export default class TaskExecutionResultStep {
         if (this.confirmReason) {
             return `<span>${this.confirmReason}</span>`;
         }
-        return `<span style="color: #bcbec5">${I18n.t('（未发表确认信息）')}</span>`;
+        return `<span style="color: #bcbec5">${'（未发表确认信息）'}</span>`;
     }
 
     /**
