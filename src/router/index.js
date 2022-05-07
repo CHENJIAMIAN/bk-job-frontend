@@ -82,7 +82,7 @@ export default ({ appList, isAdmin, scopeType, scopeId }) => {
     // 生成路由配置
     const routes = [
         {
-            path: '/',
+            path: window.PROJECT_CONFIG.ROUTE_PUBLIC_PATH,
             component: Entry,
             redirect: {
                 name: 'home',
