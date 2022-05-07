@@ -39,7 +39,7 @@ npm run build
 
 ## 值得学习的地方
 
-[fully-import.js里有详细注释](./common/fully-import.js)
+[fully-import.js里有详细注释](./src/common/fully-import.js)
 
 ```
 @vue/composition-api 使用vue3语法
