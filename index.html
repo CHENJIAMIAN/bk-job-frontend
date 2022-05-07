@@ -1,56 +1,22 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html><head><link rel=icon href=/bk-job-frontend/static/images/favicon.ico type=image/x-icon><link rel="shortcut icon" href=/bk-job-frontend/static/images/favicon.ico type=image/x-icon><meta charset=utf-8><title>loading...</title><script defer=defer src=/bk-job-frontend/js/runtime.beb03102c4b8b4ccf6ec.js></script><script defer=defer src=/bk-job-frontend/js/bk-magic-vue.3794f43519b6b12b1bdb.js></script><script defer=defer src=/bk-job-frontend/js/vendors.b4af528194829f97e6fa.js></script><script defer=defer src=/bk-job-frontend/js/main.c738293f197c2b306ed6.js></script><link href=/bk-job-frontend/static/css/vendors.28410402deaf20748030.css rel=stylesheet><link href=/bk-job-frontend/static/css/main.f0151d8681b26bf1d104.css rel=stylesheet></head><body><div id=app></div><script>window.PROJECT_CONFIG = (function () {
+          const SITE_URL = '/';
+          const BK_STATIC_URL = '/';
+          const REMOTE_STATIC_URL = '';
+          const AJAX_URL_PREFIX = '/';
 
-<head>
-  <link rel=icon href=/bk-job-frontend/static/images/favicon.ico type=image/x-icon>
-  <link rel="shortcut icon" href=/bk-job-frontend/static/images/favicon.ico type=image/x-icon>
-  <meta charset=utf-8>
-  <title>loading...</title>
-  <script defer=defer src=/bk-job-frontend/js/runtime.e88722014e2e0b89e47f.js></script>
-  <script defer=defer src=/bk-job-frontend/js/bk-magic-vue.3794f43519b6b12b1bdb.js></script>
-  <script defer=defer src=/bk-job-frontend/js/vendors.1bed8ca7750cde3c4a44.js></script>
-  <script defer=defer src=/bk-job-frontend/js/main.88f3d94473068d5f53bb.js></script>
-  <link href=/bk-job-frontend/static/css/vendors.0eb287d170698d696182.css rel=stylesheet>
-  <link href=/bk-job-frontend/static/css/main.f0151d8681b26bf1d104.css rel=stylesheet>
-</head>
-
-<body>
-  <div id=app></div>
-  <script>window.PROJECT_CONFIG = (function () {
-      const SITE_URL = "/";
-      const BK_STATIC_URL = "/";
-      const REMOTE_STATIC_URL = "";
-      const AJAX_URL_PREFIX = "/";
-      const EXTERNAL_THEME = "{{JOB_EXTERNAL_THEME}}";
-
-      return {
-        APP_ID: "",
-        SCOPE_TYPE: "",
-        SCOPE_ID: "",
-        AJAX_URL_PREFIX: AJAX_URL_PREFIX,
-        SITE_URL: SITE_URL,
-        BK_STATIC_URL: BK_STATIC_URL,
-        REMOTE_STATIC_URL: REMOTE_STATIC_URL,
-        EXTERNAL_THEME: EXTERNAL_THEME,
-      };
-    })();</script>
-  <script>// 通过 URL 直接访问时 chrome 默认使用 https 协议，强制前端系统协议和 AJAX_URL_PREFIX 保持一直
-    // 降级处理（在 https 域名下，请求 http 的 api 会失败）
-    if (/^http:/.test(window.PROJECT_CONFIG.AJAX_URL_PREFIX)) {
-      if (/^https/.test(window.location.href)) {
-        window.location.href = window.location.href.replace(/^https/, 'http')
-      }
-    }</script>
-  <script>if (
-      window.PROJECT_CONFIG.EXTERNAL_THEME &&
-      window.PROJECT_CONFIG.EXTERNAL_THEME !== "{{JOB_EXTERNAL_THEME}}"
-    ) {
-      var $link = document.createElement("link");
-      $link.type = "text/css";
-      $link.rel = "stylesheet";
-      $link.href = window.PROJECT_CONFIG.EXTERNAL_THEME;
-      document.querySelector("body").appendChild($link);
-    }</script>
-</body>
-
-</html>
+          return {
+              APP_ID: '',
+              SCOPE_TYPE: '',
+              SCOPE_ID: '',
+              AJAX_URL_PREFIX,
+              SITE_URL,
+              BK_STATIC_URL,
+              REMOTE_STATIC_URL,
+          };
+      })();</script><script>// 通过 URL 直接访问时 chrome 默认使用 https 协议，强制前端系统协议和 AJAX_URL_PREFIX 保持一直
+      // 降级处理（在 https 域名下，请求 http 的 api 会失败）
+      if (/^http:/.test(window.PROJECT_CONFIG.AJAX_URL_PREFIX)) {
+          if (/^https/.test(window.location.href)) {
+              window.location.href = window.location.href.replace(/^https/, 'http');
+          }
+      }</script></body></html>
