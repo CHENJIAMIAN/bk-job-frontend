@@ -19,6 +19,7 @@ export default new Proxy(request, {
                 return Promise.resolve();
             }
             return target.request({
+                // baseUrl
                 host: window.PROJECT_CONFIG.AJAX_URL_PREFIX,
                 url,
                 method: key,
