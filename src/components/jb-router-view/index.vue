@@ -1,6 +1,6 @@
 
-
 <template>
+    <!-- jb-router-view: 某几个页面显示页面指导,骨架图, EventBus接收全局的页面权限提示 -->
     <div class="job-router-view">
         <page-guide v-show="isShowView" />
         <skeleton :visiable="!isShowView" :type="skeletonType" />
@@ -74,11 +74,13 @@
                     return this.$refs.routerView.isSkeletonLoading;
                 }, (isSkeletonLoading) => {
                     if (!isSkeletonLoading) {
+                        // 假设300ms后就显示了出来
                         const spaceTime = Date.now() - startPendingTime;
-                        const letterTime = 1000;
+                        const letterTime = 100;
                         this.skeletonTimer = setTimeout(() => {
                             this.isShowView = true;
                             unWatch();
+                            // 不足1000ms则补足1000ms
                         }, spaceTime > letterTime ? 0 : letterTime - spaceTime);
                     }
                 }, {
