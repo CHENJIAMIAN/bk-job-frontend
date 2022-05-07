@@ -240,6 +240,7 @@
                 if (!this.ignoreUrl
                     && Object.prototype.hasOwnProperty.call(data, 'existAny')
                     && !data.existAny) {
+                    // 被page-guide页面接收, 还没内容就显示引导页面
                     EventBus.$emit('page-empty');
                 }
                 // })

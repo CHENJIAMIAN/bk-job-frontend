@@ -1,7 +1,8 @@
 
-
 <template>
-    <component class="guide-page" :is="com" />
+    <div v-test="{ type: 'asdf',value: 'gfc' }">
+        <component class="guide-page" :is="com" />
+    </div>
 </template>
 <script>
     import EventBus from '@utils/event-bus';
