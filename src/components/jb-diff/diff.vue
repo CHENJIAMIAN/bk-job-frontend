@@ -1,6 +1,6 @@
 
-
 <template>
+    <!-- 跟src/components/jb-diff/index.vue仅样式不同 -->
     <div class="bk-diff" :class="classes">
         <div ref="content" v-html="html" />
     </div>

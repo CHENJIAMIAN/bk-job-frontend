@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="jb-input" ref="jbInput">
         <bk-input

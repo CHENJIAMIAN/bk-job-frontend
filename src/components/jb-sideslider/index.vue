@@ -1,5 +1,4 @@
 
-
 <template>
     <bk-sideslider
         class="jb-sideslider"
@@ -41,7 +40,7 @@
 </template>
 <script>
     import _ from 'lodash';
-       import {
+    import {
         leaveConfirm,
     } from '@utils/assist';
 

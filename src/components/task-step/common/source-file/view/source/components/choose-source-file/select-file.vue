@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="select-bucket">
         <list-action-layout>
@@ -86,7 +85,7 @@
                     'show-limit': false,
                 },
                 rowSelectMemo: {},
-                fileSourceInfo: {},
+                fileSourceInfo: { alias: 'alias' },
             };
         },
         computed: {

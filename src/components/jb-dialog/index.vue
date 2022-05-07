@@ -1,5 +1,4 @@
 
-
 <template>
     <bk-dialog
         v-bind="$attrs"
@@ -31,7 +30,7 @@
     </bk-dialog>
 </template>
 <script>
-       import { leaveConfirm } from '@utils/assist';
+    import { leaveConfirm } from '@utils/assist';
 
     export default {
         name: 'JbDialog',

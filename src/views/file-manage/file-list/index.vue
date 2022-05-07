@@ -65,7 +65,7 @@
             return {
                 renderColumns: [],
                 path: 'a/b/c/d',
-                fileSourceInfo: {},
+                fileSourceInfo: { alias: 'alias' },
             };
         },
         computed: {

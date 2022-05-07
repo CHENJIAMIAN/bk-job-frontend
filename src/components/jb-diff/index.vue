@@ -1,5 +1,4 @@
 
-
 <template>
     <div class="bk-diff" :class="classes">
         <div ref="content" v-html="html" />
