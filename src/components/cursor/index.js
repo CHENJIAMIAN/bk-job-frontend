@@ -1,5 +1,4 @@
 
-
 /* eslint-disable no-param-reassign */
 
 import './index.css';
@@ -22,7 +21,7 @@ const init = function (el, binding) {
         element.style.height = '18px';
         el.element = element;
         document.body.appendChild(element);
-        
+        // 鼠标后面跟一个小锁头 cursor-element
         element.classList.add(binding.value.cls || DEFAULT_OPTIONS.cls);
         el.addEventListener('mousemove', el.mouseMoveHandler);
     };
@@ -30,6 +29,7 @@ const init = function (el, binding) {
         const { pageX, pageY } = event;
         const elLeft = pageX + DEFAULT_OPTIONS.offset[0];
         const elTop = pageY + DEFAULT_OPTIONS.offset[1];
+        // 小锁头的位置跟在鼠标后面
         el.element.style.left = `${elLeft}px`;
         el.element.style.top = `${elTop}px`;
     };
@@ -56,6 +56,7 @@ export default {
     install (Vue) {
         Vue.directive('cursor', {
             bind (el, binding) {
+                // binding.value 调用指令时传入的值(可选)
                 binding.value = Object.assign({}, DEFAULT_OPTIONS, binding.value);
                 init(el, binding);
             },

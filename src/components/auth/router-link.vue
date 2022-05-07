@@ -1,12 +1,14 @@
 
 
 <template>
-    <router-link v-if="permission" v-bind="$attrs" v-on="$listeners">
-        <slot />
-    </router-link>
-    <span v-else v-cursor class="not-permission" @click="handleCheckPermission">
-        <slot />
-    </span>
+    <div>
+        <router-link v-if="permission" v-bind="$attrs" v-on="$listeners">
+            <slot />
+        </router-link>
+        <span v-cursor class="not-permission" @click="handleCheckPermission">
+            <slot />
+        </span>
+    </div>
 </template>
 <script>
     import {
