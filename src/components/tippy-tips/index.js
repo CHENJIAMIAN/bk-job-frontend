@@ -1,5 +1,3 @@
-
-
 import _ from 'lodash';
 import tippy from 'bk-magic-vue/lib/utils/tippy';
 
@@ -18,6 +16,7 @@ export default {
                         return;
                     }
                     const placement = $current.getAttribute('placement') || 'top';
+                    // 元素:tippy-tips="提示内容" 即可注入悬浮提示
                     if (!$current._tippy) { // eslint-disable-line no-underscore-dangle
                         tippy($current, {
                             ...defaultOptions,
