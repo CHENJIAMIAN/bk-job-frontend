@@ -1,5 +1,4 @@
-
-
+// 生成表头为:开源软件名称 开源软件版本号 开源软件的下载链接地址 是否对开源软件做出修改 的excel文件
 const xlsx = require('node-xlsx').default;
 const fs = require('fs');
 const path = require('path');
@@ -62,7 +61,11 @@ const checkPackage = (entryPath) => {
             checkPackage(path.resolve(entryPath, currentDir));
             continue;
         }
-        const packageJsonStr = fs.readFileSync(path.resolve(entryPath, currentDir, './package.json'));
+        const p = path.resolve(entryPath, currentDir, './package.json');
+        if (!fs.existsSync(p)) {
+            continue;
+        }
+        const packageJsonStr = fs.readFileSync(p);
 
         const packageJson = JSON.parse(packageJsonStr.toString());
 

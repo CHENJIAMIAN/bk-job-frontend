@@ -1,5 +1,4 @@
-
-
+// 插入或更新头部版权注释
 /* eslint-disable max-len */
 const path = require('path');
 const fs = require('fs');
