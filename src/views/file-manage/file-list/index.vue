@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="file-node-list-page">
         <list-action-layout>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="history-record-box" v-bkloading="{ isLoading }">
         <div v-if="!isLoading" class="history-record">

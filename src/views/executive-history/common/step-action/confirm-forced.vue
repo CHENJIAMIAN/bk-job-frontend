@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="confirm-forced">
         <Icon type="stop" />

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="user-box" v-bkloading="{ isLoading }">
         <div class="user-name">Hi, {{ userInfo.username }}</div>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="server-file-edit-box" v-bkloading="{ isLoading }">
         <table>

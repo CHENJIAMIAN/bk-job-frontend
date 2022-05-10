@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="choose-ip-dynamic-group" v-bkloading="{ isLoading }">
         <div class="group-search">

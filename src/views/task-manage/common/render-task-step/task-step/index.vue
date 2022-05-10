@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-step-operation-wraper">
         <div class="left" :style="leftStyles">

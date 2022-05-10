@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="detect-records-list-page">
         <list-action-layout>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-bkloading="{ isLoading }">
         <task-step-view :variable="variableList" :data="stepInfo" />

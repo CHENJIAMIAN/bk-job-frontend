@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="page-sentence-rule" v-bkloading="{ isLoading }">
         <table class="rule-table">

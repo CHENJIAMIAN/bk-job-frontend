@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="dashboard-card-layout">
         <div class="card-title">

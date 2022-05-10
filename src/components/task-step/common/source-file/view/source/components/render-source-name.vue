@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-file-source-name" v-bkloading="{ isLoading }">
         <div @click="handleGoFileSource(fileSourceId)">

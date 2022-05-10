@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="layout" class="script-version-manage-layout">
         <div class="layout-header">

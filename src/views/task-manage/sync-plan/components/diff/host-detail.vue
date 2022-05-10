@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="step-view-global-variable" @click="handlerView">
         <Icon class="type-flag" type="audit" />

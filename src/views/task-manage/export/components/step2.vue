@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-export-step2-page">
         <div class="layout-wraper">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <router-link v-if="permission" v-bind="$attrs" v-on="$listeners">

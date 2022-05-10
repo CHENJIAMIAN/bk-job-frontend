@@ -1,5 +1,3 @@
-
-
 <template>
     <card-layout class="script-cound-card" :title="'脚本量'">
         <render-trend metric="SCRIPT_COUNT" :date="date" />

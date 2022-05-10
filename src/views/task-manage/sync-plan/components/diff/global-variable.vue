@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="diff-global-variable" :class="classes" :id="`${type}_variable_${data.id}_${data.name}`">
         <div class="name">

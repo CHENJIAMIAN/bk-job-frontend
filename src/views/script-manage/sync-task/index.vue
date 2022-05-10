@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-manage-sync-task-page" v-bkloading="{ isLoading }">
         <div class="retry-btn">

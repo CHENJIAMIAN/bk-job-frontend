@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-bkloading="{ isLoading }">
         <jb-form

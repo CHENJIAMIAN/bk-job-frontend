@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-list-empty-page">
         <div class="page-header">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="exec-script-view" :class="{ loading: isLoading }" v-bkloading="{ isLoading }">
         <detail-item :label="'脚本来源：'">

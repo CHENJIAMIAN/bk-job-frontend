@@ -1,5 +1,3 @@
-
-
 <template>
     <card-layout
         class="plan-count-dashboard"

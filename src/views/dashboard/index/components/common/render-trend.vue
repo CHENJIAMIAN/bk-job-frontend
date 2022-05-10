@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-trend-box" v-bkloading="{ isLoading, opacity: 0.8 }">
         <div class="data-wraper">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="cron-job-manage">
         <list-action-layout>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-import-step1">
         <div v-once class="flag">

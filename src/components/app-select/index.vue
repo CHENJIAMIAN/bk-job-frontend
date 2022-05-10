@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="app" class="job-app-select" :class="{ focus: isFocus }">
         <div>

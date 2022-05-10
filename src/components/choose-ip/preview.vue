@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-if="value" id="chooseIPServerPreview" class="server-preview">
         <div class="preview-header">

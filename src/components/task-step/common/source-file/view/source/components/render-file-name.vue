@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-source-file-name">
         <bk-popover placement="left">

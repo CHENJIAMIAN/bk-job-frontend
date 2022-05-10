@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-file-path-box">
         <bk-popover placement="left">

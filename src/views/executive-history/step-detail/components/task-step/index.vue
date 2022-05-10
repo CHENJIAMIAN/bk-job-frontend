@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="task-execute-bar-step"

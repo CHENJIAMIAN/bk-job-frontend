@@ -1,5 +1,3 @@
-
-
 <template>
     <resizeable-box>
         <div class="script-template-render-variable" v-bkloading="{ isLoading }">

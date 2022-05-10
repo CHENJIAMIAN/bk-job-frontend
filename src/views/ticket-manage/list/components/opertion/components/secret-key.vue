@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form ref="form" :model="formData" :rules="rules" form-type="vertical">
         <jb-form-item :label="'SecretKey'" required property="value1">

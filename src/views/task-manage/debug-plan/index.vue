@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <smart-action class="edit-execute-plan" offset-target="detail-content">

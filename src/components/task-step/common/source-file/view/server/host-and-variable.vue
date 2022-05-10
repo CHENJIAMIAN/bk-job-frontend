@@ -1,5 +1,3 @@
-
-
 <template>
     <tbody class="create-server-file" :key="reset">
         <tr v-if="hasSaved">

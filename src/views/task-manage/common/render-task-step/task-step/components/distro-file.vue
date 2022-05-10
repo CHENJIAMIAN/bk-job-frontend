@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="step-distro-file">
         <jb-form ref="form" :model="formData" fixed :label-width="formMarginLeftWidth">

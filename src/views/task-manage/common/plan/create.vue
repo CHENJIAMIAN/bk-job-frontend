@@ -1,5 +1,3 @@
-
-
 <template>
     <layout
         class="task-plan-create-box"

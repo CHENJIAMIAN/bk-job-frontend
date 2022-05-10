@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="retry">
         <Icon type="retry" />

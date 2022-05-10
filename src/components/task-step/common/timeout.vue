@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <jb-form-item :label="'超时时长'">

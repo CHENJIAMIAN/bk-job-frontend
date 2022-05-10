@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="variable-type-host" :class="{ 'variable-value-error': isError }">
         <div>

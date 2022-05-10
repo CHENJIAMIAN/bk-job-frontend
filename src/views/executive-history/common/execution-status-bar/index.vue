@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="exection-status-bar" :class="[data.displayStyle]">
         <component :is="themeCom" :data="data" :title-max-width="titleMaxWidth">

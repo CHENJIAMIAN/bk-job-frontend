@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="favor-task-box" ref="container" v-bkloading="{ isLoading }">
         <template v-if="!isLoading">

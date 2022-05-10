@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="job-execute-record" v-bkloading="{ isLoading }">
         <template v-if="!isLoading">

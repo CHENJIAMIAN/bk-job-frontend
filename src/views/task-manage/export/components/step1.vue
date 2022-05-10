@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-export-step1-page">
         <div v-once class="flag">

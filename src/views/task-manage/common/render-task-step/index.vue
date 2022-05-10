@@ -1,5 +1,3 @@
-
-
 <template>
     <div id="templateStepRender">
         <div class="task-step-container" :class="stepContainerClasses">

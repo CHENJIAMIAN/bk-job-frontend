@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="exec-script-page" v-bkloading="{ isLoading }">
         <smart-action offset-target="bk-form-content">

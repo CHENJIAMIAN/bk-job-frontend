@@ -1,5 +1,3 @@
-
-
 <template>
     <bk-form-item
         ref="bkFormItem"

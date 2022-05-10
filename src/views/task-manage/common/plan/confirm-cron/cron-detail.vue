@@ -1,5 +1,3 @@
-
-
 <template>
     <permission-section>
         <smart-action offset-target="variable-value">

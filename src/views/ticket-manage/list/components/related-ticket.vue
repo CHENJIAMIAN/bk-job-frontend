@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="related-ticket">
         <jb-search-select

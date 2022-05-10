@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="jb-edit-select"

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-related-script">
         <div class="tab-wraper">

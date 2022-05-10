@@ -1,5 +1,3 @@
-
-
 <template>
     <content-loader
         :height="716"

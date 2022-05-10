@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form form-type="vertical">
         <jb-form-item

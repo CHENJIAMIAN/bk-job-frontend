@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-import-step3" v-bkloading="{ isLoading }">
         <div class="layout-wraper">

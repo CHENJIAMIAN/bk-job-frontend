@@ -1,5 +1,3 @@
-
-
 <template>
     <layout class="sync-plan-step3" :empty="isEmpty" :loading="isLoading">
         <div class="layout-wraper">

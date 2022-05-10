@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="app-dashboard">
         <all-app ref="all" v-bind="$attrs" />

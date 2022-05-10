@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="handler" class="script-manage-list-layout">
         <div

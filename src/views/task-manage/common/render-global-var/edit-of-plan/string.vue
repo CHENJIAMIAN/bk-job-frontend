@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form :model="formData" ref="varStringForm">
         <jb-form-item :label="'变量名称'">

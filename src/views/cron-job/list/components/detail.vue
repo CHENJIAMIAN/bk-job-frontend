@@ -1,5 +1,3 @@
-
-
 <template>
     <detail-layout
         mode="see"

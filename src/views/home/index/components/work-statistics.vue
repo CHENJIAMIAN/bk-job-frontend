@@ -1,5 +1,3 @@
-
-
 <template>
     <router-link class="work-statistics-box" :to="{ name: link }">
         <div class="work-flag">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="execution-step-box theme-approval"
         :class="[data.displayStyle]"

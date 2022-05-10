@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="iframe-navigation-container" :class="{ loading }">
         <div class="container-header">

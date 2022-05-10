@@ -1,5 +1,3 @@
-
-
 <template>
     <bk-popover
         :placement="placement"

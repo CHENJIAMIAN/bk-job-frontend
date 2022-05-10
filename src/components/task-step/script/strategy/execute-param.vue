@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item :label="'脚本参数'">
         <div class="muti-item">

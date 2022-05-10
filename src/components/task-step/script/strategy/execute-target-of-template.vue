@@ -1,5 +1,3 @@
-
-
 <template>
     <execute-target
         v-bind="$attrs"

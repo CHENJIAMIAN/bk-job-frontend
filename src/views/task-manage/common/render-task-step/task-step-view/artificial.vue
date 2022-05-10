@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="artificial-view" v-bkloading="{ isLoading }">
         <detail-item :label="'确认人：'">

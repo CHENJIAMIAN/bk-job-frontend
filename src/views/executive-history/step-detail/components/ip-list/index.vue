@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="step-execute-host-list" :style="styles">
         <list-head

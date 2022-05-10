@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="setting-variable-page">
         <smart-action offset-target="variable-value">

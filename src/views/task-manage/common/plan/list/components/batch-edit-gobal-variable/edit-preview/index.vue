@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="batch-preview-plan-global-variable">
         <template v-for="(list, key) in globalVariableRelatePlanMap">

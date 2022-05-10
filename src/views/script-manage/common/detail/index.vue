@@ -1,5 +1,3 @@
-
-
 <template>
     <layout class="script-manage-detail-box">
         <div slot="title">

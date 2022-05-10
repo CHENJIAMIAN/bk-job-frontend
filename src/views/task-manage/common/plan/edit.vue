@@ -1,5 +1,3 @@
-
-
 <template>
     <layout
         v-bind="$attrs"

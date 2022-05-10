@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="account-dashboard" v-bkloading="{ isLoading, opacity: 0.8 }">
         <card-layout :title="'Linux 账号数'">

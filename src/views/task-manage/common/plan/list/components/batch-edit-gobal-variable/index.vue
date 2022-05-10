@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-sideslider
         :is-show="isShow"

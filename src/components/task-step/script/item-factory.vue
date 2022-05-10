@@ -1,5 +1,3 @@
-
-
 <template>
     <component
         ref="item"

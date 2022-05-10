@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-collapse-item name="group">
         <!-- eslint-disable-next-line max-len -->

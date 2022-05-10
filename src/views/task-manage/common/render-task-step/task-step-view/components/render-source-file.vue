@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-server-file">
         <bk-collapse

@@ -1,5 +1,3 @@
-
-
 <template>
     <component
         :is="themeCom"

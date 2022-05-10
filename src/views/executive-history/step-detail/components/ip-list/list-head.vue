@@ -1,5 +1,3 @@
-
-
 <template>
     <table class="ip-table">
         <colgroup>

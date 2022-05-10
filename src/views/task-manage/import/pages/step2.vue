@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-import-step2">
         <div class="package-upload">

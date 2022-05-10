@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="variable-use-guide">
         <div class="header">

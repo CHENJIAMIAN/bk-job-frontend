@@ -1,5 +1,3 @@
-
-
 <template>
     <site-frame
         :side-fixed="isFrameSideFixed"

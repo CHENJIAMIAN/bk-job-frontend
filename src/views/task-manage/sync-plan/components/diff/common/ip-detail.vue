@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-plan-ip-detail">
         <div v-if="variableName" class="sync-plan-step-variable" @click="handlerView">

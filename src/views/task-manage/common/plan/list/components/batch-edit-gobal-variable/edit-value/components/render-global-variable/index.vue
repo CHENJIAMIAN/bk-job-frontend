@@ -1,5 +1,3 @@
-
-
 <template>
     <comoponent
         :is="com"

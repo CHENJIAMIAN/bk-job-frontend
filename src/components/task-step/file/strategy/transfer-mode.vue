@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item :label="'传输模式'" required>
         <div class="form-item-content">

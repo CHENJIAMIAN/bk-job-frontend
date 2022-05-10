@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="page-home">
         <div class="layout-row">

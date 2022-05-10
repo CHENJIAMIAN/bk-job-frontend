@@ -1,5 +1,3 @@
-
-
 <template>
     <transition name="host-sideslider" :duration="300">
         <div v-if="value">

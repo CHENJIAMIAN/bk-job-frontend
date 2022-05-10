@@ -1,5 +1,3 @@
-
-
 <template>
     <layout class="sync-step2">
         <div class="container">

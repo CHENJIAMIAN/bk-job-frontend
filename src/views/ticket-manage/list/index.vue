@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="ticket-manage-page" v-bkloading="{ isLoading }">
         <list-action-layout>

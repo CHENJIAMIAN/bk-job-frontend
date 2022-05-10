@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-file-server">
         <div class="server-agent-text" v-html="data.serverDesc" @click="handlerView" />

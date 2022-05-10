@@ -1,5 +1,3 @@
-
-
 <template>
     <permission-section :key="id">
         <div class="task-plan-view-box">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-plan-batch-page">
         <list-action-layout>

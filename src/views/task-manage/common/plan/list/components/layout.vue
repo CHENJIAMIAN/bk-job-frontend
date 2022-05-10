@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="layout" class="plan-list-page-layout" :class="{ toggled: isOpen }">
         <div class="layout-left">

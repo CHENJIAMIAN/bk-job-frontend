@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="distro-file-view" :class="{ loading: isLoading }" v-bkloading="{ isLoading }">
         <detail-item :label="'超时时长：'">{{ stepInfo.timeout }} (s)</detail-item>

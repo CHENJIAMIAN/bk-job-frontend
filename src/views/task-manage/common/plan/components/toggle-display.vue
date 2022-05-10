@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="toggle-display">
         <div class="action" @click="handleToggle">

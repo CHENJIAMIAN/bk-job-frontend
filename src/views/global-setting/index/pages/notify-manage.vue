@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="notify-set-manange" v-bkloading="{ isLoading }">
         <jb-form v-if="!isLoading" :model="formData" class="wraper">

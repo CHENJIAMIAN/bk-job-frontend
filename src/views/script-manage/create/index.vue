@@ -1,5 +1,3 @@
-
-
 <template>
     <smart-action class="create-script-page" offset-target="bk-form-content">
         <jb-form

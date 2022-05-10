@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="crontab-list-empty-page">
         <div class="page-header">

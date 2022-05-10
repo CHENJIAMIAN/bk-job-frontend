@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-import-page" v-bkloading="{ isLoading }">
         <div class="header">

@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-dialog
         v-model="isShowDialog"

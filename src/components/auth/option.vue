@@ -1,5 +1,3 @@
-
-
 <template>
     <bk-option v-bind="$attrs" v-on="$listeners" :name="name">
         <auth-component

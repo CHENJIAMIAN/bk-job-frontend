@@ -1,5 +1,3 @@
-
-
 <template>
     <layout class="script-manage-copy-create-box">
         <div slot="title">{{ '新建脚本' }}</div>

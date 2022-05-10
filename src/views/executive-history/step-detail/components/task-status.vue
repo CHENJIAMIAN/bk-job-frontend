@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-execution-step-wraper" :class="{ column: taskExecutionDetail.taskExecution.isTask }">
         <div v-if="taskExecutionDetail.taskExecution.isTask" class="task-process">

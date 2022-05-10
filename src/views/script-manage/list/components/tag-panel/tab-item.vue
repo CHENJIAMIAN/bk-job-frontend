@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="script-list-tag-edit"

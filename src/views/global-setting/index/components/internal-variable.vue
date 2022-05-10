@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="internal-variable-wrapper">
         <Icon type="close" class="close-dialog" @click.stop="handleClose(false)" />

@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="server-panel"

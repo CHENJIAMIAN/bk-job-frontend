@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <plan-list ref="list" />

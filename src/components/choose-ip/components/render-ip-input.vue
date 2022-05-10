@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="choose-ip-server-ip-input">
         <div @click="handleInputClick">

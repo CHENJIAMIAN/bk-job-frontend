@@ -1,5 +1,3 @@
-
-
 <template>
     <tbody class="create-server-file">
         <tr v-if="hasSaved">

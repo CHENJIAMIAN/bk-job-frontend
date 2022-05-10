@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-dashboard">
         <div class="layout-left">

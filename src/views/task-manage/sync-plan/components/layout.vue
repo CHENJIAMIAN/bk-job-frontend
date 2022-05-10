@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-plan-layout" v-bkloading="{ isLoading: loading }">
         <div class="wraper" :class="{ loading }">

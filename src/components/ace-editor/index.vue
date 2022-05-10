@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="aceEditor" class="jd-ace-editor" :style="{ height: `${height}px` }">
         <div

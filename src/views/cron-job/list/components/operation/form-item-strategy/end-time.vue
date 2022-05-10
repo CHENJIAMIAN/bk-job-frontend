@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item>
         <bk-checkbox :value="isEndTime" @change="handleChange">{{ '设置结束时间' }}</bk-checkbox>

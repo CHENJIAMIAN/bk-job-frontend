@@ -1,5 +1,3 @@
-
-
 <template>
     <lower-component>
         <div>

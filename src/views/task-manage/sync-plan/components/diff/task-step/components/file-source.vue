@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-step-server-file">
         <bk-collapse class="host-detail" :value="activeResult" v-if="isShowLocalFile || isShowServerFile">

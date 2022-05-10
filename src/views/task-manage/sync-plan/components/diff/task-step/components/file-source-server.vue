@@ -1,5 +1,3 @@
-
-
 <template>
     <ip-detail :pre-host="realPreHost" :last-host="realLastHost" />
 </template>

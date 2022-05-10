@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="server-panel-action-extend" @click.stop="" @mouseleave="handleHide">
         <Icon type="more" />

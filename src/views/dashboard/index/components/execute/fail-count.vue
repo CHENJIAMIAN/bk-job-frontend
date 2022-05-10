@@ -1,5 +1,3 @@
-
-
 <template>
     <card-layout class="execute-fail-dashboard" :title="'累计执行失败次数'">
         <render-trend metric="FAILED_TASK_COUNT" :date="date" />

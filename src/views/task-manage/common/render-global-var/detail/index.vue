@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="job-variable-detail">
         <table class="info-table">

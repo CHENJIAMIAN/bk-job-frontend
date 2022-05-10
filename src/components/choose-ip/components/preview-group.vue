@@ -1,5 +1,3 @@
-
-
 <template>
     <sideslider-box class="server-group-host-preview" :value="value" @change="handleClose">
         <div slot="title">{{ '分组预览' }}——{{ data.name }}</div>

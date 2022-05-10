@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         v-bk-tooltips="'定位到当前步骤'"

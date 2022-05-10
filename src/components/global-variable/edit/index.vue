@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="global-variable-edit-box" ref="varBox" :class="boxClasses">
         <div class="variable-name" ref="varName">

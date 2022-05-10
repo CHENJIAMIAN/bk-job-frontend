@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="push-speed-limit">
         <jb-form-item :label="label">

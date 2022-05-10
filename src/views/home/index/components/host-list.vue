@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="host-list-wrapper" v-bkloading="{ isLoading }">
         <bk-table

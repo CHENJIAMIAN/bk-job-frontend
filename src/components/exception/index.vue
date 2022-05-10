@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="bk-exception bk-exception-center" v-show="show">
         <img :src="image">

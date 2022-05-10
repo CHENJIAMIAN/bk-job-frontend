@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="toggle-display">
         <div

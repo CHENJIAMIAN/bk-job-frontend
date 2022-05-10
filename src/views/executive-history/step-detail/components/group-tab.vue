@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="step-execute-host-group" :class="{ hide: isHide }">
         <div ref="groupTab" class="group-tab" :class="{ toggle: showGroupToggle }">

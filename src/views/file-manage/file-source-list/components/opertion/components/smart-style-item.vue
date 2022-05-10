@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="smart-style-item">
         <div class="smart-arrow" :style="arrowStyles" />

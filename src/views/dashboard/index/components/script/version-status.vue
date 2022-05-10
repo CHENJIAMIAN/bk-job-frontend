@@ -1,5 +1,3 @@
-
-
 <template>
     <card-layout
         class="script-version-dashboard"

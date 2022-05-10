@@ -1,5 +1,3 @@
-
-
 <template>
     <div :class="{ 'variable-value-error': isError }">
         <bk-input

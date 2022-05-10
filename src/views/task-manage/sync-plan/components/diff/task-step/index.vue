@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="diff-task-step" :class="classes" :id="`${type}_step_${data.id}`">
         <div class="name">

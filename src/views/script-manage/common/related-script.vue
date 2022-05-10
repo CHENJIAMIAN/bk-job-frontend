@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-related-script" v-bkloading="{ isLoading }">
         <div class="tab-wraper">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="mult-input">
         <div

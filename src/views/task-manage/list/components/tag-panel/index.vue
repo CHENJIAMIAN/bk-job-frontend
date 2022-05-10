@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="template-list-tag-panel" v-bkloading="{ isLoading }">
         <tab-item

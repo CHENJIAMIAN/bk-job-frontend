@@ -1,5 +1,3 @@
-
-
 <template>
     <layout>
         <div slot="title">{{ '编辑脚本' }}</div>

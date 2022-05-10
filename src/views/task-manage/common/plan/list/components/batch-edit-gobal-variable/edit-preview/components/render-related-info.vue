@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="preview-render-ralated">
         <div class="header" @click="handleToggle">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="execute-statistics-dashboard">
         <div class="header-action">

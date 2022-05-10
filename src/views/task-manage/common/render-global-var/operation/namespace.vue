@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form :model="formData" :rules="rules" ref="varNamespaceForm">
         <jb-form-item :label="'变量名称'" required :property="'name'">

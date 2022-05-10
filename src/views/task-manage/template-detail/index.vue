@@ -1,5 +1,3 @@
-
-
 <template>
     <smart-action class="task-template-detail" offset-target="detail-content">
         <detail-layout class="task-template-detail-layout" mode="see">

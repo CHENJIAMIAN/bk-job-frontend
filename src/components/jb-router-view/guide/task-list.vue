@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="task-list-empty-page">
         <div class="page-header">

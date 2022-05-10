@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="step-view-global-variable" @click="handlerView">
         <div class="flag">

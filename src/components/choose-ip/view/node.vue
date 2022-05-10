@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-collapse-item name="node">
         <span class="panel-title">

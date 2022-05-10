@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-manage-version-page">
         <script-basic />

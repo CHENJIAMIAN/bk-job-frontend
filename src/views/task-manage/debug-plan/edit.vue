@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="edit-execute-plan" v-bkloading="{ isLoading }">
         <bk-alert class="info" :title="'调试方案的特殊性：不可删除、始终与作业模板同步、不能被API调用、只能在作业平台使用'" />

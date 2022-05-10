@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-bkloading="{ isLoading }">
         <bk-select

@@ -1,5 +1,3 @@
-
-
 <template>
     <span class="statistics-text">
         <template v-if="data.success > 0">

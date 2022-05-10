@@ -1,5 +1,3 @@
-
-
 <template>
     <source-file
         mode="onlyHost"

@@ -1,5 +1,3 @@
-
-
 <template>
     <detail-layout mode="see" class="detail-layout-wrapper">
         <detail-item :label="'步骤类型：'">{{ stepTypeText }}</detail-item>

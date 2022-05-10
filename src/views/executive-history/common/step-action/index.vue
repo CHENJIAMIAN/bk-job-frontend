@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-popover-confirm
         class="step-action-confirm"

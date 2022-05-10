@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-plan-script-content">
         <span class="sript-content-text">{{ '查看脚本' }}</span>

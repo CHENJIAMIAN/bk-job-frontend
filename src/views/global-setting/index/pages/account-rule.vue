@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="page-account-rule" v-bkloading="{ isLoading }">
         <smart-action offset-target="expression-input">

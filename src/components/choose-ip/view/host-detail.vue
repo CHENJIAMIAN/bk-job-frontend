@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="choose-ip-host-detail" ref="hostDetail">
         <sideslider-box :value="show" @change="handleClose">

@@ -1,5 +1,3 @@
-
-
 <template>
     <render-list ref="list" ignore-url :data-source="fetchUnlaunchHistory">
         <bk-table-column

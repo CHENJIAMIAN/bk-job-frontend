@@ -1,5 +1,3 @@
-
-
 <template>
     <card-layout
         class="template-count-dashboard"

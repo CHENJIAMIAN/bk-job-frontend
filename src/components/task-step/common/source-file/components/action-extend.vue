@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="source-file-action-extend" @click.stop="" @mouseleave="handleHide">
         <Icon type="more" />

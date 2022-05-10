@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <div class="home-card-layout">

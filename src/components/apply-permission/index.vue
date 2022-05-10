@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="jb-apply-permission">
         <div class="no-permission-tips">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="render-script-content">
         <ace-editor

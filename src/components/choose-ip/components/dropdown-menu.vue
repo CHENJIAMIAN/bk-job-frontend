@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="server-panel-dropdown-menu" @click.stop="" @mouseleave="handleHide">
         <slot />

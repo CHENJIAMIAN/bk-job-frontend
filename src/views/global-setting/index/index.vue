@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="page-global-set-up">
         <bk-tab :active="page" :before-toggle="handleTabChange" class="page-tab">

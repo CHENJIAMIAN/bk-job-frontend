@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-collapse-item name="host">
         <span class="panel-title">

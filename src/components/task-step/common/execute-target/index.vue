@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="task-step-execute-target"

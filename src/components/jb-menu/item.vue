@@ -1,5 +1,3 @@
-
-
 <template>
     <div :class="classes" v-test="{ type: 'navigation', value: index }" @click="handleClick">
         <slot />

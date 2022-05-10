@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-source-of-execution">
         <jb-form-item class="script-source-item" :label="'脚本来源'" required>

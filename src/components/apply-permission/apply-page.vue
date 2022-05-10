@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="apply-permission-page">
         <div class="page-main">

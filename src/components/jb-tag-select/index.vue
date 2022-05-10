@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="job-tag-select" v-bkloading="{ isLoading }">
         <bk-select

@@ -1,5 +1,3 @@
-
-
 <template>
     <Layout class="template-list-page">
         <template #tag>

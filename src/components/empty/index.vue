@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="job-empty">
         <template v-if="type === 'search'">

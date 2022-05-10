@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="step-execute-variable-view"

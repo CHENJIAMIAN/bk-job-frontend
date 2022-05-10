@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="batch-edit-plan-global-variable">
         <div class="action-target-info">

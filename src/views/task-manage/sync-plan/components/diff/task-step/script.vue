@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <div class="row" :class="diff.scriptSourceText">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="global-variable-detail" :class="classes">
         <div class="variable-name">

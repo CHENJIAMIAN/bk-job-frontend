@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item :label="label" required :property="field" :rules="rules">
         <jb-input

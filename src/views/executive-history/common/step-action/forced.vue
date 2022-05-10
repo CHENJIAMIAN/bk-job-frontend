@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="stop">
         <Icon type="stop" />

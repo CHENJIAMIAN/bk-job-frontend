@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="template-dashboard">
         <div class="layout-left">

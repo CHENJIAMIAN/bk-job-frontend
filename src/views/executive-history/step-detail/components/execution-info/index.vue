@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="infoBox" class="step-execution-info-box" :style="boxStyles">
         <div class="tab-container">

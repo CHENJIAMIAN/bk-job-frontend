@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="setting-variable" v-bkloading="{ isLoading }">
         <h2 class="title">{{ '全局变量' }}</h2>

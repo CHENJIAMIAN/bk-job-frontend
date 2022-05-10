@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="choose-ip-business-topology">
         <div class="topology-data" v-bkloading="{ isLoading: topologyLoading }">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-if="isShowNotify">
         <jb-form-item>

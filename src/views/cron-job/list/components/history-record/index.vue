@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="cron-job-history-record">
         <div class="record-tab-wraper">

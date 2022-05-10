@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="server-search-panel">
         <div class="search-header">

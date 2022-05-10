@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <jb-form ref="form" :model="formData" fixed :label-width="110">

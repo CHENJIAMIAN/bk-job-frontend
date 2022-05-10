@@ -1,5 +1,3 @@
-
-
 <template>
     <transition name="skeleton">
         <div v-if="visiable" ref="wraper" class="jb-view-skeleton">

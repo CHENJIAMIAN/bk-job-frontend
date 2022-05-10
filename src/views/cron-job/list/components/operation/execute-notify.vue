@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="execute-notify-box" v-bkloading="{ isLoading }">
         <jb-form-item :label="notifyOffsetLabel" layout="inline" :rules="rules.notifyOffset">

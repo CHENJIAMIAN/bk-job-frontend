@@ -1,5 +1,3 @@
-
-
 <template>
     <table class="notify-channel-table">
         <thead>

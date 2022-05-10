@@ -1,5 +1,3 @@
-
-
 <template>
     <div id="templateVariableRender">
         <div v-if="showEmpty">--</div>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="next">
         <Icon type="skip" />

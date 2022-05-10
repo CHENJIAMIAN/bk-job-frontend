@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="server-pagination">
         <div class="pagination-total">{{ '共计' }} {{ total }} {{ '条'}}</div>

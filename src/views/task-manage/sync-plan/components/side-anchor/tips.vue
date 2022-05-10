@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sync-plan-side-anchor-tips" :style="styles" ref="tips">
         <div class="wraper" ref="content">

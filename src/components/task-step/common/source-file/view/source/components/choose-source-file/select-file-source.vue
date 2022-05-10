@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="sleect-source-file">
         <list-action-layout>

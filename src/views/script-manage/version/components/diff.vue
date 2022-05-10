@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="jb-diff-layout"
         :style="{

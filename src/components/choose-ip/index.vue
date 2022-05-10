@@ -1,5 +1,3 @@
-
-
 <template>
     <lower-component level="custom" :custom="isShowDialog">
         <jb-dialog

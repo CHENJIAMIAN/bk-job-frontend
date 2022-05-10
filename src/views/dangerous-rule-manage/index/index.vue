@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="dangerous-rule-manage-page">
         <table

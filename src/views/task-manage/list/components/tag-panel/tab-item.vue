@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="task-list-tag-edit"

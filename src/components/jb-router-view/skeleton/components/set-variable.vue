@@ -1,5 +1,3 @@
-
-
 <template>
     <content-loader
         :width="maxWidth"

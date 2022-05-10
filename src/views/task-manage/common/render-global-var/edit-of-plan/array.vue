@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form :model="formData" ref="varArrayForm">
         <jb-form-item :label="'数组类型'">

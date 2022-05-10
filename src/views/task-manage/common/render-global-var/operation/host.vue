@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <jb-form ref="varHostForm" :model="formData" :rules="rules">

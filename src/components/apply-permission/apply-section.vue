@@ -1,5 +1,3 @@
-
-
 <template>
     <div v-if="isNotPermission" class="apply-permission-page">
         <div class="page-main">

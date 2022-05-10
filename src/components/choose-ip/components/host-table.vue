@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="choose-ip-host-table" :class="{ empty: isEmpty }">
         <scroll-faker :style="styles">

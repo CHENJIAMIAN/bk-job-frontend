@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item ref="item" :label="'脚本内容'" required :property="contentField" :rules="rules">
         <ace-editor

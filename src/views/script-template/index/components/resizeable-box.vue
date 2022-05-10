@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="handle" class="resizeable-box" :style="styles">
         <slot />

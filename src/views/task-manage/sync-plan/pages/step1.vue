@@ -1,5 +1,3 @@
-
-
 <template>
     <layout>
         <div class="sync-plan-step1">

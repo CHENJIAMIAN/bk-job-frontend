@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="execution-step-box theme-normal" :class="[data.displayStyle]">
         <div class="step-icon">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div>
         <vue-progress-bar />
@@ -8,8 +6,6 @@
 </template>
 <script>
     
-    import Local from './local';
-    import TemplateLocal from '@/views/task-manage/local';
-
-    export default {};
+    
+    import TemplateLocal from '@/views/task-manage/local';    export default {};
 </script>

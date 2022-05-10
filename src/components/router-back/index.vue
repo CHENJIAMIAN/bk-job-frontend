@@ -1,5 +1,3 @@
-
-
 <template>
     <Icon v-if="showBack" type="back1" class="jb-router-back" svg @click="handleGoBack" />
 </template>

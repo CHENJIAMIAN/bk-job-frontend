@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="export-task-step4-page" v-bkloading="{ isLoading }">
         <div>

@@ -1,5 +1,3 @@
-
-
 <template>
     <div
         class="choose-ip-dinamic-business-topology"

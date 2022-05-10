@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="create-ticket-page">
         <jb-form ref="ticketForm" :model="formData" :rules="rules" form-type="vertical">

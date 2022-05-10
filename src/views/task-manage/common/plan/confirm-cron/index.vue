@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="plan-manage-confirm-cron" :empty="isEmpty" :loading="isLoading">
         <div class="layout-left">

@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="layout" class="plan-action-layout" :style="layoutStyles">
         <div class="loading-wraper" :class="{ 'loading-hidden': showContent }">

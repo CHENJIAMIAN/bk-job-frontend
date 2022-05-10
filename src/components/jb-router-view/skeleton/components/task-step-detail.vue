@@ -1,5 +1,3 @@
-
-
 <template>
     <div style="padding: 24px 30px;">
         <content-loader

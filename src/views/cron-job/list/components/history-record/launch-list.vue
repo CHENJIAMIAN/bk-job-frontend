@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="cron-job-history-launch-record">
         <list-action-layout>

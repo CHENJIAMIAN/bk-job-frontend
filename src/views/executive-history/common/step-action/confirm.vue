@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="confirm">
         <Icon type="confirm" />

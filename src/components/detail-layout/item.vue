@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="detail-item" :class="`design-layout-${layout}`">
         <div class="detail-label">

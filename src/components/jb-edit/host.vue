@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="jb-edit-host" :class="mode">
         <div class="render-value-box" @click.stop="handleBlockShowEdit">

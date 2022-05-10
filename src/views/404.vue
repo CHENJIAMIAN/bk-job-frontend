@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="exception-box">
         <img src="/static/images/404.png" alt="">

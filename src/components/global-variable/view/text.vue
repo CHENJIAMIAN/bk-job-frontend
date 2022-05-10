@@ -1,5 +1,3 @@
-
-
 <template>
     <span>
         {{ data.defaultValue }}

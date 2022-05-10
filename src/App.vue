@@ -1,5 +1,3 @@
-
-
 <template>
     <Layout class="job-site" :class="{ loading }">
         <template #back>

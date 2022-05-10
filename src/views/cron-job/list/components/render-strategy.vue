@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="cron-item">
         <div class="triangle" :style="{ left: `${left}px` }" />

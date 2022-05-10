@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="do-sync-plan" v-bkloading="{ isLoading }">
         <div class="sync-plan-step">

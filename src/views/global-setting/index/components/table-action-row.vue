@@ -1,5 +1,3 @@
-
-
 <template>
     <tbody>
         <tr v-if="!isEdit">

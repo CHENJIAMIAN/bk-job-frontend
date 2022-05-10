@@ -1,5 +1,3 @@
-
-
 <template>
     <jb-form-item :label="'执行账号'" required :property="field" :rules="rules">
         <account-select

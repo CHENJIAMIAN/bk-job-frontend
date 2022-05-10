@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="notify-collapse-item">
         <bk-collapse-item ref="collapseItem" v-bind="$attrs" v-on="$listeners" hide-arrow>

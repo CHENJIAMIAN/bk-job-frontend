@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="script-manage-sync-confirm" v-bkloading="{ isLoading }">
         <bk-input

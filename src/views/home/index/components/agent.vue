@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="agent-box" v-bkloading="{ isLoading }">
         <div class="agent-statistics">

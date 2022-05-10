@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="page-storage-strategy" v-bkloading="{ isLoading }">
         <div class="wraper">

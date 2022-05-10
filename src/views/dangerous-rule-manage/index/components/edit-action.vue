@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="dangerous-rule-edit-mode">
         <bk-select

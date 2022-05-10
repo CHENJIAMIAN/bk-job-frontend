@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="bussiness-app-empty-page">
         <div class="page-header">

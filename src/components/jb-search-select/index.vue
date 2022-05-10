@@ -1,5 +1,3 @@
-
-
 <template>
     <search-select
         class="jb-search-select"

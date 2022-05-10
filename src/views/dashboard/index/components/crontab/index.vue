@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="crontab-dashboard">
         <crontab-status v-bind="$attrs" />

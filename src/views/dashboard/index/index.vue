@@ -1,5 +1,3 @@
-
-
 <template>
     <div class="dashboard-page">
         <div class="operation-bar">

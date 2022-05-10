@@ -1,5 +1,3 @@
-
-
 <template>
     <div ref="detailLayout" class="jb-detail-layout" :class="[mode, layout]">
         <slot />
