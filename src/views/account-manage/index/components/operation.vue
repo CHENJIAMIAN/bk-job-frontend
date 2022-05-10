@@ -34,7 +34,7 @@
     </div>
 </template>
 <script>
-       import QueryGlobalSettingService from '@service/query-global-setting';
+    import QueryGlobalSettingService from '@service/query-global-setting';
     import AccountManageService from '@service/account-manage';
     import AccountModel from '@model/account';
     import { accountAliasNameRule } from '@utils/validator';

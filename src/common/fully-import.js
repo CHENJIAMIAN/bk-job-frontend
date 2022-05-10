@@ -33,7 +33,7 @@ import JbDialog from '@components/jb-dialog';// 解决 bk-dialog 默认显示没
 import JbBreadcrumb from '@components/jb-breadcrumb';// render函数手撸breadcrumb
 import JbBreadcrumbItem from '@components/jb-breadcrumb/jb-breadcrumb-item';
 
-// 优美的内容区局部滚动
+// 优美的内容区局部滚动,当有出现滚动条才用它
 import ScrollFaker from '@components/scroll-faker';
 // 内容+下面两个按钮(action区)
 import SmartAction from '@components/smart-action';
@@ -93,3 +93,34 @@ Vue.use(Cursor);
 Vue.use(Request);
 Vue.use(TippyTips);
 Vue.use(Test);
+
+/*
+account-select
+app-select
+apply-permission
+    通过permissionInstance = new Vue(ApplyPermissionDialog).$mount();
+    document.body.appendChild(permissionInstance.$el);实例化后插入
+back-top
+choose-ip
+compose-form-item
+detail-layout
+global-variable
+jb-collapse-item
+jb-edit
+jb-menu
+jb-search-select
+jb-tag-select
+jb-user-selector
+list-action-layout
+list-operation-extend
+operation-tag
+render-file-list-column
+render-list
+render-server-agent
+render-strategy
+router-back
+site-frame
+smart-input
+system-log
+task-step
+*/
