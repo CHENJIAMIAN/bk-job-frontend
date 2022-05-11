@@ -1,0 +1,1 @@
+.executive-history-page .task-redo-loading{color:#3a84ff;font-size:14px;position:relative}.executive-history-page .task-redo-loading:after{content:attr(data-text);opacity:0;text-align:center;word-break:keep-all;z-index:-1}.executive-history-page .task-redo-loading .rotate-loading{left:50%;margin-left:-9px;position:absolute;top:2px}
