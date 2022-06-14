@@ -56,7 +56,7 @@
 </template>
 <script>
     import GlobalVariableModel from '@model/task/global-variable';
-       import { globalVariableNameRule } from '@utils/validator';
+    import { globalVariableNameRule } from '@utils/validator';
     import JbEditInput from '@components/jb-edit/input';
     import JbEditTextarea from '@components/jb-edit/textarea';
     import JbEditHost from '@components/jb-edit/host';

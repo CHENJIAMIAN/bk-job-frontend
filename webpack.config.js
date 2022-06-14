@@ -334,7 +334,7 @@ module.exports = function (env) {
         ].filter(_ => _),
         devServer: {
             host: '0.0.0.0',
-            port: 8081,
+            // port: 8081,
             allowedHosts: 'all',
             liveReload: false,
             client: {

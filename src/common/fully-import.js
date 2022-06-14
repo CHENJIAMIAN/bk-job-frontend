@@ -41,7 +41,7 @@ import SmartAction from '@components/smart-action';
 import ElementTeleport from '@components/element-teleport';
 // 注入$request, 用Promise.race限制请求超时时间
 import Request from '@components/request';
-// vue插件, 注册指令, 鼠标后面跟一个小锁头
+// vue插件, 注册指令v-cursor, 鼠标后面跟一个小锁头
 import Cursor from '@components/cursor';
 // 元素:tippy-tips="提示内容" 即可注入悬浮提示
 import TippyTips from '@components/tippy-tips';
@@ -114,7 +114,7 @@ jb-user-selector
 list-action-layout
 list-operation-extend
 operation-tag
-render-file-list-column
+render-file-list-column 函数式组件 动态表单渲染列
 render-list
 render-server-agent
 render-strategy
