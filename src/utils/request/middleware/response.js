@@ -20,8 +20,11 @@ EventBus.$on('logout', () => {
 
 export default (interceptors) => {
     interceptors.use((response) => {
-        debugger
-    // 处理http响应成功，后端返回逻辑
+        response.data = {
+            code: 0,
+            data: {},
+        };
+        // 处理http响应成功，后端返回逻辑
         switch (response.data.code) {
             // 后端业务逻辑处理成功
             case 0:
