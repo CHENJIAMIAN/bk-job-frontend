@@ -112,7 +112,7 @@
                 if (this.isExpand) {
                     return this.newVal;
                 }
-                if (this.renderLength < 1) {
+                if (this.renderLength < 1) { 
                     if (!this.newVal) {
                         return '--';
                     }
@@ -242,18 +242,18 @@
                     return;
                 }
                 this.isSubmiting = true;
-                this.remoteHander({
+                // this.remoteHander({
+                //     [this.field]: this.newVal,
+                // }).then(() => {
+                this.$emit('on-change', {
                     [this.field]: this.newVal,
-                }).then(() => {
-                    this.$emit('on-change', {
-                        [this.field]: this.newVal,
-                    });
-                    this.calcEllTextLength();
-                    this.messageSuccess('编辑成功');
-                })
-                    .finally(() => {
-                        this.isSubmiting = false;
-                    });
+                });
+                this.calcEllTextLength();
+                this.messageSuccess('编辑成功');
+                // })
+                //     .finally(() => {
+                this.isSubmiting = false;
+                // });
             },
             /**
              * @desc 退出编辑状态

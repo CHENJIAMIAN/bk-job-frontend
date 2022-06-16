@@ -222,7 +222,7 @@
         },
         data () {
             return {
-                isShowOperation: false,
+                isShowOperation: !false,
                 isShowEditRelate: false,
                 editData: {},
                 tagList: [{},{},{}],

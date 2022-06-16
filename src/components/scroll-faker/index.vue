@@ -138,6 +138,7 @@
              * @desc 外部调用，获取容器滚动位置
              */
             getScroll () {
+                console.log('getScroll');
                 const {
                     scrollLeft,
                     scrollTop,
@@ -153,6 +154,7 @@
              * @param {Number} scrollTop
              */
             scrollTo (scrollLeft, scrollTop) {
+                console.log('scrollTo');
                 this.$refs.scrollContent.scrollTo(scrollLeft, scrollTop);
             },
             /**
@@ -161,6 +163,7 @@
              * @param {Number} scrollTop
              */
             contentScrollTo (scrollLeft, scrollTop) {
+                console.log('contentScrollTo', scrollLeft, scrollTop);
                 if (!this.$refs.scrollContent) {
                     return;
                 }
@@ -177,6 +180,7 @@
              * @param {Number} scrollLeft
              */
             verticalScrollTop (scrollTop) {
+                console.log('verticalScrollTop');
                 if (this.isContentScroll && this.$refs.verticalScroll) {
                     this.$refs.verticalScroll.scrollTo(0, scrollTop);
                 }
@@ -186,6 +190,7 @@
              * @param {Number} scrollLeft
              */
             horizontalScrollLeft (scrollLeft) {
+                console.log('horizontalScrollLeft');
                 if (this.isContentScroll && this.$refs.horizontalScrollbar) {
                     this.$refs.horizontalScrollbar.scrollLeft = scrollLeft;
                 }
@@ -207,6 +212,7 @@
              * @param {Object} event 鼠标滚动事件
              */
             eventContentScroll (event) {
+                console.log('eventContentScroll');
                 const {
                     scrollTop,
                     scrollLeft,
@@ -219,12 +225,14 @@
              * @desc 鼠标在垂直滚动条区域
              */
             handleVerticalMouseenter () {
+                console.log('handleVerticalMouseenter');
                 this.isVerticalScroll = true;
             },
             /**
              * @desc 鼠标离开垂直滚动条区域
              */
             handleVerticalMouseleave () {
+                console.log('handleVerticalMouseleave');
                 this.isVerticalScroll = false;
             },
             /**
@@ -232,18 +240,21 @@
              * @param {Object} event 鼠标滚动事件
              */
             eventVerticalScroll (event) {
+                console.log('eventVerticalScroll');
                 this.contentScrollTo('', event.target.scrollTop);
             },
             /**
              * @desc 鼠标在水平滚动条区域
              */
             handleHorizontalMouseenter () {
+                console.log('handleHorizontalMouseenter');
                 this.isHorizontalScroll = true;
             },
             /**
              * @desc 鼠标离开水平滚动条区域
              */
             handleHorizontalMouseleave () {
+                console.log('handleHorizontalMouseleave');
                 this.isHorizontalScroll = false;
             },
             /**
@@ -251,6 +262,7 @@
              * @param {Object} event 鼠标滚动事件
              */
             eventHorizontalScroll (event) {
+                console.log('eventHorizontalScroll');
                 this.contentScrollTo(event.target.scrollLeft);
             },
         },

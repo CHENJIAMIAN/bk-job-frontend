@@ -10,7 +10,7 @@ import VueCompositionAPI from '@vue/composition-api';
 import AuthRouterLink from '@components/auth/router-link';
 import AuthButton from '@components/auth/button';
 import AuthOption from '@components/auth/option';
-// 自定义render函数,根据权限改变鼠标指针
+// 自定义render函数,根据权限用v-cursor改变鼠标指针
 import AuthCompontent from '@components/auth/component';
 // 搜索结果为空
 import Empty from '@components/empty';
@@ -18,28 +18,30 @@ import Empty from '@components/empty';
 import LowerComponent from '@components/lower-component';
 // 404（页面找不到了！）、403（Sorry，您的权限不足）、500（）、building(功能正在建设中···)
 import Exception from '@/components/exception';
-// svg的方式使用job-svg-icon
+// svg的方式使用 job-svg-icon
 import Icon from '@components/icon';
 
 import JbDiff from '@components/jb-diff';// 用diff diff2html highlight库
 import JbRouterView from '@components/jb-router-view';// 某几个页面显示页面指导,骨架图, EventBus接收全局的页面权限提示
-import JbForm from '@components/jb-form';// 动态计算label的宽度,处理表单项的自动聚焦,标记用户是否主动操作过表单项增加返回提示,验证表单自动滚到表单错误的地方
+import JbForm from '@components/jb-form';// 动态计算label的宽度,处理表单项的自动聚焦,标记用户是否主动操作过表单项去增加返回提示,验证表单自动滚到表单错误的地方
 import JbFormItem from '@components/jb-form/item';
 import JbInput from '@components/jb-input';// 显示已输入字数/限制字数
 import JbTextarea from '@components/jb-textarea';// 显示已输入字数/限制字数, 聚焦时显示placeholder到后面
 import JbPopoverConfirm from '@components/jb-popover-confirm';// 跟bk-popconfirm差不多
-import JbSideslider from '@components/jb-sideslider';// 处理bk-sideslider的一些bug
-import JbDialog from '@components/jb-dialog';// 解决 bk-dialog 默认显示没有遮罩的 bug
+import JbSideslider from '@components/jb-sideslider';// 处理 bk-sideslider 的一些bug
+import JbDialog from '@components/jb-dialog';// 解决 bk-dialog 跟window.changeAlert冲突的 bug
 import JbBreadcrumb from '@components/jb-breadcrumb';// render函数手撸breadcrumb
 import JbBreadcrumbItem from '@components/jb-breadcrumb/jb-breadcrumb-item';
 
-// 优美的内容区局部滚动,当有出现滚动条才用它
+// 优美的内容区局部滚动,当有出现滚动条才用它, 先隐藏原来的滚动条,再用两个假的滚动条通过鼠标时间模拟
+// 移到滚动条边缘才显示假的小滚动条,移到滚动条上时滚动条才变大, 鼠标一进内容区容器就计算虚拟滚动条的宽度, 进入/离开内容区显示/隐藏小滚动条
+// 移到滚动条上滚动条变大,虚拟滚动条的滚动跟内容区的scrollLeft,scrollTop联动
 import ScrollFaker from '@components/scroll-faker';
 // 内容+下面两个按钮(action区)
 import SmartAction from '@components/smart-action';
-// 传送移动 slot 到指定的 target
+// 传送移动 slot 到指定的 target, slot的childNodes.forEach targetParent.appendChild(childNode)
 import ElementTeleport from '@components/element-teleport';
-// 注入$request, 用Promise.race限制请求超时时间
+// 注入$request, 用 Promise.race 限制请求超时时间
 import Request from '@components/request';
 // vue插件, 注册指令v-cursor, 鼠标后面跟一个小锁头
 import Cursor from '@components/cursor';
@@ -47,7 +49,8 @@ import Cursor from '@components/cursor';
 import TippyTips from '@components/tippy-tips';
 // 拖拽分割条-动态设置父元素宽度
 import ResizeableBox from '@components/resizeable-box';
-// v-test指令,dom调试用, 在元素属性添加提示信息
+// v-test指令,dom调试用, 在元素属性添加提示信息 在directive的bind和update时,setAttribute data-test-id 的值为binding.value
+
 import Test from '@components/test';
 
 Vue.use(bkMagicVue);
