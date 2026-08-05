@@ -1,3 +1,11 @@
+[English](./README.en.md)
+
+<!-- codex-github-rules:bilingual-summary -->
+> **中文简介**：蓝鲸作业平台流水线前端副本
+>
+> **English summary**: A frontend copy of the BlueKing Job pipeline
+
+---
 job
 ===
 
